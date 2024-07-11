@@ -108,15 +108,15 @@ Uma janela vazia (normalmente com fundo escuro), mostrando no topo um texto com 
 
 As informações exibidas podem variar de um computador para o outro já que elas se baseiam nas configurações do usuário. No caso do meu shell, exibido acima, as informações exibidas são:
 
-```
-dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$
-- Nome do usuário logado na sessão
-- O `@` (arroba) separa o nome do usuário do nome do servidor da sessão
-- O nome do servidor da sessão
-- Os dois pontos (`:`) separam os dados da sessão do caminho do diretório atual onde o shell irá aplicar os comandos
-    - No Bash, o caractere que separa os segmentos do caminho é `/`, diferente do Windows que usa `\` (barra invertida)
-- O cifrão (`$`) no final, indica que o shell não está no modo super user.
-```
+> [!IMPORTANT]
+> `dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$`
+> - Nome do usuário logado na sessão
+> - O `@` (arroba) separa o nome do usuário do nome do servidor da sessão
+>- O nome do servidor da sessão
+>- Os dois pontos (`:`) separam os dados da sessão do caminho do diretório atual onde >o shell irá aplicar os comandos
+>    - No Bash, o caractere que separa os segmentos do caminho é `/`, diferente do >Windows que usa `\` (barra invertida)
+>- O cifrão (`$`) no final, indica que o shell não está no modo super user.
+
 O nome desta linha, contendo estas ou quaisquer outras informações de acordo com a configuração do shell, e o cursor esperando a entrada de um comando, é `Prompt`.
 
 A partir daqui, qualquer texto digitado será interpretado como um comando dado ao shell. Este comando pode servir para executar programas, rodar scripts ou executar comandos nativos do próprio shell.
