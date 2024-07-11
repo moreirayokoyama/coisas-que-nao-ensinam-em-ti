@@ -59,7 +59,8 @@ O Bash disponibilizado por estas ferramentas, não é totalmente compatível com
 
 Para instalar o MinGW64, acesse o site: https://www.mingw-w64.org/downloads/
 
-**IMPORTANTE: Se você instalar o Git para Windows (haverão aulas neste curso que usarão o Git), ele inclui o MinGW64 para disponibilizar um shell chamado Git Bash.**
+> [!TIP]
+> Se você instalar o Git para Windows (haverão aulas neste curso que usarão o Git), ele inclui o MinGW64 para disponibilizar um shell chamado Git Bash.
 
 Se você preferir instalar o Cygwin, o endereço no site para baixar o instalador é: https://cygwin.com/install.html
 
@@ -69,15 +70,18 @@ Se você preferir instalar o Cygwin, o endereço no site para baixar o instalado
 
 Existem diversos tutoriais na disponíveis na internet explicando com realizar o processo. Mas, resumidamente, você precisa baixar a imagem do sistema operacional (por exemplo, Ubuntu), e um programa capaz de configurar um Memory Stick com a imagem de forma inicializável.
 
-**IMPORTANTE: Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.**
+> [!WARNING]
+> Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.
 
 - Dual Boot com Linux
 
 Você pode criar uma instalação do Linux lado a lado com a instalação do Windows e ter a opção no seu dispositivo de qual dos sistemas você pretende usar no momento da inicialização.
 
-**IMPORTANTE: Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.**
+> [!WARNING]
+> Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.
 
-**IMPORTANTE 2: Este método exige que alguns recursos (por exemplo, espaço em disco) se tornem exclusivos para o novo sistema, tornando-os indisponíveis para o Windows. Isto requer algum planejamento sobre como estes recursos serão distribuídos.**
+> [!WARNING]
+> Este método exige que alguns recursos (por exemplo, espaço em disco) se tornem exclusivos para o novo sistema, tornando-os indisponíveis para o Windows. Isto requer algum planejamento sobre como estes recursos serão distribuídos.
 
 - Virtualização de Linux
 
@@ -85,7 +89,8 @@ Criar uma Máquina Virtual (_VM_) com uma instalação do Linux é uma opção a
 
 Você pode criar VMs usando softwares gratuitos como o HyperV do Windows ou  [VirtualBox da Oracle](https://www.virtualbox.org/), e baixar uma imagem da distribuição Linux desejada (por exemplo, Ubuntu), para criar uma VM. Independente de qual plataforma você pretende usar, você vai precisar ativar o Hypervisor do Windows (que é parte integrante da instalação do HyperV). Para isto, no menu iniciar (pressionando a tecla Windows no teclado), digite "Ativar ou Desativar Recursos do Windows", e ao abrir a janela dos Recursos do Windows, procure na lista o ítem "Hyper-V" e certifique-se de que ele esteja selecionado. **Ativar este recurso, irá exigir que você reinicialize seu computador**.
 
-**IMPORTANTE: Este método exige que alguns recursos (por exemplo, espaço em disco) sejam compartilhados com a VM, podendo ter um impacto na performance do sistema hospedeiro.**
+> [!WARNING]
+> Este método exige que alguns recursos (por exemplo, espaço em disco) sejam compartilhados com a VM, podendo ter um impacto na performance do sistema hospedeiro.
 
 - Windows Subsystem for Linux (WSL)
 
@@ -140,18 +145,106 @@ Por exemplo, se o próximo comando resultar na criação de um arquivo, o arquiv
 
 - Mudando o diretório atual: `cd`
 
-Para mudar o diretório atual da sessão do Shell, o comando usado é o `cd` (_Change Directory_). Mas o comando `cd` sozinho não faz nada. Ele não imprime nenhuma saída, e imediatamente um novo prompt é apresentado. Para que o comando `cd` tenha algum efeito, um `argumento` precisa ser usado.
+Para mudar o diretório atual da sessão do Shell, o comando usado é o `cd` (_Change Directory_). Se você digitar apenas `cd` e pressionar Enter, ele vai mudar o diretório atual para `~` (falaremos logo a seguir sobre que diretório é este). Ele não imprime nenhuma saída, e imediatamente um novo prompt é apresentado. Para informar o comando `cd` para que ele mude para um diretório diferente, um `argumento` precisa ser usado.
 
 > [!NOTE]
-> **Argumentos**: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito.
+> **Argumentos**: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito. Por exemplo, no comando `cd teste`, `teste` é o argumento passado para o comando `cd`. Neste caso, o comando `cd` vai mudar mudar o diretório atual para o diretório `teste`.
 
-- Caminhos (path)
-    - Caminho absoluto (`/`)
-    - Caminho Relativo
-        - `~`, `.`, `..`, `-`
-- `ls`
+```bash
+cd teste
+```
+
+No meu caso, uma mensagem de erro é exibida:
+
+```
+bash: cd: teste: No such file or directory
+```
+
+Ela diz que não existe um arquivo ou diretório chamado `teste`. Note, executando o comando `pwd` novamente, que o diretório atual permanece o mesmo.
+
+Para mudar o diretório atual, precisamos passar como argumento, o endereço de um diretório existente. Por exemplo, um diretório que com certeza existe no sistema de arquivos é o diretório raiz, que fica no endereço `/`.
+
+```
+cd /
+```
+
+No meu caso, como você pode ver, o meu prompt mudou, agora dizendo que o diretório atual é `/` (o diretório raiz). Se o seu prompt não exibe esta informação como o meu, você pode confirmar usando o comando `pwd`.
+
+Outro diretório comum para quem usa o Bash, é o diretório _Home_, representado pelo caractere `~`. Você pode testar o comando:
+
+```
+cd ~
+```
+
+Como pode ver, no meu prompt, agora ele exibe `~` como diretório atual, e não mais o diretório raiz (`/`).
+
+Ao contrário do diretório raiz, se você usar o comando `pwd` agora você vai notar que o diretório _Home_ (`~`), na verdade, aponta para um diretório específico a partir da raiz. No meu caso, `/home/dmyoko` (no seu caso, vai apontar para um diretório com o nome do seu usuário dentro do diretório `/home`).
+
+Você pode navegar manualmente por estes diretórios, usando o caminho que os leva até eles. Por exemplo:
+
+```
+cd /
+cd home
+cd dmyoko
+```
+
+Uma vez no diretório `/` (raiz), você tem acesso ao diretório `home`, e uma vez que você entra no diretório `home`, você tem acesso ao diretório do seu usuário, no meu caso `dmyoko`.
+
+Você também pode navegar direto para o diretório específico, usando o caminho completo absoluto que leva até ele, começando pelo diretório raiz.
+
+```
+cd /
+cd /home/dmyoko
+```
+
+> [!NOTE]
+> **Caminho absoluto** é o caminho completo que leva até um diretório ou arquivo no sistema de arquivos. Ele sempre começa pelo diretório `/` (raiz), e segue toda a hierarquia de segmentos necessários até chegar no diretório ou arquivo desejado.
+
+- Listar informações sobre o conteúdo de um diretório: `ls`
+
+O comando `ls` é útil quando você deseja entender o conteúdo de um determinado diretório. Se você digitar somente `ls`, o Bash imprimirá no terminal o conteúdo do diretório atual.
+
+Se você quiser listar o conteúdo de outro diretório sem necessariamente sair do diretório atual, basta usar como argumento o caminho para o diretório do qual você pretende listar o conteúdo desejado.
+
+```
+ls /
+```
+
+O comando acima, lista o conteúdo do diretório `/` (raiz). Você pode também listar o conteúdo de um dos subdiretórios do diretório raiz, informando o endereço dele. Por exemplo:
+
+```
+ls /bin
+ls /lib
+ls /sys/devices/cpu
+```
+
+O comando `ls` também suporta opções, que podem influenciar no resultado do comando. Por exemplo, a opção `-l` exibe o resultado do comando `ls` no formato de lista, trazendo informações adicionais a respeito do conteúdo do diretório, que antes não estavam sendo exibidas, como as permissões de acesso ao diretório/arquivo listado, informações de quem é o usuário dono deste diretório/arquivo e a que grupo ele pertence (usuário `dmyoko` do grupo `dmyoko`, por exemplo), o tamanho do arquivo/diretório em bytes, e a data da última vez que o arquivo/diretório foi modificado.
+
+```
+ls -l
+```
+
+Outra opçõa útil é o `-h`, que faz com que os tamanhos dos arquivos exibidos sejam impressos num formato _humanamente legível_ (human readable).
+
+```bash
+ls -h # sem efeito, pois os tamanhos não são exibidos
+ls -l -h # agora é possível ver o efeito.
+ls -lh # é possível unir todas as opções em uma única cláusula
+```
+
+Existem outras diversas opções disponíveis para o comando `ls`. Para ter acesso a uma lista completa delas, você pode digitar `ls --help`.
+
+> [!TIP]
+> `--help` é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.
+
 ### 2.4 Manipulação do sistema de arquivos
+
+Agora que sabemos como navegar e obter informações sobre o conteúdo do sistema de arquivos, vamos aprender como manipular o conteúdo dos diretórios, criando, usando e excluindo arquivos e diretórios usando comandos do Shell.
+
 - `mkdir`
+    - Caminho Relativo
+        - `.`, `..`
+
 - `touch`
 - `cp`
 - `mv`
