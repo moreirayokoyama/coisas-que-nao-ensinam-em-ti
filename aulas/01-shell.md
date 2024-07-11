@@ -93,35 +93,85 @@ Para usuários de versões mais recentes do Windows (a partir do Windows 10), é
 
 Este método também exige que você ative o _HyperV_, além de ativar também o "Subsistema do Windows para Linux", e instalar a distribuição escolhida (por exemplo, Ubuntu), a partir das opções disponíveis na Microsoft Store.
 
-### 2.2 Navegando com o Shell
-- `pwd`
-- `cd`
+### 2.2 Apresentando o ambiente de Shell com Bash
+
+Ao abrir o terminal de sua escolha para acessar um Shell, invariavelmente você irá encontrar algo muito parecido com a imagem a seguir.
+
+![image](../imagens/shell.png)
+
+Uma janela vazia (normalmente com fundo escuro), mostrando no topo um texto com algumas informações úties e um cursor piscando, esperando que você digite algo.
+
+As informações exibidas podem variar de um computador para o outro já que elas se baseiam nas configurações do usuário. No caso do meu shell, exibido acima, as informações exibidas são:
+
+```
+dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$
+- Nome do usuário logado na sessão
+- O `@` (arroba) separa o nome do usuário do nome do servidor da sessão
+- O nome do servidor da sessão
+- Os dois pontos (`:`) separam os dados da sessão do caminho do diretório atual onde o shell irá aplicar os comandos
+    - No Bash, o caractere que separa os segmentos do caminho é `/`, diferente do Windows que usa `\` (barra invertida)
+- O cifrão (`$`) no final, indica que o shell não está no modo super user.
+```
+O nome desta linha, contendo estas ou quaisquer outras informações de acordo com a configuração do shell, e o cursor esperando a entrada de um comando, é `Prompt`.
+
+A partir daqui, qualquer texto digitado será interpretado como um comando dado ao shell. Este comando pode servir para executar programas, rodar scripts ou executar comandos nativos do próprio shell.
+
+A partir do momento em que algo é digitado e enviado para o shell (normalmente através do pressionamento da tecla Enter ou Return), o shell executa a linha digitada e o terminal imprime qualquer que seja o resultado (output) da execução.
+
+Por exmeplo, uma instrução simples como `pwd` (que imprime o diretório atual do shell), pode demonstrar este fluxo. Ao inserir esta instrução e pressionar Enter (ou Return), o diretório é exibido na linha abaixo da linha onde o comando foi dado, e na linha seguinte, um novo `prompt` é exibido.
+
+O modo como trabalhamos no ambiente de Shell é um ciclo:
+- Um prompt é exibido indicando que o shell está pronto para receber comandos através do terminal
+- Um comando é digitado no terminal e enviado ao shell
+- O shell interpreta o comando enviado e o executa
+- Qualquer resultado direcionado para a saída (`output`) do shell é exibido pelo terminal
+
+Com isto, podemos agora explorar um pouco alguns comandos que o Bash nos fornece.
+
+### 2.3 Navegando com o Shell
+
+Vamos começar a explorar os comandos do Bash, aprendendo primeiro a navegar pelo sistema de arquivos.
+
+- Exibindo o diretório atual: `pwd`
+
+Como vimos agora há poudo, o comando `pwd` (_Print Working Directory_), imprime no terminal o caminho do diretório atual onde o Shell irá executar o próximo comando. Saber qual é o diretório atual é importante, por que isto pode afetar diretamente o resultado do próximo comando.
+
+Por exemplo, se o próximo comando resultar na criação de um arquivo, o arquivo será criado no diretório atual, exceto se algum parâmetro específico seja usado para mudar este comportamento (salvo, é claro, se o programa executado tiver instruções específicas do caminho do arquivo).
+
+- Mudando o diretório atual: `cd`
+
+Para mudar o diretório atual da sessão do Shell, o comando usado é o `cd` (_Change Directory_). Mas o comando `cd` sozinho não faz nada. Ele não imprime nenhuma saída, e imediatamente um novo prompt é apresentado. Para que o comando `cd` tenha algum efeito, um `argumento` precisa ser usado.
+
+Argumentos
+: são ==complementos== que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito.
+
 - Caminhos (path)
     - Caminho absoluto (`/`)
     - Caminho Relativo
         - `~`, `.`, `..`, `-`
 - `ls`
-### 2.3 Manipulação do sistema de arquivos
+### 2.4 Manipulação do sistema de arquivos
 - `mkdir`
 - `touch`
 - `cp`
 - `mv`
 - `rm`
-### 2.4 Programas Básicos
+### 2.5 Programas Básicos
 - `echo`
 - `cat`
 - `find`
-### 2.5 Conectando Programas
+### 2.6 Conectando Programas
 - Standard Input/Output
 - Redirecionamento de Streams
     - Output (`>`)
     - Append (`>>`)
     - Input (`<`)
     - Pipe (`|`)
-### 2.6 Outros Programas úteis
+### 2.7 Outros Programas úteis
 - `tee`
 - `grep`
 - `tail`
 - `head`
 - `less`
 
+### 3. Conclusão
