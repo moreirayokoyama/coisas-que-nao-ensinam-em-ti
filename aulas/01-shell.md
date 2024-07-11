@@ -164,7 +164,7 @@ Ela diz que não existe um arquivo ou diretório chamado `teste`. Note, executan
 
 Para mudar o diretório atual, precisamos passar como argumento, o endereço de um diretório existente. Por exemplo, um diretório que com certeza existe no sistema de arquivos é o diretório raiz, que fica no endereço `/`.
 
-```
+```bash
 cd /
 ```
 
@@ -172,7 +172,7 @@ No meu caso, como você pode ver, o meu prompt mudou, agora dizendo que o diret�
 
 Outro diretório comum para quem usa o Bash, é o diretório _Home_, representado pelo caractere `~`. Você pode testar o comando:
 
-```
+```bash
 cd ~
 ```
 
@@ -182,7 +182,7 @@ Ao contrário do diretório raiz, se você usar o comando `pwd` agora você vai 
 
 Você pode navegar manualmente por estes diretórios, usando o caminho que os leva até eles. Por exemplo:
 
-```
+```bash
 cd /
 cd home
 cd dmyoko
@@ -192,7 +192,7 @@ Uma vez no diretório `/` (raiz), você tem acesso ao diretório `home`, e uma v
 
 Você também pode navegar direto para o diretório específico, usando o caminho completo absoluto que leva até ele, começando pelo diretório raiz.
 
-```
+```bash
 cd /
 cd /home/dmyoko
 ```
@@ -206,13 +206,13 @@ O comando `ls` é útil quando você deseja entender o conteúdo de um determina
 
 Se você quiser listar o conteúdo de outro diretório sem necessariamente sair do diretório atual, basta usar como argumento o caminho para o diretório do qual você pretende listar o conteúdo desejado.
 
-```
+```bash
 ls /
 ```
 
 O comando acima, lista o conteúdo do diretório `/` (raiz). Você pode também listar o conteúdo de um dos subdiretórios do diretório raiz, informando o endereço dele. Por exemplo:
 
-```
+```bash
 ls /bin
 ls /lib
 ls /sys/devices/cpu
@@ -220,7 +220,7 @@ ls /sys/devices/cpu
 
 O comando `ls` também suporta opções, que podem influenciar no resultado do comando. Por exemplo, a opção `-l` exibe o resultado do comando `ls` no formato de lista, trazendo informações adicionais a respeito do conteúdo do diretório, que antes não estavam sendo exibidas, como as permissões de acesso ao diretório/arquivo listado, informações de quem é o usuário dono deste diretório/arquivo e a que grupo ele pertence (usuário `dmyoko` do grupo `dmyoko`, por exemplo), o tamanho do arquivo/diretório em bytes, e a data da última vez que o arquivo/diretório foi modificado.
 
-```
+```bash
 ls -l
 ```
 
