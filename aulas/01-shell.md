@@ -142,8 +142,8 @@ Por exemplo, se o próximo comando resultar na criação de um arquivo, o arquiv
 
 Para mudar o diretório atual da sessão do Shell, o comando usado é o `cd` (_Change Directory_). Mas o comando `cd` sozinho não faz nada. Ele não imprime nenhuma saída, e imediatamente um novo prompt é apresentado. Para que o comando `cd` tenha algum efeito, um `argumento` precisa ser usado.
 
-Argumentos
-: são ==complementos== que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito.
+> [!NOTE]
+> **Argumentos**: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito.
 
 - Caminhos (path)
     - Caminho absoluto (`/`)
