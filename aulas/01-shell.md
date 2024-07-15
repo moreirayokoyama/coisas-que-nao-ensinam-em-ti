@@ -313,25 +313,45 @@ mkdir /home/dmyoko/teste/a/b/c #Resulta em erro
 mkdir -p /home/dmyoko/teste/a/b/c 
 ```
 
-    - Caminho Relativo
-        - `.`, `..`
+- Manipulando hora de acesso e modificação de arquivos: `touch`
 
-- `touch`
-- `cp`
+O comando touch força uma alteração na data de modificação de arquivos.
+
+Para entender o que isto significa, vamos rever o resultado do comando `ls` no screenshot anterior:
+![image](../imagens/permissoes-ls-l.png)
+
+Observe a coluna imediatamente à esquerda do nome do arquivo nesta lista, é uma informação de Data/Hora. Esta coluna indica a data/hora da última modificação que este arquivo teve. Ao usar o comando `touch`, você força uma atualização desta informação para a data/hora atual do sistema.
+
+Apesar disso parecer algo usado para um propósito muito específico, o comando `touch` é útil por que, ao ser usado para fazer isto em um arquivo inexistente, ele cria o arquivo. Por exemplo:
+
+```bash
+touch teste.txt
+```
+
+Se o arquivo teste.txt não existir, ele será criado. Caso ele exista, somente a data/hora da última modificação serão afetados. Isto é útil quando trabalhamos com scripts de automação, pois garante a existência do arquivo sem incorrer num erro ao tentar criá-lo novamente ou substituí-lo acidentalmente.
+
+- Copiando arquivos com `cp`
+
+
+
 - `mv`
 - `rm`
-### 2.6 Programas Básicos
+
+### 2.6 Caminho Absoluto e Caminho Relativo
+        - `.`, `..`
+
+### 2.7 Programas Básicos
 - `echo`
 - `cat`
 - `find`
-### 2.7 Conectando Programas
+### 2.8 Conectando Programas
 - Standard Input/Output
 - Redirecionamento de Streams
     - Output (`>`)
     - Append (`>>`)
     - Input (`<`)
     - Pipe (`|`)
-### 2.8 Outros Programas úteis
+### 2.9 Outros Programas úteis
 - `tee`
 - `grep`
 - `tail`
