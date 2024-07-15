@@ -487,7 +487,27 @@ ls -lha ~ >> ~/teste/arquivo.txt
 
 Note que o conteúdo original do `arquivo.txt` foi mantido, e o resultado do comando `ls` foi inserido depois da última linha original.
 
-    - Pipe (`|`)
+Existe um operador que conecta a saída de um comando do bash à entrada de outro comando, criando uma cadeia de comandos, ou "esteira" (_pipeline_), de etapas pelas quais os dados resultantes de um programa são aplicados ao outro, sendo transformados até produzirem uma saída desejada. Este operador é o `|` (_pipe_).
+
+```bash
+ls -lha ~ | grep Jul | head -5 | tee /home/dmyoko/teste/pipeline.txt
+```
+
+Aqui temos uma pipeline que faz a seguinte sequência:
+- `ls -lha ~` - lista todos os arquivos da pasta `home`, em formato de lista, com tamanhos humanamente legíveis, e inclindo os arquivos ocultos (que começam com `.`)
+- `grep Jul` - o comando `grep` filtra as linhas vindas da entrada de acordo com algum padrão (no caso, `Jul`). Basicamente ele pega o resultado do `ls` e separa somente os arquivos modificados em Julho
+- `head -5`- O comando `head` toma somente as primeiras linhas da entrada. Por padrão, ele toma somente as primeiras 10, mas a opção `-5` faz com que ele pegue somente as primeiras 5 e ignore as demais linhas.
+- `tee /<caminho>` - O comando `tee` é um comando similar ao comando `cat`, com a diferença que, além de imprimir no stream de saída, ele também escreve o arquivo. No caso acima, ele escreve no terminal e no arquivo `/home/dmyoko/teste/pipeline.txt`.
+    - Por exemplo, é possível criar dois arquivos a partir do comando `tee`:
+
+```bash
+ls -lha ~ | grep Jul | head -5 | tee /home/dmyoko/teste/pipeline.txt > /home/dmyoko/teste/pipeline2.txt
+```
+
+- A linha acima instrui instrui o `tee` a escrever a entrada no arquivo `/home/dmyoko/teste/pipeline.txt` e religa o stream de saída para o arquivo `/home/dmyoko/teste/pipeline2.txt` usando o operador `>`.
+- Imagine talvez, usar o operador `>>` nesta linha, e qual será o resultado. Como isso iria diferir ambos os arquivos.
+
+Nós iremos usar muito o operador de pipe (`|`) na aula em que iremos tratar de _Manipulação de Dados_ no Shell.
 
 ### 2.8 Comandos Úteis
 - `man`
@@ -510,10 +530,16 @@ Imprime as diferenças entre o conteúdo de dois caminhos, que precisam ser espe
 - `history`
 Imprime no terminal o histórico de comandos usados nesta sessão do `Bash`.
 
-- `tee`
-- `grep`
 - `tail`
-- `head`
+O comando `tail` é parecido com o comando `head`, com a diferença de que, em vez de tomar somente as primeiras x linhas da entrada e ignorar as demais, ele toma somente as últimas x linhas e ignora as primeiras.
+
 - `less`
+O comando `less` é ótimo para ser usado com comandos que resultam em um número elevado de linhas. Ele exibe o resultado de forma paginada e interativa, te permitindo controlar a navegação pelos dados.
 
 ### 3. Conclusão
+
+Nesta aula tivemos um contato bastante profundo com o `Bash` e a abordagem de trabalhar a partir de um `Shell`. Ainda temos muito o que explorar pra explorarmos o shell e conseguir fazer dele um lugar onde possamos nos sentir mais confortáveis e produtivos o suficiente para fazer dele nosso lugar de trabalho. Mas nas próximas aulas, ficaremos cada vez mais próximos disto.
+
+Com esta introdução, podemos explorar outras ferramentas, como a construção de scripts, manipular dados e aprender as convenções de como é a vida na interface de linha de comando (_Command Line Interface_ ou, simplesmente, _CLI_).
+
+Bem-vindo a esta jornada, e espero que este primeiro passeio tenha despertado o interesse em prosseguir com as próximas aulas.
