@@ -48,7 +48,6 @@ _Bash_ é o shell mais popular atualmente, sendo a opção pré-instalada no Ubu
 Para acompanhar o conteúdo deste curso, certifique-se de ter instalado o _bash_ como uma das opções de Shell disponíveis no seus sistema. Usuários Linux e MacOS provavelmente já possuirão o bash instalado, caso contrário, provavelmente encontrarão uma fácil instalação a partir de algum dos gerenciadores de pacote que seus sistemas disponibilizam.
 
 ### 2.1 Bash para Usuários Windows
-
 Para aqueles que acompanham este curso e são usuários do Microsoft Windows, existem opções de instalação do Bash. Vamos apresentar 3 delas para que você escolher a que melhor lhe for mais conveniente.
 
 - MinGW64 / Cygwin
@@ -99,7 +98,6 @@ Para usuários de versões mais recentes do Windows (a partir do Windows 10), é
 Este método também exige que você ative o _HyperV_, além de ativar também o "Subsistema do Windows para Linux", e instalar a distribuição escolhida (por exemplo, Ubuntu), a partir das opções disponíveis na Microsoft Store.
 
 ### 2.2 Apresentando o ambiente de Shell com Bash
-
 Ao abrir o terminal de sua escolha para acessar um Shell, invariavelmente você irá encontrar algo muito parecido com a imagem a seguir.
 
 ![image](../imagens/shell.png)
@@ -134,7 +132,6 @@ O modo como trabalhamos no ambiente de Shell é um ciclo:
 Com isto, podemos agora explorar um pouco alguns comandos que o Bash nos fornece.
 
 ### 2.3 Navegando com o Shell
-
 Vamos começar a explorar os comandos do Bash, aprendendo primeiro a navegar pelo sistema de arquivos.
 
 - Exibindo o diretório atual: `pwd`
@@ -238,7 +235,6 @@ Existem outras diversas opções disponíveis para o comando `ls`. Para ter aces
 > `--help` é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.
 
 ### 2.4 Permissões de arquivos e diretórios
-
 ![image](../imagens/permissoes-ls-l.png)
 
 Eu mencionei que a primeira coluna exibida como resultado do `ls -l` são as permissões dos arquivos ou diretórios listados. Estas permissões indicam quem pode fazer o que com estes artefatos. Para dar uma breve  explicação, vamos entender como estas informações são exibidas:
@@ -270,7 +266,6 @@ Esta linha diz que `X11` é um diretório (`d`), o dono (que é o usuário `root
 > Em um **diretório**, a permissão de execução significa que o usuário é capaz de navegar por ele (através do comando `cd`). A permissão de leitura significa que o usuário é capaz de listar o conteúdo (através do comando `ls`) ou procurar por arquivos, etc. E a permissão de escrita significa que o usuário é capaz de criar novos artefatos (arquivos, diretórios, etc) dentro do diretório.
 
 ### 2.5 Manipulação do sistema de arquivos
-
 Agora que sabemos como navegar e obter informações sobre o conteúdo do sistema de arquivos, vamos aprender como manipular o conteúdo dos diretórios, criando, modificando e excluindo arquivos e diretórios usando comandos do Shell.
 
 - Criando diretórios: `mkdir`
@@ -380,7 +375,6 @@ rm -r /home/dmyoko/teste
 ```
 
 ### 2.6 Caminho Absoluto, Caminho Relativo e Caracteres Coringa
-
 Até aqui, temos usado o que chamamos de _Caminho Absoluto_ (Absolute Path) para endereçar os arquivos e diretórios que usamos. Mas existem atalhos especiais que nos ajudam a facilitar a descrição de caminhos baseados no diretório atual em que nos localizamos.
 
 Uma das opções disponíveis no comando `ls` é a opção `-a` ou `--all`, que deixam de ignorar certos arquivos que normalmente não são exibidos. Por padrão, os arquivos que começam com `.` (ponto), ficam ocultos normalmente no comando `ls`. Vamos ver quais arquivos visualizamos ao usar esta opção:
@@ -440,18 +434,68 @@ mv foo? ./a/b # move somente os arquivos foo1 e foo2 para ./a/b
 touch * # Atualiza a data/hora de modificação de todos os arquivos para a hora atual do sistema
 ```
 
-### 2.7 Outros Comandos Básicos
+### 2.7 Conectando Programas
+Uma das capacidades mais incríveis do `Bash` é a forma como é possível manipular a entrada e saída dos programas e conectá-las de diversas formas para redefinir o comportamento padrão dos comandos. Me permita explicar melhor antes, como o Shell lida com a entrada e saída dos comandos.
+
+#### 2.7.1 Streams de Entrada e Saída (Input/Output Streams)
+No Shell, programas possuem dois _streams_ primários associados a eles: o stream de _entrada_ (input), e o stream de _saída_ (output). Quando o programa tenta ler a entrada, ele lê do stream de entrada, e quando ele imprime algo, ele imprime no stream de saída. Normalmente, os streams de entrada e saída de um programa são o seu terminal (quando rodando a partir do shell). Ou seja, seu teclado (à medida que você digita no shell) e a janela do terminal na sua tela. Contudo, nós podemos também religar estes streams de outras formas.
+
+> [!IMPORTANT]
+> **Streams** em computação, é um termo comum usado para designar um fluxo de dados que não acontece de uma única vez, mas que é feito de forma contínua, ao longo do tempo, em pequenos lotes.
+>
+> Aqui estamos falando de Streams sendo usados para o fluxo contínuo de dados de entrada e de saída de um comando ou programa executado no shell. Mas o conceito é muito comum em diversas outras áreas da computação, como na leitura/escrita de arquivos no disco, ou obtendo/enviando dados através da rede/internet.
+>
+> O termo ficou ainda mais popular com a transmissão de conteúdo online como chamadas de vídeo ou transmissões audiovisuais em _lives_ na internet.
+
+#### 2.7.2 Religamento de Streams
+A forma mais simples de religar streams no `Bash` é através dos operadores `>` (para religar o stream de saída do programa) e `<` (para religar o stream de entrada do programa). Vamos ver alguns exemplos:
+
+```bash
+ls ~ -lha > ~/teste/ls.txt # Religa o stream de saída do comando ls para o arquivo ~/teste/ls.txt
+```
+
+Note que o comando `ls` acima não imprimiu a saída no terminal como de costume. Por outro lado, você pode conferir um novo arquivo criado no diretório `~/teste` chamando `ls.txt`. Você pode usar o comando `cat` (que imprime o conteúdo de um arquivo no terminal) e você irá notar que o seu conteúdo é a saída do comando `ls` que teria sido impressa no terminal se não a tivéssemos religado.
+
+Uma forma de conferir o conteúdo do arquivo `~/teste/ls.txt`, é o utilizando como stream de entrada do comando `cat`, que imprime o stream de entrada no stream de saída. Ao religar o stream de entrada do comando `cat` usando o arquivo `~/teste/ls.txt` sem religar o stream de saída, ele irá imprimir o conteúdo no terminal.
+
+```bash
+cat < ~/teste/ls.txt
+```
+
+O comando `cat`, quando não especificado nenhum argumento, usa o terminal como stream de entrada (capturando tudo o que o usuário digitar) e as imprime no stream de saída (que também é o próprio terminal, imprimindo exatamente o que é digitado), à medida que os dados são enviados (normalmente, sempre que uma linha é finalizada). O resultado padrão do comando `cat`, é ter suas linhas repetidas, uma vindo pela entrada, e logo em seguida sendo impressa na saída.
+
+```bash
+cat # demonstrando os dados digitados no stream de entrada, e impressos na saída imediatamente depois
+```
+
+Por exemplo, é possível usar o cat como um editor de um novo arquivo, que será criado usando a religação do stream de saída, digitando o conteúdo a partir do stream de entrada.
+
+```bash
+cat > ~/teste/arquivo.txt # Ao digitar conteúdo na entrada, ele será direcionado para o arquivo.txt
+```
+
+> [!NOTE]
+> Para encerrar a leitura da entrada, nós usamos o comando Ctrl+Z. Isto envia um sinal para o processo que está executando o comando `cat`, orientando-o a parar.
+>
+> Existem outras formas de enviar sinais aos processos quando estamos executando programas no bash, mas veremos isto no futuro.
+
+Um outro operador útil é o operador `>>`. Ele tem, basicamente o mesmo efeito do operador `>`, que religa o stream de saída, com exceção de que, se a saída é redirecionada a um arquivo que já existe, ele concatena a saída do programa atual ao conteúdo original do arquivo, uma operação popularmente conhecida na computação como `append`. Ou seja, o conteúdo original do arquivo é mantido, e o novo conteúdo é enviado ao final dele.
+
+```bash
+ls -lha ~ >> ~/teste/arquivo.txt
+```
+
+Note que o conteúdo original do `arquivo.txt` foi mantido, e o resultado do comando `ls` foi inserido depois da última linha original.
+
+    - Pipe (`|`)
+
+### 2.8 Comandos Úteis
 - `man`
 O comando `man` exibe um manual de diversos comandos do `bash`. Usa-se passando como argumento o nome do comando que se deseja consultar:
 ```bash
 man mkdir
 ```
 
-- `cat`
-O comando `cat` imprime no terminal o conteúdo dos arquivos apontados como argumento.
-```bash
-cat ~/.bashrc 
-```
 - `find`
 O comando `find` ajuda a localizar arquivos, procurando não somente no diretório usado como argumento, mas automaticamente buscando em todos os seus subdiretórios. Se um diretório não for passado como argumento, o comando `find` usa o diretório atual por padrão. Ele aceita diversas opções para ajudar a encontrar arquivos de acordo com critérios específicos, como o nome do arquivo (opção `-name` seguido do nome que se busca, para usar coringas é necessário delimitar com apóstrofos), e muitas outras opções úteis.
 
@@ -466,14 +510,6 @@ Imprime as diferenças entre o conteúdo de dois caminhos, que precisam ser espe
 - `history`
 Imprime no terminal o histórico de comandos usados nesta sessão do `Bash`.
 
-### 2.8 Conectando Programas
-- Standard Input/Output
-- Redirecionamento de Streams
-    - Output (`>`)
-    - Append (`>>`)
-    - Input (`<`)
-    - Pipe (`|`)
-### 2.9 Outros Programas úteis
 - `tee`
 - `grep`
 - `tail`
