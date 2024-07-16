@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Aula 2 - Criando Scripts com Bash - Coisas Que Não Ensinam em TI</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Coisas Que Não Ensinam em TI</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Coisas Que Não Ensinam em TI</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Aulas</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../01-shell/" class="dropdown-item">Aula 1 - O Shell</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Aula 2 - Criando Scripts com Bash</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../01-shell/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#aula-2-criando-scripts-com-bash" class="nav-link">Aula 2 - Criando Scripts com Bash</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#21-imprimindo-valores-hello-world" class="nav-link">2.1 - Imprimindo Valores (Hello world)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#22-expressoes" class="nav-link">2.2 - Expressões</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#23-definindo-variaveis" class="nav-link">2.3 - Definindo variáveis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#24-operadores" class="nav-link">2.4 - Operadores</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#25-substituicoes-de-comando" class="nav-link">2.5 - Substituições de Comando</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#26-expansoes-do-shell" class="nav-link">2.6 - Expansões do Shell</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#27-stream-de-erro" class="nav-link">2.7 - Stream de Erro</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#28-shell-script" class="nav-link">2.8 - Shell Script</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#29-conclusao" class="nav-link">2.9 - Conclusão</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="aula-2-criando-scripts-com-bash">Aula 2 - Criando Scripts com Bash</h1>
+<p>Na aula passada fomos apresentados ao ambiente do Shell e começamos a nos familiarizar com a vida no terminal usando Bash. Apesar de termos explorado muitas ferramentas que nos permitem interagir com o sistema de arquivos, o uso do Shell não está relegado somente a manipular arquivos e diretórios. É possível usar o Shell como um ambiente produtivo para lidar com as mais diversas tarefas e, inclusive, automatizá-las.</p>
+<p>Nesta aula iremos explorar as capacidades de automação do Bash e criar scripts que expandem a sua utilidade na execução de tarefas rotineiras, que o tornam, basicamente, uma linguagem de programação não muito diferente das muitas linguagens disponíveis.</p>
+<h2 id="21-imprimindo-valores-hello-world">2.1 - Imprimindo Valores (Hello world)</h2>
+<p>A operação mais básica que as linguagens de programação apresentam é a capacidade de imprimir um valor para o usuário. O ritual de iniciação padrão para todos os que estudam uma linguagem de programação é imprimir a mensagem universal "Hello, world" (<em>Olá mundo</em>). Usando Bash, o comando que usamos para imprimir mensagens para o usuário é o comando <code>echo</code>.</p>
+<pre><code class="language-bash">echo &quot;Hello world&quot;
+</code></pre>
+<p>Como vimos na aula passada, as aspas (<code>"</code>) são necessárias quando queremos usar espassos nos argumentos dos comandos que usamos no Bash, de outra forma o Bash iria interpretar os espaços como separadores de argumentos, possibilitando resultados inesperados. No caso do comando <code>echo</code>, independente de quantos argumentos você usa, o comportamento dele será o mesmo.</p>
+<pre><code class="language-bash">echo Hello world
+</code></pre>
+<p>Mas, é de bom tom seguir a convenção e usar delimitadores (<code>"</code> ou <code>'</code>) para garantir a consistência dos argumentos. Ao longo desta aula, manter esta consistência fará mais sentido, à medida que veremos como argumentos podem ser transformados ou reutilizados.</p>
+<h2 id="22-expressoes">2.2 - Expressões</h2>
+<p>O uso de delimitadores, como o que usamos para definir o argumento "Hello world" para o comando <code>echo</code>, é um exemplo de uma <em>expressão</em>. Expressões são formas de criar valores em uma linguagem de programação, e em Bash não é diferente. Expressões de textos são as mais simples que podemos usar, mas existem outros tipos de expressões, e falaremos um pouco sobre alguns deles.</p>
+<p>Um tipo de expressão comum em Bash, é o resultado da execução de um comando. Para criar expressões deste tipo, usamos a notação <code>$(&lt;comando-bash&gt;)</code>.</p>
+<pre><code class="language-bash">echo $(ls)
+</code></pre>
+<p>A linha acima executa o comando <code>ls</code> e usa a saída como resultado de uma expressão que é então passada para o comando <code>echo</code>. O resultado é semelhante à execução do comando <code>ls</code> no shell (a exibição da lista de arquivos). A diferença é que podemos usar esta expressão em outras operações, não apenas para exibí-las (usando o comando <code>echo</code>), mas também, por exemplo, atribuir este valor a variáveis e reutilizá-la para outros fins, como veremos em breve.</p>
+<p>É possível, também, executar expressões aritméticas e exibir seu resultado. Para criarmos uma expressão aritmética, usamos a notação <code>$(( &lt;expressão-aritmética&gt; ))</code>. Desta forma, o shell não tentará interpretar a expressão como se fosse um comando.</p>
+<pre><code class="language-bash">echo $((7 + 8))
+echo $((7 * 8))
+echo $(((7 - 3) / (8 % 3)))
+</code></pre>
+<h2 id="23-definindo-variaveis">2.3 - Definindo variáveis</h2>
+<p>Como em qualquer linguagem de programação, em Bash nós podemos definir variáveis para guardar valores que precisam ser reutilizados. Para definir variáveis em Bash, tudo o que precisamos fazer é uma atribuição de um valor a um nome, usando o operador <code>=</code>. O único cuidado que devemos ao fazermos uma atribuição é redobrar nossa atenção ao fato de que, em Bash, espaços contam. Por exemplo:</p>
+<pre><code class="language-bash">foo=bar # Atribuição do valor `bar` a uma nova variável chamada `foo`
+foo = bar # Erro. O Bash tenta executar um comando chamado `foo` com 2 argumentos (`-` e `bar`).
+</code></pre>
+<p>Para usarmos as variáveis que criamos, nós nos referimos a elas usando o sinal <code>$</code> como prefixo. Por exemplo:</p>
+<pre><code class="language-bash">echo $foo
+</code></pre>
+<p>Qualquer resultado de uma expressão pode ser atribuído a uma variável:</p>
+<pre><code class="language-bash">soma=$((7 + 8))
+
+</code></pre>
+<h3 id="231-interpolacao-de-valores">2.3.1 - Interpolação de Valores</h3>
+<p>Interpolação de valores é a capacidade que o Bash tem de identificar marcadores em valores de texto para substituir por valores computados durante a execução do comando. Por exemplo:</p>
+<pre><code class="language-bash">echo &quot;o conteúdo da variável foo é $foo&quot;
+</code></pre>
+<p>No código acima, o Bash vai identificar o uso da variável foo (usada com o <code>$</code>), e vai substituir este marcador pelo valor da variável.</p>
+<p>A interpolação de valores só funciona com textos delimitados por <code>"</code> (aspas). Se o texto for delimitado por <code>'</code> (apóstrofos), o bash trata o texto como literal e não faz a interpolação. Esta distinção tem suas vantagens, como por exemplo, quando você quer que a interpolação aconteça em um momento diferente do da execução do script, delegando a interpolação para outra etapa da automação, ou outro processo que será executado.</p>
+<p>Podemos, também, interpolar valores resultantes de quaisquer tipos expressões suportadas pelo Bash.</p>
+<pre><code class="language-bash">echo &quot;Interpolando o valor de uma variável: $foo&quot;
+echo &quot;Interpolando o resultado de um comando: $(ls -lha ~ | grep Jul)&quot;
+echo &quot;Interpolando o resultado de uma expressão aritmética: $((2 + 3 - 4 * 5 / 6 % 7))&quot;
+</code></pre>
+<h3 id="232-variaveis-especiais-pre-definidas">2.3.2 - Variáveis Especiais pré-definidas</h3>
+<h3 id="233-variaveis-de-ambiente">2.3.3 - Variáveis de ambiente</h3>
+<h2 id="24-operadores">2.4 - Operadores</h2>
+<h2 id="25-substituicoes-de-comando">2.5 - Substituições de Comando</h2>
+<h2 id="26-expansoes-do-shell">2.6 - Expansões do Shell</h2>
+<h2 id="27-stream-de-erro">2.7 - Stream de Erro</h2>
+<h2 id="28-shell-script">2.8 - Shell Script</h2>
+<h3 id="281-executando-scripts">2.8.1 - Executando Scripts</h3>
+<ul>
+<li>shebang</li>
+</ul>
+<h3 id="282-estruturas-de-controle">2.8.2 - Estruturas de controle</h3>
+<h3 id="283-funcoes">2.8.3 - Funções</h3>
+<h2 id="29-conclusao">2.9 - Conclusão</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
