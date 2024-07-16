@@ -186,7 +186,7 @@ Este método exige que alguns recursos (por exemplo, espaço em disco) sejam com
 <p>Este método também exige que você ative o <em>HyperV</em>, além de ativar também o "Subsistema do Windows para Linux", e instalar a distribuição escolhida (por exemplo, Ubuntu), a partir das opções disponíveis na Microsoft Store.</p>
 <h3 id="22-apresentando-o-ambiente-de-shell-com-bash">2.2 Apresentando o ambiente de Shell com Bash</h3>
 <p>Ao abrir o terminal de sua escolha para acessar um Shell, invariavelmente você irá encontrar algo muito parecido com a imagem a seguir.</p>
-<p><img alt="image" src="../imagens/shell.png" /></p>
+<p><img alt="image" src="../../imagens/shell.png" /></p>
 <p>Uma janela vazia (normalmente com fundo escuro), mostrando no topo um texto com algumas informações úties e um cursor piscando, esperando que você digite algo.</p>
 <p>As informações exibidas podem variar de um computador para o outro já que elas se baseiam nas configurações do usuário. No caso do meu shell, exibido acima, as informações exibidas são:</p>
 <blockquote>
@@ -279,7 +279,7 @@ ls -lh # é possível unir todas as opções em uma única cláusula
 <code>--help</code> é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.</p>
 </blockquote>
 <h3 id="24-permissoes-de-arquivos-e-diretorios">2.4 Permissões de arquivos e diretórios</h3>
-<p><img alt="image" src="../imagens/permissoes-ls-l.png" /></p>
+<p><img alt="image" src="../../imagens/permissoes-ls-l.png" /></p>
 <p>Eu mencionei que a primeira coluna exibida como resultado do <code>ls -l</code> são as permissões dos arquivos ou diretórios listados. Estas permissões indicam quem pode fazer o que com estes artefatos. Para dar uma breve  explicação, vamos entender como estas informações são exibidas:</p>
 <p>Cada caractere exibido nesta coluna representa um atributo do artefato ao qual ele está ligado. O primeiro caractere, por exemplo, indica que tipo de artefato é o item da lista. Um simples <code>-</code> indica que ele é apenas um arquivo, e um <code>d</code> indica que ele é um diretório. Existem outros tipos, que podemos discutir no futuro.</p>
 <p>Os demais caracteres são agrupamentos de 3 caracteres, cada caractere simbolizando uma permissão específica: <code>rwx</code>.
@@ -335,7 +335,7 @@ mkdir -p /home/dmyoko/teste/a/b/c
 </ul>
 <p>O comando touch força uma alteração na data de modificação de arquivos.</p>
 <p>Para entender o que isto significa, vamos rever o resultado do comando <code>ls</code> no screenshot anterior:
-<img alt="image" src="../imagens/permissoes-ls-l.png" /></p>
+<img alt="image" src="../../imagens/permissoes-ls-l.png" /></p>
 <p>Observe a coluna imediatamente à esquerda do nome do arquivo nesta lista, é uma informação de Data/Hora. Esta coluna indica a data/hora da última modificação que este arquivo teve. Ao usar o comando <code>touch</code>, você força uma atualização desta informação para a data/hora atual do sistema.</p>
 <p>Apesar disso parecer algo usado para um propósito muito específico, o comando <code>touch</code> é útil por que, ao ser usado para fazer isto em um arquivo inexistente, ele cria o arquivo. Por exemplo:</p>
 <pre><code class="language-bash">touch teste.txt
