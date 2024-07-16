@@ -1,2 +1,24 @@
 site_name: Coisas Que Não Ensinam em TI
 repo_name: moreirayokoyama/coisas-que-nao-ensinam-em-ti
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+    - search.share
+  palette:
+    - scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+    - scheme: default
+      primary: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Modo noturno
