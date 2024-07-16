@@ -9,6 +9,7 @@
 
 ## Conteúdo do Curso
 - [Aula 1 - O Shell](./aulas/01-shell.md)
+- [Aula 2 - Criando Scripts com Bash](./aulas/02-scripting.md)
 
 ## Atribuições
 
