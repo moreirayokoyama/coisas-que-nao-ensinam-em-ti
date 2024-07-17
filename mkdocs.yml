@@ -13,12 +13,78 @@ theme:
     - search.share
   palette:
     - scheme: slate
-      primary: deep purple
+      primary: teal
       toggle:
         icon: material/weather-sunny
         name: Modo claro
     - scheme: default
-      primary: deep purple
+      primary: teal
       toggle:
         icon: material/weather-night
         name: Modo noturno
+
+markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.keys
+  - footnotes
+  - admonition
+  - markdown.extensions.attr_list
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - md_in_html
+
+plugins:
+  - macros
+  - glightbox
+  - mkdocs-video
+  - search:
+      lang: pt
+  - git-authors:
+      show_email_address: false
+      show_line_count: true
+  - git-revision-date-localized
+  - social
+  - with-pdf:
+      author: Daniel Yokoyama
+      cover_title: Coisas Que Não Ensinam Em TI
+      cover_subtitle: Adaptação para o Português do curso "The Missing Semester in Your CS Formation" do MIT
+      copyright: CC BY-NC-SA
+      toc_level: 6
+      enabled_if_env: ENABLE_PDF_EXPORT
+      toc_title: Índice
+  - exclude:
+      glob:
+        - "wip.md"
+  - exclude-unused-files
+  - mkdocs_quiz
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitch
+      link: https://www.twitch.tv/codandocomotio
+    - icon: fontawesome/brands/github
+      link: https://github.com/moreirayokoyama
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@CodandoComOTio
+
+#hooks:
+#  - hooks/quiz_hook.py
