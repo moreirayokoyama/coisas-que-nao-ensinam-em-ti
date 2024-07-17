@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Introdução ao Shell e se familiarizando com Bash">
+      
       
       
       
@@ -20,7 +22,7 @@
     
     
       
-        <title>Aula 1 - O Shell - Coisas Que Não Ensinam em TI</title>
+        <title>Aula 01 - O Shell - Coisas Que Não Ensinam em TI</title>
       
     
     
@@ -46,14 +48,51 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Aula 01 - O Shell - Coisas Que Não Ensinam em TI" >
+      
+        <meta  property="og:description"  content="Introdução ao Shell e se familiarizando com Bash" >
+      
+        <meta  property="og:image"  content="./assets/images/social/aulas/01-shell.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Aula 01 - O Shell - Coisas Que Não Ensinam em TI" >
+      
+        <meta  name="twitter:description"  content="Introdução ao Shell e se familiarizando com Bash" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/01-shell.png" >
+      
     
-  </head>
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -63,7 +102,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -108,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 1 - O Shell
+              Aula 01 - O Shell
             
           </span>
         </div>
@@ -121,7 +160,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
@@ -131,7 +170,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Modo noturno"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Modo noturno"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Modo noturno" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -304,7 +343,7 @@
           
   
   <span class="md-ellipsis">
-    Aula 1 - O Shell
+    Aula 01 - O Shell
   </span>
   
 
@@ -315,7 +354,7 @@
         
   
   <span class="md-ellipsis">
-    Aula 1 - O Shell
+    Aula 01 - O Shell
   </span>
   
 
@@ -720,7 +759,7 @@
                   
 
 
-<h1 id="aula-1-o-shell">Aula 1 - O <em>Shell</em></h1>
+<div><h1 id="aula-1-o-shell">Aula 1 - O <em>Shell</em></h1>
 <p>Nesta primeira aula do nosso curso, apresentaremos o <em>Shell</em> como uma ferramenta primária de produtividade das pessoas que trabalham em diversas áreas de TI.</p>
 <p>Quando navegamos pela internet através do uso de um <em>Web Browser</em>, ou usamos algum <em>app</em> ou qualquer aplicativo com uma interface gráfica, estamos limitados ao que esta interface suporta. Se existe um botão disponível para uma determinada funcionalidade, a visibilidade deste botão é o que determina se podemos nos beneficiar desta dela ou não. Se o botão não está visível, não podemos clicar nele.</p>
 <p>Uma interface de linha de comando (<em>CLI</em>), como a que temos quando usamos um <em>Shell</em>, torna mais flexível o acesso que temos às funcionalidades disponíveis.</p>
@@ -763,39 +802,41 @@
 <p>Das opções disponíveis para se instalar o Bash no Windows, o MinGW64 e o Cygwin se diferenciam por não precisar virtualizar um outro sistema (como Linux). Ambos os projetos podem ser instalados em qualquer versão do Windows e fornecem um conjunto de ferramentas para criar um ambiente compatível com um sistema semelhante ao Unix para pessoas que preferem trabalhar usando o Windows.</p>
 <p>O Bash disponibilizado por estas ferramentas, não é totalmente compatível com o Bash que você usaria ao criar uma instalação do Ubuntu, por exemplo, mas pode ser o suficiente para quem prefere não virtualizar (ou não pode).</p>
 <p>Para instalar o MinGW64, acesse o site: https://www.mingw-w64.org/downloads/</p>
-<blockquote>
-<p>[!TIP]
-Se você instalar o Git para Windows (haverão aulas neste curso que usarão o Git), ele inclui o MinGW64 para disponibilizar um shell chamado Git Bash.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se você instalar o Git para Windows (haverão aulas neste curso que usarão o Git), ele inclui o MinGW64 para disponibilizar um shell chamado Git Bash.</p>
+</div>
 <p>Se você preferir instalar o Cygwin, o endereço no site para baixar o instalador é: https://cygwin.com/install.html</p>
 <ul>
 <li>Criar um Memory Stick Inicializável com uma distribuição do Linux</li>
 </ul>
 <p>É possível ter uma distribuição do Linux disponível para uso sem precisar instalá-la no seu sistema, usando um Memory Stick (vulgo: Pen Drive) inicializável.</p>
 <p>Existem diversos tutoriais na disponíveis na internet explicando com realizar o processo. Mas, resumidamente, você precisa baixar a imagem do sistema operacional (por exemplo, Ubuntu), e um programa capaz de configurar um Memory Stick com a imagem de forma inicializável.</p>
-<blockquote>
-<p>[!WARNING]
-Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.</p>
+</div>
 <ul>
 <li>Dual Boot com Linux</li>
 </ul>
 <p>Você pode criar uma instalação do Linux lado a lado com a instalação do Windows e ter a opção no seu dispositivo de qual dos sistemas você pretende usar no momento da inicialização.</p>
-<blockquote>
-<p>[!WARNING]
-Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.</p>
-<p>[!WARNING]
-Este método exige que alguns recursos (por exemplo, espaço em disco) se tornem exclusivos para o novo sistema, tornando-os indisponíveis para o Windows. Isto requer algum planejamento sobre como estes recursos serão distribuídos.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Este método exige que alguns recursos (por exemplo, espaço em disco) se tornem exclusivos para o novo sistema, tornando-os indisponíveis para o Windows. Isto requer algum planejamento sobre como estes recursos serão distribuídos.</p>
+</div>
 <ul>
 <li>Virtualização de Linux</li>
 </ul>
 <p>Criar uma Máquina Virtual (<em>VM</em>) com uma instalação do Linux é uma opção acessível e, certamente, mais conveniente que a opção com Dual Boot. Uma VM é, basicamente, um computador virtual, com as mesmas funcionalidades que um dispositivo oferece, porém, emulado a partir de um Sistema Hospedeiro (no caso, o Windows).</p>
 <p>Você pode criar VMs usando softwares gratuitos como o HyperV do Windows ou  <a href="https://www.virtualbox.org/">VirtualBox da Oracle</a>, e baixar uma imagem da distribuição Linux desejada (por exemplo, Ubuntu), para criar uma VM. Independente de qual plataforma você pretende usar, você vai precisar ativar o Hypervisor do Windows (que é parte integrante da instalação do HyperV). Para isto, no menu iniciar (pressionando a tecla Windows no teclado), digite "Ativar ou Desativar Recursos do Windows", e ao abrir a janela dos Recursos do Windows, procure na lista o ítem "Hyper-V" e certifique-se de que ele esteja selecionado. <strong>Ativar este recurso, irá exigir que você reinicialize seu computador</strong>.</p>
-<blockquote>
-<p>[!WARNING]
-Este método exige que alguns recursos (por exemplo, espaço em disco) sejam compartilhados com a VM, podendo ter um impacto na performance do sistema hospedeiro.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Este método exige que alguns recursos (por exemplo, espaço em disco) sejam compartilhados com a VM, podendo ter um impacto na performance do sistema hospedeiro.</p>
+</div>
 <ul>
 <li>Windows Subsystem for Linux (WSL)</li>
 </ul>
@@ -803,19 +844,19 @@ Este método exige que alguns recursos (por exemplo, espaço em disco) sejam com
 <p>Este método também exige que você ative o <em>HyperV</em>, além de ativar também o "Subsistema do Windows para Linux", e instalar a distribuição escolhida (por exemplo, Ubuntu), a partir das opções disponíveis na Microsoft Store.</p>
 <h3 id="22-apresentando-o-ambiente-de-shell-com-bash">2.2 Apresentando o ambiente de Shell com Bash</h3>
 <p>Ao abrir o terminal de sua escolha para acessar um Shell, invariavelmente você irá encontrar algo muito parecido com a imagem a seguir.</p>
-<p><img alt="image" src="../../imagens/shell.png" /></p>
+<p><a class="glightbox" href="../../imagens/shell.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/shell.png"></a></p>
 <p>Uma janela vazia (normalmente com fundo escuro), mostrando no topo um texto com algumas informações úties e um cursor piscando, esperando que você digite algo.</p>
 <p>As informações exibidas podem variar de um computador para o outro já que elas se baseiam nas configurações do usuário. No caso do meu shell, exibido acima, as informações exibidas são:</p>
-<blockquote>
-<p>[!IMPORTANT]
-<code>dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$</code>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$</code>
 - Nome do usuário logado na sessão
 - O <code>@</code> (arroba) separa o nome do usuário do nome do servidor da sessão
 - O nome do servidor da sessão
 - Os dois pontos (<code>:</code>) separam os dados da sessão do caminho do diretório atual onde &gt;o shell irá aplicar os comandos
-   - No Bash, o caractere que separa os segmentos do caminho é <code>/</code>, diferente do &gt;Windows que usa <code>\</code> (barra invertida)
+    - No Bash, o caractere que separa os segmentos do caminho é <code>/</code>, diferente do &gt;Windows que usa <code>\</code> (barra invertida)
 - O cifrão (<code>$</code>) no final, indica que o shell não está no modo super user.</p>
-</blockquote>
+</div>
 <p>O nome desta linha, contendo estas ou quaisquer outras informações de acordo com a configuração do shell, e o cursor esperando a entrada de um comando, é <code>Prompt</code>.</p>
 <p>A partir daqui, qualquer texto digitado será interpretado como um comando dado ao shell. Este comando pode servir para executar programas, rodar scripts ou executar comandos nativos do próprio shell.</p>
 <p>A partir do momento em que algo é digitado e enviado para o shell (normalmente através do pressionamento da tecla Enter ou Return), o shell executa a linha digitada e o terminal imprime qualquer que seja o resultado (output) da execução.</p>
@@ -837,66 +878,66 @@ Este método exige que alguns recursos (por exemplo, espaço em disco) sejam com
 <li>Mudando o diretório atual: <code>cd</code></li>
 </ul>
 <p>Para mudar o diretório atual da sessão do Shell, o comando usado é o <code>cd</code> (<em>Change Directory</em>). Se você digitar apenas <code>cd</code> e pressionar Enter, ele vai mudar o diretório atual para <code>~</code> (falaremos logo a seguir sobre que diretório é este). Ele não imprime nenhuma saída, e imediatamente um novo prompt é apresentado. Para informar o comando <code>cd</code> para que ele mude para um diretório diferente, um <code>argumento</code> precisa ser usado.</p>
-<blockquote>
-<p>[!NOTE]
-<strong>Argumentos</strong>: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito. Por exemplo, no comando <code>cd teste</code>, <code>teste</code> é o argumento passado para o comando <code>cd</code>. Neste caso, o comando <code>cd</code> vai mudar mudar o diretório atual para o diretório <code>teste</code>.</p>
-</blockquote>
-<pre><code class="language-bash">cd teste
-</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Argumentos</strong>: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito. Por exemplo, no comando <code>cd teste</code>, <code>teste</code> é o argumento passado para o comando <code>cd</code>. Neste caso, o comando <code>cd</code> vai mudar mudar o diretório atual para o diretório <code>teste</code>.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>teste
+</span></code></pre></div>
 <p>No meu caso, uma mensagem de erro é exibida:</p>
-<pre><code>bash: cd: teste: No such file or directory
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bash: cd: teste: No such file or directory
+</span></code></pre></div>
 <p>Ela diz que não existe um arquivo ou diretório chamado <code>teste</code>. Note, executando o comando <code>pwd</code> novamente, que o diretório atual permanece o mesmo.</p>
 <p>Para mudar o diretório atual, precisamos passar como argumento, o endereço de um diretório existente. Por exemplo, um diretório que com certeza existe no sistema de arquivos é o diretório raiz, que fica no endereço <code>/</code>.</p>
-<pre><code class="language-bash">cd /
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>/
+</span></code></pre></div>
 <p>No meu caso, como você pode ver, o meu prompt mudou, agora dizendo que o diretório atual é <code>/</code> (o diretório raiz). Se o seu prompt não exibe esta informação como o meu, você pode confirmar usando o comando <code>pwd</code>.</p>
 <p>Outro diretório comum para quem usa o Bash, é o diretório <em>Home</em>, representado pelo caractere <code>~</code>. Você pode testar o comando:</p>
-<pre><code class="language-bash">cd ~
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span></code></pre></div>
 <p>Como pode ver, no meu prompt, agora ele exibe <code>~</code> como diretório atual, e não mais o diretório raiz (<code>/</code>).</p>
 <p>Ao contrário do diretório raiz, se você usar o comando <code>pwd</code> agora você vai notar que o diretório <em>Home</em> (<code>~</code>), na verdade, aponta para um diretório específico a partir da raiz. No meu caso, <code>/home/dmyoko</code> (no seu caso, vai apontar para um diretório com o nome do seu usuário dentro do diretório <code>/home</code>).</p>
 <p>Você pode navegar manualmente por estes diretórios, usando o caminho que os leva até eles. Por exemplo:</p>
-<pre><code class="language-bash">cd /
-cd home
-cd dmyoko
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>home
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>dmyoko
+</span></code></pre></div>
 <p>Uma vez no diretório <code>/</code> (raiz), você tem acesso ao diretório <code>home</code>, e uma vez que você entra no diretório <code>home</code>, você tem acesso ao diretório do seu usuário, no meu caso <code>dmyoko</code>.</p>
 <p>Você também pode navegar direto para o diretório específico, usando o caminho completo absoluto que leva até ele, começando pelo diretório raiz.</p>
-<pre><code class="language-bash">cd /
-cd /home/dmyoko
-</code></pre>
-<blockquote>
-<p>[!NOTE]
-<strong>Caminho absoluto</strong> é o caminho completo que leva até um diretório ou arquivo no sistema de arquivos. Ele sempre começa pelo diretório <code>/</code> (raiz), e segue toda a hierarquia de segmentos necessários até chegar no diretório ou arquivo desejado.</p>
-</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>/
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>/home/dmyoko
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Caminho absoluto</strong> é o caminho completo que leva até um diretório ou arquivo no sistema de arquivos. Ele sempre começa pelo diretório <code>/</code> (raiz), e segue toda a hierarquia de segmentos necessários até chegar no diretório ou arquivo desejado.</p>
+</div>
 <ul>
 <li>Listar informações sobre o conteúdo de um diretório: <code>ls</code></li>
 </ul>
 <p>O comando <code>ls</code> é útil quando você deseja entender o conteúdo de um determinado diretório. Se você digitar somente <code>ls</code>, o Bash imprimirá no terminal o conteúdo do diretório atual.</p>
 <p>Se você quiser listar o conteúdo de outro diretório sem necessariamente sair do diretório atual, basta usar como argumento o caminho para o diretório do qual você pretende listar o conteúdo desejado.</p>
-<pre><code class="language-bash">ls /
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ls<span class="w"> </span>/
+</span></code></pre></div>
 <p>O comando acima, lista o conteúdo do diretório <code>/</code> (raiz). Você pode também listar o conteúdo de um dos subdiretórios do diretório raiz, informando o endereço dele. Por exemplo:</p>
-<pre><code class="language-bash">ls /bin
-ls /lib
-ls /sys/devices/cpu
-</code></pre>
-<p>O comando <code>ls</code> também suporta opções, que podem influenciar no resultado do comando. Por exemplo, a opção <code>-l</code> exibe o resultado do comando <code>ls</code> no formato de lista, trazendo informações adicionais a respeito do conteúdo do diretório, que antes não estavam sendo exibidas, como as <a href="#24-permissões-de-arquivos-e-diretórios">permissões de acesso</a> ao diretório/arquivo listado, informações de quem é o usuário dono deste diretório/arquivo e a que grupo ele pertence (usuário <code>dmyoko</code> do grupo <code>dmyoko</code>, por exemplo), o tamanho do arquivo/diretório em bytes, e a data da última vez que o arquivo/diretório foi modificado.</p>
-<pre><code class="language-bash">ls -l
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ls<span class="w"> </span>/bin
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ls<span class="w"> </span>/lib
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>ls<span class="w"> </span>/sys/devices/cpu
+</span></code></pre></div>
+<p>O comando <code>ls</code> também suporta opções, que podem influenciar no resultado do comando. Por exemplo, a opção <code>-l</code> exibe o resultado do comando <code>ls</code> no formato de lista, trazendo informações adicionais a respeito do conteúdo do diretório, que antes não estavam sendo exibidas, como as <a href="#24-permissoes-de-arquivos-e-diretorios">permissões de acesso</a> ao diretório/arquivo listado, informações de quem é o usuário dono deste diretório/arquivo e a que grupo ele pertence (usuário <code>dmyoko</code> do grupo <code>dmyoko</code>, por exemplo), o tamanho do arquivo/diretório em bytes, e a data da última vez que o arquivo/diretório foi modificado.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ls<span class="w"> </span>-l
+</span></code></pre></div>
 <p>Outra opçõa útil é o <code>-h</code>, que faz com que os tamanhos dos arquivos exibidos sejam impressos num formato <em>humanamente legível</em> (human readable).</p>
-<pre><code class="language-bash">ls -h # sem efeito, pois os tamanhos não são exibidos
-ls -l -h # agora é possível ver o efeito.
-ls -lh # é possível unir todas as opções em uma única cláusula
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ls<span class="w"> </span>-h<span class="w"> </span><span class="c1"># sem efeito, pois os tamanhos não são exibidos</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>-h<span class="w"> </span><span class="c1"># agora é possível ver o efeito.</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>ls<span class="w"> </span>-lh<span class="w"> </span><span class="c1"># é possível unir todas as opções em uma única cláusula</span>
+</span></code></pre></div>
 <p>Existem outras diversas opções disponíveis para o comando <code>ls</code>. Para ter acesso a uma lista completa delas, você pode digitar <code>ls --help</code>.</p>
-<blockquote>
-<p>[!TIP]
-<code>--help</code> é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>--help</code> é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.</p>
+</div>
 <h3 id="24-permissoes-de-arquivos-e-diretorios">2.4 Permissões de arquivos e diretórios</h3>
-<p><img alt="image" src="../../imagens/permissoes-ls-l.png" /></p>
+<p><a class="glightbox" href="../../imagens/permissoes-ls-l.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/permissoes-ls-l.png"></a></p>
 <p>Eu mencionei que a primeira coluna exibida como resultado do <code>ls -l</code> são as permissões dos arquivos ou diretórios listados. Estas permissões indicam quem pode fazer o que com estes artefatos. Para dar uma breve  explicação, vamos entender como estas informações são exibidas:</p>
 <p>Cada caractere exibido nesta coluna representa um atributo do artefato ao qual ele está ligado. O primeiro caractere, por exemplo, indica que tipo de artefato é o item da lista. Um simples <code>-</code> indica que ele é apenas um arquivo, e um <code>d</code> indica que ele é um diretório. Existem outros tipos, que podemos discutir no futuro.</p>
 <p>Os demais caracteres são agrupamentos de 3 caracteres, cada caractere simbolizando uma permissão específica: <code>rwx</code>.
@@ -915,48 +956,48 @@ ls -lh # é possível unir todas as opções em uma única cláusula
 <p>Por exemplo (retirado do screenshot acima):
 <code>drwxr-xr-x  2 root root  4096 Mar 25  2022 X11</code>
 Esta linha diz que <code>X11</code> é um diretório (<code>d</code>), o dono (que é o usuário <code>root</code>) possui permissão de leitura, escrita e execução, enquanto que os outros membros do grupo <code>root</code> podem apenas ler o conteúdo e executá-lo, bem como todos os outros usuários.</p>
-<blockquote>
-<p>[!IMPORTANT]
-Em um <strong>diretório</strong>, a permissão de execução significa que o usuário é capaz de navegar por ele (através do comando <code>cd</code>). A permissão de leitura significa que o usuário é capaz de listar o conteúdo (através do comando <code>ls</code>) ou procurar por arquivos, etc. E a permissão de escrita significa que o usuário é capaz de criar novos artefatos (arquivos, diretórios, etc) dentro do diretório.</p>
-</blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Em um <strong>diretório</strong>, a permissão de execução significa que o usuário é capaz de navegar por ele (através do comando <code>cd</code>). A permissão de leitura significa que o usuário é capaz de listar o conteúdo (através do comando <code>ls</code>) ou procurar por arquivos, etc. E a permissão de escrita significa que o usuário é capaz de criar novos artefatos (arquivos, diretórios, etc) dentro do diretório.</p>
+</div>
 <h3 id="25-manipulacao-do-sistema-de-arquivos">2.5 Manipulação do sistema de arquivos</h3>
 <p>Agora que sabemos como navegar e obter informações sobre o conteúdo do sistema de arquivos, vamos aprender como manipular o conteúdo dos diretórios, criando, modificando e excluindo arquivos e diretórios usando comandos do Shell.</p>
 <ul>
 <li>Criando diretórios: <code>mkdir</code></li>
 </ul>
 <p>Para criar novos diretórios, usamos o comando <code>mkdir</code> passando como argumento o nome  do diretório que queremos criar.</p>
-<pre><code class="language-bash">cd ~ #Certifique-se de estar no seu diretório `home`
-mkdir teste
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="c1">#Certifique-se de estar no seu diretório `home`</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>mkdir<span class="w"> </span>teste
+</span></code></pre></div>
 <p>O diretório <code>teste</code> será criado no diretório atual, no caso, o diretório <code>home</code>. Você também pode criar um diretório em um lugar diferente do diretório atual, usando o endereço completo desejado.</p>
-<pre><code class="language-bash">mkdir /home/dmyoko/teste/tmp
-</code></pre>
-<blockquote>
-<p>[!WANING]
-<strong>Espaços importam!</strong> Tome cuidado com o uso de espaços quando estiver executando operações no shell. Por exemplo, se você digitar o comando <code>mkdir minhas fotos</code>, ao invés de criar um diretório chamado <code>minhas fotos</code>, ele irá criar dois diretórios, um chamado <code>minhas</code> e um segundo chamado <code>fotos</code>. Para usar espaços você pode usar caracteres de escape. </p>
-</blockquote>
-<p>Para usar caracteres de escape, você usa a <code>\</code> (barra invertida). Por exemplo:</p>
-<pre><code class="language-bash">mkdir Minhas\ Fotos # Cria um diretório chamado `Minhas Fotos`
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mkdir<span class="w"> </span>/home/dmyoko/teste/tmp
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Espaços importam!</strong> Tome cuidado com o uso de espaços quando estiver executando operações no shell. Por exemplo, se você digitar o comando <code>mkdir minhas fotos</code>, ao invés de criar um diretório chamado <code>minhas fotos</code>, ele irá criar dois diretórios, um chamado <code>minhas</code> e um segundo chamado <code>fotos</code>. Para usar espaços você pode usar caracteres de escape. </p>
+</div>
+<p>Para usar caracteres de escape, você usa a <code>\</code> (barra invertida). Por exemplo:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mkdir<span class="w"> </span>Minhas<span class="se">\ </span>Fotos<span class="w"> </span><span class="c1"># Cria um diretório chamado `Minhas Fotos`</span>
+</span></code></pre></div>
 <p>Você pode, também, delimitar o nome usando aspas (<code>"</code>) ou apóstrofos (<code>'</code>), como uma forma de indicar o nome sem usar caracteres de escape.</p>
 <p>O comando <code>mkdir</code> possui uma opção <code>-p</code> que permite que você crie um caminho completo de diretórios:</p>
-<pre><code class="language-bash">mkdir -p /home/dmyoko/teste/a/b/c
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/dmyoko/teste/a/b/c
+</span></code></pre></div>
 <p>Note que ele sabe lidar com o fato de que parte do caminho já existe (o diretório <code>/home/dmyoko/teste/</code>), e cria apenas os segmentos que não existem.</p>
 <p>Uma outra conveniência desta opção é que ela não resulta em erro, caso você tente criar um diretório que já existe, mesmo que seja o caminho completo. Isto é útil, principalmente para automações.</p>
-<pre><code class="language-bash">mkdir /home/dmyoko/teste/a/b/c #Resulta em erro
-mkdir -p /home/dmyoko/teste/a/b/c 
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mkdir<span class="w"> </span>/home/dmyoko/teste/a/b/c<span class="w"> </span><span class="c1">#Resulta em erro</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/dmyoko/teste/a/b/c<span class="w"> </span>
+</span></code></pre></div>
 <ul>
 <li>Manipulando hora de acesso e modificação de arquivos: <code>touch</code></li>
 </ul>
 <p>O comando touch força uma alteração na data de modificação de arquivos.</p>
 <p>Para entender o que isto significa, vamos rever o resultado do comando <code>ls</code> no screenshot anterior:
-<img alt="image" src="../../imagens/permissoes-ls-l.png" /></p>
+<a class="glightbox" href="../../imagens/permissoes-ls-l.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/permissoes-ls-l.png"></a></p>
 <p>Observe a coluna imediatamente à esquerda do nome do arquivo nesta lista, é uma informação de Data/Hora. Esta coluna indica a data/hora da última modificação que este arquivo teve. Ao usar o comando <code>touch</code>, você força uma atualização desta informação para a data/hora atual do sistema.</p>
 <p>Apesar disso parecer algo usado para um propósito muito específico, o comando <code>touch</code> é útil por que, ao ser usado para fazer isto em um arquivo inexistente, ele cria o arquivo. Por exemplo:</p>
-<pre><code class="language-bash">touch teste.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>touch<span class="w"> </span>teste.txt
+</span></code></pre></div>
 <p>Se o arquivo teste.txt não existir, ele será criado. Caso ele exista, somente a data/hora da última modificação serão afetados. Isto é útil quando trabalhamos com scripts de automação, pois garante a existência do arquivo sem incorrer num erro ao tentar criá-lo novamente ou substituí-lo acidentalmente.</p>
 <ul>
 <li>Copiando arquivos com <code>cp</code></li>
@@ -965,119 +1006,119 @@ mkdir -p /home/dmyoko/teste/a/b/c
 - O primeiro argumento é o caminho do arquivo de origem, que se deseja copiar
 - O segudno argumento é o caminho do arquivo de destino, para onde se deseja copiar o arquivo de origem</p>
 <p>Por exemplo:</p>
-<pre><code class="language-bash">cp teste.txt teste2.txt
-cp /home/dmyoko/teste /home/dmyoko/teste2 #Funciona com diretórios
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cp<span class="w"> </span>teste.txt<span class="w"> </span>teste2.txt
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>cp<span class="w"> </span>/home/dmyoko/teste<span class="w"> </span>/home/dmyoko/teste2<span class="w"> </span><span class="c1">#Funciona com diretórios</span>
+</span></code></pre></div>
 <ul>
 <li>Movendo arquivos com <code>mv</code></li>
 </ul>
 <p>Por outro lado, se a intenção é apenas mover arquivos entre caminhos, em vez criar uma cópia (fazendo com que o arquivo deixe de existir no caminho de origem), o comando <code>mv</code> pode ser usado de forma semelhante ao <code>cp</code>, passando os mesmos argumentos.</p>
-<pre><code class="language-bash">mv teste2.txt teste3.txt #Funciona como se o arquivo fosse renomeado
-mv teste3.txt /home/dmyoko/teste2
-mv /home/dmyoko/teste2 /home/dmyoko/teste3
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mv<span class="w"> </span>teste2.txt<span class="w"> </span>teste3.txt<span class="w"> </span><span class="c1">#Funciona como se o arquivo fosse renomeado</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>mv<span class="w"> </span>teste3.txt<span class="w"> </span>/home/dmyoko/teste2
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>mv<span class="w"> </span>/home/dmyoko/teste2<span class="w"> </span>/home/dmyoko/teste3
+</span></code></pre></div>
 <ul>
 <li>Removendo arquivos com <code>rm</code></li>
 </ul>
 <p>Para remover arquivos, usamos o comando <code>rm</code>. Ao contrário dos comandos anteriores <code>cp</code> e <code>mv</code>, o comando <code>rm</code> não afeta diretórios por padrão. Sendo usado especificamente para arquivos.</p>
-<p>Por exemplo:</p>
-<pre><code class="language-bash">rm /home/dmyoko/teste/teste3.txt
-</code></pre>
+<p>Por exemplo:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>rm<span class="w"> </span>/home/dmyoko/teste/teste3.txt
+</span></code></pre></div>
 <p>Para remover diretórios, existe o usando o comando <code>rmdir</code>, mas ele funciona apenas com diretórios vazios. Se houve qualquer arquivo dentro do diretório, ele se recusa a excluí-lo. Por exemplo:</p>
-<pre><code class="language-bash">rmdir /home/dmyoko/teste
-</code></pre>
-<p>Gera esta mensagem de erro:</p>
-<pre><code>rmdir: failed to remove 'teste': Directory not empty
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>rmdir<span class="w"> </span>/home/dmyoko/teste
+</span></code></pre></div>
+<p>Gera esta mensagem de erro:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>rmdir: failed to remove 'teste': Directory not empty
+</span></code></pre></div>
 <p>Para remover um diretório não vazio (excluindo seu conteúdo em consequência), o comando <code>rm</code> disponibiliza opções que permitem fazer isto. O motivo de exigir o uso destas opções é evitar que se exclua arquivos por acidente, forçando o usuário a fazer o uso deliberado delas para se certificar do que está fazendo.</p>
-<pre><code class="language-bash">rm -r /home/dmyoko/teste
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>rm<span class="w"> </span>-r<span class="w"> </span>/home/dmyoko/teste
+</span></code></pre></div>
 <h3 id="26-caminho-absoluto-caminho-relativo-e-caracteres-coringa">2.6 Caminho Absoluto, Caminho Relativo e Caracteres Coringa</h3>
 <p>Até aqui, temos usado o que chamamos de <em>Caminho Absoluto</em> (Absolute Path) para endereçar os arquivos e diretórios que usamos. Mas existem atalhos especiais que nos ajudam a facilitar a descrição de caminhos baseados no diretório atual em que nos localizamos.</p>
 <p>Uma das opções disponíveis no comando <code>ls</code> é a opção <code>-a</code> ou <code>--all</code>, que deixam de ignorar certos arquivos que normalmente não são exibidos. Por padrão, os arquivos que começam com <code>.</code> (ponto), ficam ocultos normalmente no comando <code>ls</code>. Vamos ver quais arquivos visualizamos ao usar esta opção:</p>
-<pre><code class="language-bash">ls -lha
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ls<span class="w"> </span>-lha
+</span></code></pre></div>
 <p>Dentre os novos arquivos que antes não eram exibidos, existem dois diretórios especiais: <code>.</code> e <code>..</code>.</p>
 <p>Estes diretórios são usados para nos referirmos a <em>Caminhos Relativos</em> (Relative Paths). O diretório <code>.</code>, aponta para o diretório atual, onde a sessão do bash está localizada (o diretório onde você se encontra e que será exibido com o comando <code>pwd</code>).</p>
 <p>Já o diretório <code>..</code>, aponta para o diretório pai do diretório atual, imediatamente superior na hierarquia de diretórios, o diretório que antecede o diretório atual na saída do comando <code>pwd</code>.</p>
 <p>Ambos estes diretórios podem ser usados como atalho para execução de comandos, como os comandos que usamos até aqui:</p>
-<pre><code class="language-bash"># Criando alguns elementos para demonstrar caminhos relativos
-cd ~ 
-mkdir -p teste/a/b/c
-cd teste/a/b
-touch c/teste.txt
-
-cp c/teste.txt .. # copia o arquivo dentro do diretório c para ~/teste/a
-mv c/teste.txt . # move o arquivo dentro do diretório c para ~/teste/a/b
-rm ../teste.txt # exclui o arquivo teste.txt do diretório ~/teste/a
-cp teste.txt ../.. #copia o arquivo teste.txt do diretório atual para ~/teste
-ls -lha ../.. # lista os arquivos do diretório ~/teste
-</code></pre>
-<p>Outro atalho útil para comandos usando o bash (e outros shells também costumam suportar), são <em>Caracteres Coringa</em> (Wild Cards), usados para selecionar arquivos que correspondem com a alguns padrões em seus nomes. Para demonstrar isto, vamos antes criar alguns arquivos:</p>
-<pre><code class="language-bash">cd ~/teste
-touch foo foo1 foo2 foo10 bar
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Criando alguns elementos para demonstrar caminhos relativos</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>teste/a/b/c
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">cd</span><span class="w"> </span>teste/a/b
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>touch<span class="w"> </span>c/teste.txt
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>cp<span class="w"> </span>c/teste.txt<span class="w"> </span>..<span class="w"> </span><span class="c1"># copia o arquivo dentro do diretório c para ~/teste/a</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>mv<span class="w"> </span>c/teste.txt<span class="w"> </span>.<span class="w"> </span><span class="c1"># move o arquivo dentro do diretório c para ~/teste/a/b</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>rm<span class="w"> </span>../teste.txt<span class="w"> </span><span class="c1"># exclui o arquivo teste.txt do diretório ~/teste/a</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>cp<span class="w"> </span>teste.txt<span class="w"> </span>../..<span class="w"> </span><span class="c1">#copia o arquivo teste.txt do diretório atual para ~/teste</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>ls<span class="w"> </span>-lha<span class="w"> </span>../..<span class="w"> </span><span class="c1"># lista os arquivos do diretório ~/teste</span>
+</span></code></pre></div>
+<p>Outro atalho útil para comandos usando o bash (e outros shells também costumam suportar), são <em>Caracteres Coringa</em> (Wild Cards), usados para selecionar arquivos que correspondem com a alguns padrões em seus nomes. Para demonstrar isto, vamos antes criar alguns arquivos:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">cd</span><span class="w"> </span>~/teste
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>touch<span class="w"> </span>foo<span class="w"> </span>foo1<span class="w"> </span>foo2<span class="w"> </span>foo10<span class="w"> </span>bar
+</span></code></pre></div>
 <p>Existem dois caracteres coringas: <code>?</code> e <code>*</code>.
-- o <code>?</code> serve como uma forma de se referir a qualquer caractere que esteja em uma determinada posição no nome do arquivo. Por exemplo:</p>
-<pre><code class="language-bash">ls foo? # Lista todos os arquivos cujo nome começam com `foo` e que possuem qualquer outro caractere único em seguida
-</code></pre>
+- o <code>?</code> serve como uma forma de se referir a qualquer caractere que esteja em uma determinada posição no nome do arquivo. Por exemplo:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>ls<span class="w"> </span>foo?<span class="w"> </span><span class="c1"># Lista todos os arquivos cujo nome começam com `foo` e que possuem qualquer outro caractere único em seguida</span>
+</span></code></pre></div>
 <p>Note que, como resultado deste comando, os arquivos <code>foo1</code> e <code>foo2</code> foram os únicos exibidos. Os demais arquivos foram ignorados por não combinarem com o padrão, pois <code>foo</code> não possui nenhum caractere na posição onde o <code>?</code> se encontra, e <code>foo10</code> possui ainda um caractere a mais (já o arquivo <code>bar</code> não corresponde em absolutamente nada com o padrão usado).</p>
 <ul>
-<li>o <code>*</code> serve como uma forma de se referir a quaisquer combinação de zero ou mais caracteres que possam estar em uma determinada posição no nome dos arquivos. Por exemplo:</li>
+<li>o <code>*</code> serve como uma forma de se referir a quaisquer combinação de zero ou mais caracteres que possam estar em uma determinada posição no nome dos arquivos. Por exemplo:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>ls<span class="w"> </span>foo*
+</span></code></pre></div></li>
 </ul>
-<pre><code class="language-bash">ls foo*
-</code></pre>
 <p>Desta vez, são listados todos os arquivos que começam com <code>foo</code>, independente de quantos caracteres a mais eles possuem ou não. O arquivo <code>bar</code>, como antes, é ignorado por não corresponder ao padrão.</p>
-<p>Você pode usar os caracteres coringa para designar arquivos e diretórios como argumentos para qualquer comando do <code>Bash</code>. Por exemplo:</p>
-<pre><code class="language-bash">rm f?? # apaga somente o arquivo foo
-cp foo* ./a # copia os arquivos foo1, foo2 e foo10 para ./a
-mv foo? ./a/b # move somente os arquivos foo1 e foo2 para ./a/b
-touch * # Atualiza a data/hora de modificação de todos os arquivos para a hora atual do sistema
-</code></pre>
+<p>Você pode usar os caracteres coringa para designar arquivos e diretórios como argumentos para qualquer comando do <code>Bash</code>. Por exemplo:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>rm<span class="w"> </span>f??<span class="w"> </span><span class="c1"># apaga somente o arquivo foo</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>cp<span class="w"> </span>foo*<span class="w"> </span>./a<span class="w"> </span><span class="c1"># copia os arquivos foo1, foo2 e foo10 para ./a</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>mv<span class="w"> </span>foo?<span class="w"> </span>./a/b<span class="w"> </span><span class="c1"># move somente os arquivos foo1 e foo2 para ./a/b</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>touch<span class="w"> </span>*<span class="w"> </span><span class="c1"># Atualiza a data/hora de modificação de todos os arquivos para a hora atual do sistema</span>
+</span></code></pre></div>
 <h3 id="27-conectando-programas">2.7 Conectando Programas</h3>
 <p>Uma das capacidades mais incríveis do <code>Bash</code> é a forma como é possível manipular a entrada e saída dos programas e conectá-las de diversas formas para redefinir o comportamento padrão dos comandos. Me permita explicar melhor antes, como o Shell lida com a entrada e saída dos comandos.</p>
 <h4 id="271-streams-de-entrada-e-saida-inputoutput-streams">2.7.1 Streams de Entrada e Saída (Input/Output Streams)</h4>
 <p>No Shell, programas possuem dois <em>streams</em> primários associados a eles: o stream de <em>entrada</em> (input), e o stream de <em>saída</em> (output). Quando o programa tenta ler a entrada, ele lê do stream de entrada, e quando ele imprime algo, ele imprime no stream de saída. Normalmente, os streams de entrada e saída de um programa são o seu terminal (quando rodando a partir do shell). Ou seja, seu teclado (à medida que você digita no shell) e a janela do terminal na sua tela. Contudo, nós podemos também religar estes streams de outras formas.</p>
-<blockquote>
-<p>[!IMPORTANT]
-<strong>Streams</strong> em computação, é um termo comum usado para designar um fluxo de dados que não acontece de uma única vez, mas que é feito de forma contínua, ao longo do tempo, em pequenos lotes.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Streams</strong> em computação, é um termo comum usado para designar um fluxo de dados que não acontece de uma única vez, mas que é feito de forma contínua, ao longo do tempo, em pequenos lotes.</p>
 <p>Aqui estamos falando de Streams sendo usados para o fluxo contínuo de dados de entrada e de saída de um comando ou programa executado no shell. Mas o conceito é muito comum em diversas outras áreas da computação, como na leitura/escrita de arquivos no disco, ou obtendo/enviando dados através da rede/internet.</p>
 <p>O termo ficou ainda mais popular com a transmissão de conteúdo online como chamadas de vídeo ou transmissões audiovisuais em <em>lives</em> na internet.</p>
-</blockquote>
+</div>
 <h4 id="272-religamento-de-streams">2.7.2 Religamento de Streams</h4>
 <p>A forma mais simples de religar streams no <code>Bash</code> é através dos operadores <code>&gt;</code> (para religar o stream de saída do programa) e <code>&lt;</code> (para religar o stream de entrada do programa). Vamos ver alguns exemplos:</p>
-<pre><code class="language-bash">ls ~ -lha &gt; ~/teste/ls.txt # Religa o stream de saída do comando ls para o arquivo ~/teste/ls.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>ls<span class="w"> </span>~<span class="w"> </span>-lha<span class="w"> </span>&gt;<span class="w"> </span>~/teste/ls.txt<span class="w"> </span><span class="c1"># Religa o stream de saída do comando ls para o arquivo ~/teste/ls.txt</span>
+</span></code></pre></div>
 <p>Note que o comando <code>ls</code> acima não imprimiu a saída no terminal como de costume. Por outro lado, você pode conferir um novo arquivo criado no diretório <code>~/teste</code> chamando <code>ls.txt</code>. Você pode usar o comando <code>cat</code> (que imprime o conteúdo de um arquivo no terminal) e você irá notar que o seu conteúdo é a saída do comando <code>ls</code> que teria sido impressa no terminal se não a tivéssemos religado.</p>
 <p>Uma forma de conferir o conteúdo do arquivo <code>~/teste/ls.txt</code>, é o utilizando como stream de entrada do comando <code>cat</code>, que imprime o stream de entrada no stream de saída. Ao religar o stream de entrada do comando <code>cat</code> usando o arquivo <code>~/teste/ls.txt</code> sem religar o stream de saída, ele irá imprimir o conteúdo no terminal.</p>
-<pre><code class="language-bash">cat &lt; ~/teste/ls.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>cat<span class="w"> </span>&lt;<span class="w"> </span>~/teste/ls.txt
+</span></code></pre></div>
 <p>O comando <code>cat</code>, quando não especificado nenhum argumento, usa o terminal como stream de entrada (capturando tudo o que o usuário digitar) e as imprime no stream de saída (que também é o próprio terminal, imprimindo exatamente o que é digitado), à medida que os dados são enviados (normalmente, sempre que uma linha é finalizada). O resultado padrão do comando <code>cat</code>, é ter suas linhas repetidas, uma vindo pela entrada, e logo em seguida sendo impressa na saída.</p>
-<pre><code class="language-bash">cat # demonstrando os dados digitados no stream de entrada, e impressos na saída imediatamente depois
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>cat<span class="w"> </span><span class="c1"># demonstrando os dados digitados no stream de entrada, e impressos na saída imediatamente depois</span>
+</span></code></pre></div>
 <p>Por exemplo, é possível usar o cat como um editor de um novo arquivo, que será criado usando a religação do stream de saída, digitando o conteúdo a partir do stream de entrada.</p>
-<pre><code class="language-bash">cat &gt; ~/teste/arquivo.txt # Ao digitar conteúdo na entrada, ele será direcionado para o arquivo.txt
-</code></pre>
-<blockquote>
-<p>[!NOTE]
-Para encerrar a leitura da entrada, nós usamos o comando Ctrl+Z. Isto envia um sinal para o processo que está executando o comando <code>cat</code>, orientando-o a parar.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/teste/arquivo.txt<span class="w"> </span><span class="c1"># Ao digitar conteúdo na entrada, ele será direcionado para o arquivo.txt</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para encerrar a leitura da entrada, nós usamos o comando Ctrl+Z. Isto envia um sinal para o processo que está executando o comando <code>cat</code>, orientando-o a parar.</p>
 <p>Existem outras formas de enviar sinais aos processos quando estamos executando programas no bash, mas veremos isto no futuro.</p>
-</blockquote>
+</div>
 <p>Um outro operador útil é o operador <code>&gt;&gt;</code>. Ele tem, basicamente o mesmo efeito do operador <code>&gt;</code>, que religa o stream de saída, com exceção de que, se a saída é redirecionada a um arquivo que já existe, ele concatena a saída do programa atual ao conteúdo original do arquivo, uma operação popularmente conhecida na computação como <code>append</code>. Ou seja, o conteúdo original do arquivo é mantido, e o novo conteúdo é enviado ao final dele.</p>
-<pre><code class="language-bash">ls -lha ~ &gt;&gt; ~/teste/arquivo.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>ls<span class="w"> </span>-lha<span class="w"> </span>~<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/teste/arquivo.txt
+</span></code></pre></div>
 <p>Note que o conteúdo original do <code>arquivo.txt</code> foi mantido, e o resultado do comando <code>ls</code> foi inserido depois da última linha original.</p>
 <p>Existe um operador que conecta a saída de um comando do bash à entrada de outro comando, criando uma cadeia de comandos, ou "esteira" (<em>pipeline</em>), de etapas pelas quais os dados resultantes de um programa são aplicados ao outro, sendo transformados até produzirem uma saída desejada. Este operador é o <code>|</code> (<em>pipe</em>).</p>
-<pre><code class="language-bash">ls -lha ~ | grep Jul | head -5 | tee /home/dmyoko/teste/pipeline.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>ls<span class="w"> </span>-lha<span class="w"> </span>~<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Jul<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>/home/dmyoko/teste/pipeline.txt
+</span></code></pre></div>
 <p>Aqui temos uma pipeline que faz a seguinte sequência:
 - <code>ls -lha ~</code> - lista todos os arquivos da pasta <code>home</code>, em formato de lista, com tamanhos humanamente legíveis, e inclindo os arquivos ocultos (que começam com <code>.</code>)
 - <code>grep Jul</code> - o comando <code>grep</code> filtra as linhas vindas da entrada de acordo com algum padrão (no caso, <code>Jul</code>). Basicamente ele pega o resultado do <code>ls</code> e separa somente os arquivos modificados em Julho
 - <code>head -5</code>- O comando <code>head</code> toma somente as primeiras linhas da entrada. Por padrão, ele toma somente as primeiras 10, mas a opção <code>-5</code> faz com que ele pegue somente as primeiras 5 e ignore as demais linhas.
 - <code>tee /&lt;caminho&gt;</code> - O comando <code>tee</code> é um comando similar ao comando <code>cat</code>, com a diferença que, além de imprimir no stream de saída, ele também escreve o arquivo. No caso acima, ele escreve no terminal e no arquivo <code>/home/dmyoko/teste/pipeline.txt</code>.
     - Por exemplo, é possível criar dois arquivos a partir do comando <code>tee</code>:</p>
-<pre><code class="language-bash">ls -lha ~ | grep Jul | head -5 | tee /home/dmyoko/teste/pipeline.txt &gt; /home/dmyoko/teste/pipeline2.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>ls<span class="w"> </span>-lha<span class="w"> </span>~<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Jul<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>/home/dmyoko/teste/pipeline.txt<span class="w"> </span>&gt;<span class="w"> </span>/home/dmyoko/teste/pipeline2.txt
+</span></code></pre></div>
 <ul>
 <li>A linha acima instrui instrui o <code>tee</code> a escrever a entrada no arquivo <code>/home/dmyoko/teste/pipeline.txt</code> e religa o stream de saída para o arquivo <code>/home/dmyoko/teste/pipeline2.txt</code> usando o operador <code>&gt;</code>.</li>
 <li>Imagine talvez, usar o operador <code>&gt;&gt;</code> nesta linha, e qual será o resultado. Como isso iria diferir ambos os arquivos.</li>
@@ -1085,14 +1126,16 @@ Para encerrar a leitura da entrada, nós usamos o comando Ctrl+Z. Isto envia um 
 <p>Nós iremos usar muito o operador de pipe (<code>|</code>) na aula em que iremos tratar de <em>Manipulação de Dados</em> no Shell.</p>
 <h3 id="28-comandos-uteis">2.8 Comandos Úteis</h3>
 <ul>
-<li><code>man</code>
-O comando <code>man</code> exibe um manual de diversos comandos do <code>bash</code>. Usa-se passando como argumento o nome do comando que se deseja consultar:</li>
-</ul>
-<pre><code class="language-bash">man mkdir
-</code></pre>
-<ul>
-<li><code>find</code>
-O comando <code>find</code> ajuda a localizar arquivos, procurando não somente no diretório usado como argumento, mas automaticamente buscando em todos os seus subdiretórios. Se um diretório não for passado como argumento, o comando <code>find</code> usa o diretório atual por padrão. Ele aceita diversas opções para ajudar a encontrar arquivos de acordo com critérios específicos, como o nome do arquivo (opção <code>-name</code> seguido do nome que se busca, para usar coringas é necessário delimitar com apóstrofos), e muitas outras opções úteis.</li>
+<li>
+<p><code>man</code>
+O comando <code>man</code> exibe um manual de diversos comandos do <code>bash</code>. Usa-se passando como argumento o nome do comando que se deseja consultar:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>man<span class="w"> </span>mkdir
+</span></code></pre></div>
+</li>
+<li>
+<p><code>find</code>
+O comando <code>find</code> ajuda a localizar arquivos, procurando não somente no diretório usado como argumento, mas automaticamente buscando em todos os seus subdiretórios. Se um diretório não for passado como argumento, o comando <code>find</code> usa o diretório atual por padrão. Ele aceita diversas opções para ajudar a encontrar arquivos de acordo com critérios específicos, como o nome do arquivo (opção <code>-name</code> seguido do nome que se busca, para usar coringas é necessário delimitar com apóstrofos), e muitas outras opções úteis.</p>
+</li>
 </ul>
 <p>Consulte o manual (<code>man find</code>) para ler sobre todas as opções disponíveis.</p>
 <ul>
@@ -1121,7 +1164,117 @@ O comando <code>less</code> é ótimo para ser usado com comandos que resultam e
 <p>Nesta aula tivemos um contato bastante profundo com o <code>Bash</code> e a abordagem de trabalhar a partir de um <code>Shell</code>. Ainda temos muito o que explorar pra explorarmos o shell e conseguir fazer dele um lugar onde possamos nos sentir mais confortáveis e produtivos o suficiente para fazer dele nosso lugar de trabalho. Mas nas próximas aulas, ficaremos cada vez mais próximos disto.</p>
 <p>Com esta introdução, podemos explorar outras ferramentas, como a construção de scripts, manipular dados e aprender as convenções de como é a vida na interface de linha de comando (<em>Command Line Interface</em> ou, simplesmente, <em>CLI</em>).</p>
 <p>Bem-vindo a esta jornada, e espero que este primeiro passeio tenha despertado o interesse em prosseguir com as próximas aulas.</p>
-<p><a href="../02-scripting/">Próxima Aula: Aula 2 - Criando Scripts com Bash</a></p>
+<p><a href="../02-scripting/">Próxima Aula: Aula 2 - Criando Scripts com Bash</a></p></div><style type="text/css">.quiz {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+/* Set margin-top of first quiz child */
+.quiz > *:first-child {
+  margin-top: 0;
+}
+.hidden {
+  display: none;
+}
+
+form button {
+  background-color: var(--md-primary-fg-color);
+  border: none;
+  color: var(--md-primary-bg-color);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.wrong label {
+  color: red;
+}
+.correct label {
+  color: green;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+fieldset input {
+  margin: 0 10px;
+}
+fieldset label {
+  margin: 0 10px;
+}
+
+label.correct {
+  color: green;
+}
+label.wrong {
+  color: red;
+}
+input[type='radio'].correct {
+  accent-color: green;
+}
+input[type='radio'].wrong {
+  accent-color: red;
+}
+.content {
+  margin: 10px;
+}
+</style><script type="text/javascript" defer>document.querySelectorAll('.quiz').forEach((quiz) => {
+  let form = quiz.querySelector('form');
+  let fieldset = form.querySelector('fieldset');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let selectedAnswers = form.querySelectorAll('input[name="answer"]:checked');
+    let correctAnswers = fieldset.querySelectorAll(
+      'input[name="answer"][correct]'
+    );
+    // Check if all correct answers are selected
+    let is_correct = selectedAnswers.length === correctAnswers.length;
+    for (let i = 0; i < selectedAnswers.length; i++) {
+      if (!selectedAnswers[i].hasAttribute('correct')) {
+        is_correct = false;
+        break;
+      }
+    }
+    let section = quiz.querySelector('section');
+    if (is_correct) {
+      section.classList.remove('hidden');
+      resetFieldset(fieldset);
+      // Mark all fields with colors
+      const allAnswers = fieldset.querySelectorAll('input[name="answer"]');
+      for (let i = 0; i < allAnswers.length; i++) {
+        if (allAnswers[i].hasAttribute('correct')) {
+          allAnswers[i].parentElement.classList.add('correct');
+        } else {
+          allAnswers[i].parentElement.classList.add('wrong');
+        }
+      }
+    } else {
+      section.classList.add('hidden');
+      resetFieldset(fieldset);
+      // Mark wrong fields with colors
+      for (let i = 0; i < selectedAnswers.length; i++) {
+        if (!selectedAnswers[i].hasAttribute('correct')) {
+          selectedAnswers[i].parentElement.classList.add('wrong');
+        } else {
+          selectedAnswers[i].parentElement.classList.add('correct');
+        }
+      }
+    }
+  });
+});
+
+function resetFieldset(fieldset) {
+  const fieldsetChildren = fieldset.children;
+  for (let i = 0; i < fieldsetChildren.length; i++) {
+    fieldsetChildren[i].classList.remove('wrong');
+    fieldsetChildren[i].classList.remove('correct');
+  }
+}
+</script>
 
 
 
@@ -1129,6 +1282,41 @@ O comando <code>less</code> é ótimo para ser usado com comandos que resultam e
 
 
 
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
+  </span>
+
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contribuidores">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+      
+    </span>
+    <nav>
+      dmyoko
+    </nav>
+  </span>
+
+    
+    
+  </aside>
 
 
 
@@ -1160,6 +1348,43 @@ O comando <code>less</code> é ótimo para ser usado com comandos que resultam e
   
 </div>
       
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.twitch.tv/codandocomotio" target="_blank" rel="noopener" title="www.twitch.tv" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M391.17 103.47h-38.63v109.7h38.63ZM285 103h-38.63v109.75H285ZM120.83 0 24.31 91.42v329.16h115.83V512l96.53-91.42h77.25L487.69 256V0Zm328.24 237.75-77.22 73.12h-77.24l-67.6 64v-64h-86.87V36.58h308.93Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/moreirayokoyama" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@CodandoComOTio" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1176,5 +1401,7 @@ O comando <code>less</code> é ótimo para ser usado com comandos que resultam e
       <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
