@@ -1,4 +1,5 @@
 site_name: Coisas Que Não Ensinam em TI
+repo_url: https://github.com/moreirayokoyama/coisas-que-nao-ensinam-em-ti
 repo_name: moreirayokoyama/coisas-que-nao-ensinam-em-ti
 
 theme:
@@ -18,7 +19,7 @@ theme:
         icon: material/weather-sunny
         name: Modo claro
     - scheme: default
-      primary: teal
+      primary: indigo
       toggle:
         icon: material/weather-night
         name: Modo noturno
