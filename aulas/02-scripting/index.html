@@ -488,9 +488,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#24-operadores" class="md-nav__link">
+  <a href="#24-operadocoes-logicas-e-composicao-de-comandos" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4 - Operadores
+      2.4 - Operadoções Lógicas e Composição de Comandos
     </span>
   </a>
   
@@ -716,9 +716,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#24-operadores" class="md-nav__link">
+  <a href="#24-operadocoes-logicas-e-composicao-de-comandos" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4 - Operadores
+      2.4 - Operadoções Lógicas e Composição de Comandos
     </span>
   </a>
   
@@ -909,7 +909,45 @@
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>cat<span class="w"> </span>~/.profile_bash
 </span></code></pre></div>
 <p>É interessante saber como o ambiente é criado na inicialização da sessão (através de arquivos como estes), para entendermos que todo o ambiente é facilmente configurável no shell, e que as coisas não acontecem como mágica.</p>
-<h2 id="24-operadores">2.4 - Operadores</h2>
+<h2 id="24-operadocoes-logicas-e-composicao-de-comandos">2.4 - Operadoções Lógicas e Composição de Comandos</h2>
+<p>Bash suporta uma forma de criar uma composição de comandos em uma única instrução usando o separador <code>;</code>. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá mundo"</span><span class="p">;</span><span class="w"> </span>date<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bom trabalho."</span>
+</span></code></pre></div>
+<p>Instruções como esta acima executam cada comando na ordem em que eles são escritos, mas sem conectá-los de forma alguma (como vimos na aula anterior na seção <a href="../01-shell/#27-conectando-programas">Conectando Programas</a>).</p>
+<p>Usar este tipo de composição executa todos os comandos independente do resultado de qualquer um deles. Se houver um erro em algum comando desta cadeia, isso não fará com que o bash deixe de executar os demais comandos.</p>
+<p>Existem cenários onde a execução de alguns comandos da composição pode gerar resultados que afetem o funcionamento dos demais comandos. Para estes cenários, usamos operações lógicas.</p>
+<p>Bash, como qualquer outra linguagem de programação suporta certos tipos de operações lógicas. Operações lógicas são operações que geram resultados binários (<em>verdadeiro</em> ou <em>falso</em>), e que podem ser usadas para criar uma composição de comandos baseada no resultado dos comandos usados.</p>
+<p>Os operadores lógicos que usaremos aqui são o <code>||</code> (operador <em>OU</em>) e o <code>&amp;&amp;</code> (operador <em>E</em>). E os valores lógicos em Bash são <code>true</code> (representa o valor <em>verdadeiro</em>) e <code>false</code> (que representa o valor <em>falso</em>).</p>
+<p>Vamos ver alguns exemplos básicos de expressões lógicas:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">false</span>
+</span></code></pre></div>
+<p>Os operadores lógicos possuem a capacidade de garantir certos resultados baseados no valor dos operandos: O operador <code>||</code> (<em>OU</em>) resulta em <code>true</code> (<em>verdadeiro</em>) quando qualquer um dos operandos, ou ambos, são verdadeiros, e só resulta em <code>false</code>(<em>falso</em>) quando ambos os operandos são falsos. Por outro lado, o operador <code>&amp;&amp;</code> (<em>E</em>), só resulta em true quando ambos os operandos são verdadeiros, mas resulta em false quando qualquer um deles, ou ambos, são false.</p>
+<p>Ambos os operadores também possuem a propriedade de descartar o segundo operando de acordo com certos critérios sobre o primeiro. Por exemplo, por que o operador <code>||</code> resulta em <code>true</code> caso qualquer operando seja verdadeiro, se o primeiro operando (à esquerda do operador) resultar em <code>true</code>, o operador descarta qualquer que seja o valor do segundo operando (à direita do operador) e resulta imediatamente em <code>true</code>.</p>
+<p>Já o operador <code>&amp;&amp;</code>, que resulta <code>false</code> caso qualquer um dos operandos seja falso, descarta o segundo operando quando o primeiro já resultou em <code>false</code>, antecipando o resultado da operação.</p>
+<p>Estas propriedades são úteis, principalmente quando consideramos que um comando executado sem resultar em erros é considerado como resultando em <code>true</code>, mas caso resulte em qualquer erro tem sua execução resultando como valor <code>false</code>. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando NÃO SERÁ executado"</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando SERÁ executado"</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando SERÁ executado"</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando NÃO SERÁ executado"</span>
+</span></code></pre></div>
+<p>Isto torna possível criarmos uma composição mais sofisticada de comandos, fazendo com que o resultado de alguns comandos influenciem a execução ou não dos demais.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá mundo"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando NÃO SERÁ executado"</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>mv<span class="w"> </span>xpto.txt<span class="w"> </span>~<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Houve algum problema no comando anterior"</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Esta linha será exibida"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Esta também"</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>mv<span class="w"> </span>xpto.txt<span class="w"> </span>~<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Houve algum problema no comando anterior, criando o arquivo vazio"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>touch<span class="w"> </span>~/xpto.txt<span class="o">)</span>
+</span></code></pre></div>
+<p>Desta forma podemos decidir se queremos apenas que os comandos sejam executados de forma independente (usando o separador <code>;</code>), ou se queremos usar o resultado dos comandos intermediários na composição para definirmos se os comandos posteriores serão ou não executados.</p>
 <h2 id="25-substituicoes-de-comando">2.5 - Substituições de Comando</h2>
 <h2 id="26-expansoes-do-shell">2.6 - Expansões do Shell</h2>
 <h2 id="27-stream-de-erro">2.7 - Stream de Erro</h2>
