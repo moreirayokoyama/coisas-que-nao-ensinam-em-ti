@@ -401,6 +401,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aula 03 - O Ambiente da Linha de Comando
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -410,6 +421,49 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#27-pseudo-dispositivos-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Pseudo-dispositivos úteis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 Pseudo-dispositivos úteis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#271-devnull" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.1 /dev/null
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -443,6 +497,38 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#27-pseudo-dispositivos-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Pseudo-dispositivos úteis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 Pseudo-dispositivos úteis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#271-devnull" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.1 /dev/null
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -459,7 +545,14 @@
   
 
 
-<h1 id="aula-03-o-ambiente-da-linha-de-comando">Aula 03 - O Ambiente da Linha de Comando</h1><style type="text/css">.quiz {
+<div><h1 id="aula-03-o-ambiente-da-linha-de-comando">Aula 03 - O Ambiente da Linha de Comando</h1>
+<h2 id="27-pseudo-dispositivos-uteis">2.7 Pseudo-dispositivos úteis</h2>
+<p>Pseudo dispositivos são dispositivos falsos que podemos usar para alguns fins específicos durante o uso do terminal, como usá-los como stream de entrada ou de saída na execução de programas.</p>
+<h3 id="271-devnull">2.7.1 <code>/dev/null</code></h3>
+<p>O primeiro pseudo-dispositivo que iremos ver é o <code>/dev/null</code>, para o qual todos os bytes escritos são descartados. É uma forma de religar o stream de saída e/ou o stream de erro para serem ignorados quando não nos importamos com eles.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-lha<span class="w"> </span>/bin<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</span></code></pre></div>
+<p>A instrução acima executa o comando <code>ls</code> no diretório <code>/bin</code> mas religa o stream de saída ao pseudo-dispositivo <code>/dev/null</code> fazendo com que a saída seja completamente ignorada, e somente mensagens de erro serão escritas no terminal.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -590,7 +683,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 18, 2024</span>
   </span>
 
     
