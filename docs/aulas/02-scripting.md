@@ -18,18 +18,18 @@ echo Hello world
 
 Mas, é de bom tom seguir a convenção e usar delimitadores (`"` ou `'`) para garantir a consistência dos argumentos. Ao longo desta aula, manter esta consistência fará mais sentido, à medida que veremos como argumentos podem ser transformados ou reutilizados.
 
-## 2.2 - Expressões
-O uso de delimitadores, como o que usamos para definir o argumento "Hello world" para o comando `echo`, é um exemplo de uma _expressão_. Expressões são formas de criar valores em uma linguagem de programação, e em Bash não é diferente. Expressões de textos são as mais simples que podemos usar, mas existem outros tipos de expressões, e falaremos um pouco sobre alguns deles.
+## 2.2 - Expressões e Expansões do Shell
+O uso de delimitadores, como o que usamos para definir o argumento `"Hello world"` para o comando `echo`, é um exemplo de uma _expressão_. Expressões são formas de criar valores em uma linguagem de programação, e em Bash não é diferente. Expressões de textos são as mais simples que podemos usar, mas existem outros tipos de expressões, e falaremos um pouco sobre alguns deles.
 
-Um tipo de expressão comum em Bash, é o resultado da execução de um comando. Para criar expressões deste tipo, usamos a notação `$(<comando-bash>)`.
+Um tipo de expressão comum em Bash, são expressões que expandem seu conteúdo baseado em algumas operações disponíveis. Existem vários tipos de expansões que podemos utiliza quando escrevemos expressões em Bash. Uma delas é, por exemplo, expandir o resultado da execução de um comando para utilizá-lo em uma instrução. Para criar expressões deste tipo, usamos a expansão `$(<comando-bash>)`.
 
 ```bash
 echo $(ls)
 ```
 
-A linha acima executa o comando `ls` e usa a saída como resultado de uma expressão que é então passada para o comando `echo`. O resultado é semelhante à execução do comando `ls` no shell (a exibição da lista de arquivos). A diferença é que podemos usar esta expressão em outras operações, não apenas para exibí-las (usando o comando `echo`), mas também, por exemplo, atribuir este valor a variáveis e reutilizá-la para outros fins, como veremos em breve.
+A linha acima executa o comando `ls` e usa a saída como uma expressão que é então passada para o comando `echo`. O resultado é semelhante à execução do comando `ls` no shell (a exibição da lista de arquivos). A diferença é que podemos usar esta expansão em outras operações, não apenas para exibí-las (usando o comando `echo`), mas também, por exemplo, atribuir este valor a variáveis e reutilizá-las para outros fins, como veremos em breve.
 
-É possível, também, executar expressões aritméticas e exibir seu resultado. Para criarmos uma expressão aritmética, usamos a notação `$(( <expressão-aritmética> ))`. Desta forma, o shell não tentará interpretar a expressão como se fosse um comando.
+É possível, também, expandir expressões aritméticas e exibir seu resultado. Para criarmos uma expressão aritmética, usamos a expansão `$(( <expressão-aritmética> ))`. Desta forma, o shell não tentará interpretar a expressão como se fosse um comando.
 
 ```bash
 echo $((7 + 8))
@@ -140,7 +140,7 @@ cat ~/.profile_bash
 
 É interessante saber como o ambiente é criado na inicialização da sessão (através de arquivos como estes), para entendermos que todo o ambiente é facilmente configurável no shell, e que as coisas não acontecem como mágica.
 
-## 2.4 - Operadoções Lógicas e Composição de Comandos
+## 2.4 - Composição de Comandos e Operações Lógicas
 Bash suporta uma forma de criar uma composição de comandos em uma única instrução usando o separador `;`. Por exemplo:
 
 ```bash
@@ -199,13 +199,82 @@ mv xpto.txt ~ || (echo "Houve algum problema no comando anterior, criando o arqu
 
 Desta forma podemos decidir se queremos apenas que os comandos sejam executados de forma independente (usando o separador `;`), ou se queremos usar o resultado dos comandos intermediários na composição para definirmos se os comandos posteriores serão ou não executados.
 
-## 2.5 - Substituições de Comando 
-## 2.6 - Expansões do Shell
-## 2.7 - Stream de Erro
-## 2.8 - Shell Script
-### 2.8.1 - Variáveis Especiais pré-definidas
-### 2.8.2 - Executando Scripts
+## 2.5 - Expansões de Chave
+_Expansões de Chave_ são um tipo específico de expansão do shell, como os que vimos anteriormente (`$()` e `$(())`), que usa expressões cercadas por chaves (`{}`) para expandir para um conjunto de valores. Por exemplo:
+
+ ```bash
+ echo a{b,c,d}e
+ ```
+ A linha acima vai expandir a expressão `a{b,c,d}e` para `abe ace ade`. Note algumas coisas:
+ - Cada elemento dentro das chaves foi usado para materializar um elemento no resultado final
+ - O resultado foi a expansão dos elementos separados por espaço, na ordem em que eles estão dentro das chaves
+
+É possível combinar mais de uma expansão de chaves na mesma expressão:
+```bash
+echo ab{c,d}{e,f}gh
+```
+
+Não precisamos nos limitar a apenas conjuntos de elementos formados por uma única letra, mas podemos usar valores de tamanhos variados.
+
+```bash
+echo ab{cde,fghi}j 
+```
+
+O exemplo acima mostra uma expansão com apenas dois elementos, cada um com um tamanho diferente.
+
+Também podemos expandir os elementos dentro das chaves para o intervalo de uma sequência ncremental usando a expansão `..`. Por exemplo:
+```bash
+echo {1..9}
+echo {a..z} # podemos usar letras no lugar de números
+echo a{1..5}{b..f}g
+```
+
+Podemos também controlar a forma como estas sequências são incrementadas:
+```bash
+echo {1..9..2} # Incrementa de dois em dois
+echo {1..9..3} # ou de três em três
+echo {a..z..3} # também funciona com letras
+```
+
+O fato de expansões deste tipo serem formadas com os elementos separados por espaço as tornam úteis quando usamos estas expansões com comandos que recebem múltiplos argumentos e que podem ser usados de forma mais produtiva. Por exemplo:
+
+```bash
+mkdir {foo,bar} # cria dois diretórios
+touch {foo,bar}/{a..h}.{txt,sh} # cria nos dois diretórios um conjunto arquivos .txt
+mkdir baz
+cp foo/{a..h..2}.txt baz
+cp bar/{a..h..2}.sh baz
+```
+
+## 2.6 - Stream de Erro
+Na aula passada nós falamos um pouco sobre os _streams_ que os programas recebem: o _stream de entrada_ e o _stream de saída_. Existe um terceiro stream que não mencionamos, que é o _stream de erro_. Ele designa ao programa que está sendo executado para onde as mensagens de erro serão enviadas.
+
+Por padrão, o stream erro é o próprio terminal, como também é o padrão para o stream de saída.
+
+```bash
+mv zaz ~
+```
+
+Considerando que não exista um arquivo ou diretório chamado `zaz`, o comando acima irá gerar uma mensagem de erro e imprimir no terminal. Esta mensagem de erro foi escrita no stream de erro. Para observar isto, podemos religar o stream de saída a um arquivo e observar o comportamento do comando:
+
+```bash
+mv zaz ~ > zaz.out
+cat zaz.out
+```
+
+Observer que, apesar de termos religado o stream de saída para o arquivo `zaz.out`, a mensagem de erro continua sendo exibida e o arquivo gerado está vazio. Isto demonstra como a mensagem gerada não foi produzida no stream de saída. Mas, como podemos religar o stream de erro a um arquivo? Podemos fazer isto através do operador `2>`:
+
+```bash
+mv zaz ~ > zaz.out 2> zaz.err
+cat zaz.out
+```
+
+Desta vez a mensagem de erro não foi impressa no terminal, e o arquivo `zaz.err` foi criado, e ele contém a mensagem de erro que antes víamos impressa nos comandos anteriores. Desta forma podemos separar tanto o conteúdo escrito no stream de saída quanto o conteúdo escrito no stream de erro do terminal.
+
+## 2.7 - Shell Script
+### 2.7.1 - Variáveis Especiais pré-definidas
+### 2.7.2 - Executando Scripts
 - shebang
-### 2.8.3 - Estruturas de controle
-### 2.8.4 - Funções
-## 2.9 - Conclusão
+### 2.7.3 - Estruturas de controle
+### 2.7.4 - Funções
+## 2.8 - Conclusão
