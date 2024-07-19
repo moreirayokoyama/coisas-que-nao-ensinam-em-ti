@@ -525,18 +525,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#271-variaveis-especiais-pre-definidas" class="md-nav__link">
+  <a href="#271-executando-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.1 - Variáveis Especiais pré-definidas
+      2.7.1 - Executando Scripts
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#272-executando-scripts" class="md-nav__link">
+  <a href="#272-recebendo-argumentos-em-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.2 - Executando Scripts
+      2.7.2 - Recebendo argumentos em Scripts
     </span>
   </a>
   
@@ -555,6 +555,15 @@
   <a href="#274-funcoes" class="md-nav__link">
     <span class="md-ellipsis">
       2.7.4 - Funções
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#275-carregando-coisas-no-shell-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.5 - Carregando coisas no Shell (source)
     </span>
   </a>
   
@@ -744,18 +753,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#271-variaveis-especiais-pre-definidas" class="md-nav__link">
+  <a href="#271-executando-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.1 - Variáveis Especiais pré-definidas
+      2.7.1 - Executando Scripts
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#272-executando-scripts" class="md-nav__link">
+  <a href="#272-recebendo-argumentos-em-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.2 - Executando Scripts
+      2.7.2 - Recebendo argumentos em Scripts
     </span>
   </a>
   
@@ -774,6 +783,15 @@
   <a href="#274-funcoes" class="md-nav__link">
     <span class="md-ellipsis">
       2.7.4 - Funções
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#275-carregando-coisas-no-shell-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.5 - Carregando coisas no Shell (source)
     </span>
   </a>
   
@@ -976,13 +994,82 @@
 </span></code></pre></div>
 <p>Desta vez a mensagem de erro não foi impressa no terminal, e o arquivo <code>zaz.err</code> foi criado, e ele contém a mensagem de erro que antes víamos impressa nos comandos anteriores. Desta forma podemos separar tanto o conteúdo escrito no stream de saída quanto o conteúdo escrito no stream de erro do terminal.</p>
 <h2 id="27-shell-script">2.7 - Shell Script</h2>
-<h3 id="271-variaveis-especiais-pre-definidas">2.7.1 - Variáveis Especiais pré-definidas</h3>
-<h3 id="272-executando-scripts">2.7.2 - Executando Scripts</h3>
-<ul>
-<li>shebang</li>
-</ul>
+<p>A capacidade de usar comandos de forma produtiva no Bash nos habilita a elevar esta produtividade através de scripts.</p>
+<p>Scripts são arquivos contendo comandos que serão executados pelo shell em sequência, podendo servir como uma ferramenta de automação, ou até mesmo programação.</p>
+<p>O uso de scripts usando Bash para automação é tão comum que existem profissionais em posições que se apoiam em Shell Script, como principal atividade no seu dia-a-dia.</p>
+<p>Para criar um script, tudo o que precisamos fazer é criar um arquivo texto contendo a lista de comandos que queremos executar (convencionalmente, usando a extensão <code>.sh</code>) e o executamos religando o stream de entrada do comando <code>bash</code> ao arquivo do script.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>O comando <code>bash</code> é, na realidade, o executável do shell que temos usado até agora. Ao invocarmos o comando <code>bash</code> passando o nosso script como argumento, não estamos fazendo nada diferente do que seria abrir o shell e executarmos os comandos manualmente. A única dirença é que estamos fazendo de forma automatizada.</p>
+</div>
+<p>Vamos ver como isto funciona.</p>
+<h3 id="271-executando-scripts">2.7.1 - Executando Scripts</h3>
+<p>Vamos criar o nosso primeiro Script executando o famoso rito de iniciação que discutimos no início desta aula, <code>Olá, mundo</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>ola.sh
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá, mundo"</span>
+</span></code></pre></div>
+<p>Para executar nosso script, usamos o comando <code>sh</code>.
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>bash<span class="w"> </span>&lt;<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<p>O comando <code>sh</code> lê o conteúdo do arquivo <code>olá.sh</code> e o interpreta, executando seus comandos. Podemos, incrementar este script com mais comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>ola.sh
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>date
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bom trabalho"</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>bash<span class="w"> </span>&lt;<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<p>Note como, desta vez, ele executou todos os comandos do nosso script.</p>
+<p>Na verdade, o comando <code>bash</code> é capaz de receber um arquivo de script como argumento e interpretá-lo sem que precisemos religar seu stream de entrada.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>bash<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<p>Outra forma de executarmos um script, é transformando-o em um executável. Para isto, precisamos forncecer privilégios de execução para o usuário que pretende fazer este uso. Fazemos isto através do comando <code>chmod</code></p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>stat<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<a class="glightbox" href="../../imagens/stats.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/stats.png"></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O comando <code>stat</code> imprime o <em>status</em> do arquivo no sistema. Informações úteis, como tamanho, permissões, data de criação, data da última modificação, quem é o <em>owner</em> e outras.</p>
+</div>
+<p>Note, a sessão de acesso (<em>access</em>), que ele não possui permissões de execução para nenhum usuário (<code>-rw-r--r--</code>). Para conceder permissão de execução para o arquivo <code>ola.sh</code>, nós usamos o comando <code>chmod</code>. A permissão para execução é representada pelo caractere <code>x</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>ola.sh
+</span></code></pre></div>
+<p>Agora, podemos conferir as permissões novamente através do comando <code>stat</code>.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>stat<span class="w"> </span>ola.sh
+</span></code></pre></div>
+<a class="glightbox" href="../../imagens/stats_executable.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/stats_executable.png"></a>
+<p>Finalmente, com a devida permissão, somos capazes de executar o script.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>./ola.sh
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O motivo de precisarmos usar o endereço do nosso escript para executá-lo (<code>./</code>) é que, no <em>bash</em> (bem como em diversos shells compatíveis com o <em>Unix</em>), o shell somente procura por executáveis que estão nos diretórios presentes n variável $PATH. O shell não procura por executáveis no diretório atual, como faz, por exemplo, o shell <code>cmd</code> do Windows. </p>
+<p>Portanto, no <em>Bash</em> (e em outros shells compatíveis com unix, como o <em>dash</em> ou o <em>zsh</em>), devemos apontar onde está o executável que pretendemos rodar, mesmo que ele esteja no diretório atual do shell, passando o caminho completo ou relativo do mesmo.</p>
+</div>
+<p>Mas, antes de prosseguirmos, vamos seguir a convenção de orientar ao shell sobre qual interpretador deverá usar ao executar nosso script, usando a notação chamada de <em>shebang</em>. O <em>shebang</em> é a sequência dos caracteres <code>#!</code>, usada para sistemas compatíveis com <em>Unix</em> (como o linux) para apontar ao shell qual é o interpretador do executável. No nosso caso, até aqui, estamos usando o próprio <em>bash</em> como interpretador (<code>/bin/bash</code>), e será ele mesmo que usaremos no nosso <em>shebang</em>, mas este processo é importante, pois outros interpretadores estão disponíveis.</p>
+<p>Então, precisamos colocar o <code>shebang</code> na primeira linha do arquivo e, para isto, precisamos editá-lo, e faremos isto usando o editor <code>vi</code>. Você pode usar outro editor de sua preferência. Falaremos de <code>Vim</code> e do <code>vscode</code> em aulas futuras. Para usuários Windows que não possuem interesse em usar o <code>vi</code>, é possível usar o <em>Bloco de Notas</em>. Basta executar o <code>notepad.exe</code>, passando como argumento o nome do arquivo.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>vi<span class="w"> </span>ola.sh
+</span></code></pre></div>
+<p>O <code>vi</code> é um editor de textos <em>modal</em> básico, disponível no <em>bash</em>. Modal significa que ele funciona em diferentes modos. No momento em que o abrimos, ele está no <em>modo de comando</em> (command mode). Para editá-lo, precisamos alternar para o <em>modo de digitação</em> (type mode).</p>
+<p>Existem diferentes formas para alternarmos para o modo de digitação, mas a que iremos usar aqui aplica um comando antes: O comando shift+O cria uma linha acima da linha onde estamos posicionados (que é a primeira linha), e posiciona o cursor na nova linha em branco, mudando para o modo de digitação.</p>
+<p><a class="glightbox" href="../../imagens/vi-typemode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vi-typemode.png"></a>
+Agora podemos digitar a nossa linha do <em>shebang</em>:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="ch">#!/bin/bash</span>
+</span></code></pre></div>
+<p>Para concluir a edição, precisamos antes voltar para o modo de comando, usando a tecla ESC. De volta ao modo de comando, usamos o <code>:w</code> para salvar o arquivo (pressionando ENTER/RETURN logo em seguida). Para sair do editor <em>vi</em>, usamos o comando <code>:q</code> e pressionamos ENTER/RETURN.</p>
+<p>Isto não afeta em nada o funcionamento do nosso script atual. Mas à medida que você aprende a viver no shell, você poderá criar outros tipos de script. Como, por exemplo, scripts em <em>Python</em>, que você poderá transformar em executáveis e usar um <em>shebang</em> adequado para que o shell saiba como executá-los.</p>
+<p>O exemplo a seguir pode não funcionar no seu sistema se você não possuir o interpretador do Python instalado.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>which<span class="w"> </span>python
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>ola.py
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="c1">#!/usr/bin/python</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>print<span class="o">(</span><span class="s2">"Olá, mundo"</span><span class="o">)</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>^C
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>chmod<span class="w"> </span>+x<span class="w"> </span>ola.py
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>./ola.py
+</span></code></pre></div>
+<p>Agora que vimos como podemos executar nossos scripts, vamos aprender como fazer melhor uso deles.</p>
+<h3 id="272-recebendo-argumentos-em-scripts">2.7.2 - Recebendo argumentos em Scripts</h3>
 <h3 id="273-estruturas-de-controle">2.7.3 - Estruturas de controle</h3>
 <h3 id="274-funcoes">2.7.4 - Funções</h3>
+<h3 id="275-carregando-coisas-no-shell-source">2.7.5 - Carregando coisas no Shell (<code>source</code>)</h3>
 <h2 id="28-conclusao">2.8 - Conclusão</h2></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
@@ -1114,7 +1201,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 18, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2024</span>
   </span>
 
     
