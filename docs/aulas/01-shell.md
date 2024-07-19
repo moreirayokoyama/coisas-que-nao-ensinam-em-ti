@@ -479,7 +479,7 @@ cat > ~/teste/arquivo.txt # Ao digitar conteúdo na entrada, ele será direciona
 ```
 
 !!! note
-    Para encerrar a leitura da entrada, nós usamos o comando Ctrl+Z. Isto envia um sinal para o processo que está executando o comando `cat`, orientando-o a parar.
+    Para encerrar a leitura da entrada, nós usamos o comando Ctrl+C. Isto envia um sinal para o processo que está executando o comando `cat`, orientando-o a parar.
 
     Existem outras formas de enviar sinais aos processos quando estamos executando programas no bash, mas veremos isto no futuro.
 
