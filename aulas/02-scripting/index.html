@@ -12,7 +12,7 @@
         <link rel="prev" href="../01-shell/">
       
       
-        <link rel="next" href="../03-command-line-environment/">
+        <link rel="next" href="../05-command-line-environment/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Aula 2 - Criando Scripts com Bash - Coisas Que Não Ensinam em TI</title>
+        <title>Aula 2 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI</title>
       
     
     
@@ -57,7 +57,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 2 - Criando Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="Aula 2 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
       
         <meta  property="og:description"  content="None" >
       
@@ -73,7 +73,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 2 - Criando Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="Aula 2 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -109,7 +109,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aula-2-criando-scripts-com-bash" class="md-skip">
+        <a href="#aula-2-introducao-a-criacao-scripts-com-bash" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -145,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 2 - Criando Scripts com Bash
+              Aula 2 - Introdução a Criação Scripts com Bash
             
           </span>
         </div>
@@ -386,7 +386,7 @@
           
   
   <span class="md-ellipsis">
-    Aula 2 - Criando Scripts com Bash
+    Aula 2 - Introdução a Criação Scripts com Bash
   </span>
   
 
@@ -397,7 +397,7 @@
         
   
   <span class="md-ellipsis">
-    Aula 2 - Criando Scripts com Bash
+    Aula 2 - Introdução a Criação Scripts com Bash
   </span>
   
 
@@ -542,33 +542,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#273-estruturas-de-controle" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.3 - Estruturas de controle
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#274-funcoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.4 - Funções
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#275-carregando-coisas-no-shell-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.5 - Carregando coisas no Shell (source)
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -599,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-command-line-environment/" class="md-nav__link">
+      <a href="../05-command-line-environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -770,33 +743,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#273-estruturas-de-controle" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.3 - Estruturas de controle
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#274-funcoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.4 - Funções
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#275-carregando-coisas-no-shell-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.5 - Carregando coisas no Shell (source)
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -829,20 +775,20 @@
   
 
 
-<div><h1 id="aula-2-criando-scripts-com-bash">Aula 2 - Criando Scripts com Bash</h1>
+<div><h1 id="aula-2-introducao-a-criacao-scripts-com-bash">Aula 2 - Introdução a Criação Scripts com Bash</h1>
 <p>Na aula passada fomos apresentados ao ambiente do Shell e começamos a nos familiarizar com a vida no terminal usando Bash. Apesar de termos explorado muitas ferramentas que nos permitem interagir com o sistema de arquivos, o uso do Shell não está relegado somente a manipular arquivos e diretórios. É possível usar o Shell como um ambiente produtivo para lidar com as mais diversas tarefas e, inclusive, automatizá-las.</p>
 <p>Nesta aula iremos explorar as capacidades de automação do Bash e criar scripts que expandem a sua utilidade na execução de tarefas rotineiras, que o tornam, basicamente, uma linguagem de programação não muito diferente das muitas linguagens disponíveis.</p>
 <h2 id="21-imprimindo-valores-hello-world">2.1 - Imprimindo Valores (Hello world)</h2>
 <p>A operação mais básica que as linguagens de programação apresentam é a capacidade de imprimir um valor para o usuário. O ritual de iniciação padrão para todos os que estudam uma linguagem de programação é imprimir a mensagem universal "Hello, world" (<em>Olá mundo</em>). Usando Bash, o comando que usamos para imprimir mensagens para o usuário é o comando <code>echo</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hello world"</span>
 </span></code></pre></div>
-<p>Como vimos na aula passada, as aspas (<code>"</code>) são necessárias quando queremos usar espassos nos argumentos dos comandos que usamos no Bash, de outra forma o Bash iria interpretar os espaços como separadores de argumentos, possibilitando resultados inesperados. No caso do comando <code>echo</code>, independente de quantos argumentos você usa, o comportamento dele será o mesmo.</p>
+<p>Como vimos na aula passada, as aspas (<code>"</code>) são necessárias quando queremos usar espaços nos argumentos dos comandos que usamos no Bash, de outra forma o Bash iria interpretar os espaços como separadores de argumentos, possibilitando resultados inesperados. No caso do comando <code>echo</code>, independente de quantos argumentos você usa, o comportamento dele será o mesmo.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>world
 </span></code></pre></div>
 <p>Mas, é de bom tom seguir a convenção e usar delimitadores (<code>"</code> ou <code>'</code>) para garantir a consistência dos argumentos. Ao longo desta aula, manter esta consistência fará mais sentido, à medida que veremos como argumentos podem ser transformados ou reutilizados.</p>
 <h2 id="22-expressoes-e-expansoes-do-shell">2.2 - Expressões e Expansões do Shell</h2>
 <p>O uso de delimitadores, como o que usamos para definir o argumento <code>"Hello world"</code> para o comando <code>echo</code>, é um exemplo de uma <em>expressão</em>. Expressões são formas de criar valores em uma linguagem de programação, e em Bash não é diferente. Expressões de textos são as mais simples que podemos usar, mas existem outros tipos de expressões, e falaremos um pouco sobre alguns deles.</p>
-<p>Um tipo de expressão comum em Bash, são expressões que expandem seu conteúdo baseado em algumas operações disponíveis. Existem vários tipos de expansões que podemos utiliza quando escrevemos expressões em Bash. Uma delas é, por exemplo, expandir o resultado da execução de um comando para utilizá-lo em uma instrução. Para criar expressões deste tipo, usamos a expansão <code>$(&lt;comando-bash&gt;)</code>.</p>
+<p>Um tipo de expressão comum em Bash, são expressões que expandem seu conteúdo baseado em algumas operações disponíveis. Existem vários tipos de expansões que podemos utilizar quando escrevemos expressões em Bash. Uma delas é, por exemplo, expandir o resultado da execução de um comando para utilizá-lo em uma instrução. Para criar expressões deste tipo, usamos a expansão <code>$(&lt;comando-bash&gt;)</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>ls<span class="k">)</span>
 </span></code></pre></div>
 <p>A linha acima executa o comando <code>ls</code> e usa a saída como uma expressão que é então passada para o comando <code>echo</code>. O resultado é semelhante à execução do comando <code>ls</code> no shell (a exibição da lista de arquivos). A diferença é que podemos usar esta expansão em outras operações, não apenas para exibí-las (usando o comando <code>echo</code>), mas também, por exemplo, atribuir este valor a variáveis e reutilizá-las para outros fins, como veremos em breve.</p>
@@ -898,7 +844,7 @@
 <p>Note que agora, entre as variáveis listadas, encontra-se a variável <code>foo</code> e seu valor. Por outro lado, a variável <code>x</code> não faz parte do ambiente, ela está carregada no shell, mas não é tratada como parte do ambiente.</p>
 <h3 id="233-o-ambiente">2.3.3 O Ambiente</h3>
 <p>O <em>ambiente</em> é uma lista de pares de <code>nome=valor</code> carregados na sessão do shell e que são fornecidos para os programas executados a partir daquela sessão. Isso é uma forma útil de fazer com que programas e scripts que executamos possam receber valores sem a necessidade de informá-los através de argumentos.</p>
-<p>Veremos com mais detalhes como o ambiente funciona na <a href="../03-command-line-environment/">próxima aula</a>, quando discutiremos a execução de programas a partir do ambiente de linha de comando.</p>
+<p>Veremos com mais detalhes como o ambiente funciona na <a href="../05-command-line-environment/">aula sobre o ambiente de linha de comando</a>, quando discutiremos a execução de programas a partir do ambiente de linha de comando.</p>
 <h3 id="234-sessoes">2.3.4 Sessões</h3>
 <p>Como acabamos de descrever, as variáveis de ambiente ficam disponíveis na sessão do Shell. A sessão do shell dura enquanto o shell estiver aberto. Se você sair do Bash, você encerra a sessão, e o ambiente daquela sessão deixa de existir.</p>
 <p>Faça este teste, encerre o shell no terminal atual (fechando o terminal) e abra novamente o terminal. Uma nova sessão será criada e, se você executar o comando <code>export</code>, notará que a variável <code>foo</code> que acabamos de criar não está mais disponível.</p>
@@ -1067,10 +1013,39 @@ Agora podemos digitar a nossa linha do <em>shebang</em>:
 </span></code></pre></div>
 <p>Agora que vimos como podemos executar nossos scripts, vamos aprender como fazer melhor uso deles.</p>
 <h3 id="272-recebendo-argumentos-em-scripts">2.7.2 - Recebendo argumentos em Scripts</h3>
-<h3 id="273-estruturas-de-controle">2.7.3 - Estruturas de controle</h3>
-<h3 id="274-funcoes">2.7.4 - Funções</h3>
-<h3 id="275-carregando-coisas-no-shell-source">2.7.5 - Carregando coisas no Shell (<code>source</code>)</h3>
-<h2 id="28-conclusao">2.8 - Conclusão</h2></div><style type="text/css">.quiz {
+<p>Ao longo destas aulas temos usado diversos comandos que recebem argumentos como forma de ter algum controle sobre o seu comportamento, e não é diferente com os scripts que podemos construir. O Bash nos permite receber argumentos em nossos scripts através de parâmetros numerados.</p>
+<p>Para ler estes parâmetros, podemos usar variáveis especiais usando a notação com o sinal <code>$</code> e o número dos parâmetros de 1 a 9. Por exemplo:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não se esqueça de dar permissão de execução para os arquivos de script antes de testá-los</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>params.sh
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Início da execução"</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Fim da execução"</span>
+</span></code></pre></div>
+<p>Uma variação do famoso "Olá, mundo", mas que consegue saudar uma pessoa:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>saudar.sh
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá, "</span><span class="w"> </span><span class="nv">$1</span>
+</span></code></pre></div>
+<p>Um script de exemplo pra fazer um cálculo aritmético:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>soma.sh
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$2</span><span class="k">))</span>
+</span></code></pre></div>
+<p>Existem, também, outros parâmetros especiais para tornar o script mais dinâmico:
+- <code>$@</code>: lista todos os parâmetros, não limitados a 9.
+- <code>$#</code>: retorna o número de argumentos usados na execução do script
+- <code>$0</code>: retorna o nome do script que está sendo executado
+- <code>$$</code>: retorna o número do processo que executa o script
+- <code>$?</code>: retorna o código de saída do programa anterior</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Iniciando a execução de </span><span class="nv">$0</span><span class="s2"> no processo </span><span class="nv">$$</span><span class="s2">"</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Usando </span><span class="nv">$#</span><span class="s2"> parâmetros: </span><span class="nv">$@</span><span class="s2">"</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>ls<span class="w"> </span>-lha
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Resultado do comando: </span><span class="nv">$?</span><span class="s2">"</span>
+</span></code></pre></div>
+<h2 id="28-conclusao">2.8 - Conclusão</h2>
+<p>Nesta aula aprendemos o básico a respeito da criação de scripts usando o Bash. Técnicas mais complexas e sofisticadas serão apresentadas na aula de Scripts Avançados, que veremos no futuro. Por ora, podemos mudar o nosso foco para o uso de Editores de Texto como ferramentas produtivas para profissionais de TI.</p>
+<p>Nos vemos na próxima aula.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1201,7 +1176,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 29, 2024</span>
   </span>
 
     
