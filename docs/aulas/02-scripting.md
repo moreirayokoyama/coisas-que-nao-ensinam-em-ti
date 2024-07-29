@@ -1,4 +1,4 @@
-# Aula 2 - Criando Scripts com Bash
+# Aula 2 - Introdução a Criação Scripts com Bash
 Na aula passada fomos apresentados ao ambiente do Shell e começamos a nos familiarizar com a vida no terminal usando Bash. Apesar de termos explorado muitas ferramentas que nos permitem interagir com o sistema de arquivos, o uso do Shell não está relegado somente a manipular arquivos e diretórios. É possível usar o Shell como um ambiente produtivo para lidar com as mais diversas tarefas e, inclusive, automatizá-las.
 
 Nesta aula iremos explorar as capacidades de automação do Bash e criar scripts que expandem a sua utilidade na execução de tarefas rotineiras, que o tornam, basicamente, uma linguagem de programação não muito diferente das muitas linguagens disponíveis.
@@ -10,7 +10,7 @@ A operação mais básica que as linguagens de programação apresentam é a cap
 echo "Hello world"
 ```
 
-Como vimos na aula passada, as aspas (`"`) são necessárias quando queremos usar espassos nos argumentos dos comandos que usamos no Bash, de outra forma o Bash iria interpretar os espaços como separadores de argumentos, possibilitando resultados inesperados. No caso do comando `echo`, independente de quantos argumentos você usa, o comportamento dele será o mesmo.
+Como vimos na aula passada, as aspas (`"`) são necessárias quando queremos usar espaços nos argumentos dos comandos que usamos no Bash, de outra forma o Bash iria interpretar os espaços como separadores de argumentos, possibilitando resultados inesperados. No caso do comando `echo`, independente de quantos argumentos você usa, o comportamento dele será o mesmo.
 
 ```bash
 echo Hello world
@@ -21,7 +21,7 @@ Mas, é de bom tom seguir a convenção e usar delimitadores (`"` ou `'`) para g
 ## 2.2 - Expressões e Expansões do Shell
 O uso de delimitadores, como o que usamos para definir o argumento `"Hello world"` para o comando `echo`, é um exemplo de uma _expressão_. Expressões são formas de criar valores em uma linguagem de programação, e em Bash não é diferente. Expressões de textos são as mais simples que podemos usar, mas existem outros tipos de expressões, e falaremos um pouco sobre alguns deles.
 
-Um tipo de expressão comum em Bash, são expressões que expandem seu conteúdo baseado em algumas operações disponíveis. Existem vários tipos de expansões que podemos utiliza quando escrevemos expressões em Bash. Uma delas é, por exemplo, expandir o resultado da execução de um comando para utilizá-lo em uma instrução. Para criar expressões deste tipo, usamos a expansão `$(<comando-bash>)`.
+Um tipo de expressão comum em Bash, são expressões que expandem seu conteúdo baseado em algumas operações disponíveis. Existem vários tipos de expansões que podemos utilizar quando escrevemos expressões em Bash. Uma delas é, por exemplo, expandir o resultado da execução de um comando para utilizá-lo em uma instrução. Para criar expressões deste tipo, usamos a expansão `$(<comando-bash>)`.
 
 ```bash
 echo $(ls)
@@ -121,7 +121,7 @@ Note que agora, entre as variáveis listadas, encontra-se a variável `foo` e se
 ### 2.3.3 O Ambiente
 O _ambiente_ é uma lista de pares de `nome=valor` carregados na sessão do shell e que são fornecidos para os programas executados a partir daquela sessão. Isso é uma forma útil de fazer com que programas e scripts que executamos possam receber valores sem a necessidade de informá-los através de argumentos.
 
-Veremos com mais detalhes como o ambiente funciona na [próxima aula](03-command-line-environment.md), quando discutiremos a execução de programas a partir do ambiente de linha de comando.
+Veremos com mais detalhes como o ambiente funciona na [aula sobre o ambiente de linha de comando](05-command-line-environment.md), quando discutiremos a execução de programas a partir do ambiente de linha de comando.
 
 ### 2.3.4 Sessões
 Como acabamos de descrever, as variáveis de ambiente ficam disponíveis na sessão do Shell. A sessão do shell dura enquanto o shell estiver aberto. Se você sair do Bash, você encerra a sessão, e o ambiente daquela sessão deixa de existir.
@@ -386,7 +386,47 @@ chmod +x ola.py
 Agora que vimos como podemos executar nossos scripts, vamos aprender como fazer melhor uso deles.
 
 ### 2.7.2 - Recebendo argumentos em Scripts
-### 2.7.3 - Estruturas de controle
-### 2.7.4 - Funções
-### 2.7.5 - Carregando coisas no Shell (`source`)
+Ao longo destas aulas temos usado diversos comandos que recebem argumentos como forma de ter algum controle sobre o seu comportamento, e não é diferente com os scripts que podemos construir. O Bash nos permite receber argumentos em nossos scripts através de parâmetros numerados.
+
+Para ler estes parâmetros, podemos usar variáveis especiais usando a notação com o sinal `$` e o número dos parâmetros de 1 a 9. Por exemplo:
+
+!!! warning
+    Não se esqueça de dar permissão de execução para os arquivos de script antes de testá-los
+
+```bash
+cat > params.sh
+echo "Início da execução"
+echo $1
+echo "Fim da execução"
+```
+
+Uma variação do famoso "Olá, mundo", mas que consegue saudar uma pessoa:
+```bash
+cat > saudar.sh
+echo "Olá, " $1
+```
+
+Um script de exemplo pra fazer um cálculo aritmético:
+```bash
+cat > soma.sh
+echo $(($1 + $2))
+```
+
+Existem, também, outros parâmetros especiais para tornar o script mais dinâmico:
+- `$@`: lista todos os parâmetros, não limitados a 9.
+- `$#`: retorna o número de argumentos usados na execução do script
+- `$0`: retorna o nome do script que está sendo executado
+- `$$`: retorna o número do processo que executa o script
+- `$?`: retorna o código de saída do programa anterior
+
+```bash
+echo "Iniciando a execução de $0 no processo $$"
+echo "Usando $# parâmetros: $@"
+ls -lha
+echo "Resultado do comando: $?"
+```
+
 ## 2.8 - Conclusão
+Nesta aula aprendemos o básico a respeito da criação de scripts usando o Bash. Técnicas mais complexas e sofisticadas serão apresentadas na aula de Scripts Avançados, que veremos no futuro. Por ora, podemos mudar o nosso foco para o uso de Editores de Texto como ferramentas produtivas para profissionais de TI.
+
+Nos vemos na próxima aula.
