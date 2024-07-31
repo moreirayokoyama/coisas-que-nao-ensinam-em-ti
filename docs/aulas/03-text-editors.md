@@ -65,29 +65,64 @@ No topo da interface, como já é típico de aplicações que rodam em interface
 Mais abaixo, ainda na _Barra Lateral_, existem as opções de _Configurações_, onde você pode personalizar o _Code_ de acordo com as suas preferências, por exemplo, sua preferência por um tema claro ou escuro (e outras combinações de cores) pode ser ajustada ali. E também existe a opção de usar uma conta (na Microsoft ou no Github) para associar ao seu uso, o que pode ser útil, por exemplo, para manter suas configurações salvas e poder usá-las em um _Code_ instalado em outro computador.
 
 ## 3.2 Editor
+Sem mais delongas vamos explorar o uso do _Code_ para o que ele se propõe: Editar arquivos.
+
+Vamos começar criando um novo arquivo. Isto pode ser feito de diversas formas:
+- Clicando em "Novo Arquivo..." na página de boas-vindas
+- Clicando no Menu Arquivo, e escolhendo a opção "Novo Arquivo de Texto"
+- Usando as teclas de atalho _Ctrl+N_
+
+Um novo arquivo, sem título, será aberto em uma nova Aba dentro da janela do editor. Um texto é exibido como conteúdo deste arquivo, dizendo que você pode "Selecionar uma Linguagem", "Preencher um Template" ou "Abrir um Editor Diferente". Logo abaixo, o texto também explica que, se você começar a digitar algum conteúdo, esta mensagem irá sumir, e você pode também optar por não exibí-la novamente nas próximas vezes em que criar um novo arquivo.
+
+Selecionar uma linguagem, significa mudar o modo de linguagem do arquivo no qual estamos trabalhando. É possível fazer isto clicando no link do texto, ou também no seletor do modo de linguagem, que fica na barra de status (na borda inferior da janela do code), à direita. Ela começa com a opção "Plain Text" selecionada, mas é possível mudá-la clicando sobre ela, e um menu suspenso será exibido nos permitindo selecionar a linguagem que pretendemos usar. Vamos selecionar "Shell Script", que é o tipo de arquivo com o qual estamos trabalhando atualmente.
+
+Note que o ícone exibido ao lado do nome do arquivo, no título da Aba, mudou para `$`, representando que estamos agora editando um arquivo de Shell Script. Você também vai notar que, à medida que você digita o script no conteúdo do arquivo, o _code_, que agora está informado de que estamos editando um arquivo no modo Shell Script, vai formatar o conteúdo de acordo com a sintaxe de Shell Script.
+
+Podemos, também, abrir um dos scripts que já escrevemos na aula anterior. Para fazer isto, temos algumas opções:
+- Voltar à aba com a página Welcome e clicar no link "Open File..."
+- Clicar no menu File e selecionar a opção "Open File..."
+- Usar as teclas de atalho _Ctrl+O_
+
+Em qualquer uma destas formas, uma caixa de diálogo será exibida para que você possa selecionar o arquivo que deseja abrir. Selecione o arquivo `fancy.sh` que criamos no final da última aula.
+
+Note que o _code_ já identificou o modo de linguagem do arquivo e selecionou "Shell Script". Normalmente o _code_ tenta fazer isto automaticamente quando abrimos um arquivo, baseado na extensão do arquivo aberto. Ou quando salvamos o arquivo em disco (no caso de um arquivo novo), e finalmente atribuímos uma extensão quando lhe damos um nome e, normalmente, ele consegue determinar o modo de linguagem com sucesso. Eventualmente ele pode inferir o modo de linguagem para uma linguagem que não está disponível, e pode sugerir que você procure uma extensão adequada para instalar o modo de linguagem apropriado.
 
 ### 3.2.1 Trabalhando com arquivos
-Comentários
----
+Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este conteúdo, o _code_ nos indica que existem alterações pendentes através de um sinal de _bullet_ (um pequeno círculo) ao lado do nome do arquivo, no título da aba.
 
-Mover texto
----
+- Comentários
+    
+    Uma das conveniências de usar um editor adequado quando estamos trabalhando com código, é que ele suporta algumas tarefas comuns, como por exemplo, transformar uma linha de código em um comentário no formato adequado para o Modo de Linguagem que estamos usando. No _code_, o comando para comentarmos uma linha do código (ou remover o comentário dela) é através do atalho _Ctrl+;_, ou no menu _Edit_, na opção _Toggle Line Comment_. Também existe a opção de comentar/remover comentário em blocos, para linguagens que suportam blocos de comentário.
 
-Copiar texto
----
+- Mover texto
 
-Cursores
----
+    É muito comum, enquanto estamos codificando, tomarmos decisões que envolvem mover código para reordenar as instruções que estamos programando. No _code_, uma forma mais fácil de fazer este tipo de movimentação é, com o cursor posicionado na linha que gostaríamos de mover, usando _Alt_ mais as setas para cima ou para baixo, de acordo com a direção em que queremos mover o texto.
 
-Seleção de coluna
----
+    Funciona também com múltiplas linhas do texto, contanto que você as selecione antes de movê-las.
+
+- Copiar texto
+
+    Da mesma forma que o _code_ facilita que possamos mover o texto pelas linhas, para cima ou para baixo, podemos também copiar o conteúdo da linha onde o cursor está posicionado usando as teclas _Shift+Alt_ e a direção para onde queremos que a duplicação seja feita, para cima ou para baixo.
+
+- Cursores
+
+    Não é raro que, enquanto estamos trabalhando com código, nos deparamos com algumas situações em que precisamos aplicar alterações semelhantes em diversas linhas ou diversos lugares do código. O _code_ suporta múltiplos cursores, o que significa que podemos posicionar diversos cursores de edição em lugares distintos do código, e editá-los simultaneamente.
+
+    É possível espalhar cursores diferentes pressionando a tecla _Alt_ e posicionando-os com o mouse, clicando em cada um dos lugares em que queremos um novo cursor. Podemos também, usando as teclas _Ctrl+Alt_ e usando as setas para cima ou para baixo para criar novos cursores na mesma posição nas linhas de cima ou de baixo, de acordo com a direção selecionada.
+
+    Uma vez posicionados, os cursores irão receber tudo o que vc digitar, como se estivesse editando um por um, mas farão isto simultaneamente, o que torna isto uma forma mais produtiva de fazer este tipo de edição. 
+
+- Seleção de coluna
+
+    Quando trabalhamos com dados tabulados em colunas, ou simplesmente quando precisamos selecionar uma área do texto considerando um alinhamento vertical no texto, sem selecionarmos o restante do conteúdo pelas linhas em que queremos trabalhar, usamos a combinação _Shift+Ctrl+Alt_ para fazer a seleção de colunas.
+
+    Isto facilita a edição, não apenas para excluir colunas indesejadas, como também para editá-las de uma única vez (usando a funcionalidade dos múltiplos cursores).
 
 ### 3.2.2 Abas
-### 3.2.3 Modos de Linguagem
-### 3.2.4 Quebra de linha
-### 3.2.5 Indentação
-### 3.2.6 Aparência
-### 3.2.7 Layout
+### 3.2.3 Quebra de linha
+### 3.2.4 Indentação
+### 3.2.5 Aparência
+### 3.2.6 Layout
 <!-- Menu Go -->
 ### 3.2.8 Navegação
 ## 3.3 Barra lateral

@@ -424,6 +424,7 @@ Existem, também, outros parâmetros especiais para tornar o script mais dinâmi
 - `$?`: retorna o código de saída do programa anterior
 
 ```bash
+cat > fancy.sh
 echo "Iniciando a execução de $0 no processo $$"
 echo "Usando $# parâmetros: $@"
 ls -lha

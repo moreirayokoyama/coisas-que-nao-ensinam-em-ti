@@ -1,4 +1,8 @@
-# Aula 03 - O Ambiente da Linha de Comando
+---
+title: Aula 05 - Usando a interface de linha de comando (CLI)
+description: Padrões e conveniências no uso de ferramentas que usamos na interface de linha de comando.
+---
+# Aula 05 - A Interface de Linha de Comando
 
 ## 2.7 Pseudo-dispositivos úteis
 Pseudo dispositivos são dispositivos falsos que podemos usar para alguns fins específicos durante o uso do terminal, como usá-los como stream de entrada ou de saída na execução de programas.
