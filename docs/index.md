@@ -10,6 +10,7 @@
 ## Conteúdo do Curso
 - [Aula 1 - O Shell](./aulas/01-shell.md)
 - [Aula 2 - Criando Scripts com Bash](./aulas/02-scripting.md)
+- [Aula 3 - Explorando o Editor de Textos (Visual Studio Code)](./aulas/03-text-editors.md)
 
 ## Atribuições
 
