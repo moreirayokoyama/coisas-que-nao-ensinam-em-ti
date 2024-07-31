@@ -6,13 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Padrões e conveniências no uso de ferramentas que usamos na interface de linha de comando.">
+        <meta name="description" content="Como usar um editor de texto como ferramenta produtiva para profissionais de TI">
       
       
       
       
-        <link rel="prev" href="../04-advanced-scripts/">
+        <link rel="prev" href="../02-scripting/">
       
+      
+        <link rel="next" href="../04-advanced-scripts/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Aula 05 - Usando a interface de linha de comando (CLI) - Coisas Que Não Ensinam em TI</title>
+        <title>Aula 03 - Explorando o Editor de Textos (VSCode) - Coisas Que Não Ensinam em TI</title>
       
     
     
@@ -57,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 05 - Usando a interface de linha de comando (CLI) - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="Aula 03 - Explorando o Editor de Textos (VSCode) - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Padrões e conveniências no uso de ferramentas que usamos na interface de linha de comando." >
+        <meta  property="og:description"  content="Como usar um editor de texto como ferramenta produtiva para profissionais de TI" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/05-command-line-environment.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/03-text-editors.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,11 +75,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 05 - Usando a interface de linha de comando (CLI) - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="Aula 03 - Explorando o Editor de Textos (VSCode) - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Padrões e conveniências no uso de ferramentas que usamos na interface de linha de comando." >
+        <meta  name="twitter:description"  content="Como usar um editor de texto como ferramenta produtiva para profissionais de TI" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/05-command-line-environment.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/03-text-editors.png" >
       
     
     
@@ -109,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aula-05-a-interface-de-linha-de-comando" class="md-skip">
+        <a href="#aula-3-explorando-o-editor-de-textos-visual-studio-code" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -145,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 05 - Usando a interface de linha de comando (CLI)
+              Aula 03 - Explorando o Editor de Textos (VSCode)
             
           </span>
         </div>
@@ -391,10 +393,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../03-text-editors/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aula 03 - Explorando o Editor de Textos (VSCode)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -403,6 +425,215 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-instalando-o-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Instalando o VsCode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-explorando-a-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Explorando a interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Editor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-trabalhando-com-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 Trabalhando com arquivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-abas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 Abas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-quebra-de-linha" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 Quebra de linha
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-indentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 Indentação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-aparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.5 Aparência
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#326-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.6 Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#328-navegacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.8 Navegação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-barra-lateral" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Barra lateral
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Barra lateral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-explorador-de-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 Explorador de Arquivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Busca
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-extensoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 Extensões
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-painel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Painel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Painel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Problemas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-console-de-depuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 Console de depuração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4 Terminal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -433,30 +664,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Aula 05 - Usando a interface de linha de comando (CLI)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05-command-line-environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -465,50 +676,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#27-pseudo-dispositivos-uteis" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7 Pseudo-dispositivos úteis
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.7 Pseudo-dispositivos úteis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#271-devnull" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7.1 /dev/null
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -548,19 +715,184 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#27-pseudo-dispositivos-uteis" class="md-nav__link">
+  <a href="#31-instalando-o-vscode" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7 Pseudo-dispositivos úteis
+      3.1 Instalando o VsCode
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.7 Pseudo-dispositivos úteis">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-explorando-a-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Explorando a interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Editor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Editor">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#271-devnull" class="md-nav__link">
+  <a href="#321-trabalhando-com-arquivos" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.1 /dev/null
+      3.2.1 Trabalhando com arquivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-abas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 Abas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-quebra-de-linha" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 Quebra de linha
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-indentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 Indentação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-aparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.5 Aparência
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#326-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.6 Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#328-navegacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.8 Navegação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-barra-lateral" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Barra lateral
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Barra lateral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-explorador-de-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 Explorador de Arquivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Busca
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-extensoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 Extensões
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-painel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Painel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Painel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Problemas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Saída
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-console-de-depuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 Console de depuração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4 Terminal
     </span>
   </a>
   
@@ -589,14 +921,102 @@
   
 
 
-<div><h1 id="aula-05-a-interface-de-linha-de-comando">Aula 05 - A Interface de Linha de Comando</h1>
-<h2 id="27-pseudo-dispositivos-uteis">2.7 Pseudo-dispositivos úteis</h2>
-<p>Pseudo dispositivos são dispositivos falsos que podemos usar para alguns fins específicos durante o uso do terminal, como usá-los como stream de entrada ou de saída na execução de programas.</p>
-<h3 id="271-devnull">2.7.1 <code>/dev/null</code></h3>
-<p>O primeiro pseudo-dispositivo que iremos ver é o <code>/dev/null</code>, para o qual todos os bytes escritos são descartados. É uma forma de religar o stream de saída e/ou o stream de erro para serem ignorados quando não nos importamos com eles.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-lha<span class="w"> </span>/bin<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-</span></code></pre></div>
-<p>A instrução acima executa o comando <code>ls</code> no diretório <code>/bin</code> mas religa o stream de saída ao pseudo-dispositivo <code>/dev/null</code> fazendo com que a saída seja completamente ignorada, e somente mensagens de erro serão escritas no terminal.</p></div><style type="text/css">.quiz {
+<div><h1 id="aula-3-explorando-o-editor-de-textos-visual-studio-code">Aula 3 - Explorando o Editor de Textos (Visual Studio Code)</h1>
+<p>Escrever um texto (como um documento, ou uma dissertação) e escrever código são atividades distintas. Quando se trabalha com código, você passa mais tempo navegando pelo texto, ou entre arquivos, lendo e interpretando código e, claro, escrevendo código também. Não é à toa que existem ferramentas diferentes para este fim do que aquelas usadas para redigir um texto, como um processador de textos (por exemplo, o Microsoft Word do pacote Office). Processadores de Texto precisam suportar diversas opções de formatação (formatação de fonte, parágrafo, página, etc) que acabam sendo tão importantes quanto o prório texto sendo redigido.</p>
+<p>Para trabalhar com código, usamos Editores de Texto. A diferença é que, em código, somente o texto importa. O arquivo mantido no sistema não possui informações de formatação. Não apenas esta informação não é relevante, como ainda não é suportada pelo código em si. Pense nos scripts que fizemos na aula passada, suando o comando <code>cat &gt; foo.sh</code>, capturando os comandos que digitávamos no terminal e gravando no arquivo. Imagine se tivéssemos "comprometido" estes comandos com informações como "qual fonte usar", "qual recuo da margem", etc.</p>
+<p>Normalmente, quando trabalhamos com código, trabalhamos com arquivos de textos simples. Para ilustrar o que isso significa olhe para a imagem a seguir.</p>
+<p><a class="glightbox" href="../../imagens/googledocs-helloworld.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/googledocs-helloworld.png"></a></p>
+<p>Este é um Processador de Textos (Google Docs, similar ao Microsoft Word), com um texto  simples escrito (o famoso "Olá Mundo!"). Mas se você tentar abrir o conteúdo salvo por este arquivo (no format .doc) em um editor de textos, notará que existem muitas outras informações, a maior parte delas ilegível para um ser humano.</p>
+<p><a class="glightbox" href="../../imagens/olamundo-doc-vscode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/olamundo-doc-vscode.png"></a></p>
+<p>Existe uma forma mais amigável de visualizar este arquivo, usando um decodificador Hexadecimal, mas isto não necessariamente o torna tão legível quanto um arquivo de código.</p>
+<p><a class="glightbox" href="../../imagens/olamundo-doc-hex.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/olamundo-doc-hex.png"></a></p>
+<p>Editores de texto, por outro lado, não interferem no conteúdo salvo pelo arquivo. Você pode escrever código direto no terminal como fizemos usando o comando <code>cat</code>, mas isto provavelmente vai ser pouco produtivo à medida que seus scripts começam a ficar mais complexos, já que o comando <code>cat</code> te dá poucas opções de edição.</p>
+<p>Existem diversos editores de texto disponíveis. De fato, se você usa o sistema operacional Windows, você provavelmente possui instalado o Bloco de Notas (<code>notepad.exe</code>). Este é um editor de textos bastante rudimentar, que te permite criar arquivos de texto como os que usamos para manter código. Mas, justamente por que trabalhamos com código, existem opções ainda mais produtivas.</p>
+<p>Existem diversos editores de texto feitos especificamente para trabalhar com código. Você vai encontrar profissionais que gostam de usar <code>Sublime Text</code>, ou o <code>Notepad ++</code> (que tem a proposta de ser um substituto para o Bloco de Notas do Windows com capacidades de produtividade com código), outros que vão preferir opções de editores de texto que rodam no terminal, como o <code>vim</code>, ou o <code>emacs</code>. E existem ainda ferramentas mais robustas, chamadas de <em>IDE</em>'s (<em>Integrated Development Environment</em>, ou, em português, Ambiente de Desenvolvimento Integrado), como o <em>Visual Studio</em> da Microsoft, ou o <em>IntelliJ</em> da JetBrains. Contudo, um editor específico mantém uma relevância significativa no mercado e, por que precisamos falar de alguma ferramenta, eu achei que a relevância do Visual Studio Code não poderia ser ignorada.</p>
+<p>De acordo com a pesquisa <a href="https://survey.stackoverflow.co/2024/technology#1-integrated-development-environment"><em>Stackoverflow Developer Survey</em> de 2024</a>, de um total de mais de 58 mil entrevistados, 73,6% responderam que usam <em>VSCode</em> como o editor de código no dia-a-dia. Destes, mais de 44 mil usam profissionalmente, e mais de 6 mil o usam enquanto estão aprendendo a programar. Em ambos os casos, ele destaca sua adoção por mais do que o dobro do segundo colocado.</p>
+<p>O VSCode é mantido pela Microsoft, mas é um projeto de código aberto, mantido sob a licença MIT, e que recebe contribuição da comunidade.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>É importante dizer que, na indústria, existe uma discussão acalorada sobre opções de editores de código, e vários grupos (principalmente entre as pessoas de programação) são muito opinativos a respeito da escolha por editores. A famosa discussão entre os usuários de <em>emacs</em> e <em>vim</em>, tentando estabelecer um como superior ao outro, é um bom exemplo de como as pessoas defendem sua opção na indústria.</p>
+<p>Este curso não pretende estabeler o VSCode como uma opção superior aos demais editores disponíveis. Apesar de ter capacidades de edição de código que não deixam a desejar (e em muitos casos, chega a ter uma excelente experiência de uso), a escolha pelo VSCode se dá somente pela sua adoção e a presença que ele tem no mercado atualmente.</p>
+<p>Editores como Vim ou Emacs, além de não terem a mesma presença que o VSCode tem na indústria, apesar de terem uma comunidade forte de usuários e mantenedores, também possuem uma curva de aprendizado (devido à natureza de como funcionam) que, na minha opinião, ainda que possuam suas vantagens, torna sua adoção uma opção indivudual de quem pretende explorá-los e, eventualmente, adotá-los como preferência.</p>
+</div>
+<h2 id="31-instalando-o-vscode">3.1 Instalando o VsCode</h2>
+<p>Para instalar o VSCode, que roda na maioria das plataformas disponíveis, basta visitar o <a href="https://code.visualstudio.com">site oficial</a>, e se dirigir à página de downloads e clicar no link adequado de acordo com o seu sistema.</p>
+<p><a class="glightbox" href="../../imagens/vscode-download.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-download.png"></a></p>
+<p>A partir daí, basta seguir as <a href="https://code.visualstudio.com/docs/setup/setup-overview">instruções</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Para instalações no Windows, é importante lembrar-se de manter marcado a opção "Add to PATH" (Adicionar para o PATH). Isso torna o <em>code</em> fácil de iniciar a partir do <em>shell</em>, inclusive para quem usa o WSL, como recomendado neste curso.</p>
+<p><a class="glightbox" href="../../imagens/vscode-install-windows.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-install-windows.png"></a></p>
+</div>
+<h2 id="31-explorando-a-interface">3.1 Explorando a interface</h2>
+<p>Ao abrir o Visual Studio Code, uma página de boas-vindas é exibida como uma aba aberta na janela do editor, muito semelhante a que você pode enxergar abaixo, com algumas diferenças de acordo com o seu uso (na minha, é possível ver alguns dos meus projetos recentes listados, prontos para serem abertos).</p>
+<p><a class="glightbox" href="../../imagens/code.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/code.png"></a></p>
+<p>A partir desta página, algumas tarefas comuns já estão acessíveis, como criar um novo arquivo, abrir um arquivo existente, abrir um diretório, e até mesmo clonar um repositório <em>git</em>. É possível, também, se conectar a outros ambientes, como o WSL, ou remotamente via SSH e outras opções.</p>
+<p>Do lado direito, você pode ver alguns guias (<em>Walkthroughs</em>), que podem te ajudar a se familiarizar com a interface e o uso do <em>code</em>.</p>
+<p>No topo da interface, como já é típico de aplicações que rodam em interface gráfica, temos uma barra de menus, com alguns dos menus mais conhecidos, como <em>Arquivo</em>, <em>Editar</em> e <em>Ajuda</em>. Como esperado, o menu <em>Arquivo</em> exibe mais opções relacionadas a manipulação de arquivos, <em>Editar</em> tem opções úties como <em>Copiar</em>, <em>Colar</em>, além de outras conveniências de edição, e o menu <em>Ajuda</em>, sem nenhuma surpresa, trás informações úteis para quem precisa de algum suporte.</p>
+<p>À esquerda, temos a Barra Lateral, com algumas funcionalidades dispostas de forma conveniente, como <em>Explorador de Arquivos</em>, <em>Busca</em>, <em>Controle de Código</em>, o <em>Depurador</em> e o painel de <em>Extensões</em>.</p>
+<p>Mais abaixo, ainda na <em>Barra Lateral</em>, existem as opções de <em>Configurações</em>, onde você pode personalizar o <em>Code</em> de acordo com as suas preferências, por exemplo, sua preferência por um tema claro ou escuro (e outras combinações de cores) pode ser ajustada ali. E também existe a opção de usar uma conta (na Microsoft ou no Github) para associar ao seu uso, o que pode ser útil, por exemplo, para manter suas configurações salvas e poder usá-las em um <em>Code</em> instalado em outro computador.</p>
+<h2 id="32-editor">3.2 Editor</h2>
+<p>Sem mais delongas vamos explorar o uso do <em>Code</em> para o que ele se propõe: Editar arquivos.</p>
+<p>Vamos começar criando um novo arquivo. Isto pode ser feito de diversas formas:
+- Clicando em "Novo Arquivo..." na página de boas-vindas
+- Clicando no Menu Arquivo, e escolhendo a opção "Novo Arquivo de Texto"
+- Usando as teclas de atalho <em>Ctrl+N</em></p>
+<p>Um novo arquivo, sem título, será aberto em uma nova Aba dentro da janela do editor. Um texto é exibido como conteúdo deste arquivo, dizendo que você pode "Selecionar uma Linguagem", "Preencher um Template" ou "Abrir um Editor Diferente". Logo abaixo, o texto também explica que, se você começar a digitar algum conteúdo, esta mensagem irá sumir, e você pode também optar por não exibí-la novamente nas próximas vezes em que criar um novo arquivo.</p>
+<p>Selecionar uma linguagem, significa mudar o modo de linguagem do arquivo no qual estamos trabalhando. É possível fazer isto clicando no link do texto, ou também no seletor do modo de linguagem, que fica na barra de status (na borda inferior da janela do code), à direita. Ela começa com a opção "Plain Text" selecionada, mas é possível mudá-la clicando sobre ela, e um menu suspenso será exibido nos permitindo selecionar a linguagem que pretendemos usar. Vamos selecionar "Shell Script", que é o tipo de arquivo com o qual estamos trabalhando atualmente.</p>
+<p>Note que o ícone exibido ao lado do nome do arquivo, no título da Aba, mudou para <code>$</code>, representando que estamos agora editando um arquivo de Shell Script. Você também vai notar que, à medida que você digita o script no conteúdo do arquivo, o <em>code</em>, que agora está informado de que estamos editando um arquivo no modo Shell Script, vai formatar o conteúdo de acordo com a sintaxe de Shell Script.</p>
+<p>Podemos, também, abrir um dos scripts que já escrevemos na aula anterior. Para fazer isto, temos algumas opções:
+- Voltar à aba com a página Welcome e clicar no link "Open File..."
+- Clicar no menu File e selecionar a opção "Open File..."
+- Usar as teclas de atalho <em>Ctrl+O</em></p>
+<p>Em qualquer uma destas formas, uma caixa de diálogo será exibida para que você possa selecionar o arquivo que deseja abrir. Selecione o arquivo <code>fancy.sh</code> que criamos no final da última aula.</p>
+<p>Note que o <em>code</em> já identificou o modo de linguagem do arquivo e selecionou "Shell Script". Normalmente o <em>code</em> tenta fazer isto automaticamente quando abrimos um arquivo, baseado na extensão do arquivo aberto. Ou quando salvamos o arquivo em disco (no caso de um arquivo novo), e finalmente atribuímos uma extensão quando lhe damos um nome e, normalmente, ele consegue determinar o modo de linguagem com sucesso. Eventualmente ele pode inferir o modo de linguagem para uma linguagem que não está disponível, e pode sugerir que você procure uma extensão adequada para instalar o modo de linguagem apropriado.</p>
+<h3 id="321-trabalhando-com-arquivos">3.2.1 Trabalhando com arquivos</h3>
+<p>Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este conteúdo, o <em>code</em> nos indica que existem alterações pendentes através de um sinal de <em>bullet</em> (um pequeno círculo) ao lado do nome do arquivo, no título da aba.</p>
+<ul>
+<li>
+<p>Comentários</p>
+<p>Uma das conveniências de usar um editor adequado quando estamos trabalhando com código, é que ele suporta algumas tarefas comuns, como por exemplo, transformar uma linha de código em um comentário no formato adequado para o Modo de Linguagem que estamos usando. No <em>code</em>, o comando para comentarmos uma linha do código (ou remover o comentário dela) é através do atalho <em>Ctrl+;</em>, ou no menu <em>Edit</em>, na opção <em>Toggle Line Comment</em>. Também existe a opção de comentar/remover comentário em blocos, para linguagens que suportam blocos de comentário.</p>
+</li>
+<li>
+<p>Mover texto</p>
+<p>É muito comum, enquanto estamos codificando, tomarmos decisões que envolvem mover código para reordenar as instruções que estamos programando. No <em>code</em>, uma forma mais fácil de fazer este tipo de movimentação é, com o cursor posicionado na linha que gostaríamos de mover, usando <em>Alt</em> mais as setas para cima ou para baixo, de acordo com a direção em que queremos mover o texto.</p>
+<p>Funciona também com múltiplas linhas do texto, contanto que você as selecione antes de movê-las.</p>
+</li>
+<li>
+<p>Copiar texto</p>
+<p>Da mesma forma que o <em>code</em> facilita que possamos mover o texto pelas linhas, para cima ou para baixo, podemos também copiar o conteúdo da linha onde o cursor está posicionado usando as teclas <em>Shift+Alt</em> e a direção para onde queremos que a duplicação seja feita, para cima ou para baixo.</p>
+</li>
+<li>
+<p>Cursores</p>
+<p>Não é raro que, enquanto estamos trabalhando com código, nos deparamos com algumas situações em que precisamos aplicar alterações semelhantes em diversas linhas ou diversos lugares do código. O <em>code</em> suporta múltiplos cursores, o que significa que podemos posicionar diversos cursores de edição em lugares distintos do código, e editá-los simultaneamente.</p>
+<p>É possível espalhar cursores diferentes pressionando a tecla <em>Alt</em> e posicionando-os com o mouse, clicando em cada um dos lugares em que queremos um novo cursor. Podemos também, usando as teclas <em>Ctrl+Alt</em> e usando as setas para cima ou para baixo para criar novos cursores na mesma posição nas linhas de cima ou de baixo, de acordo com a direção selecionada.</p>
+<p>Uma vez posicionados, os cursores irão receber tudo o que vc digitar, como se estivesse editando um por um, mas farão isto simultaneamente, o que torna isto uma forma mais produtiva de fazer este tipo de edição. </p>
+</li>
+<li>
+<p>Seleção de coluna</p>
+<p>Quando trabalhamos com dados tabulados em colunas, ou simplesmente quando precisamos selecionar uma área do texto considerando um alinhamento vertical no texto, sem selecionarmos o restante do conteúdo pelas linhas em que queremos trabalhar, usamos a combinação <em>Shift+Ctrl+Alt</em> para fazer a seleção de colunas.</p>
+<p>Isto facilita a edição, não apenas para excluir colunas indesejadas, como também para editá-las de uma única vez (usando a funcionalidade dos múltiplos cursores).</p>
+</li>
+</ul>
+<h3 id="322-abas">3.2.2 Abas</h3>
+<h3 id="323-quebra-de-linha">3.2.3 Quebra de linha</h3>
+<h3 id="324-indentacao">3.2.4 Indentação</h3>
+<h3 id="325-aparencia">3.2.5 Aparência</h3>
+<h3 id="326-layout">3.2.6 Layout</h3>
+<!-- Menu Go -->
+<h3 id="328-navegacao">3.2.8 Navegação</h3>
+<h2 id="33-barra-lateral">3.3 Barra lateral</h2>
+<h3 id="331-explorador-de-arquivos">3.3.1 Explorador de Arquivos</h3>
+<h3 id="332-busca">3.3.2 Busca</h3>
+<h3 id="333-extensoes">3.3.3 Extensões</h3>
+<h2 id="34-painel">3.4 Painel</h2>
+<h3 id="341-problemas">3.4.1 Problemas</h3>
+<h3 id="342-saida">3.4.2 Saída</h3>
+<h3 id="343-console-de-depuracao">3.4.3 Console de depuração</h3>
+<h3 id="344-terminal">3.4.4 Terminal</h3></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
