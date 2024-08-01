@@ -80,7 +80,7 @@ Ao lado do indicador de notificações temos o seletor de Modo de Linguagem (que
 
     Se você quiser saber mais sobre este assunto, o vídeo a seguir, do Scott Hanselman, da série [_Computer Stuff They Didn't Teach You_](https://www.youtube.com/playlist?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr) (Coisas de Computador que não te ensinaram"), fala um pouco mais sobre isto num contexto histórico (em inglês).
 
-    ![type:video](https://www.youtube.com/watch?v=TtiBhktB4Qg)
+    ![type:video](https://www.youtube.com/embed/TtiBhktB4Qg)
 
 Para o tipo de _encoding_, o _UTF8_ atualmente é usado como padrão internacional. Iremos abordar Encoding em algum momento do curso, mas não vamos detalhar isto agora. Por padrão, a menos que você esteja lidando com alguma tarefa que exija um tipo de encoding específico, mantenha sempre _UTF8_ selecionado.
 
