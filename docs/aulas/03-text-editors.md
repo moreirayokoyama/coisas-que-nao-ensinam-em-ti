@@ -164,9 +164,15 @@ Um editor (entenda isto como uma Aba editando um arquivo) pode ser dividido em p
 
 O tipo mais comum de painéis de editor é criar um painel à direita. Isto pode ser feito no menu suspenso da Aba, ou através do atalho _Ctrl+K_ e, logo em seguida, _Ctrl+Shift+]_. Mas os outros tipos de painéis também estão disponíveis, como vimos nas opções do menu.
 
-<!-- Menu Go -->
 ### 3.2.4 Navegação
+O code suporta diversas funcionalidades de navegação que podem ser convenientes quando estamos trabalhando com código. Vamos falar agora de algumas delas disponíveis no Menu _Go_.
 
+- `Back`: Posiciona o cursor de volta onde estava posicionado anteriormente de acordo com o histórico de posições (_Ctrl+Seta Esquerda_)
+- `Forward`: Semelhantemente ao anterior, faz o cursor ser posicionado avançando no histórico de posições (_Ctrl+Seta Direita_)
+- `Switch Editor > Next Editor`: Avança para o editor que está na Aba à direita (_Ctrl+Page Down_)
+- `Switch Editor > Previous Editor`: Avança para o editor que está na Aba à esquerda (_Ctrl+Page Up_)
+- `Go to Line/Column...`: Posiciona o cursor em uma linha/coluna específicas (_Ctrl+G_). A notação é `:<número-da-linha>[:<número-da-coluna>]` (os colchetes `[` e `]` indica que o número da coluna é opcional)
+- `Go to Bracket`: Posiciona o cursor no fechamento do grupo atual (colchetes, parênteses, chaves, markups, etc). O atalho para este comando é _Ctrl+Shift+]_.
 
 ## 3.3 Activity Bar
 ### 3.3.1 Explorador de Arquivos
