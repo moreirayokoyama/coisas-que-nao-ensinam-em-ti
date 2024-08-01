@@ -64,7 +64,29 @@ No topo da interface, como já é típico de aplicações que rodam em interface
 
 Mais abaixo, ainda na _Barra Lateral_, existem as opções de _Configurações_, onde você pode personalizar o _Code_ de acordo com as suas preferências, por exemplo, sua preferência por um tema claro ou escuro (e outras combinações de cores) pode ser ajustada ali. E também existe a opção de usar uma conta (na Microsoft ou no Github) para associar ao seu uso, o que pode ser útil, por exemplo, para manter suas configurações salvas e poder usá-las em um _Code_ instalado em outro computador.
 
-## 3.2 Editor
+Na barra de status, que fica no rodapé da janela, é possível ver alguns outros atalhos, como o indicador de em que ambiente esta instância está conectada (à esquerda no rodapé) no qual você pode clicar para se conectar (no WSL ou em um computador remoto via _SSH_ ou _Tunnel_), e do outro lado, à direita, existe o indicador de notificações (um ícono no formato de sino), que também pode ser clicado para visualizar as notificações pendentes (como novas atualizações disponíveis, sugestões de extensão, etc.).
+
+Ao lado do indicador de notificações temos o seletor de Modo de Linguagem (que veremos a seguir), temos três outros seletores, sendo eles, da esquerda para a direita:
+- Seletor do tipo de quebra de linha
+- Seletor do tipo de Encoding
+- Seletor do tipo de Indentação (recuo da margem no código)
+
+![image](../imagens/code-status-bar-right.png)
+
+!!! important
+    O _Seletor do Tipo de Linha_ diz respeito a uma característia específica na diferença entre os sistemas operacionais baseados em UNIX (Linux, FreeBSD, MacOS, etc) e os sistemas operacionais da Microsoft (Windows 11, Windows 10, etc.)
+
+    Em sistemas legados, para manter a compatibilidade, a quebra de linha deveria ser _CRLF_ (_Carriage Return and Line Feed_). Mas hoje em dia, onde a portabilidade acaba sendo prioridade, usar somente _LF_ é, via de regra, considerado uma boa prática.
+
+    Se você quiser saber mais sobre este assunto, o vídeo a seguir, do Scott Hanselman, da série [_Computer Stuff They Didn't Teach You_](https://www.youtube.com/playlist?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr) (Coisas de Computador que não te ensinaram"), fala um pouco mais sobre isto num contexto histórico (em inglês).
+
+    ![typo:video](https://www.youtube.com/watch?v=TtiBhktB4Qg)
+
+Para o tipo de _encoding_, o _UTF8_ atualmente é usado como padrão internacional. Iremos abordar Encoding em algum momento do curso, mas não vamos detalhar isto agora. Por padrão, a menos que você esteja lidando com alguma tarefa que exija um tipo de encoding específico, mantenha sempre _UTF8_ selecionado.
+
+No caso da indentação, isto orienta o code a quantos espaços ele precisa exibir sempre que a tecla _TAB_ for pressionada. O seletor também permite usar Espaços no lugar de Tabs, o que é configurado como padrão. Ou seja, sempre que você usar a tecla _TAB_ para adicionar um espaço, ela será substituída pelo número de espaços usados no seletor de indentação (4 por padrão). Você pode mudar isto a qualquer momento, ajustando o seletor para usar TAB em vez de espaços.
+
+## 3.2 O Editor
 Sem mais delongas vamos explorar o uso do _Code_ para o que ele se propõe: Editar arquivos.
 
 Vamos começar criando um novo arquivo. Isto pode ser feito de diversas formas:
@@ -119,13 +141,34 @@ Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este 
     Isto facilita a edição, não apenas para excluir colunas indesejadas, como também para editá-las de uma única vez (usando a funcionalidade dos múltiplos cursores).
 
 ### 3.2.2 Abas
-### 3.2.3 Quebra de linha
-### 3.2.4 Indentação
-### 3.2.5 Aparência
-### 3.2.6 Layout
+
+Assim com funciona nos browsers modernos, o code suporta abrir diversos arquivos em Abas diferentes (sim, o tio é velho o suficiente pra saber que, antigamente, os browsers não tinham Abas e era comum ter que lidar com dezenas de janelas abertas em vez de dezenas de abas). A capacidade de manter diversos _buffers_ abertos para manipular um número de arquivos simultaneamente não é, obviamente, uma exclusividade do _code_. Diversos outros editores, como o Atom e o Sublime possuem a mesma funcionalidade, enquanto que editores de terminal, como o Emacs e o Vim, oferecem a mesma capacidade através de outros meios.
+
+No code, as Abas mostram o nome do arquivo, um ícone representando em que modo de linguagem ele está sendo usado, e um botão que te permite fechar aquela Aba facilmente, também possível através do atalho _Ctrl+F4_.
+
+Ao clicar com o botão direito do mouse em uma determinada Aba, diversas opções se tornam disponíveis. Vamos tentar destacar as principais:
+- Fechamento de Abas
+    - Close others: Fecha todas as outras Abas exceto a Aba que recebeu o clique
+    - Close to the Right: Fecha todas as Abas à direita dela
+    - Close Saved: Fecha todas as Abas que estão salvas
+- Pin: Fixa a Aba selecionada, não aplicando sobre ela os comandos que fecham as outras abas.
+- Opções de divisão de painéis (_Split_)
+    - Split Up: Divide o editor atual em um novo painel acima
+    - Split Down: Divide o editor atual em um novo painel abaixo
+    - Split Left: Divide o editor em um novo painel à esquerda
+    - Split Right: Divide o editor em um novo painel à direita
+
+### 3.2.3 Painéis do Editor
+
+Um editor (entenda isto como uma Aba editando um arquivo) pode ser dividido em painéis, como destacamos nas opções do menu suspenso quando clicamos com o botão direito no título da Aba. Painéis do Editor nos permitem criar formas de navegar pelo conteúdo do arquivo que estamos editando, ao mesmo tempo que mantemos o cursor na posição em que queremos fazer uma edição, sem deixar de visualizar o que estamos digitando.
+
+O tipo mais comum de painéis de editor é criar um painel à direita. Isto pode ser feito no menu suspenso da Aba, ou através do atalho _Ctrl+K_ e, logo em seguida, _Ctrl+Shift+]_. Mas os outros tipos de painéis também estão disponíveis, como vimos nas opções do menu.
+
 <!-- Menu Go -->
-### 3.2.8 Navegação
-## 3.3 Barra lateral
+### 3.2.4 Navegação
+
+
+## 3.3 Activity Bar
 ### 3.3.1 Explorador de Arquivos
 ### 3.3.2 Busca
 ### 3.3.3 Extensões
@@ -134,3 +177,4 @@ Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este 
 ### 3.4.2 Saída
 ### 3.4.3 Console de depuração
 ### 3.4.4 Terminal
+## 3.5 Layout
