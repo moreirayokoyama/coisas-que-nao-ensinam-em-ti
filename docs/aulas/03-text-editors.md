@@ -1,5 +1,5 @@
 ---
-title: Aula 03 - Explorando o Editor de Textos (VSCode)
+title: Aula 03 - Explorando o Editor de Textos (vscode)
 description: Como usar um editor de texto como ferramenta produtiva para profissionais de TI
 ---
 # Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
@@ -23,46 +23,48 @@ Editores de texto, por outro lado, não interferem no conteúdo salvo pelo arqui
 
 Existem diversos editores de texto disponíveis. De fato, se você usa o sistema operacional Windows, você provavelmente possui instalado o Bloco de Notas (`notepad.exe`). Este é um editor de textos bastante rudimentar, que te permite criar arquivos de texto como os que usamos para manter código. Mas, justamente por que trabalhamos com código, existem opções ainda mais produtivas.
 
-Existem diversos editores de texto feitos especificamente para trabalhar com código. Você vai encontrar profissionais que gostam de usar `Sublime Text`, ou o `Notepad ++` (que tem a proposta de ser um substituto para o Bloco de Notas do Windows com capacidades de produtividade com código), outros que vão preferir opções de editores de texto que rodam no terminal, como o `vim`, ou o `emacs`. E existem ainda ferramentas mais robustas, chamadas de _IDE_'s (_Integrated Development Environment_, ou, em português, Ambiente de Desenvolvimento Integrado), como o _Visual Studio_ da Microsoft, ou o _IntelliJ_ da JetBrains. Contudo, um editor específico mantém uma relevância significativa no mercado e, por que precisamos falar de alguma ferramenta, eu achei que a relevância do Visual Studio Code não poderia ser ignorada.
+Existem diversos editores de texto feitos especificamente para trabalhar com código. Você vai encontrar profissionais que gostam de usar `Sublime Text`, ou o `Notepad ++` (que tem a proposta de ser um substituto para o Bloco de Notas do Windows com capacidades de produtividade com código), outros que vão preferir opções de editores de texto que rodam no terminal, como o `vim`, ou o `emacs`. E existem ainda ferramentas mais robustas, chamadas de _IDE_'s (_Integrated Development Environment_, ou, em português, Ambiente de Desenvolvimento Integrado), como o _Visual Studio_ da Microsoft, ou o _IntelliJ_ da JetBrains. Contudo, um editor específico mantém uma relevância significativa no mercado e, por que precisamos falar de alguma ferramenta, eu achei que a relevância do vscode não poderia ser ignorada.
 
-De acordo com a pesquisa [_Stackoverflow Developer Survey_ de 2024](https://survey.stackoverflow.co/2024/technology#1-integrated-development-environment), de um total de mais de 58 mil entrevistados, 73,6% responderam que usam _VSCode_ como o editor de código no dia-a-dia. Destes, mais de 44 mil usam profissionalmente, e mais de 6 mil o usam enquanto estão aprendendo a programar. Em ambos os casos, ele destaca sua adoção por mais do que o dobro do segundo colocado.
+De acordo com a pesquisa [_Stackoverflow Developer Survey_ de 2024](https://survey.stackoverflow.co/2024/technology#1-integrated-development-environment), de um total de mais de 58 mil entrevistados, 73,6% responderam que usam _vscode_ como o editor de código no dia-a-dia. Destes, mais de 44 mil usam profissionalmente, e mais de 6 mil o usam enquanto estão aprendendo a programar. Em ambos os casos, ele destaca sua adoção por mais do que o dobro do segundo colocado.
 
-O VSCode é mantido pela Microsoft, mas é um projeto de código aberto, mantido sob a licença MIT, e que recebe contribuição da comunidade.
+O vscode é mantido pela Microsoft, mas é um projeto de código aberto, mantido sob a licença MIT, e que recebe contribuição da comunidade.
 
 !!! important
     É importante dizer que, na indústria, existe uma discussão acalorada sobre opções de editores de código, e vários grupos (principalmente entre as pessoas de programação) são muito opinativos a respeito da escolha por editores. A famosa discussão entre os usuários de _emacs_ e _vim_, tentando estabelecer um como superior ao outro, é um bom exemplo de como as pessoas defendem sua opção na indústria.
 
-    Este curso não pretende estabeler o VSCode como uma opção superior aos demais editores disponíveis. Apesar de ter capacidades de edição de código que não deixam a desejar (e em muitos casos, chega a ter uma excelente experiência de uso), a escolha pelo VSCode se dá somente pela sua adoção e a presença que ele tem no mercado atualmente.
+    Este curso não pretende estabeler o vscode como uma opção superior aos demais editores disponíveis. Apesar de ter capacidades de edição de código que não deixam a desejar (e em muitos casos, chega a ter uma excelente experiência de uso), a escolha pelo vscode se dá somente pela sua adoção e a presença que ele tem no mercado atualmente.
 
-    Editores como Vim ou Emacs, além de não terem a mesma presença que o VSCode tem na indústria, apesar de terem uma comunidade forte de usuários e mantenedores, também possuem uma curva de aprendizado (devido à natureza de como funcionam) que, na minha opinião, ainda que possuam suas vantagens, torna sua adoção uma opção indivudual de quem pretende explorá-los e, eventualmente, adotá-los como preferência.
+    Editores como Vim ou Emacs, além de não terem a mesma presença que o vscode tem na indústria, apesar de terem uma comunidade forte de usuários e mantenedores, também possuem uma curva de aprendizado (devido à natureza de como funcionam) que, na minha opinião, ainda que possuam suas vantagens, torna sua adoção uma opção indivudual de quem pretende explorá-los e, eventualmente, adotá-los como preferência.
 
-## 3.1 Instalando o VsCode
+## 3.0 Instalando o vscode
 
-Para instalar o VSCode, que roda na maioria das plataformas disponíveis, basta visitar o [site oficial](https://code.visualstudio.com), e se dirigir à página de downloads e clicar no link adequado de acordo com o seu sistema.
+Para instalar o vscode, que roda na maioria das plataformas disponíveis, basta visitar o [site oficial](https://code.visualstudio.com), e se dirigir à página de downloads e clicar no link adequado de acordo com o seu sistema.
 
 ![image](../imagens/vscode-download.png)
 
 A partir daí, basta seguir as [instruções](https://code.visualstudio.com/docs/setup/setup-overview).
 
 !!! Important
-    Para instalações no Windows, é importante lembrar-se de manter marcado a opção "Add to PATH" (Adicionar para o PATH). Isso torna o _code_ fácil de iniciar a partir do _shell_, inclusive para quem usa o WSL, como recomendado neste curso.
+    Para instalações no Windows, é importante lembrar-se de manter marcado a opção "Add to PATH" (Adicionar para o PATH). Isso torna o vscode fácil de iniciar a partir do _shell_, inclusive para quem usa o WSL, como recomendado neste curso.
 
     ![image](../imagens/vscode-install-windows.png)
 
 ## 3.1 Explorando a interface
-Ao abrir o Visual Studio Code, uma página de boas-vindas é exibida como uma aba aberta na janela do editor, muito semelhante a que você pode enxergar abaixo, com algumas diferenças de acordo com o seu uso (na minha, é possível ver alguns dos meus projetos recentes listados, prontos para serem abertos).
+Para abrir o vscode, você pode iniciá-lo a partir da interface gráfica do seu sistema operacional (_Menu Iniciar_ no Windows), ou, se você tiver adicionado o vscode ao PATH durante a instalação, basta digitar `code` a partir do shell.
+
+Ao abrir o vscode, uma página de boas-vindas é exibida como uma aba aberta na janela do editor, muito semelhante a que você pode enxergar abaixo, com algumas diferenças de acordo com o seu uso (na minha, é possível ver alguns dos meus projetos recentes listados, prontos para serem abertos).
 
 ![image](../imagens/code.png)
 
 A partir desta página, algumas tarefas comuns já estão acessíveis, como criar um novo arquivo, abrir um arquivo existente, abrir um diretório, e até mesmo clonar um repositório _git_. É possível, também, se conectar a outros ambientes, como o WSL, ou remotamente via SSH e outras opções.
 
-Do lado direito, você pode ver alguns guias (_Walkthroughs_), que podem te ajudar a se familiarizar com a interface e o uso do _code_.
+Do lado direito, você pode ver alguns guias (_Walkthroughs_), que podem te ajudar a se familiarizar com a interface e o uso do vscode.
 
 No topo da interface, como já é típico de aplicações que rodam em interface gráfica, temos uma barra de menus, com alguns dos menus mais conhecidos, como _Arquivo_, _Editar_ e _Ajuda_. Como esperado, o menu _Arquivo_ exibe mais opções relacionadas a manipulação de arquivos, _Editar_ tem opções úties como _Copiar_, _Colar_, além de outras conveniências de edição, e o menu _Ajuda_, sem nenhuma surpresa, trás informações úteis para quem precisa de algum suporte.
 
 À esquerda, temos a Barra Lateral, com algumas funcionalidades dispostas de forma conveniente, como _Explorador de Arquivos_, _Busca_, _Controle de Código_, o _Depurador_ e o painel de _Extensões_.
 
-Mais abaixo, ainda na _Barra Lateral_, existem as opções de _Configurações_, onde você pode personalizar o _Code_ de acordo com as suas preferências, por exemplo, sua preferência por um tema claro ou escuro (e outras combinações de cores) pode ser ajustada ali. E também existe a opção de usar uma conta (na Microsoft ou no Github) para associar ao seu uso, o que pode ser útil, por exemplo, para manter suas configurações salvas e poder usá-las em um _Code_ instalado em outro computador.
+Mais abaixo, ainda na _Barra Lateral_, existem as opções de _Configurações_, onde você pode personalizar o vscode de acordo com as suas preferências, por exemplo, sua preferência por um tema claro ou escuro (e outras combinações de cores) pode ser ajustada ali. E também existe a opção de usar uma conta (na Microsoft ou no Github) para associar ao seu uso, o que pode ser útil, por exemplo, para manter suas configurações salvas e poder usá-las em um vscode instalado em outro computador.
 
 Na barra de status, que fica no rodapé da janela, é possível ver alguns outros atalhos, como o indicador de em que ambiente esta instância está conectada (à esquerda no rodapé) no qual você pode clicar para se conectar (no WSL ou em um computador remoto via _SSH_ ou _Tunnel_), e do outro lado, à direita, existe o indicador de notificações (um ícono no formato de sino), que também pode ser clicado para visualizar as notificações pendentes (como novas atualizações disponíveis, sugestões de extensão, etc.).
 
@@ -84,10 +86,10 @@ Ao lado do indicador de notificações temos o seletor de Modo de Linguagem (que
 
 Para o tipo de _encoding_, o _UTF8_ atualmente é usado como padrão internacional. Iremos abordar Encoding em algum momento do curso, mas não vamos detalhar isto agora. Por padrão, a menos que você esteja lidando com alguma tarefa que exija um tipo de encoding específico, mantenha sempre _UTF8_ selecionado.
 
-No caso da indentação, isto orienta o code a quantos espaços ele precisa exibir sempre que a tecla _TAB_ for pressionada. O seletor também permite usar Espaços no lugar de Tabs, o que é configurado como padrão. Ou seja, sempre que você usar a tecla _TAB_ para adicionar um espaço, ela será substituída pelo número de espaços usados no seletor de indentação (4 por padrão). Você pode mudar isto a qualquer momento, ajustando o seletor para usar TAB em vez de espaços.
+No caso da indentação, isto orienta o vscode a quantos espaços ele precisa exibir sempre que a tecla _TAB_ for pressionada. O seletor também permite usar Espaços no lugar de Tabs, o que é configurado como padrão. Ou seja, sempre que você usar a tecla _TAB_ para adicionar um espaço, ela será substituída pelo número de espaços usados no seletor de indentação (4 por padrão). Você pode mudar isto a qualquer momento, ajustando o seletor para usar TAB em vez de espaços.
 
 ## 3.2 O Editor
-Sem mais delongas vamos explorar o uso do _Code_ para o que ele se propõe: Editar arquivos.
+Sem mais delongas vamos explorar o uso do vscode para o que ele se propõe: Editar arquivos.
 
 Vamos começar criando um novo arquivo. Isto pode ser feito de diversas formas:
 - Clicando em "Novo Arquivo..." na página de boas-vindas
@@ -96,9 +98,9 @@ Vamos começar criando um novo arquivo. Isto pode ser feito de diversas formas:
 
 Um novo arquivo, sem título, será aberto em uma nova Aba dentro da janela do editor. Um texto é exibido como conteúdo deste arquivo, dizendo que você pode "Selecionar uma Linguagem", "Preencher um Template" ou "Abrir um Editor Diferente". Logo abaixo, o texto também explica que, se você começar a digitar algum conteúdo, esta mensagem irá sumir, e você pode também optar por não exibí-la novamente nas próximas vezes em que criar um novo arquivo.
 
-Selecionar uma linguagem, significa mudar o modo de linguagem do arquivo no qual estamos trabalhando. É possível fazer isto clicando no link do texto, ou também no seletor do modo de linguagem, que fica na barra de status (na borda inferior da janela do code), à direita. Ela começa com a opção "Plain Text" selecionada, mas é possível mudá-la clicando sobre ela, e um menu suspenso será exibido nos permitindo selecionar a linguagem que pretendemos usar. Vamos selecionar "Shell Script", que é o tipo de arquivo com o qual estamos trabalhando atualmente.
+Selecionar uma linguagem, significa mudar o modo de linguagem do arquivo no qual estamos trabalhando. É possível fazer isto clicando no link do texto, ou também no seletor do modo de linguagem, que fica na barra de status (na borda inferior da janela do vscode), à direita. Ela começa com a opção "Plain Text" selecionada, mas é possível mudá-la clicando sobre ela, e um menu suspenso será exibido nos permitindo selecionar a linguagem que pretendemos usar. Vamos selecionar "Shell Script", que é o tipo de arquivo com o qual estamos trabalhando atualmente.
 
-Note que o ícone exibido ao lado do nome do arquivo, no título da Aba, mudou para `$`, representando que estamos agora editando um arquivo de Shell Script. Você também vai notar que, à medida que você digita o script no conteúdo do arquivo, o _code_, que agora está informado de que estamos editando um arquivo no modo Shell Script, vai formatar o conteúdo de acordo com a sintaxe de Shell Script.
+Note que o ícone exibido ao lado do nome do arquivo, no título da Aba, mudou para `$`, representando que estamos agora editando um arquivo de Shell Script. Você também vai notar que, à medida que você digita o script no conteúdo do arquivo, o vscode, que agora está informado de que estamos editando um arquivo no modo Shell Script, vai formatar o conteúdo de acordo com a sintaxe de Shell Script.
 
 Podemos, também, abrir um dos scripts que já escrevemos na aula anterior. Para fazer isto, temos algumas opções:
 - Voltar à aba com a página Welcome e clicar no link "Open File..."
@@ -107,28 +109,28 @@ Podemos, também, abrir um dos scripts que já escrevemos na aula anterior. Para
 
 Em qualquer uma destas formas, uma caixa de diálogo será exibida para que você possa selecionar o arquivo que deseja abrir. Selecione o arquivo `fancy.sh` que criamos no final da última aula.
 
-Note que o _code_ já identificou o modo de linguagem do arquivo e selecionou "Shell Script". Normalmente o _code_ tenta fazer isto automaticamente quando abrimos um arquivo, baseado na extensão do arquivo aberto. Ou quando salvamos o arquivo em disco (no caso de um arquivo novo), e finalmente atribuímos uma extensão quando lhe damos um nome e, normalmente, ele consegue determinar o modo de linguagem com sucesso. Eventualmente ele pode inferir o modo de linguagem para uma linguagem que não está disponível, e pode sugerir que você procure uma extensão adequada para instalar o modo de linguagem apropriado.
+Note que o vscode já identificou o modo de linguagem do arquivo e selecionou "Shell Script". Normalmente o vscode tenta fazer isto automaticamente quando abrimos um arquivo, baseado na extensão do arquivo aberto. Ou quando salvamos o arquivo em disco (no caso de um arquivo novo), e finalmente atribuímos uma extensão quando lhe damos um nome e, normalmente, ele consegue determinar o modo de linguagem com sucesso. Eventualmente ele pode inferir o modo de linguagem para uma linguagem que não está disponível, e pode sugerir que você procure uma extensão adequada para instalar o modo de linguagem apropriado.
 
 ### 3.2.1 Trabalhando com arquivos
-Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este conteúdo, o _code_ nos indica que existem alterações pendentes através de um sinal de _bullet_ (um pequeno círculo) ao lado do nome do arquivo, no título da aba.
+Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este conteúdo, o vscode nos indica que existem alterações pendentes através de um sinal de _bullet_ (um pequeno círculo) ao lado do nome do arquivo, no título da aba.
 
 - Comentários
     
-    Uma das conveniências de usar um editor adequado quando estamos trabalhando com código, é que ele suporta algumas tarefas comuns, como por exemplo, transformar uma linha de código em um comentário no formato adequado para o Modo de Linguagem que estamos usando. No _code_, o comando para comentarmos uma linha do código (ou remover o comentário dela) é através do atalho _Ctrl+;_, ou no menu _Edit_, na opção _Toggle Line Comment_. Também existe a opção de comentar/remover comentário em blocos, para linguagens que suportam blocos de comentário.
+    Uma das conveniências de usar um editor adequado quando estamos trabalhando com código, é que ele suporta algumas tarefas comuns, como por exemplo, transformar uma linha de código em um comentário no formato adequado para o Modo de Linguagem que estamos usando. No vscode, o comando para comentarmos uma linha do código (ou remover o comentário dela) é através do atalho _Ctrl+;_, ou no menu _Edit_, na opção _Toggle Line Comment_. Também existe a opção de comentar/remover comentário em blocos, para linguagens que suportam blocos de comentário.
 
 - Mover texto
 
-    É muito comum, enquanto estamos codificando, tomarmos decisões que envolvem mover código para reordenar as instruções que estamos programando. No _code_, uma forma mais fácil de fazer este tipo de movimentação é, com o cursor posicionado na linha que gostaríamos de mover, usando _Alt_ mais as setas para cima ou para baixo, de acordo com a direção em que queremos mover o texto.
+    É muito comum, enquanto estamos codificando, tomarmos decisões que envolvem mover código para reordenar as instruções que estamos programando. No vscode, uma forma mais fácil de fazer este tipo de movimentação é, com o cursor posicionado na linha que gostaríamos de mover, usando _Alt_ mais as setas para cima ou para baixo, de acordo com a direção em que queremos mover o texto.
 
     Funciona também com múltiplas linhas do texto, contanto que você as selecione antes de movê-las.
 
 - Copiar texto
 
-    Da mesma forma que o _code_ facilita que possamos mover o texto pelas linhas, para cima ou para baixo, podemos também copiar o conteúdo da linha onde o cursor está posicionado usando as teclas _Shift+Alt_ e a direção para onde queremos que a duplicação seja feita, para cima ou para baixo.
+    Da mesma forma que o vscode facilita que possamos mover o texto pelas linhas, para cima ou para baixo, podemos também copiar o conteúdo da linha onde o cursor está posicionado usando as teclas _Shift+Alt_ e a direção para onde queremos que a duplicação seja feita, para cima ou para baixo.
 
 - Cursores
 
-    Não é raro que, enquanto estamos trabalhando com código, nos deparamos com algumas situações em que precisamos aplicar alterações semelhantes em diversas linhas ou diversos lugares do código. O _code_ suporta múltiplos cursores, o que significa que podemos posicionar diversos cursores de edição em lugares distintos do código, e editá-los simultaneamente.
+    Não é raro que, enquanto estamos trabalhando com código, nos deparamos com algumas situações em que precisamos aplicar alterações semelhantes em diversas linhas ou diversos lugares do código. O vscode suporta múltiplos cursores, o que significa que podemos posicionar diversos cursores de edição em lugares distintos do código, e editá-los simultaneamente.
 
     É possível espalhar cursores diferentes pressionando a tecla _Alt_ e posicionando-os com o mouse, clicando em cada um dos lugares em que queremos um novo cursor. Podemos também, usando as teclas _Ctrl+Alt_ e usando as setas para cima ou para baixo para criar novos cursores na mesma posição nas linhas de cima ou de baixo, de acordo com a direção selecionada.
 
@@ -140,11 +142,33 @@ Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este 
 
     Isto facilita a edição, não apenas para excluir colunas indesejadas, como também para editá-las de uma única vez (usando a funcionalidade dos múltiplos cursores).
 
+- Busca/Substituição
+
+    Com certa frequência, precisamos encontrar uma ou diversas ocurrências de certos termos no texto, seja para fazer referências a estes pontos específicos ou para fazer ajustes tardios.
+
+    Para fazer uma busca por termos no conteúdo do arquivo aberto no editor atual, podemos acionar o Menu _Edit_ e clicar em _Find_, ou usar o atalho _Ctrl+F_.
+
+    ![image](../imagens/code-find.png)
+
+    Entre as opções de busca podemos ajustar:
+    - `Match Case`: Combinação de Maiúsculas e minúsculas, indica se o texto procurado precisa corresponder ou não à caixa do texto.
+    - `Match Whole Word`: Combinação de palavras inteiras, encontra correspondências apenas em palavras completas
+    - `Use Regular Expression`: Combinação de Expressões Regulares, é um mecanismo de busca mais avançado usando _RegEx_, algo que veremos mais pra frente neste curso.
+
+    Para fazer substituições, podemos acionar o Menu _Edit_ e clicar em _Replace_, ou usar o atalho _Ctrl+H_.
+
+    ![image](../imagens/code-replace.png)
+
+    As opções são bastante semelhantes às opções disponíveis na busca, mas apresentam duas novas opções:
+
+    - `Replace`: Aplica a substituição na ocorrência selecionada (e automaticamente move para a próxima ocorrência)
+    - `Replace All`: Aplica a substituição em todas as ocorrências
+
 ### 3.2.2 Abas
 
-Assim com funciona nos browsers modernos, o code suporta abrir diversos arquivos em Abas diferentes (sim, o tio é velho o suficiente pra saber que, antigamente, os browsers não tinham Abas e era comum ter que lidar com dezenas de janelas abertas em vez de dezenas de abas). A capacidade de manter diversos _buffers_ abertos para manipular um número de arquivos simultaneamente não é, obviamente, uma exclusividade do _code_. Diversos outros editores, como o Atom e o Sublime possuem a mesma funcionalidade, enquanto que editores de terminal, como o Emacs e o Vim, oferecem a mesma capacidade através de outros meios.
+Assim com funciona nos browsers modernos, o vscode suporta abrir diversos arquivos em Abas diferentes (sim, o tio é velho o suficiente pra saber que, antigamente, os browsers não tinham Abas e era comum ter que lidar com dezenas de janelas abertas em vez de dezenas de abas). A capacidade de manter diversos _buffers_ abertos para manipular um número de arquivos simultaneamente não é, obviamente, uma exclusividade do vscode. Diversos outros editores, como o Atom e o Sublime possuem a mesma funcionalidade, enquanto que editores de terminal, como o Emacs e o Vim, oferecem a mesma capacidade através de outros meios.
 
-No code, as Abas mostram o nome do arquivo, um ícone representando em que modo de linguagem ele está sendo usado, e um botão que te permite fechar aquela Aba facilmente, também possível através do atalho _Ctrl+F4_.
+No vscode, as Abas mostram o nome do arquivo, um ícone representando em que modo de linguagem ele está sendo usado, e um botão que te permite fechar aquela Aba facilmente, também possível através do atalho _Ctrl+F4_.
 
 Ao clicar com o botão direito do mouse em uma determinada Aba, diversas opções se tornam disponíveis. Vamos tentar destacar as principais:
 - Fechamento de Abas
@@ -165,7 +189,7 @@ Um editor (entenda isto como uma Aba editando um arquivo) pode ser dividido em p
 O tipo mais comum de painéis de editor é criar um painel à direita. Isto pode ser feito no menu suspenso da Aba, ou através do atalho _Ctrl+K_ e, logo em seguida, _Ctrl+Shift+]_. Mas os outros tipos de painéis também estão disponíveis, como vimos nas opções do menu.
 
 ### 3.2.4 Navegação
-O code suporta diversas funcionalidades de navegação que podem ser convenientes quando estamos trabalhando com código. Vamos falar agora de algumas delas disponíveis no Menu _Go_.
+O vscode suporta diversas funcionalidades de navegação que podem ser convenientes quando estamos trabalhando com código. Vamos falar agora de algumas delas disponíveis no Menu _Go_.
 
 - `Back`: Posiciona o cursor de volta onde estava posicionado anteriormente de acordo com o histórico de posições (_Ctrl+Seta Esquerda_)
 - `Forward`: Semelhantemente ao anterior, faz o cursor ser posicionado avançando no histórico de posições (_Ctrl+Seta Direita_)
@@ -174,13 +198,90 @@ O code suporta diversas funcionalidades de navegação que podem ser conveniente
 - `Go to Line/Column...`: Posiciona o cursor em uma linha/coluna específicas (_Ctrl+G_). A notação é `:<número-da-linha>[:<número-da-coluna>]` (os colchetes `[` e `]` indica que o número da coluna é opcional)
 - `Go to Bracket`: Posiciona o cursor no fechamento do grupo atual (colchetes, parênteses, chaves, markups, etc). O atalho para este comando é _Ctrl+Shift+]_.
 
-## 3.3 Activity Bar
-### 3.3.1 Explorador de Arquivos
-### 3.3.2 Busca
-### 3.3.3 Extensões
-## 3.4 Painel
-### 3.4.1 Problemas
-### 3.4.2 Saída
-### 3.4.3 Console de depuração
-### 3.4.4 Terminal
-## 3.5 Layout
+### 3.2.5 Formatação
+
+## 3.3 Extensões
+O vscode tem suporte à extensões, e possui um repositório com inúmeras extensões úteis para serem instaladas. Elas podem simplificar bastante o nosso trabalho de diversas formas, criando novas teclas de atalho, auxiliando na legibilidade do código através do uso de cores e padrões de formatação, e até mesmo trazendo para dentro da ferramenta funcionalidades completamente novas.
+
+Por exemplo, se fizermos uma busca por `bash`, veremos quantas extensões disponíveis podem ser usadas para, de alguma forma, facilitar a vida de quem trabalha Shell Scripts em Bash.
+
+![image](../imagens/vscode-extensions.png)
+
+Ao longo deste curso, iremos recomendar extensões que possam ser usadas para facilitar certos aspectos do uso do vscode. Por ora, fique à vontade para navegar pelas extensões e, se achar alguma útil, tente experimentá-la.
+
+
+## 3.4 Trabalhando com Código
+### 3.4.1 Instalando suporte à linguagem
+### 3.4.2 Outline
+### 3.4.3 Painel Problems 
+<!-- (Errors e Warnings) -->
+### 3.4.4 Intellisense
+### 3.4.5 Snippets
+<!-- TODO: Mencionar que é possível criar snippets próprios -->
+### 3.4.6 Navegação do código
+### 3.4.7 Refatoração de código
+### 3.4.8 Depuração de código
+
+## 3.5 Tasks
+
+## 3.6 Trabalhando com Diretórios
+Um dos maiores benefícios de usar um editor de código para trabalhar com tarefas é que ele suporta abrir espaços de trabalho baseados em uma hierarquia de diretórios. E o vscode suporta esta funcionalidade. Você pode abrir um diretório a partir do Menu File, na opção `Open Folder...`, ou usando o atalho _Ctrl+K_ e, logo em seguida _Ctrl+O_. Mas, o mais comum para quem trabalha a partir do shell, é usar o CLI do vscode para abrir o editor e trabalhar no diretório. Para isto, basta usar o nome do ditetório como argumento:
+
+```bash
+code foo # abre o vscode com o diretório `foo`
+```
+
+O mais comum é chamar o code já a partir do diretório em que se está trabalhando:
+
+ ```bash
+ code .
+ ```
+
+A partir do momento em que se trabalha num ambiente de diretório, todos os arquivos com os quais trabalhamos são tratados usando o diretório aberto como referência. Podemos criar diretórios e posicionar arquivos em qualquer lugar da hierarquia.
+
+A primeira funcionalidade útil que podemos verificar usando o modo de trabalho em diretório é o _Explorer_, uma visualização da hierarquia de diretórios a partir do diretório aberto, normalmente situado na Barra Lateral, à esquerda. Se o Explorer não estiver visível pra você neste momento, você pode abrí-lo usando o atalho _Ctrl+Shift+E_, ou acessando o menu _View_ e clicando na opção _Explorer_.
+
+![image](../imagens/vscode-explorer.png)
+
+Você pode abrir novos arquivos através do explorer, ou através do atalho _Ctrl+P_, que abrirá um menu suspenso onde você pode selecionar entre os arquivos listados ou digitar o nome do arquivo que você pretende abrir.
+
+Outra vantagem de usar o modo de trabalho em diretórios, é o _Search_ (Busca), também disponível na barra lateral, ou pelo atalho _Ctrl+Shift+F_, ou ainda pelo menu _View_ na opção _Search_.
+
+Nesta barra, você pode digitar o que pretende buscar na caixa de textos, e o vscode irá pesquisar em todos os arquivos do diretório pelas ocorrências do texto que você pesquisou, listando os arquivos encontrados com as posições onde as ocorrências podem ser encontradas.
+
+![image](../imagens/code-search.png)
+
+Além disso, esta barra permite fazer substituições, da mesma forma como é possível fazer usando a função Search/Replace no editor individual de um arquivo.
+
+## 3.7 Workspaces
+
+Quando trabalhamos com diretórios, podemos fazer uso de um recurso chamado _Workspace_ (Espaço de Trabalho). O vscode oferece esta funcionalidade para organizarmos configurações que são aplicadas e compartilhadas por todos os arquivos que pertencem a um espaço.
+
+Ao trabalhar em um _Workspace_, o vscode memoriza o layout da janela (quais arquivos estão abertos, o estado dos painéis e barras laterais, etc), configurações específicas daquele _Workspace_ (para o editor, extensões, etc), definições de Tarefas (tasks) e Configurações de Depuração.
+
+As configurações do _Workspace_, quando estamos trabalhando com um diretório, ficam armazenadas em um arquivo _json_ situado em `.vscode/settings.json`, a partir do endereço do diretório aberto.
+
+### 3.7.1 Workspaces com Múltiplos Diretórios Raízes
+
+É possível, também, organizar um Workspace composto por mais de um diretório raiz. A qualquer momento você pode adicionar novos diretórios ao Workspace atual através do menu `File`, clicando na opção `Add Folder to Workspace...`. Quando tiver o Workspace aberto, você pode salvar as configurações clicando no menu `File`, e escolhendo a opção `Save Workspace As...`. Isto irá criar um arquivo com a estensão `.code-workspace`, que é o arquivo que você irá usar quando quiser abrir o workspace novamente, além de ser onde serão mantidas as configurações correspondentes a este workspace.
+
+![image](../imagens/vscode-workspaces.png)
+
+## 3.8 Terminal
+O vscode também possui um terminal interno que pode ser usado de forma conveniente, sem que seja necessário sair do editor para executar tarefas no shell. É possível acessar o terminal acionando o menu _View_ e clicando em _Terminal_, ou pelo atalho _Ctrl+'_. O vscode suporta diversos shells em seu terminal, mas irá abrir inicialmente o shell padrão do ambiente em que está rodando.
+
+![image](../imagens/vscode-terminal.png)
+
+É possível abrir múltiplos terminais no painel _Terminal_, para isto basta clicar no botão `+` para iniciar uma nova instância com o shell padrão, ou clicar no menu suspenso para criar uma nova instância de um terminal usando outro shell. Uma barra lateral à direita do painel irá listar todos os terminais abertos, permitindo alternar entre eles através, clicando naquele que se pretende usar, ou fechá-los através do ícone da lixeira.
+
+É possível também dividir o painel do terminal para visualizar múltiplos terminais simultaneamente. Por último, o botão `^` expande o painel do terminal para ocupar o espaço do editor de arquivos, dando mais espaço para trabalhar no shell.
+
+No 
+
+## 3.9 Outras Ferramentas
+O vscode não oferece somente as coisas que vimos até aqui. Ele também possui um depurador que pode ser usado para testar programas, e possui suporte ao Controle de Versionamento de Código, ambos são assuntos que iremos tratar ao longo do curso em aulas futuras.
+
+No painel inferior também existem outras abas úteis, como a aba `Problems`, que destaca problemas detectados pelos analisadores das linguagens com as quais trabalhamos, e a aba `Output`, que exibe a saída de execução das tarefas executadas pelo vscode.
+
+## 3.10 Layout
+Como é o caso de diveras aplicações de produtividade no ambiente gráfico, o vscode suporta diversos 
