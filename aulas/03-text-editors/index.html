@@ -658,18 +658,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#39-outras-ferramentas" class="md-nav__link">
+  <a href="#39-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      3.9 Outras Ferramentas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#310-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.10 Layout
+      3.9 Layout
     </span>
   </a>
   
@@ -976,18 +967,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#39-outras-ferramentas" class="md-nav__link">
+  <a href="#39-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      3.9 Outras Ferramentas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#310-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.10 Layout
+      3.9 Layout
     </span>
   </a>
   
@@ -1272,16 +1254,39 @@
 <h3 id="343-execucao-de-codigo">3.4.3 Execução de código</h3>
 <p>Para executarmos o código, podemos usar o Depurador (<em>Debug</em>) do vscode, que pode ser aberto através do atalho <em>Ctrl+Shift+D</em>. Nele podemos clicar no botão <em>Run and Debug</em>.</p>
 <p>O depurador irá abrir um terminal chamado <code>Python Debug Console</code>, onde o programa será executado e o valor resultante da chamada da função <code>sqrt</code> será impressa.</p>
-<p>Pode-se iniciar uma execução através do atalho <em>F5</em>.</p>
+<p>Pode-se iniciar uma execução através do atalho <em>F5</em>. Nós iremos explorar melhor as capacidades de depuração do vscode em uma aula futura dedicada à <em>Debugging</em> e <em>Profiling</em>.</p>
 <h3 id="344-navegacao-do-codigo">3.4.4 Navegação do código</h3>
+<p>O vscode possui capacidades de navegação específicas para serem usadas quando estamos trabalhando com código. Ao clicar com o botão direito do mouse no nome de algum artefato de código, algumas opções de navegação serão exibidas no menu suspenso:
+- Go to Definition: Navega até o código em que este artefato foi definido
+- Go to Declaration: Navega até o código em que este artefato foi declarado (em <em>Python</em> o efeito é o mesmo, mas existem linguagens que distinguem a declaração da definição)
+- Go to Type Definition: Para linguagens que suportam um sistema de tipos, navega até a definição de um tipo
+- Go to References: Navega pelas referências ao artefato (os lugares no código onde ele é usado)</p>
 <ul>
-<li>Outline</li>
+<li>Peek
+Às vezes, você só quer ter uma ideia de como os artefatos foram definidos ou estão sendo usados, sem necessariamente navegar pelo código. <em>Peek</em> é uma forma de enxergar os trechos de código onde tais coisas acontecem, sem navegar até eles, mantendo o cursor na posição atual. Para isto, o vscode exibe uma caixa flutuante onde se pode visualizar o que se deseja.</li>
 </ul>
+<p>Para isto, em vez de acessar as opções de navegação no menu suspenso, escolha o submenu <code>Peek</code> e a opção desejada.</p>
+<ul>
+<li>Outline
+O <em>Outline</em> é uma forma de visualizar as estruturas de código presentes no arquivo e navegar por elas. O Outline fica na mesma janela do <em>Explorer</em>, abaixo, ou pode ser visto através do atalho <em>Ctrl+Shift+O</em>.</li>
+</ul>
+<p><a class="glightbox" href="../../imagens/vscode-outline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-outline.png"></a></p>
 <h3 id="345-refatoracao-de-codigo">3.4.5 Refatoração de código</h3>
+<p>Dentre as capacidades com código do vscode, existem opções de refatoração disponíveis. Por exemplo, renomear um artefato (atualizando todas as referências a ele com o novo nome), mover um artefato para outro arquivo, transformar uma expressão em variável ou extrair um novo método a partir de um trecho de código, além de outras capacidades disponíveis de acordo com a linguagem.</p>
+<ul>
+<li>Renomear: para renomear um artefato (variável, função, etc), basta posicionar o cursor sobre o seu nome e pressionar <em>F2</em>. Uma caixa de texto será exibida para que você possa entrar com o novo nome e, ao pressionar <em>Enter</em>, ele aplicará o novo nome para todas as referências conhecidas.</li>
+<li>Extrair Variável: para transformar uma expressão em uma variável, você pode selecionar a expressão desejada e pressionar <em>Ctrl+Shift+R</em> e, no menu suspenso, escolher <em>Extract Variable</em>. Ao digitar o nome da variável, o vscode fará a refatoração adequada.</li>
+<li>Extrair Método: Extrair Método, de forma semelhante à <em>Extrair Variável</em>, baseado em uma expressão selecionada, a transforma em uma chamada de função, para onde ele move a expressão selecionada. Para isto, basta usar o atalho de refatoração <em>Ctrl+Shift+R</em> e clicar em <code>Extract Method</code>.</li>
+</ul>
 <h3 id="346-intellisense">3.4.6 Intellisense</h3>
+<p>O <em>IntelliSense</em> é um conjunto de capacidades do vscode que interagem com o usuário ao trabalhar com código. Estas capacidades são principalmente:
+- Auto completar: à medida que se digita o código, o IntelliSense dá sugestões sobre possíveis formas de completar a expressão baseadas no que está sendo digitado e nos artefatos que existem disponíveis no código.
+- Informações Rápidas e Detalhes sobre Parâmetros: Quando se digita uma chamada para uma função, o IntelliSense é capaz de obter informações sobre a função e seus parâmetros e exibí-las, durante a digitação, para que o usuário possa entender como preenchê-los.
+- Lista de Membros: O IntelliSense também verifica os membros de classes, structs, etc, e exibe informações durante a codificação para te ajudar a preenchê-las.</p>
 <h3 id="347-snippets">3.4.7 Snippets</h3>
-<!-- TODO: Mencionar que é possível criar snippets próprios -->
-
+<p><em>Snippets</em> são templates para pequenos trechos de código que o vscode mantém disponíveis para facilitar a digitação de certas estruturas enquanto estamos codificando.</p>
+<p>Por exemplo, quando queremos usar alguma estrutura de controle, criar uma função, ou uma classe, pode ser que existam snippets diponíveis para isto, ou podem haver extensões que os disponibilizem.</p>
+<p>Alguns snippets são exibidos pelo <em>IntelliSense</em>, à medida que você digita código. Mas é possível, também acessar snippets a partir da Paleta de Comandos usando <em>Ctrl+Shift+P</em> e buscando pelo comando <code>Snippets: Insert Snippet</code>.</p>
 <h2 id="35-tasks">3.5 Tasks</h2>
 <h2 id="36-trabalhando-com-diretorios">3.6 Trabalhando com Diretórios</h2>
 <p>Um dos maiores benefícios de usar um editor de código para trabalhar com tarefas é que ele suporta abrir espaços de trabalho baseados em uma hierarquia de diretórios. E o vscode suporta esta funcionalidade. Você pode abrir um diretório a partir do Menu File, na opção <code>Open Folder...</code>, ou usando o atalho <em>Ctrl+K</em> e, logo em seguida <em>Ctrl+O</em>. Mas, o mais comum para quem trabalha a partir do shell, é usar o CLI do vscode para abrir o editor e trabalhar no diretório. Para isto, basta usar o nome do ditetório como argumento:</p>
@@ -1311,10 +1316,7 @@
 <p>É possível abrir múltiplos terminais no painel <em>Terminal</em>, para isto basta clicar no botão <code>+</code> para iniciar uma nova instância com o shell padrão, ou clicar no menu suspenso para criar uma nova instância de um terminal usando outro shell. Uma barra lateral à direita do painel irá listar todos os terminais abertos, permitindo alternar entre eles através, clicando naquele que se pretende usar, ou fechá-los através do ícone da lixeira.</p>
 <p>É possível também dividir o painel do terminal para visualizar múltiplos terminais simultaneamente. Por último, o botão <code>^</code> expande o painel do terminal para ocupar o espaço do editor de arquivos, dando mais espaço para trabalhar no shell.</p>
 <p>No </p>
-<h2 id="39-outras-ferramentas">3.9 Outras Ferramentas</h2>
-<p>O vscode não oferece somente as coisas que vimos até aqui. Ele também possui um depurador que pode ser usado para testar programas, e possui suporte ao Controle de Versionamento de Código, ambos são assuntos que iremos tratar ao longo do curso em aulas futuras.</p>
-<p>No painel inferior também existem outras abas úteis, como a aba <code>Problems</code>, que destaca problemas detectados pelos analisadores das linguagens com as quais trabalhamos, e a aba <code>Output</code>, que exibe a saída de execução das tarefas executadas pelo vscode.</p>
-<h2 id="310-layout">3.10 Layout</h2>
+<h2 id="39-layout">3.9 Layout</h2>
 <p>Como é o caso de diveras aplicações de produtividade no ambiente gráfico, o vscode suporta diversos </p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
