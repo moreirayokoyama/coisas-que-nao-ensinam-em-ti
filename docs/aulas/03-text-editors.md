@@ -273,18 +273,123 @@ Por exemplo, se fizermos uma busca por `bash`, veremos quantas extensões dispon
 
 Ao longo deste curso, iremos recomendar extensões que possam ser usadas para facilitar certos aspectos do uso do vscode. Por ora, fique à vontade para navegar pelas extensões e, se achar alguma útil, tente experimentá-la.
 
-
 ## 3.4 Trabalhando com Código
+Vamos agora discutir um pouco sobre o uso do vscode com código, no dia-a-dia de pessoas que trabalham com programação de software ou scripts de automação. Para isto iremos usar um programa de exemplo em Python que usa o método de Newton para calcular a raiz quadrada de um número.
+
+!!! warning
+    Se você não conhece Python, ou não entende sobre programação, tenha em mente que os exemplos usados aqui tem um caráter meramente ilustrativo para facilitar a compreensão do uso do vscode.
+
+    Contudo, se você quiser acompanhar os exemplos em seu dispositivo, você vai precisar ter instalado um interpretador de Python.
+    
+    Acesse [este link](https://python.org.br/instalacao-windows/) para instruções de como instalar o Interpretador Python no Windows, ou [este link](https://python.org.br/instalacao-linux/) para instalar no linux. Para usuários do MacOs, [este link](https://python.org.br/instalacao-mac/) forncesse as instruções necessárias.
+
+!!! note
+    O exemplo a seguir foi extraído do livro [_Structure and Interpretation of Computer Programs_](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book.html), de Hal Abelson, Jerry Sussman e Julie Sussman, pela MIT Press.
+
+    No livro, os autores implementam o código usando a linguagem LISP. Aqui, usaremos Python.
+
 ### 3.4.1 Instalando suporte à linguagem
-### 3.4.2 Outline
-### 3.4.3 Painel Problems 
-<!-- (Errors e Warnings) -->
-### 3.4.4 Intellisense
-### 3.4.5 Snippets
+A primeira coisa que iremos fazer para trabalhar com uma linguagem no vscode, é procurar uma extensão que instale o suporte a esta linguagem no editor.
+
+Para isto, vamos abrir o Painel de Extensões do vscode através do atalho _Ctrl+Shift+X_, e digitar `Python` no campo de busca.
+
+![image](../imagens/vscode-python-extension.png)
+
+Note como existem inúmeras extensões que auxiliam o uso de Python no resultado da busca. Para os fins deste curso, irei instalar o suporte oficial da Microsoft, que é a extensão mais baixada. Ela também instala duas outras extensões como parte de suas dependências:
+- `Pylance` (para suporte do _IntelliSense_)
+- `Python Debugger`(para suporte ao Depurador)
+
+A extensão _Python_ da Microsoft, instala alguns comandos úteis, como, por exemplo, Iniciar um Terminal REPL de Python:
+1. Entre na Paleta de Comandos com _Ctrl+Shift+P_
+2. Digite `Python` para listar todos os comandos que a extensão adicionou
+3. Procure o comando `Python: Start Terminal REPL`
+4. Clique no comando para ver o Terminal REPL ser iniciado
+
+!!! note
+    Um _Terminal REPL_ é uma ferramenta disponível em Python (e em algumas outras linguagens) que criam uma experiência de Shell para usar a linguagem no terminal.
+
+    _REPL_ é a sigla para _Read-Eval-Print Loop_, que significa uma repetição do processo de Ler->Interpretar->Imprimir do interpretador de uma linguagem.
+
+    Por exemplo, se você digitar no REPL a expressão `1 + 1` e pressionar _Enter_, o terminal executará a leitura do texto digitado, fará a interpretação de acordo com a linguagem Python, e imprimirá o resultado. Depois disto, ele habilitará o terminal para que uma nova expressão seja digitada, e executará tudo novamente.
+
+Para sair do REPL, basta digitar `quit()`
+
+### 3.4.2 Codificando no vscode
+
+Para criar um pequeno programa em Python, vamos criar um novo arquivo e salvá-lo como `newton.py`. Ao criar o arquivo e ter ele aberto no seu editor, olhe barra de status e observe o _Modo de Linguagem_ selecionado (Python). Logo ao lado do seletor do Modo de Linguagem, há também o seletor do interpretador da linguagem.
+
+![image](../imagens/vscode-python-statusbar.png)
+
+Podemos começar a digitar código no nosso arquivo. O primeiro passo, seguindo o [exemplo do livro](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-10.html#%_sec_1.1.7), é criar uma função  chamada `sqrt-iter`.
+
+```python
+def sqrt-iter(guess, x):
+    if good_enough(guess, x):
+        return guess
+    else:
+        return sqrt_iter(improve(guess, x), x)
+```
+
+Observer como o código que digitamos possui diversas marcações em vermelho e amarelo. Isto são problemas que o suporte à linguagem Python identificou no código que digitamos. Podemos compreender melhor os problemas de diversas formas:
+
+- Posicionando o mouse sobre uma das áreas marcadas, e uma caixa flutuante será exibida descrevendo o problema
+- Abrindo o painel _Problems_, através do atalho _Ctrl+Shift+M_
+- Navegandoi pelos problemas usando o atalho _F8_ para ir para o próximo problema, e _Shift+F8_ para voltar para o problema anterior.
+
+As marcações em vermelho representam _Errors_ (erros), enquanto que as marcações em amarelo representam _Warnings_ (avisos). É possível ter um relatório de erros e avisos na barra de status do vscode, no grupo à esquerda. O número de erros é representado por um ícone com a letra `x`, enquanto que o número de avisos é representado por um ícone com o ponto-de-exclamação.
+
+Ao clicar neste relatório, o Painel Problems será aberto. Ele também pode ser aberto através do atalho _Ctrl+Shift+M_. Este painel exibe todos os problemas encontrados no código: erros e avisos, usando o mesmo código de cores: vermelho para erros e amarelos para avisos. Ao clicar em qualquer um dos problemas, ele posiciona o cursor do editor no código onde o problema está sendo reportado.
+
+O primeiro problema encontra-se no nome da função. Existe um erro aqui, e a extensão _Pylance_ diz que era esperado `(` (uma abertura de parênteses) no lugar onde está o caractere `-` (traço). Isso ocorre por que, em Python, quando definimos um nome para uma função, ele aceita apenas letras, números e o caractere `_`. O traço não é um caractere válido. Então vamos substituí-lo pelo `_`.
+
+Note como, só por fazer esta correção, diversos outros problemas foram corrigidos, sobrando apenas agora 2 avisos relacionados às chamadas para as funções `good_enough` e `improve`. O problema é que elas ainda não existem, então precisamos implementá-las.
+
+```python
+def good_enough(guess, x):
+    return abs((guess * guess) - x) < 0.001
+
+
+def improve(guess, x):
+    return average(guess, x / guess)
+```
+
+Note agora que, ambos os avisos não existem mais, mas um novo aviso passou a existir nos apontando a chamada da função `average`, que ainda não existe. A chamada para a função `abs` não foi marcada por que ela existe, estamos usando uma função pronta fornecida pelo interpretador.
+
+Seguindo o livro, implementemos a função `average`:
+
+```python
+def average(x, y):
+    return (x + y) / 2
+```
+
+Por fim, para facilitar o uso da função iterativa, o livro propõe a definição de uma última função chamada `sqrt`, que encapsula a chamada inicial da função `sqrt_iter`, passando como primeiro palpite o valor `1.0`.
+
+```python
+def sqrt(x):
+    return sqrt_iter(1.0, x)
+```
+
+Agora, tudo o que precisamos fazer no nosso programa é usar as funções que criamos, a partir da chamada à função `sqrt` passando como argumento um número para o qual queiramos obter a raiz quadrada:
+
+```python
+print(sqrt(2.0))
+```
+
+### 3.4.3 Execução de código
+
+Para executarmos o código, podemos usar o Depurador (_Debug_) do vscode, que pode ser aberto através do atalho _Ctrl+Shift+D_. Nele podemos clicar no botão _Run and Debug_.
+
+O depurador irá abrir um terminal chamado `Python Debug Console`, onde o programa será executado e o valor resultante da chamada da função `sqrt` será impressa.
+
+Pode-se iniciar uma execução através do atalho _F5_.
+
+### 3.4.4 Navegação do código
+- Outline
+### 3.4.5 Refatoração de código
+
+### 3.4.6 Intellisense
+### 3.4.7 Snippets
 <!-- TODO: Mencionar que é possível criar snippets próprios -->
-### 3.4.6 Navegação do código
-### 3.4.7 Refatoração de código
-### 3.4.8 Depuração de código
 
 ## 3.5 Tasks
 
