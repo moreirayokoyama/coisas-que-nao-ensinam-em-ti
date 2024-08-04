@@ -1066,7 +1066,20 @@
 <p>Do lado direito, você pode ver alguns guias (<em>Walkthroughs</em>), que podem te ajudar a se familiarizar com a interface e o uso do vscode.</p>
 <p>No topo da interface, como já é típico de aplicações que rodam em interface gráfica, temos uma barra de menus, com alguns dos menus mais conhecidos, como <em>Arquivo</em>, <em>Editar</em> e <em>Ajuda</em>. Como esperado, o menu <em>Arquivo</em> exibe mais opções relacionadas a manipulação de arquivos, <em>Editar</em> tem opções úties como <em>Copiar</em>, <em>Colar</em>, além de outras conveniências de edição, e o menu <em>Ajuda</em>, sem nenhuma surpresa, trás informações úteis para quem precisa de algum suporte.</p>
 <p>À esquerda, temos a Barra Lateral, com algumas funcionalidades dispostas de forma conveniente, como <em>Explorador de Arquivos</em>, <em>Busca</em>, <em>Controle de Código</em>, o <em>Depurador</em> e o painel de <em>Extensões</em>.</p>
-<p>Mais abaixo, ainda na <em>Barra Lateral</em>, existem as opções de <em>Configurações</em>, onde você pode personalizar o vscode de acordo com as suas preferências, por exemplo, sua preferência por um tema claro ou escuro (e outras combinações de cores) pode ser ajustada ali. E também existe a opção de usar uma conta (na Microsoft ou no Github) para associar ao seu uso, o que pode ser útil, por exemplo, para manter suas configurações salvas e poder usá-las em um vscode instalado em outro computador.</p>
+<p>Mais abaixo, ainda na <em>Barra Lateral</em>, existem os botões de Contas (<em>Accounts</em>) e Gerenciamento (<em>Management</em>). O botão de Contas permite você usar algum serviço de contas (Microsoft ou Github) para se autenticar e ter a possibilidade, por exemplo, de guardar as configurações do vscode em um repositório da internet, tornando possível resgatar estas configurações em outro dispositivo, por exemplo, e sincronizá-lo com as suas preferências configuradas previamente.</p>
+<p>Já no menu de Gerenciamento, você consegue acessar a Paleta de Comandos (também usando <em>Ctrl+Shift+P</em>), alternar entre diferentes Perfis (<em>Profiles</em>), personalizar as configurações do vscode, definir associações de teclas de atalho (<em>Keyboard Shortcuts</em>), templates de trechos de código (<em>snippets</em>), definier Tarefas (<em>Tasks</em>), escolher um tema de cores ou de ícone de arquivos, sincronizar suas configurações e atualizar a instalação do vscode no seu dispositivo.</p>
+<p>A <em>Paleta de Comandos</em> é um dos recursos mais ricos do vscode, pois ela lista inúmeros comandos disponíveis no editor, alguns deles acessíveis somente através dela. Já a escolha por diferentes Perfis permite que você mantenha configurações diferentes do vscode agrupadas, como um perfil para uso quando usando projetos de uma organização, e outro para projetos open source ou de uso pessoal, por exemplo.</p>
+<p>A janela de configurações do vscode mostra outras formas de agrupar as configurações:
+- configurações globais no sistema onde ele está rodando
+- configurações no escopo do usuário que está usando o editor (sobrepõem as configurações globais)
+- configurações do Espaço de Trabalho (<em>Workspace</em>) aberto (sobrepõem as configurações do usuário)</p>
+<p>Falaremos sobre Espaços de Trabalho mais adiante.</p>
+<p><a class="glightbox" href="../../imagens/vscode-settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-settings.png"></a></p>
+<p>Em qualquer um dos três escopos, há uma extensa lista para configurar o editor, as extensões instaladas e diversos outros aspectos de uso. Você pode navegar por elas através dos menus colapsáveis à esquerda, ou buscando as configurações desejadas no campo de busca.</p>
+<p>Para escolher entre temas, o vscode oferece alguns temas de cores e ícones de arquivos pré-instalados, mas outros podem ser inseridos a partir de extensões. Por exemplo, você pode baixar a extensão <em>Ayu</em>, que instala temas de cores e ícones minimalistas para trabalhar com vscode.</p>
+<p>Por último, a opção de Teclas de Atalho abre a janela <em>Keyboard Shortcuts</em>, que lista todos os mapeamentos de teclas de atalho para comandos do vscode. É possível pesquisar pelos atalhos disponíveis, editar as configurações e reassociar teclas de acordo com a sua preferência.</p>
+<p><a class="glightbox" href="../../imagens/vscode-keyboard-shortcuts.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-keyboard-shortcuts.png"></a></p>
+<p>Falaremos sobre Tarefas (<em>Tasks</em>) e Trechos de Código (<em>Snippets</em>) mais adiante.</p>
 <p>Na barra de status, que fica no rodapé da janela, é possível ver alguns outros atalhos, como o indicador de em que ambiente esta instância está conectada (à esquerda no rodapé) no qual você pode clicar para se conectar (no WSL ou em um computador remoto via <em>SSH</em> ou <em>Tunnel</em>), e do outro lado, à direita, existe o indicador de notificações (um ícono no formato de sino), que também pode ser clicado para visualizar as notificações pendentes (como novas atualizações disponíveis, sugestões de extensão, etc.).</p>
 <p>Ao lado do indicador de notificações temos o seletor de Modo de Linguagem (que veremos a seguir), temos três outros seletores, sendo eles, da esquerda para a direita:
 - Seletor do tipo de quebra de linha
@@ -1117,7 +1130,7 @@
 <p>Cursores</p>
 <p>Não é raro que, enquanto estamos trabalhando com código, nos deparamos com algumas situações em que precisamos aplicar alterações semelhantes em diversas linhas ou diversos lugares do código. O vscode suporta múltiplos cursores, o que significa que podemos posicionar diversos cursores de edição em lugares distintos do código, e editá-los simultaneamente.</p>
 <p>É possível espalhar cursores diferentes pressionando a tecla <em>Alt</em> e posicionando-os com o mouse, clicando em cada um dos lugares em que queremos um novo cursor. Podemos também, usando as teclas <em>Ctrl+Alt</em> e usando as setas para cima ou para baixo para criar novos cursores na mesma posição nas linhas de cima ou de baixo, de acordo com a direção selecionada.</p>
-<p>Uma vez posicionados, os cursores irão receber tudo o que vc digitar, como se estivesse editando um por um, mas farão isto simultaneamente, o que torna isto uma forma mais produtiva de fazer este tipo de edição. </p>
+<p>Uma vez posicionados, os cursores irão receber tudo o que você digitar, como se estivesse editando um por um, mas farão isto simultaneamente, o que torna isto uma forma mais produtiva de fazer este tipo de edição.</p>
 </li>
 <li>
 <p>Seleção de coluna</p>
@@ -1140,6 +1153,34 @@
 <li><code>Replace</code>: Aplica a substituição na ocorrência selecionada (e automaticamente move para a próxima ocorrência)</li>
 <li><code>Replace All</code>: Aplica a substituição em todas as ocorrências</li>
 </ul>
+<p>Outra forma rápida para buscar e editar múltiplas ocorrências de texto é selecionando o texto desejado e pressionando <em>Ctrl+D</em>. Ele vai selecionar a próxima ocorrência do termo selecionado e manter o cursor em ambas. Pressionar <em>Ctrl+D</em> novamente vai fazer o mesmo para a próxima ocorrência, e assim sucessivamente, para todas as ocorrências que você desejar editar.</p>
+</li>
+<li>
+<p>Salvamento e Restauração de Arquivos</p>
+<p>O vscode precisa de uma ação deliberada do usuário para salvar os arquivos:
+- Através do menu <em>File</em>, na opção <em>Save</em> (ou <em>Ctrl+S</em>) para salvar o arquivo que está sendo editado na aba selecionada
+- Através do menu <em>File</em>, na opção <em>Save All</em> (ou <em>Ctrl+K S</em>) para salvar todos os arquivos abertos</p>
+<p>Mas existe uma funcionalidade de Salvamento Automático disponível, que fica desligada como padrão. Para ajustá-la, caso seja do seu interesse, basta entrar em Settings e buscar pela configuração <code>files.autoSave</code>. Ela suporta os seguintes valores:
+- <code>off</code>: desligado (valor padrão)
+- <code>afterDelay</code>: Salva o arquivo depois que se passa um tempo (1000 milissegundos por padrão), para ajustar este valor, existe outra configuração chamada <code>files.autoSaveDelay</code>
+- <code>onFocusChange</code>: Salva o arquivo sempre que você mover para outro editor (outra Aba)
+- <code>onWindowsChange</code>: Salva o arquivo sempre que você mover para outra janela para fora da instância atual do vscode</p>
+<p>Independente disto, quando fechado, o vscode guarda as alterações pendentes nos arquivos abertos de forma que, quando você abre novamente o editor, ele recupera as alterações não salvas do arquivo, permitindo que você decida se quier mantê-las ou descartá-las.</p>
+</li>
+<li>
+<p>Prevenindo Escritas "Sujas" (<em>Dirty Writes</em>)</p>
+<p>O vscode é capaz de detectar se, durante a edição do arquivo, alguém tiver alterado seu conteúdo no disco, e vai te avisar disto exibindo uma mensagem de erro quando você tentar salvar o arquivo por cima da versão alterada.</p>
+<p><a class="glightbox" href="../../imagens/vscode-dirtywrite.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-dirtywrite.png"></a></p>
+<p>Se você quiser ignorar as alterações que foram feitas fora do editor, e simplesmente salvar as suas alterações, você consegue fazer isto clicando no botão <em>Overwrite</em>. Se quiser, no entanto, tomar o cuidado de se conferir as alterações, você pode clicar em <em>Compare</em>. Isto irá abrir o editor de <em>diff</em> do vscode, que mostra as diferenças entre os arquivos e te permite navegar por elas para decidiro o que pretende fazer.</p>
+<p><a class="glightbox" href="../../imagens/vscode-diff.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/vscode-diff.png"></a></p>
+<p><a class="glightbox" href="../../imagens/code-diff-commands.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/code-diff-commands.png"></a></p>
+<p>Uma vez resolvidos conflitos gerados por causa das diferenças, o arquivo é salvo e o editor <em>diff</em> é fechado.</p>
+</li>
+<li>
+<p>Rolagem</p>
+<p>No vscode, você pode exibir um minimapa do código no lugar da barra de rolagem. Para algumas pessoas, esta pode ser uma forma conveniente de ter uma visualização do arquivo de texto em miniatura, e ter uma ideia geral de como ele está ficando. Para isto, basta entrar em <em>Settings</em> e na barra de busca digitiar <code>minimap</code>.</p>
+<p>E marcar a caixa de seleção com o texto <code>Editor: Minimap &gt; Enabled</code>. Além disso, existem diversas opções quer personalizam a forma como o minimapa é exibido.</p>
+<p>Além disso, você pode rolar pelo texto rolando o botão do meio do mouse (Scroll). Se você fizer isto pressionando a tecla <em>Alt</em>, ele aumentará drasticamente a velocidade da navegação.</p>
 </li>
 </ul>
 <h3 id="322-abas">3.2.2 Abas</h3>
@@ -1350,7 +1391,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 4, 2024</span>
   </span>
 
     

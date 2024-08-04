@@ -20,5 +20,3 @@ def sqrt(x):
     return sqrt_iter(1.0, x)
 
 print(sqrt(2))
-
-
