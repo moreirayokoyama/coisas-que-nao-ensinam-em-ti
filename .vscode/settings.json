@@ -3,5 +3,5 @@
     "editor.renderWhitespace": "all",
     "editor.experimentalWhitespaceRendering": "svg",
     "editor.minimap.scale": 3,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "off"
 }
