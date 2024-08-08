@@ -595,53 +595,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-advanced-scripts/" class="md-nav__link">
+      <a href="../04-source-control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Aula 04 - Scripts Avançados com Bash
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05-command-line-environment/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Aula 05 - Usando a interface de linha de comando (CLI)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06-source-control/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Aula 06 - Sistema de Controle de Versionamento de Código - Git
+    Aula 04 - Sistema de Controle de Versionamento de Código - Git
   </span>
   
 
@@ -909,7 +867,7 @@
 <p>Note que agora, entre as variáveis listadas, encontra-se a variável <code>foo</code> e seu valor. Por outro lado, a variável <code>x</code> não faz parte do ambiente, ela está carregada no shell, mas não é tratada como parte do ambiente.</p>
 <h3 id="233-o-ambiente">2.3.3 O Ambiente</h3>
 <p>O <em>ambiente</em> é uma lista de pares de <code>nome=valor</code> carregados na sessão do shell e que são fornecidos para os programas executados a partir daquela sessão. Isso é uma forma útil de fazer com que programas e scripts que executamos possam receber valores sem a necessidade de informá-los através de argumentos.</p>
-<p>Veremos com mais detalhes como o ambiente funciona na <a href="../05-command-line-environment/">aula sobre o ambiente de linha de comando</a>, quando discutiremos a execução de programas a partir do ambiente de linha de comando.</p>
+<p>Veremos com mais detalhes como o ambiente funciona na <a href="05-command-line-environment.md">aula sobre o ambiente de linha de comando</a>, quando discutiremos a execução de programas a partir do ambiente de linha de comando.</p>
 <h3 id="234-sessoes">2.3.4 Sessões</h3>
 <p>Como acabamos de descrever, as variáveis de ambiente ficam disponíveis na sessão do Shell. A sessão do shell dura enquanto o shell estiver aberto. Se você sair do Bash, você encerra a sessão, e o ambiente daquela sessão deixa de existir.</p>
 <p>Faça este teste, encerre o shell no terminal atual (fechando o terminal) e abra novamente o terminal. Uma nova sessão será criada e, se você executar o comando <code>export</code>, notará que a variável <code>foo</code> que acabamos de criar não está mais disponível.</p>
@@ -1243,7 +1201,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2024</span>
   </span>
 
     
@@ -1254,11 +1212,11 @@ function resetFieldset(fieldset) {
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
-      dmyoko, Not Committed Yet
+      dmyoko
     </nav>
   </span>
 
