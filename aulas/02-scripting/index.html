@@ -527,9 +527,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#271-executando-scripts" class="md-nav__link">
+  <a href="#271-criando-e-executando-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.1 - Executando Scripts
+      2.7.1 - Criando e Executando Scripts
     </span>
   </a>
   
@@ -621,6 +621,27 @@
   
   <span class="md-ellipsis">
     Aula 05 - Usando a interface de linha de comando (CLI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-source-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 06 - Sistema de Controle de Versionamento de Código - Git
   </span>
   
 
@@ -770,9 +791,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#271-executando-scripts" class="md-nav__link">
+  <a href="#271-criando-e-executando-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      2.7.1 - Executando Scripts
+      2.7.1 - Criando e Executando Scripts
     </span>
   </a>
   
@@ -903,6 +924,7 @@
 <p>Bash suporta uma forma de criar uma composição de comandos em uma única instrução usando o separador <code>;</code>. Por exemplo:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá mundo"</span><span class="p">;</span><span class="w"> </span>date<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bom trabalho."</span>
 </span></code></pre></div>
+<p>Outra forma de compor comandos em uma única instrução é usando o operador <code>&amp;</code>. A diferença entre compor comandos com <code>;</code> e <code>&amp;</code>, é que com <code>;</code> ele sempre executa o comando seguido por <code>;</code> de forma síncrona, esperando o fim da sua execução antes de executar o próximo, enquanto que com <code>&amp;</code>, o bash executa cada comando seguido por <code>&amp;</code> em um novo processo assíncrono, e inicia a execução do próximo sem aguardar a sua finalização.</p>
 <p>Instruções como esta acima executam cada comando na ordem em que eles são escritos, mas sem conectá-los de forma alguma (como vimos na aula anterior na seção <a href="../01-shell/#27-conectando-programas">Conectando Programas</a>).</p>
 <p>Usar este tipo de composição executa todos os comandos independente do resultado de qualquer um deles. Se houver um erro em algum comando desta cadeia, isso não fará com que o bash deixe de executar os demais comandos.</p>
 <p>Existem cenários onde a execução de alguns comandos da composição pode gerar resultados que afetem o funcionamento dos demais comandos. Para estes cenários, usamos operações lógicas.</p>
@@ -993,7 +1015,7 @@
 <p>O comando <code>bash</code> é, na realidade, o executável do shell que temos usado até agora. Ao invocarmos o comando <code>bash</code> passando o nosso script como argumento, não estamos fazendo nada diferente do que seria abrir o shell e executarmos os comandos manualmente. A única dirença é que estamos fazendo de forma automatizada.</p>
 </div>
 <p>Vamos ver como isto funciona.</p>
-<h3 id="271-executando-scripts">2.7.1 - Executando Scripts</h3>
+<h3 id="271-criando-e-executando-scripts">2.7.1 - Criando e Executando Scripts</h3>
 <p>Vamos criar o nosso primeiro Script executando o famoso rito de iniciação que discutimos no início desta aula, <code>Olá, mundo</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>ola.sh
 </span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá, mundo"</span>
@@ -1232,11 +1254,11 @@ function resetFieldset(fieldset) {
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
-      dmyoko
+      dmyoko, Not Committed Yet
     </nav>
   </span>
 
