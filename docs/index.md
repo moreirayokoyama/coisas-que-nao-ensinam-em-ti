@@ -11,6 +11,13 @@
 - [Aula 1 - O Shell](./aulas/01-shell.md)
 - [Aula 2 - Criando Scripts com Bash](./aulas/02-scripting.md)
 - [Aula 3 - Explorando o Editor de Textos (Visual Studio Code)](./aulas/03-text-editors.md)
+- [Aula 4 - Scripts Avançados (em progresso)](./aulas/04-advanced-scripts.md)
+- Aula 5 - Sistema de Controle de Versionamento de Código: Git
+- Aula 6 - Depuração e Profiling de Programas
+- Aula 7 - Técnicas Básicas em Engenharia de Software
+- Aula 8 - Segurança e Criptografia
+- ... e mais a ser definido
+
 
 ## Atribuições
 
