@@ -1,6 +1,6 @@
 ---
 title: Aula 04 - Sistema de Controle de Versionamento de Código - Git
-description: Padrões e conveniências no uso de ferramentas que usamos na interface de linha de comando.
+description: Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código
 ---
 # Aula 04 - Sistema de Controle de Versionamento de Código - Git
 
