@@ -151,6 +151,8 @@ Bash suporta uma forma de criar uma composição de comandos em uma única instr
 echo "Olá mundo"; date ; echo "Bom trabalho."
 ```
 
+Outra forma de compor comandos em uma única instrução é usando o operador `&`. A diferença entre compor comandos com `;` e `&`, é que com `;` ele sempre executa o comando seguido por `;` de forma síncrona, esperando o fim da sua execução antes de executar o próximo, enquanto que com `&`, o bash executa cada comando seguido por `&` em um novo processo assíncrono, e inicia a execução do próximo sem aguardar a sua finalização.
+
 Instruções como esta acima executam cada comando na ordem em que eles são escritos, mas sem conectá-los de forma alguma (como vimos na aula anterior na seção [Conectando Programas](./01-shell.md#27-conectando-programas)).
 
 Usar este tipo de composição executa todos os comandos independente do resultado de qualquer um deles. Se houver um erro em algum comando desta cadeia, isso não fará com que o bash deixe de executar os demais comandos.
@@ -289,7 +291,7 @@ Para criar um script, tudo o que precisamos fazer é criar um arquivo texto cont
 
 Vamos ver como isto funciona.
 
-### 2.7.1 - Executando Scripts
+### 2.7.1 - Criando e Executando Scripts
 Vamos criar o nosso primeiro Script executando o famoso rito de iniciação que discutimos no início desta aula, `Olá, mundo`.
 
 ```bash
