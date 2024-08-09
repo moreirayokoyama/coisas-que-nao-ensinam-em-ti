@@ -12,6 +12,7 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+    - content.footnote.tooltips
   palette:
     - scheme: slate
       primary: teal

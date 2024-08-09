@@ -12,7 +12,7 @@ def sqrt_iter(guess, x):
 
 
 def good_enough(guess, x):
-    return abs((guess * guess) - x) < 0.001
+    return abs((guess * guess) - x) < 0.0001
 
 
 def improve(guess, x):
@@ -28,4 +28,6 @@ def sqrt(x):
     return sqrt_iter(1.0, x)  # usamos 1.0 como palpite inicial da raiz quadrada de x
 
 
-print(sqrt(2.0))
+raiz_de_dois = sqrt(2.0)
+print(raiz_de_dois)
+print(raiz_de_dois * raiz_de_dois)
