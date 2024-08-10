@@ -673,9 +673,83 @@
 <h2 id="41-instalando-o-git">4.1 - Instalando o Git</h2>
 <p>Para instalar o Git, basta acessar o <a href="https://git-scm.org">site oficial</a>, fazer o download para a plataforma do seu dispositivo e seguir as instruções de instalação.</p>
 <ul>
-<li>git config</li>
+<li>
+<p>Linux</p>
+<p>A forma mais fácil de instalar Git no linux é através gerenciadores de pacotes. Usuários de Debian/Ubuntu, por exemplo, podem usar o <code>apt</code> para isto:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:git-core/ppa
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</span></code></pre></div>
+<p>Ele também está disponível para outros gerenciadores de pacote. Há uma <a href="https://git-scm.com/download/linux">lista de gerenciadores suportados</a> no site oficial, ou você pode baixar o <a href="https://mirrors.edge.kernel.org/pub/software/scm/git/">tarball com o código fonte</a> e seguir as instruções no arquivo <code>INSTALL</code>.</p>
+</li>
+<li>
+<p>macOS</p>
+<p>A forma mais fácil de instalar Git no macOS é instalando o Xcode Command Line Tools. A partir da versão 10.9, se você digitar qualquer comando git no Terminal pela primeira vez, você será perguntado se quier instalá-lo. Mas também é possível instalá-lo via <em>Homebrew</em>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew<span class="w"> </span>install<span class="w"> </span>git
+</span></code></pre></div>
+<p>Para consultar sobre outras formas de instalá-lo no macOS, acesse a <a href="https://git-scm.com/download/mac">página com instruçoes detalhadas</a>.</p>
+</li>
+<li>
+<p>Windows</p>
+<p>Existe uma <a href="https://git-scm.com/download/win">página com os downloads para Windows</a>. Como de praxe, o processo de instalação é assistido por algumas etapas exibidas pelo instalador. Durante estas etapas, descrevemos aqui alguns ajustes importantes que precisam ser feitos durante o processo:
+- Na etapa <em><strong>Select Components</strong></em>, você pode achar interessante se certificar de que a opção "<em>Add a Git Bash Profile to Windows Terminal</em>" está marcada.
+<a class="glightbox" href="../../imagens/git-selectcomponents.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/git-selectcomponents.png"></a></p>
+<ul>
+<li>
+<p>Na etapa <em><strong>Choosing the default editor used by Git</strong></em>, você pode escolher o Visual Studio Code.
+<a class="glightbox" href="../../imagens/git-choosingeditor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/git-choosingeditor.png"></a></p>
+</li>
+<li>
+<p>Na etapa <em><strong>Adjusting the name of the initial branch in new repositories</strong></em>, é de bom tom marcar a opção "<em>Override the default branch name for new repositories</em>" e preencher o campo de texto com <code>main</code>. Isto se dá por que o nome da branch padrão na instalação do git é visto como uma palavra que pode ser ofensiva para grupos minoritários, e <code>main</code> tem sido a alternativa inclusiva usada pela comunidade.
+<a class="glightbox" href="../../imagens/git-defaultbranchname.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/git-defaultbranchname.png"></a></p>
+<ul>
+<li>Importante dizer que os próprios mantenedores do Git <a href="https://sfconservancy.org/news/2020/jun/23/gitbranchname/">pretendem mudar isto</a> em algum momento no futuro. Mas enquanto a discussão de como isto será implementado definitivamente continua em progresso, eles já dispoinibilizaram a opção para fazer este ajuste manualmente.</li>
 </ul>
+</li>
+<li>
+<p>Na etapa <em><strong>Adjusting your PATH environment</strong></em> é recomendável selecionar ao opção "<em>Git from the command line and also from 3rd-party-software</em>", que faz com que o Git possa ser usado tanto através do <em>Git Bash</em>, quanto também a partir dos Shells do Windows, colocando o CLI do Git como parte do PATH nas variáveis de ambiente do Windows.
+<a class="glightbox" href="../../imagens/git-pathenvironment.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/git-pathenvironment.png"></a></p>
+</li>
+<li>
+<p>Na etapa <em><strong>Choosing the SSH executable</strong></em> é recomendável manter a primeira opção selecionada, "<em>Use bundled OpenSSH</em>". Isso te poupa de ter que usar uma outra ferramenta de <em>SSH</em> (falaremos mais de SSH durante o curso).
+<a class="glightbox" href="../../imagens/git-choosessh.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/git-choosessh.png"></a></p>
+</li>
+<li>
+<p>Na etapa <em><strong>Choosing HTTPS transport backend</strong></em>, é recomendável manter a primeira opção selecionada, "<em>Use the OpenSSL library</em>". Você só vai precisar escolher a outra opção ("<em>Use the native Windows Secure Channel Library</em>") se você estiver trabalhando em uma empresa ou em uma organização que gerencie seus prórios certificados.</p>
+</li>
+<li>
+<p>Na etapa <em><strong>Configuring the line ending conversions</strong></em>, selecione "<em>Checkout as-is, commit Unix-style line endings</em>. Esta opção tem a ver com como o git irá lidar com a compatibilidade do formato da quebra-de-linha. Por padrão, o git usa o estilo do Unix como símbolo para quebra de linhas, o <em>Line Feed</em> (<code>LF</code>). Mas o Windows trabalha de forma diferente: <em>Carriage Return</em> e <em>Line Feed</em> (<code>CRLF</code>). Nós falamos um pouco sobre isso na <a href="../03-text-editors/">Aula sobre vscode</a>.
+<a class="glightbox" href="../../imagens/git-lineending.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../imagens/git-lineending.png"></a></p>
+</li>
+</ul>
+<p>As demais opções podem ser mantidas com o valor padrão.</p>
+<p>Após a instalação, abra um Shell do Windows no terminal e digite o seguinte comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git --version
+</span></code></pre></div>
+<p>Se o git estiver devidamente instalado, uma mensagem comunicando a versão do git será exibida. Se uma mensagem de erro for exibida no lugar, você precisa rever o processo.</p>
+</li>
+</ul>
+<div class="admonition importante">
+<p class="admonition-title">Importante</p>
+<p>Se você usa Windows, mas está acompanhando o curso pelo <em>WSL</em>, você precisa efetuar a instalação do Git no WSL, seguindo os passos de instalação no Linux.</p>
+</div>
+<ul>
+<li>
+<p>Configurando a instalação do Git</p>
+<p>Agora que temos o git instalado, precisamos fazer algumas configurações iniciais antes de começarmos a usá-lo. A primeira é configurar os seus dados, que serão usados pra te identificar quando você começar a usá-lo para acompanhar as alterações que você faz nos seus projetos.</p>
+<p>Para isto usamos o comando <code>git config</code>, e parametrizamos as configurações <code>user.name</code> e <code>user.email</code>. Mas faremos isso como configuração global, usando a flag <code>--global</code>. O Git permite você ter ajustes globais que funcionarão para todos os repositórios por padrão, embora você também possa alterar as alterações específicas em cada repositório. Por exemplo, em repositórios de projetos para organizações específicas você pode preferir configurar seu e-mail naquela organização.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Tio Dani"</span><span class="w"> </span><span class="c1"># Configura a forma como você quer ser identificado</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"mail@tiodani.com"</span><span class="w"> </span><span class="c1"># Configura o seu e-mail</span>
+</span></code></pre></div>
+</li>
+</ul>
+<p>Tudo pronto. Agora que temos o git devidamente instalado e configurado, podemos finalmente começar a brincar com ele. É o que faremos a seguir.</p>
 <h2 id="42-iniciando-um-repositorio">4.2 - Iniciando um Repositório</h2>
+<p>Vamos agora entender como começamos a trabalhar com Git. O primeiro conceito que precisamos aprender sobre Git é o Repositório (informalmente chamado de <em>repo</em>). Sempre que você quiser trabalhar com o Git, você vai precisar criar um repositório. Um repositório é, de certa forma, um repositório no seu sistema de arquivos. Isto é conveniente, já que normalmente nós colocamos usamos diretórios como forma de organizar nossos projetos, então é natural que pensemos que, toda vez que criamos um diretório para trabalhar em um projeto, este mesmo diretório é um candidato em potencial para se tornar o repositório Git daquele projeto.</p>
+<p>Se você já tem um projeto em andamento ou se vai começar um do zero, não importa, para criar um repo você só precisa entrar na pasta e iniciar o repositório:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir<span class="w"> </span>novo_projeto<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>novo_projeto
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>init
+</span></code></pre></div>
 <ul>
 <li>git init</li>
 <li>git status</li>
@@ -850,7 +924,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 9, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2024</span>
   </span>
 
     
