@@ -479,6 +479,82 @@ Mas e o commit que tínhamos feito? O que aconteceu com ele?
 Ele ainda existe, e ainda está no banco de dados do repositório. E você poderia, se quisesse, usar novamente o comando `git reset` para fazer o _HEAD_ voltar a apontar para ele. Ou você poderia simplesmente ignorá-lo e voltar a trabalhar no seu diretório, reconstruindo a história a partir do ponto onde está agora.
 
 ## 4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios
+Vamos começar a fazer algumas coisas um pouco mais complexas, como costuma ser o caso em projetos. Para isto, vamos criar alguns arquivos com resultados de comandos para simular um projeto em andamento. Na vida real, como você deve imaginar, as alterações no dia-a-dia de um projeto não são tão triviais, e iremos discutir isso um pouco olhando para projetos reais em breve. Então, tenha em mente que este exercício é só para nos ajudar a compreender cenários mais complexos.
+
+Vamos criar um subdiretório chamado `estudos`, e nele um arquivo chamado `sugestoes-de-estudo.md`, e inserir alguns assuntos que temos interesse em estudar.
+```Markdown
+# Sugestões de Estudo
+
+- [Python Funcional (Dunossauro)](https://dunossauro.github.io/python-funcional/)
+- [FastAPI do Zero (Dunossauro)](https://fastapidozero.dunossauro.com/)
+- [Curso básico de Bash (Blau Araújo)](https://www.youtube.com/watch?v=ZM--I3NJ2jY&list=PLXoSGejyuQGpf4X-NdGjvSlEFZhn2f2H7)
+- [Além do Bash (Blau Araújo)](https://www.youtube.com/watch?v=_W51nj5JTwk&list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0)
+```
+
+Salve o arquivo e vamos registrar um commit no repositório:
+```bash
+git add estudos/sugestoes-de-estudo.md
+git commit -m "Criando o arquivo para sugestões de estudo"
+```
+
+Agora, vamos criar um outro subdiretório chamado `projetos`, e igualmente um arquivo chamado `sugestoes-de-projeto.md`, e inserir alguns projetos interessantes que podemos criar para treinar nossas habilidades.
+
+```Markdown
+# Sugestões de Projeto
+
+- Blog Pessoal
+    - MkDocs
+    - Blog Plugin
+- Aplicação de Organização Financeira
+```
+
+Da mesma forma, salve o arquivo e faça um commit.
+
+Vamos fazer uma alteração no arquivo README.md, para que ele tenha um link para os arquivos que acabamos de criar:
+```Markdown
+
+- [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
+- [Sugestões de projeto](./projetos/sugestoes-de-projeto.md)
+```
+
+E faça o commit da alteração.   
+
+
+
+
+
+
+
+
+
+
+
+
+Não são apenas commits que o `git show` pode dar detalhes a respeito quando o usamos. De fato, nós podemos obter detalhes de quais quer artefatos armazenados pelo banco de dados do repositório git. Por exemplo, os commits nos informam o id da Árvore para o qual apontam. Se usarmos o comando `git show` para dar detalhes sobre a árvore do nosso primeiro commit, é isso que ele nos mostra:
+
+```bash
+git show f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+```
+```
+tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+
+README.md
+```
+
+Ele mostra o conteúdo da árvore (no caso, apenas o blob do arquivo README.md). Outra forma útil de listar o conteúdo de uma árvore, é através do comando `git ls-tree`.
+
+```bash
+git ls-tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+```
+```
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    README.md
+```
+
+Observe que estamos consultando o repositório baseado num blob registrado por um commit anterior, e que foi apagado num outro commit, mas os dados continuam disponíveis.
+
+
+Com o git e um histórico de commits em mãos, nós podemos "viajar no tempo", e resgatar momentos da história do nosso repositório.
+
 
 - git diff
 - git checkout
