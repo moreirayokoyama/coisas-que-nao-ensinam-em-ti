@@ -1101,6 +1101,47 @@
 <p>Mas e o commit que tínhamos feito? O que aconteceu com ele?</p>
 <p>Ele ainda existe, e ainda está no banco de dados do repositório. E você poderia, se quisesse, usar novamente o comando <code>git reset</code> para fazer o <em>HEAD</em> voltar a apontar para ele. Ou você poderia simplesmente ignorá-lo e voltar a trabalhar no seu diretório, reconstruindo a história a partir do ponto onde está agora.</p>
 <h2 id="45-fazendo-modificacoes-mais-complexas-em-arquivos-e-subdiretorios">4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios</h2>
+<p>Vamos começar a fazer algumas coisas um pouco mais complexas, como costuma ser o caso em projetos. Para isto, vamos criar alguns arquivos com resultados de comandos para simular um projeto em andamento. Na vida real, como você deve imaginar, as alterações no dia-a-dia de um projeto não são tão triviais, e iremos discutir isso um pouco olhando para projetos reais em breve. Então, tenha em mente que este exercício é só para nos ajudar a compreender cenários mais complexos.</p>
+<p>Vamos criar um subdiretório chamado <code>estudos</code>, e nele um arquivo chamado <code>sugestoes-de-estudo.md</code>, e inserir alguns assuntos que temos interesse em estudar.
+</p><div class="language-Markdown highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="gh"># Sugestões de Estudo</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Python Funcional (Dunossauro)</span>](<span class="na">https://dunossauro.github.io/python-funcional/</span>)
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">FastAPI do Zero (Dunossauro)</span>](<span class="na">https://fastapidozero.dunossauro.com/</span>)
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Curso básico de Bash (Blau Araújo)</span>](<span class="na">https://www.youtube.com/watch?v=ZM--I3NJ2jY&amp;list=PLXoSGejyuQGpf4X-NdGjvSlEFZhn2f2H7</span>)
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Além do Bash (Blau Araújo)</span>](<span class="na">https://www.youtube.com/watch?v=_W51nj5JTwk&amp;list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0</span>)
+</span></code></pre></div>
+<p>Salve o arquivo e vamos registrar um commit no repositório:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>git<span class="w"> </span>add<span class="w"> </span>estudos/sugestoes-de-estudo.md
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Criando o arquivo para sugestões de estudo"</span>
+</span></code></pre></div>
+<p>Agora, vamos criar um outro subdiretório chamado <code>projetos</code>, e igualmente um arquivo chamado <code>sugestoes-de-projeto.md</code>, e inserir alguns projetos interessantes que podemos criar para treinar nossas habilidades.</p>
+<div class="language-Markdown highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="gh"># Sugestões de Projeto</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="k">-</span><span class="w"> </span>Blog Pessoal
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>MkDocs
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Blog Plugin
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="k">-</span><span class="w"> </span>Aplicação de Organização Financeira
+</span></code></pre></div>
+<p>Da mesma forma, salve o arquivo e faça um commit.</p>
+<p>Vamos fazer uma alteração no arquivo README.md, para que ele tenha um link para os arquivos que acabamos de criar:
+</p><div class="language-Markdown highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Sugestões de estudo</span>](<span class="na">./estudos/sugestoes-de-estudo.md</span>)
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Sugestões de projeto</span>](<span class="na">./projetos/sugestoes-de-projeto.md</span>)
+</span></code></pre></div>
+<p>E faça o commit da alteração.   </p>
+<p>Não são apenas commits que o <code>git show</code> pode dar detalhes a respeito quando o usamos. De fato, nós podemos obter detalhes de quais quer artefatos armazenados pelo banco de dados do repositório git. Por exemplo, os commits nos informam o id da Árvore para o qual apontam. Se usarmos o comando <code>git show</code> para dar detalhes sobre a árvore do nosso primeiro commit, é isso que ele nos mostra:</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>git<span class="w"> </span>show<span class="w"> </span>f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>README.md
+</span></code></pre></div>
+<p>Ele mostra o conteúdo da árvore (no caso, apenas o blob do arquivo README.md). Outra forma útil de listar o conteúdo de uma árvore, é através do comando <code>git ls-tree</code>.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>git<span class="w"> </span>ls-tree<span class="w"> </span>f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    README.md
+</span></code></pre></div>
+<p>Observe que estamos consultando o repositório baseado num blob registrado por um commit anterior, e que foi apagado num outro commit, mas os dados continuam disponíveis.</p>
+<p>Com o git e um histórico de commits em mãos, nós podemos "viajar no tempo", e resgatar momentos da história do nosso repositório.</p>
 <ul>
 <li>git diff</li>
 <li>git checkout</li>
@@ -1265,7 +1306,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 12, 2024</span>
   </span>
 
     
