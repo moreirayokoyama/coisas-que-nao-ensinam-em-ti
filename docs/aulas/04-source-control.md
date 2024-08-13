@@ -41,26 +41,33 @@ Para instalar o Git, basta acessar o [site oficial](https://git-scm.org), fazer 
 - Windows
 
     Existe uma [página com os downloads para Windows](https://git-scm.com/download/win). Como de praxe, o processo de instalação é assistido por algumas etapas exibidas pelo instalador. Durante estas etapas, descrevemos aqui alguns ajustes importantes que precisam ser feitos durante o processo:
+    
     - Na etapa _**Select Components**_, você pode achar interessante se certificar de que a opção "_Add a Git Bash Profile to Windows Terminal_" está marcada.
+    
     ![image](../imagens/git-selectcomponents.png)
     
     - Na etapa _**Choosing the default editor used by Git**_, você pode escolher o Visual Studio Code.
+    
     ![image](../imagens/git-choosingeditor.png)
 
     - Na etapa _**Adjusting the name of the initial branch in new repositories**_, é de bom tom marcar a opção "_Override the default branch name for new repositories_" e preencher o campo de texto com `main`. Isto se dá por que o nome da branch padrão na instalação do git é visto como uma palavra que pode ser ofensiva para grupos minoritários, e `main` tem sido a alternativa inclusiva usada pela comunidade.
+    
     ![image](../imagens/git-defaultbranchname.png)
 
         - Importante dizer que os próprios mantenedores do Git [pretendem mudar isto](https://sfconservancy.org/news/2020/jun/23/gitbranchname/) em algum momento no futuro. Mas enquanto a discussão de como isto será implementado definitivamente continua em progresso, eles já dispoinibilizaram a opção para fazer este ajuste manualmente.
 
     - Na etapa _**Adjusting your PATH environment**_ é recomendável selecionar ao opção "_Git from the command line and also from 3rd-party-software_", que faz com que o Git possa ser usado tanto através do _Git Bash_, quanto também a partir dos Shells do Windows, colocando o CLI do Git como parte do PATH nas variáveis de ambiente do Windows.
+    
     ![image](../imagens/git-pathenvironment.png)
 
     - Na etapa _**Choosing the SSH executable**_ é recomendável manter a primeira opção selecionada, "_Use bundled OpenSSH_". Isso te poupa de ter que usar uma outra ferramenta de _SSH_ (falaremos mais de SSH durante o curso).
+    
     ![image](../imagens/git-choosessh.png)
 
     - Na etapa _**Choosing HTTPS transport backend**_, é recomendável manter a primeira opção selecionada, "_Use the OpenSSL library_". Você só vai precisar escolher a outra opção ("_Use the native Windows Secure Channel Library_") se você estiver trabalhando em uma empresa ou em uma organização que gerencie seus prórios certificados.
 
     - Na etapa _**Configuring the line ending conversions**_, selecione "_Checkout as-is, commit Unix-style line endings_. Esta opção tem a ver com como o git irá lidar com a compatibilidade do formato da quebra-de-linha. Por padrão, o git usa o estilo do Unix como símbolo para quebra de linhas, o _Line Feed_ (`LF`). Mas o Windows trabalha de forma diferente: _Carriage Return_ e _Line Feed_ (`CRLF`). Nós falamos um pouco sobre isso na [Aula sobre vscode](./03-text-editors.md).
+    
     ![image](../imagens/git-lineending.png)
 
     As demais opções podem ser mantidas com o valor padrão.
@@ -491,10 +498,23 @@ Vamos criar um subdiretório chamado `estudos`, e nele um arquivo chamado `suges
 - [Além do Bash (Blau Araújo)](https://www.youtube.com/watch?v=_W51nj5JTwk&list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0)
 ```
 
-Salve o arquivo e vamos registrar um commit no repositório:
+Salve o arquivo e atualize o arquivo README.md com um link para a nova página.
+```Markdown
+
+- [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
+```
+
+Com as alterações feitas, vamos registrar um commit.
 ```bash
-git add estudos/sugestoes-de-estudo.md
+git add . # Adiciona todas as alterações feitas na árvore para o staging
 git commit -m "Criando o arquivo para sugestões de estudo"
+```
+
+Observe as saída impressa pelo commit:
+```
+[main c39f63f] Criando página de sugestões de estudo
+ 2 files changed, 8 insertions(+)
+ create mode 100644 estudos/sugestoes-de-estudo.md
 ```
 
 Agora, vamos criar um outro subdiretório chamado `projetos`, e igualmente um arquivo chamado `sugestoes-de-projeto.md`, e inserir alguns projetos interessantes que podemos criar para treinar nossas habilidades.
@@ -508,75 +528,233 @@ Agora, vamos criar um outro subdiretório chamado `projetos`, e igualmente um ar
 - Aplicação de Organização Financeira
 ```
 
-Da mesma forma, salve o arquivo e faça um commit.
+Da mesma forma, salve o arquivo, adicione um link no arquivo README.md e faça um commit.
 
-Vamos fazer uma alteração no arquivo README.md, para que ele tenha um link para os arquivos que acabamos de criar:
-```Markdown
-
-- [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
-- [Sugestões de projeto](./projetos/sugestoes-de-projeto.md)
+Mais uma vez, observe a saída impressa pelo commit:
+```
+[main 95634d3] Criando página de sugestões de projeto
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+ create mode 100644 projetos/sugestoes-de-projeto.md
 ```
 
-E faça o commit da alteração.   
-
-
-
-
-
-
-
-
-
-
-
-
-Não são apenas commits que o `git show` pode dar detalhes a respeito quando o usamos. De fato, nós podemos obter detalhes de quais quer artefatos armazenados pelo banco de dados do repositório git. Por exemplo, os commits nos informam o id da Árvore para o qual apontam. Se usarmos o comando `git show` para dar detalhes sobre a árvore do nosso primeiro commit, é isso que ele nos mostra:
+Vamos analisar o nosso histórico:
 
 ```bash
-git show f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+git log
+```
+
+Podemos ver os 3 commits no histórico e, como vimos anteriormente, o commit que fazia e exclusão do README.md de fato não faz mais parte da história.
+
+O comando `git log` possui diversas opções que podemos usar para facilitar a visualização do histórico de commits. Por exemplo, nós podemos simplificar a visualização dos commits para serem exibidos em uma única linha contendo o id e o título da descrição usada na mensagem. Para isto, usamos a opção `--pretty=oneline`.
+
+```bash
+git log --pretty=oneline
+```
+
+A opção `pretty`, como já vimos, aceita `oneline` para simplificar os detalhes dos commits exibidos no histórico, e `raw` para dar uma versão mais detalhada de cada commit. Outras alternativas disponíveis definem o nível de detalhe desejado para a exibição: `short`, `medium` (esta é a opção usada por padrão, quando nenhuma outra é usada), `full` e `fuller` (além de outras).
+
+Vamos agora ver com mais detalhes o segundo commit no nosso histórico.
+
+```bash
+git show c39f63fabb07933254661fe5c2f6ebb148069c97 --pretty=raw
+```
+
+Os detalhes que o comando `git show` nos mostra agora, detalha, como era de se esperar, todas as alterações feitas no diretório na ocasião do commit.
+
+Não são apenas commits que o `git show` pode dar detalhes a respeito quando o usamos. De fato, nós podemos obter informações de quaisquer artefatos armazenados pelo banco de dados do repositório git. Por exemplo, os commits nos informam o id da Árvore para o qual apontam. Se usarmos o comando `git show` para dar informações sobre a árvore do nosso commit, passando o id da árvore como argumento, é isso que ele nos mostra:
+
+```bash
+git show 86b9b6c14632e0006fee09f44962541babc58b59
 ```
 ```
-tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+tree 86b9b6c14632e0006fee09f44962541babc58b59
 
 README.md
+estudos/
 ```
 
-Ele mostra o conteúdo da árvore (no caso, apenas o blob do arquivo README.md). Outra forma útil de listar o conteúdo de uma árvore, é através do comando `git ls-tree`.
+Ele mostra o conteúdo da árvore (no caso, o conteúdo dela no momento em que o commit foi criado). Outra forma útil de listar o conteúdo de uma árvore, é através do comando `git ls-tree`.
 
 ```bash
-git ls-tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+git ls-tree 86b9b6c14632e0006fee09f44962541babc58b59
 ```
 ```
-100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    README.md
+100644 blob f974d4d88a6f072cddfeecb2a68ceaca16b7c75d    README.md
+040000 tree 273fa08120ebbe98d52196b8635d78f5fb0eca7b    estudos
 ```
 
-Observe que estamos consultando o repositório baseado num blob registrado por um commit anterior, e que foi apagado num outro commit, mas os dados continuam disponíveis.
+Observe que estamos consultando o repositório baseado num commit anterior, em que a situação do nosso diretório era diferente de como está agora. Podemos visualiar como estava o arquivo README.md no momento deste commit usando o comando `git cat-file` usando o id do blog como exibido pelo último comando:
 
+```bash
+git cat-file -p f974d4d88a6f072cddfeecb2a68ceaca16b7c75d
+```
 
-Com o git e um histórico de commits em mãos, nós podemos "viajar no tempo", e resgatar momentos da história do nosso repositório.
+Note como nesta versão ainda não existia o link para as sugestões de projeto, que só foi adicionado posteriormente.
 
+## 4.6 - Conferindo as alterações feitas no repositório entre commits
+É muito comum, quando trabalhamos com projetos em código, ficarmos na dúvida sobre como as alterações no código o fizeram chegar ao estado atual, e o git nos dá ferramentas para acompanhar este histórico. O comando `git diff` pode ser usado de diversas formas pra dar detalhes nas alterações feitas ao longo do tempo no nosso repositório. Vamos experimentar algumas delas.
 
-- git diff
-- git checkout
-- git reset
-- git tag
-## 4.6 - Trabalhando com Branches
+```bash
+git diff c39f63fabb07933254661fe5c2f6ebb148069c97 95634d3efb106e86514d2e4eebdc5ba69e995a0d
+```
+
+```diff
+diff --git a/README.md b/README.md
+index f974d4d..e369b33 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,5 @@
+ # Novo Projeto
+ Este repositório foi criado para explorar a ferramenta git sendo usada num projeto.
+
+ - [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
+
++- [Sugestões de projeto](./projetos/sugestoes-de-projeto.md)
+diff --git a/projetos/sugestoes-de-projeto.md b/projetos/sugestoes-de-projeto.md
+new file mode 100644
+index 0000000..cf70b9a
+--- /dev/null
++++ b/projetos/sugestoes-de-projeto.md
+@@ -0,0 +1,6 @@
++# Sugestões de Projeto
++
++- Blog Pessoal
++    - MkDocs
++    - Blog Plugin
++- Aplicação de Organização Financeira
+```
+
+Desta forma, o `git diff` exibe todas as alterações feitas de um commit para o outro. Podemos, por exemplo, fazer uma comparação mais abrangente, envolvendo o nosso primeiro commit e o commit mais recente.
+
+```bash
+git diff bda3c91a8280d30ceda53f23717ce4ce68be87ff 95634d3efb106e86514d2e4eebdc5ba69e995a0d
+```
+
+```diff
+diff --git a/README.md b/README.md
+index 5726bb6..e369b33 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,5 @@
+ # Novo Projeto
+ Este repositório foi criado para explorar a ferramenta git sendo usada num projeto.
++
++- [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
++- [Sugestões de projeto](./projetos/sugestoes-de-projeto.md)
+diff --git a/estudos/sugestoes-de-estudo.md b/estudos/sugestoes-de-estudo.md
+new file mode 100644
+index 0000000..c27c06b
+--- /dev/null
++++ b/estudos/sugestoes-de-estudo.md
+@@ -0,0 +1,6 @@
++# Sugestões de Estudo
++
++- [Python Funcional (Dunossauro)](https://dunossauro.github.io/python-funcional/)
++- [FastAPI do Zero (Dunossauro)](https://fastapidozero.dunossauro.com/)
++- [Curso básico de Bash (Blau Araújo)](https://www.youtube.com/watch?v=ZM--I3NJ2jY&list=PLXoSGejyuQGpf4X-NdGjvSlEFZhn2f2H7)
++- [Além do Bash (Blau Araújo)](https://www.youtube.com/watch?v=_W51nj5JTwk&list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0)
+diff --git a/projetos/sugestoes-de-projeto.md b/projetos/sugestoes-de-projeto.md
+new file mode 100644
+index 0000000..cf70b9a
+--- /dev/null
++++ b/projetos/sugestoes-de-projeto.md
+@@ -0,0 +1,6 @@
++# Sugestões de Projeto
++
++- Blog Pessoal
++    - MkDocs
++    - Blog Plugin
++- Aplicação de Organização Financeira
+```
+
+Podemos, inclusive, fazer uma comparação retroativa, usando como referência o commit mais recente, comparando-o com um commit anterior.
+
+```bash
+git diff 95634d3efb106e86514d2e4eebdc5ba69e995a0d bda3c91a8280d30ceda53f23717ce4ce68be87ff
+```
+
+```diff
+diff --git a/README.md b/README.md
+index e369b33..5726bb6 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,2 @@
+ # Novo Projeto
+ Este repositório foi criado para explorar a ferramenta git sendo usada num projeto.
+-
+-- [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
+-- [Sugestões de projeto](./projetos/sugestoes-de-projeto.md)
+diff --git a/estudos/sugestoes-de-estudo.md b/estudos/sugestoes-de-estudo.md
+deleted file mode 100644
+index c27c06b..0000000
+--- a/estudos/sugestoes-de-estudo.md
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# Sugestões de Estudo
+-
+-- [Python Funcional (Dunossauro)](https://dunossauro.github.io/python-funcional/)
+-- [FastAPI do Zero (Dunossauro)](https://fastapidozero.dunossauro.com/)
+-- [Curso básico de Bash (Blau Araújo)](https://www.youtube.com/watch?v=ZM--I3NJ2jY&list=PLXoSGejyuQGpf4X-NdGjvSlEFZhn2f2H7)
+-- [Além do Bash (Blau Araújo)](https://www.youtube.com/watch?v=_W51nj5JTwk&list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0)
+diff --git a/projetos/sugestoes-de-projeto.md b/projetos/sugestoes-de-projeto.md
+deleted file mode 100644
+index cf70b9a..0000000
+--- a/projetos/sugestoes-de-projeto.md
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# Sugestões de Projeto
+-
+-- Blog Pessoal
+-    - MkDocs
+-    - Blog Plugin
+-- Aplicação de Organização Financeira
+```
+
+Note como, neste momento, ele trata as alterações que, anteriormente, eram inclusões para, agora, remoções.
+
+É possível, também, reduzir o escopo do comando `git diff` para exibir somente as alterações feitas num blob específico, ou em uma sub-árvore específica.
+
+```bash
+git diff bda3c91a8280d30ceda53f23717ce4ce68be87ff 95634d3efb106e86514d2e4eebdc5ba69e995a0d -- README.md
+```
+
+```diff
+diff --git a/README.md b/README.md
+index 5726bb6..e369b33 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,5 @@
+ # Novo Projeto
+ Este repositório foi criado para explorar a ferramenta git sendo usada num projeto.
++
++- [Sugestões de estudo](./estudos/sugestoes-de-estudo.md)
++- [Sugestões de projeto](./projetos/sugestoes-de-projeto.md)
+```
+
+Você pode obter o mesmo resultado usando o `git diff` comparando os ids que o blob possui nas árvores relacionadas a cada commit.
+
+## 4.7 - Trabalhando com Branches
+
 - git branch
 - git switch
 - git checkout
-## 4.7 - Merge
+- git tag
+## 4.8 - Merge
 - git merge
 - Conflitos
-## 4.8 - Repositórios Remotos
+## 4.9 - Repositórios Remotos
 - clone
 - fetch
 - pull
 - push
-## 4.9 - Serviços de Colaboração - CodeBerg
+## 4.10 - Serviços de Colaboração - CodeBerg
 - fork
 - Pull request
-## 4.10 - Rebase
+
+## 4.11 - Rebase
 - git rebase
+
+## 4.12 - Trabalhando com git no vscode
 
 ## 4.11 - Conclusão
 
