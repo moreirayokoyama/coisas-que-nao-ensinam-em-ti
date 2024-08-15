@@ -2,6 +2,48 @@ site_name: Coisas Que Não Ensinam em TI
 repo_url: https://github.com/moreirayokoyama/coisas-que-nao-ensinam-em-ti
 repo_name: moreirayokoyama/coisas-que-nao-ensinam-em-ti
 
+nav:
+  - "Coisas Que Não Ensinam em TI": index.md
+  - Aulas:
+    - "Aula 1 - O Shell":
+        - aulas/01-shell/index.md
+    - "Aula 2 - Introdução a Criação Scripts com Bash":
+      - aulas/02-scripting/index.md
+      - aulas/02-scripting/cap_01.md
+      - aulas/02-scripting/cap_02.md
+      - aulas/02-scripting/cap_03.md
+      - aulas/02-scripting/cap_04.md
+      - aulas/02-scripting/cap_05.md
+      - aulas/02-scripting/cap_06.md
+      - aulas/02-scripting/cap_07.md
+      - aulas/02-scripting/cap_08.md
+    - "Aula 3 - Explorando o Editor de Textos (Visual Studio Code)":
+      - aulas/03-text-editors/index.md
+      - aulas/03-text-editors/cap_00.md
+      - aulas/03-text-editors/cap_01.md
+      - aulas/03-text-editors/cap_02.md
+      - aulas/03-text-editors/cap_03.md
+      - aulas/03-text-editors/cap_04.md
+      - aulas/03-text-editors/cap_05.md
+      - aulas/03-text-editors/cap_06.md
+      - aulas/03-text-editors/cap_07.md
+      - aulas/03-text-editors/cap_08.md
+    - "Aula 4 - Sistema de Controle de Versionamento de Código - Git":
+      - aulas/04-source-control/index.md
+      - aulas/04-source-control/cap_01.md
+      - aulas/04-source-control/cap_02.md
+      - aulas/04-source-control/cap_03.md
+      - aulas/04-source-control/cap_04.md
+      - aulas/04-source-control/cap_05.md
+      - aulas/04-source-control/cap_06.md
+      - aulas/04-source-control/cap_07.md
+      - aulas/04-source-control/cap_08.md
+      - aulas/04-source-control/cap_09.md
+      - aulas/04-source-control/cap_10.md
+      - aulas/04-source-control/cap_11.md
+      - aulas/04-source-control/cap_12.md
+      - aulas/04-source-control/cap_13.md
+
 theme:
   name: material
   language: pt-BR
@@ -13,6 +55,8 @@ theme:
     - search.highlight
     - search.share
     - content.footnote.tooltips
+    - navigation.indexes
+    - navigation.sections
   palette:
     - scheme: slate
       primary: teal

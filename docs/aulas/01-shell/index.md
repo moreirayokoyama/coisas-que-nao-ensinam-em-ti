@@ -3,6 +3,7 @@ title: Aula 01 - O Shell
 description: Introdução ao Shell e se familiarizando com Bash
 ---
 # Aula 1 - O _Shell_
+
 Nesta primeira aula do nosso curso, apresentaremos o _Shell_ como uma ferramenta primária de produtividade das pessoas que trabalham em diversas áreas de TI.
 
 Quando navegamos pela internet através do uso de um _Web Browser_, ou usamos algum _app_ ou qualquer aplicativo com uma interface gráfica, estamos limitados ao que esta interface suporta. Se existe um botão disponível para uma determinada funcionalidade, a visibilidade deste botão é o que determina se podemos nos beneficiar desta dela ou não. Se o botão não está visível, não podemos clicar nele.
@@ -63,7 +64,7 @@ O Bash disponibilizado por estas ferramentas, não é totalmente compatível com
 Para instalar o MinGW64, acesse o site: https://www.mingw-w64.org/downloads/
 
 !!! tip
-    Se você instalar o Git para Windows (haverão aulas neste curso que usarão o Git), ele inclui o MinGW64 para disponibilizar um shell chamado Git Bash.
+	Se você instalar o Git para Windows (haverão aulas neste curso que usarão o Git), ele inclui o MinGW64 para disponibilizar um shell chamado Git Bash.
 
 Se você preferir instalar o Cygwin, o endereço no site para baixar o instalador é: https://cygwin.com/install.html
 
@@ -74,17 +75,17 @@ Se você preferir instalar o Cygwin, o endereço no site para baixar o instalado
 Existem diversos tutoriais na disponíveis na internet explicando com realizar o processo. Mas, resumidamente, você precisa baixar a imagem do sistema operacional (por exemplo, Ubuntu), e um programa capaz de configurar um Memory Stick com a imagem de forma inicializável.
 
 !!! info
-    Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.
+	Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.
 
 - Dual Boot com Linux
 
 Você pode criar uma instalação do Linux lado a lado com a instalação do Windows e ter a opção no seu dispositivo de qual dos sistemas você pretende usar no momento da inicialização.
 
 !!! info
-    Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.
+	Esta opção torna necessário que você reincie o seu computador, e durante o uso do sistema escolhido, você não terá acesso aos recursos do Windows.
 
 !!! warning
-    Este método exige que alguns recursos (por exemplo, espaço em disco) se tornem exclusivos para o novo sistema, tornando-os indisponíveis para o Windows. Isto requer algum planejamento sobre como estes recursos serão distribuídos.
+	Este método exige que alguns recursos (por exemplo, espaço em disco) se tornem exclusivos para o novo sistema, tornando-os indisponíveis para o Windows. Isto requer algum planejamento sobre como estes recursos serão distribuídos.
 
 - Virtualização de Linux
 
@@ -93,7 +94,7 @@ Criar uma Máquina Virtual (_VM_) com uma instalação do Linux é uma opção a
 Você pode criar VMs usando softwares gratuitos como o HyperV do Windows ou  [VirtualBox da Oracle](https://www.virtualbox.org/), e baixar uma imagem da distribuição Linux desejada (por exemplo, Ubuntu), para criar uma VM. Independente de qual plataforma você pretende usar, você vai precisar ativar o Hypervisor do Windows (que é parte integrante da instalação do HyperV). Para isto, no menu iniciar (pressionando a tecla Windows no teclado), digite "Ativar ou Desativar Recursos do Windows", e ao abrir a janela dos Recursos do Windows, procure na lista o ítem "Hyper-V" e certifique-se de que ele esteja selecionado. **Ativar este recurso, irá exigir que você reinicialize seu computador**.
 
 !!! warning
-    Este método exige que alguns recursos (por exemplo, espaço em disco) sejam compartilhados com a VM, podendo ter um impacto na performance do sistema hospedeiro.
+	Este método exige que alguns recursos (por exemplo, espaço em disco) sejam compartilhados com a VM, podendo ter um impacto na performance do sistema hospedeiro.
 
 - Windows Subsystem for Linux (WSL)
 
@@ -104,20 +105,20 @@ Este método também exige que você ative o _HyperV_, além de ativar também o
 ### 2.2 Apresentando o ambiente de Shell com Bash
 Ao abrir o terminal de sua escolha para acessar um Shell, invariavelmente você irá encontrar algo muito parecido com a imagem a seguir.
 
-![image](../imagens/shell.png)
+![image](../../imagens/shell.png)
 
 Uma janela vazia (normalmente com fundo escuro), mostrando no topo um texto com algumas informações úties e um cursor piscando, esperando que você digite algo.
 
 As informações exibidas podem variar de um computador para o outro já que elas se baseiam nas configurações do usuário. No caso do meu shell, exibido acima, as informações exibidas são:
 
 !!! info
-    `dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$`
-    - Nome do usuário logado na sessão
-    - O `@` (arroba) separa o nome do usuário do nome do servidor da sessão
-    - O nome do servidor da sessão
-    - Os dois pontos (`:`) separam os dados da sessão do caminho do diretório atual onde >o shell irá aplicar os comandos
-        - No Bash, o caractere que separa os segmentos do caminho é `/`, diferente do >Windows que usa `\` (barra invertida)
-    - O cifrão (`$`) no final, indica que o shell não está no modo super user.
+	`dmyoko@CodandoComOTio:~/projects/coisas-que-nao-ensinam-em-ti$`
+	- Nome do usuário logado na sessão
+	- O `@` (arroba) separa o nome do usuário do nome do servidor da sessão
+	- O nome do servidor da sessão
+	- Os dois pontos (`:`) separam os dados da sessão do caminho do diretório atual onde >o shell irá aplicar os comandos
+		- No Bash, o caractere que separa os segmentos do caminho é `/`, diferente do >Windows que usa `\` (barra invertida)
+	- O cifrão (`$`) no final, indica que o shell não está no modo super user.
 
 O nome desta linha, contendo estas ou quaisquer outras informações de acordo com a configuração do shell, e o cursor esperando a entrada de um comando, é `Prompt`.
 
@@ -149,7 +150,7 @@ Por exemplo, se o próximo comando resultar na criação de um arquivo, o arquiv
 Para mudar o diretório atual da sessão do Shell, o comando usado é o `cd` (_Change Directory_). Se você digitar apenas `cd` e pressionar Enter, ele vai mudar o diretório atual para `~` (falaremos logo a seguir sobre que diretório é este). Ele não imprime nenhuma saída, e imediatamente um novo prompt é apresentado. Para informar o comando `cd` para que ele mude para um diretório diferente, um `argumento` precisa ser usado.
 
 !!! note
-    **Argumentos**: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito. Por exemplo, no comando `cd teste`, `teste` é o argumento passado para o comando `cd`. Neste caso, o comando `cd` vai mudar mudar o diretório atual para o diretório `teste`.
+	**Argumentos**: são complementos que damos aos comandos, normalmente digitando-os a seguir do comando propriamente dito. Por exemplo, no comando `cd teste`, `teste` é o argumento passado para o comando `cd`. Neste caso, o comando `cd` vai mudar mudar o diretório atual para o diretório `teste`.
 
 ```bash
 cd teste
@@ -199,7 +200,7 @@ cd /home/dmyoko
 ```
 
 !!! note
-    **Caminho absoluto** é o caminho completo que leva até um diretório ou arquivo no sistema de arquivos. Ele sempre começa pelo diretório `/` (raiz), e segue toda a hierarquia de segmentos necessários até chegar no diretório ou arquivo desejado.
+	**Caminho absoluto** é o caminho completo que leva até um diretório ou arquivo no sistema de arquivos. Ele sempre começa pelo diretório `/` (raiz), e segue toda a hierarquia de segmentos necessários até chegar no diretório ou arquivo desejado.
 
 - Listar informações sobre o conteúdo de um diretório: `ls`
 
@@ -236,10 +237,10 @@ ls -lh # é possível unir todas as opções em uma única cláusula
 Existem outras diversas opções disponíveis para o comando `ls`. Para ter acesso a uma lista completa delas, você pode digitar `ls --help`.
 
 !!! tip
-    `--help` é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.
+	`--help` é uma opção disponível na vasta maioria dos comandos que você pode executar no shell. E, invariavelmente, imprime informações sobre o que o comando faz e como utilizá-lo, inclusive, mostrando possíveis opções que afetam a forma como este comando se comporta.
 
 ### 2.4 Permissões de arquivos e diretórios
-![image](../imagens/permissoes-ls-l.png)
+![image](../../imagens/permissoes-ls-l.png)
 
 Eu mencionei que a primeira coluna exibida como resultado do `ls -l` são as permissões dos arquivos ou diretórios listados. Estas permissões indicam quem pode fazer o que com estes artefatos. Para dar uma breve  explicação, vamos entender como estas informações são exibidas:
 
@@ -267,7 +268,7 @@ Por exemplo (retirado do screenshot acima):
 Esta linha diz que `X11` é um diretório (`d`), o dono (que é o usuário `root`) possui permissão de leitura, escrita e execução, enquanto que os outros membros do grupo `root` podem apenas ler o conteúdo e executá-lo, bem como todos os outros usuários.
 
 !!! important
-    Em um **diretório**, a permissão de execução significa que o usuário é capaz de navegar por ele (através do comando `cd`). A permissão de leitura significa que o usuário é capaz de listar o conteúdo (através do comando `ls`) ou procurar por arquivos, etc. E a permissão de escrita significa que o usuário é capaz de criar novos artefatos (arquivos, diretórios, etc) dentro do diretório.
+	Em um **diretório**, a permissão de execução significa que o usuário é capaz de navegar por ele (através do comando `cd`). A permissão de leitura significa que o usuário é capaz de listar o conteúdo (através do comando `ls`) ou procurar por arquivos, etc. E a permissão de escrita significa que o usuário é capaz de criar novos artefatos (arquivos, diretórios, etc) dentro do diretório.
 
 ### 2.5 Manipulação do sistema de arquivos
 Agora que sabemos como navegar e obter informações sobre o conteúdo do sistema de arquivos, vamos aprender como manipular o conteúdo dos diretórios, criando, modificando e excluindo arquivos e diretórios usando comandos do Shell.
@@ -288,7 +289,7 @@ mkdir /home/dmyoko/teste/tmp
 ```
 
 !!! warning
-    **Espaços importam!** Tome cuidado com o uso de espaços quando estiver executando operações no shell. Por exemplo, se você digitar o comando `mkdir minhas fotos`, ao invés de criar um diretório chamado `minhas fotos`, ele irá criar dois diretórios, um chamado `minhas` e um segundo chamado `fotos`. Para usar espaços você pode usar caracteres de escape. 
+	**Espaços importam!** Tome cuidado com o uso de espaços quando estiver executando operações no shell. Por exemplo, se você digitar o comando `mkdir minhas fotos`, ao invés de criar um diretório chamado `minhas fotos`, ele irá criar dois diretórios, um chamado `minhas` e um segundo chamado `fotos`. Para usar espaços você pode usar caracteres de escape.
 
 Para usar caracteres de escape, você usa a `\` (barra invertida). Por exemplo:
 ```bash
@@ -309,7 +310,7 @@ Uma outra conveniência desta opção é que ela não resulta em erro, caso voc�
 
 ```bash
 mkdir /home/dmyoko/teste/a/b/c #Resulta em erro
-mkdir -p /home/dmyoko/teste/a/b/c 
+mkdir -p /home/dmyoko/teste/a/b/c
 ```
 
 - Manipulando hora de acesso e modificação de arquivos: `touch`
@@ -317,7 +318,7 @@ mkdir -p /home/dmyoko/teste/a/b/c
 O comando touch força uma alteração na data de modificação de arquivos.
 
 Para entender o que isto significa, vamos rever o resultado do comando `ls` no screenshot anterior:
-![image](../imagens/permissoes-ls-l.png)
+![image](../../imagens/permissoes-ls-l.png)
 
 Observe a coluna imediatamente à esquerda do nome do arquivo nesta lista, é uma informação de Data/Hora. Esta coluna indica a data/hora da última modificação que este arquivo teve. Ao usar o comando `touch`, você força uma atualização desta informação para a data/hora atual do sistema.
 
@@ -397,7 +398,7 @@ Ambos estes diretórios podem ser usados como atalho para execução de comandos
 
 ```bash
 # Criando alguns elementos para demonstrar caminhos relativos
-cd ~ 
+cd ~
 mkdir -p teste/a/b/c
 cd teste/a/b
 touch c/teste.txt
@@ -445,11 +446,11 @@ Uma das capacidades mais incríveis do `Bash` é a forma como é possível manip
 No Shell, programas possuem dois _streams_ primários associados a eles: o stream de _entrada_ (input), e o stream de _saída_ (output). Quando o programa tenta ler a entrada, ele lê do stream de entrada, e quando ele imprime algo, ele imprime no stream de saída. Normalmente, os streams de entrada e saída de um programa são o seu terminal (quando rodando a partir do shell). Ou seja, seu teclado (à medida que você digita no shell) e a janela do terminal na sua tela. Contudo, nós podemos também religar estes streams de outras formas.
 
 !!! important
-     **Streams** em computação, é um termo comum usado para designar um fluxo de dados que não acontece de uma única vez, mas que é feito de forma contínua, ao longo do tempo, em pequenos lotes.
+	 **Streams** em computação, é um termo comum usado para designar um fluxo de dados que não acontece de uma única vez, mas que é feito de forma contínua, ao longo do tempo, em pequenos lotes.
 
-     Aqui estamos falando de Streams sendo usados para o fluxo contínuo de dados de entrada e de saída de um comando ou programa executado no shell. Mas o conceito é muito comum em diversas outras áreas da computação, como na leitura/escrita de arquivos no disco, ou obtendo/enviando dados através da rede/internet.
+	 Aqui estamos falando de Streams sendo usados para o fluxo contínuo de dados de entrada e de saída de um comando ou programa executado no shell. Mas o conceito é muito comum em diversas outras áreas da computação, como na leitura/escrita de arquivos no disco, ou obtendo/enviando dados através da rede/internet.
 
-    O termo ficou ainda mais popular com a transmissão de conteúdo online como chamadas de vídeo ou transmissões audiovisuais em _lives_ na internet.
+	O termo ficou ainda mais popular com a transmissão de conteúdo online como chamadas de vídeo ou transmissões audiovisuais em _lives_ na internet.
 
 #### 2.7.2 Religamento de Streams
 A forma mais simples de religar streams no `Bash` é através dos operadores `>` (para religar o stream de saída do programa) e `<` (para religar o stream de entrada do programa). Vamos ver alguns exemplos:
@@ -479,9 +480,9 @@ cat > ~/teste/arquivo.txt # Ao digitar conteúdo na entrada, ele será direciona
 ```
 
 !!! note
-    Para encerrar a leitura da entrada, nós usamos o comando Ctrl+C. Isto envia um sinal para o processo que está executando o comando `cat`, orientando-o a parar.
+	Para encerrar a leitura da entrada, nós usamos o comando Ctrl+C. Isto envia um sinal para o processo que está executando o comando `cat`, orientando-o a parar.
 
-    Existem outras formas de enviar sinais aos processos quando estamos executando programas no bash, mas veremos isto no futuro.
+	Existem outras formas de enviar sinais aos processos quando estamos executando programas no bash, mas veremos isto no futuro.
 
 Um outro operador útil é o operador `>>`. Ele tem, basicamente o mesmo efeito do operador `>`, que religa o stream de saída, com exceção de que, se a saída é redirecionada a um arquivo que já existe, ele concatena a saída do programa atual ao conteúdo original do arquivo, uma operação popularmente conhecida na computação como `append`. Ou seja, o conteúdo original do arquivo é mantido, e o novo conteúdo é enviado ao final dele.
 
@@ -502,7 +503,7 @@ Aqui temos uma pipeline que faz a seguinte sequência:
 - `grep Jul` - o comando `grep` filtra as linhas vindas da entrada de acordo com algum padrão (no caso, `Jul`). Basicamente ele pega o resultado do `ls` e separa somente os arquivos modificados em Julho
 - `head -5`- O comando `head` toma somente as primeiras linhas da entrada. Por padrão, ele toma somente as primeiras 10, mas a opção `-5` faz com que ele pegue somente as primeiras 5 e ignore as demais linhas.
 - `tee /<caminho>` - O comando `tee` é um comando similar ao comando `cat`, com a diferença que, além de imprimir no stream de saída, ele também escreve o arquivo. No caso acima, ele escreve no terminal e no arquivo `/home/dmyoko/teste/pipeline.txt`.
-    - Por exemplo, é possível criar dois arquivos a partir do comando `tee`:
+	- Por exemplo, é possível criar dois arquivos a partir do comando `tee`:
 
 ```bash
 ls -lha ~ | grep Jul | head -5 | tee /home/dmyoko/teste/pipeline.txt > /home/dmyoko/teste/pipeline2.txt
@@ -548,4 +549,4 @@ Com esta introdução, podemos explorar outras ferramentas, como a construção 
 
 Bem-vindo a esta jornada, e espero que este primeiro passeio tenha despertado o interesse em prosseguir com as próximas aulas.
 
-[Próxima Aula: Aula 2 - Criando Scripts com Bash](./02-scripting.md)
+[Próxima Aula: Aula 2 - Criando Scripts com Bash](../02-scripting/index.md)
