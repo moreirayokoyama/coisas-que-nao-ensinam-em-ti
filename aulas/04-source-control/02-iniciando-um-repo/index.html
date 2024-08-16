@@ -1637,7 +1637,7 @@
 <p>Exceto pela presença deste subdiretório, a criação repo parece não ter tido efeito nenhum no diretório do projeto em si. E é assim mesmo que um repositório funciona. Ele não interfere na forma como você interage com seus arquivos e subdiretórios de projeto. O único indício real de que estamos em um repositório git é a presença do subdiretório <code>.git</code>.</p>
 <p>Não é recomendável que você altere manualmente o conteúdo de qualquer um dos artefatos dentro do diretório <code>.git</code>. Este subdiretório deve ser usado somente pelo próprio git. O conteúdo deste subdiretório é o banco de dados que o git irá usar pra fazer o acompanhamento das mudanças que você faz no seu projeto. Qualquer modificação feita manualente nestes dados pode comprometer a confiabilidade da ferramenta.</p>
 <p>Mais adiante falaremos sobre como esse banco de dados funciona, mas por hora vamos compreender como trabalhamos com o repositório que temos em mãos.</p>
-<h3 id="421-primeiras-interacoes-com-o-repositorio">4.2.1 - Primeiras Interações com o Repositório.</h3>
+<h2 id="421-primeiras-interacoes-com-o-repositorio">4.2.1 - Primeiras Interações com o Repositório.</h2>
 <p>A forma mais básica de interação com um repositório é através do comando <code>git status</code>, que nos trás informações de qual a sua situação atual. Como acabamos de criá-lo, o comando nos mostrará as seguintes informações:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>On branch main
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -1663,7 +1663,7 @@
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>status
 </span></code></pre></div>
 <p>O git consegue reconhecer quando existem diferenças entre o conhecimento que ele tem do repositório e a situação atual do diretório, e se baseia na comparação entre ambos para te informar a respeito do status. Ou seja, quando você desfaz as alterações, o git entende que repositório está em sincronia com a situação do diretório.</p>
-<h3 id="422-adicionando-arquivos-ao-repositorio">4.2.2 - Adicionando Arquivos ao Repositório</h3>
+<h2 id="422-adicionando-arquivos-ao-repositorio">4.2.2 - Adicionando Arquivos ao Repositório</h2>
 <p>Vamos criar um arquivo para incluirmos no repositório. Em repositórios git, é muito comum criar-se um arquivo descritivo chamado README.md. A extensão <code>md</code> indica que o arquivo está no formato <em>Markdown</em>, que é um arquivo de texto redigido usando marcações simples para formatar o seu conteúdo, como criar títulos, subtítulos, links, listas formatadas, etc.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>touch<span class="w"> </span>README.md
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>status
@@ -1886,11 +1886,11 @@ function resetFieldset(fieldset) {
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
-      taconi
+      taconi, dmyoko
     </nav>
   </span>
 

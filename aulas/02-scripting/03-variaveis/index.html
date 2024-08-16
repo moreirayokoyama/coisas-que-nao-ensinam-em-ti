@@ -1674,7 +1674,7 @@
 <p>Qualquer resultado de uma expressão pode ser atribuído a uma variável:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">soma</span><span class="o">=</span><span class="k">$((</span><span class="m">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">8</span><span class="k">))</span>
 </span></code></pre></div>
-<h3 id="231-interpolacao-de-valores">2.3.1 - Interpolação de Valores</h3>
+<h2 id="231-interpolacao-de-valores">2.3.1 - Interpolação de Valores</h2>
 <p>Interpolação de valores é a capacidade que o Bash tem de identificar marcadores em valores de texto para substituir por valores computados durante a execução do comando. Por exemplo:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"o conteúdo da variável foo é </span><span class="nv">$foo</span><span class="s2">"</span>
 </span></code></pre></div>
@@ -1685,7 +1685,7 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Interpolando o resultado de um comando: </span><span class="k">$(</span>ls<span class="w"> </span>-lha<span class="w"> </span>~<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Jul<span class="k">)</span><span class="s2">"</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Interpolando o resultado de uma expressão aritmética: </span><span class="k">$((</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">7</span><span class="k">))</span><span class="s2">"</span>
 </span></code></pre></div>
-<h3 id="232-variaveis-de-ambiente">2.3.2 - Variáveis de ambiente</h3>
+<h2 id="232-variaveis-de-ambiente">2.3.2 - Variáveis de ambiente</h2>
 <p>Variáveis de ambiente são valores que são carregados na sessão do shell e que ficam disponíveis para os programas e comandos que usamos ao longo desta sessão. Elas funcionam como qualquer outra variável definida no shell, com a diferença de que elas já estão criadas e disponíveis para serem usadas.</p>
 <p>Uma forma de listar as variáveis de ambiente carregadas na sessão do shell é através do comando <code>export</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="c1"># Lista as variáveis de ambiente da sessão atual</span>
@@ -1708,10 +1708,10 @@
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">export</span>
 </span></code></pre></div>
 <p>Note que agora, entre as variáveis listadas, encontra-se a variável <code>foo</code> e seu valor. Por outro lado, a variável <code>x</code> não faz parte do ambiente, ela está carregada no shell, mas não é tratada como parte do ambiente.</p>
-<h3 id="233-o-ambiente">2.3.3 O Ambiente</h3>
+<h2 id="233-o-ambiente">2.3.3 O Ambiente</h2>
 <p>O <em>ambiente</em> é uma lista de pares de <code>nome=valor</code> carregados na sessão do shell e que são fornecidos para os programas executados a partir daquela sessão. Isso é uma forma útil de fazer com que programas e scripts que executamos possam receber valores sem a necessidade de informá-los através de argumentos.</p>
 <p>Veremos com mais detalhes como o ambiente funciona na <a href="../05-command-line-environment/index.md">aula sobre o ambiente de linha de comando</a>, quando discutiremos a execução de programas a partir do ambiente de linha de comando.</p>
-<h3 id="234-sessoes">2.3.4 Sessões</h3>
+<h2 id="234-sessoes">2.3.4 Sessões</h2>
 <p>Como acabamos de descrever, as variáveis de ambiente ficam disponíveis na sessão do Shell. A sessão do shell dura enquanto o shell estiver aberto. Se você sair do Bash, você encerra a sessão, e o ambiente daquela sessão deixa de existir.</p>
 <p>Faça este teste, encerre o shell no terminal atual (fechando o terminal) e abra novamente o terminal. Uma nova sessão será criada e, se você executar o comando <code>export</code>, notará que a variável <code>foo</code> que acabamos de criar não está mais disponível.</p>
 <p>As variáveis que você vê listadas através do comando <code>export</code> quando inicia uma nova sessão do shell são atribuídas ao ambiente durante a inicialização da sessão. Isto acontece graças a alguns scripts que são invocados no momento em que a sessão é iniciada.</p>
@@ -1862,11 +1862,11 @@ function resetFieldset(fieldset) {
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
-      taconi
+      taconi, dmyoko
     </nav>
   </span>
 
