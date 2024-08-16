@@ -1,7 +1,6 @@
 ---
 title: 3.1 - Explorando a interface
 ---
-
 Para abrir o vscode, você pode iniciá-lo a partir da interface gráfica do seu sistema operacional (_Menu Iniciar_ no Windows), ou, se você tiver adicionado o vscode ao PATH durante a instalação, basta digitar `code` a partir do shell.
 
 Ao abrir o vscode, a página de boas-vindas (_Welcome_) é exibida como uma aba aberta na janela do editor, muito semelhante a que você pode enxergar abaixo, com algumas diferenças de acordo com o seu uso (na minha, é possível ver alguns dos meus projetos recentes listados, prontos para serem abertos).

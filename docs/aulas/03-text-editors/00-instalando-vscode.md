@@ -1,7 +1,6 @@
 ---
 title: 3.0 - Instalando o vscode
 ---
-
 Para instalar o vscode, que roda na maioria das plataformas disponíveis, basta visitar o [site oficial](https://code.visualstudio.com), se dirigir à página de downloads e clicar no link adequado de acordo com o seu sistema.
 
 ![image](../../imagens/vscode-download.png)

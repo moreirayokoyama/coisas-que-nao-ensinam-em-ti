@@ -1,7 +1,6 @@
 ---
 title: 3.2 - O Editor
 ---
-
 Agora vamos explorar o uso do vscode para o que ele se propõe: Editar arquivos.
 
 Vamos começar criando um novo arquivo. Isto pode ser feito de diversas formas:
@@ -31,7 +30,7 @@ Note que o vscode já identificou o modo de linguagem do arquivo e selecionou "S
 !!! note
 	Por padrão, o vscode suporta _JavaScript_, _TypeScript_, _HTML_, _CSS_, _SCSS_ e _JSON_, mas, como veremos adiante, é possível instalar suporte à inúmeras outras linguagens.
 
-### 3.2.1 - Trabalhando com arquivos
+## 3.2.1 - Trabalhando com arquivos
 Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este conteúdo, o vscode nos indica que existem alterações pendentes através de um sinal de _bullet_ (um pequeno círculo) ao lado do nome do arquivo, no título da aba.
 
 ![image](../../imagens/vscode-unsavedchanges.png)
@@ -130,7 +129,7 @@ Ao começarmos a editar o conteúdo de um arquivo, à medida que alteramos este 
 
     Independente de você usar o Minimapa ou a barra de rolagem convencional, você também pode rolar pelo texto usando o botão do meio do mouse (Scroll) pressionando a tecla _Alt_, ele aumentará drasticamente a velocidade da navegação.
 
-### 3.2.2 - Abas
+## 3.2.2 - Abas
 
 Assim com funciona nos browsers modernos, o vscode suporta abrir diversos arquivos em Abas diferentes (sim, o tio é velho o suficiente pra saber que, antigamente, os browsers não tinham Abas e era comum ter que lidar com dezenas de janelas abertas em vez de dezenas de abas). A capacidade de manter diversos _buffers_ abertos para manipular um número de arquivos simultaneamente não é, obviamente, uma exclusividade do vscode. Diversos outros editores, como o Atom e o Sublime possuem a mesma funcionalidade, enquanto que editores de terminal, como o Emacs e o Vim, oferecem a mesma capacidade através de outros meios.
 
@@ -152,7 +151,7 @@ Ao clicar com o botão direito do mouse em uma determinada Aba, diversas opçõe
 
 A seguir, vamos discutir melhor o que são os painéis do editor.
 
-### 3.2.3 - Painéis do Editor
+## 3.2.3 - Painéis do Editor
 
 Um editor (entenda isto como uma Aba editando um arquivo) pode ser dividido em painéis, como destacamos nas opções do menu suspenso quando clicamos com o botão direito no título da Aba. Painéis do Editor nos permitem criar formas de navegar pelo conteúdo do arquivo que estamos editando, ao mesmo tempo que mantemos o cursor na posição em que queremos fazer uma edição, sem deixar de visualizar o que estamos digitando.
 
@@ -160,7 +159,7 @@ Um editor (entenda isto como uma Aba editando um arquivo) pode ser dividido em p
 
 O tipo mais comum de painéis de editor é criar um painel à direita (como na imagem acima). Isto pode ser feito no menu suspenso da Aba, ou através do atalho _Ctrl+K_ e, logo em seguida, _Ctrl+Shift+]_ (este atalho cria um painel à direita _em grupo_, ou seja, na mesma aba). Mas os outros tipos de painéis também estão disponíveis, como vimos nas opções do menu.
 
-### 3.2.4 - Navegação
+## 3.2.4 - Navegação
 O vscode suporta diversas funcionalidades de navegação que podem ser convenientes. Vamos falar agora de algumas delas disponíveis no Menu _Go_.
 
 - `Back`: Posiciona o cursor de volta onde estava posicionado anteriormente de acordo com o histórico de posições (_Ctrl+Seta Esquerda_)
@@ -170,7 +169,7 @@ O vscode suporta diversas funcionalidades de navegação que podem ser convenien
 - `Go to Line/Column...`: Posiciona o cursor em uma linha/coluna específicas (_Ctrl+G_). A notação é `:<número-da-linha>[:<número-da-coluna>]` (os colchetes `[` e `]` indica que o número da coluna é opcional)
 - `Go to Bracket`: Posiciona o cursor no fechamento do grupo atual (colchetes, parênteses, chaves, markups, etc). O atalho para este comando é _Ctrl+Shift+]_.
 
-### 3.2.5 - Formatação
+## 3.2.5 - Formatação
 Diversas linguagens possuem padrões próprios de formatação. A forma como as linhas de código são organizadas, e certos estilos estéticos que são definidos pela comunidade que as mantém.
 
 O vscode possui um comando para formatar o código do editor, disponível na Paleta de Comandos pelo atalho _Ctrl+Shift+P_, e buscando pelo comando _Format Document_, ou pelo atalho _Shift+Alt+F_.

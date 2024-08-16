@@ -1,7 +1,6 @@
 ---
 title: 🚧 4.7 - Trabalhando com Branches
 ---
-
 Até aqui, você tem ouvido falarmos a respeito de uma _branch_ chamada _main_. E até aqui, nós tentamos não falar muito a respeito de nenhuma das duas coisas até que tivéssemos tratado os conceitos básicos por trás de um Controle de Versionamento de Código e do git.
 
 Agora, uma vez visto as principais capacidades e usos da ferramenta, parece ser o momento ideal para conversarmos sobre _branches_, o que é a _main_ e como podemos usar outras branches na hora de trabalhar com git.

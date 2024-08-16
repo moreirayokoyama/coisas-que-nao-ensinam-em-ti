@@ -2,7 +2,6 @@
 title: Aula 03 - Explorando o Editor de Textos (Visual Studio Code)
 description: Como usar um editor de texto como ferramenta produtiva para profissionais de TI
 ---
-# Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
 Escrever um texto (como um documento, ou uma dissertação) e escrever código são atividades distintas. Quando se trabalha com código, você passa mais tempo navegando por ele, entre os diversos arquivos, lendo, interpretando e, claro, escrevendo código também. Não é à toa que existem ferramentas diferentes para este fim do que aquelas usadas para redigir um texto, como um processador de textos (por exemplo, o Microsoft Word do pacote Office). Processadores de Texto precisam suportar diversas opções de formatação (formatação de fonte, parágrafo, página, etc) que acabam sendo tão importantes quanto o prório texto sendo redigido.
 
 Para trabalhar com código, usamos Editores de Textos. A diferença é que, em código, somente o conteúdo do texto importa. O arquivo mantido no sistema não possui informações de formatação. Não apenas esta informação não é relevante, como ainda não é suportada pelo código em si. Pense nos scripts que fizemos na aula passada, usando o comando `cat > foo.sh`, capturando os comandos que digitávamos no terminal e gravando no arquivo. Imagine se tivéssemos "comprometido" estes comandos com informações como "qual fonte usar", "qual tamanho do papel que será usado", etc.

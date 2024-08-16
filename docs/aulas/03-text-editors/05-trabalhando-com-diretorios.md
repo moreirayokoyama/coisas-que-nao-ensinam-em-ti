@@ -1,7 +1,6 @@
 ---
 title: 3.5 - Trabalhando com Diretórios
 ---
-
 Um dos maiores benefícios de usar um editor de código é que ele suporta abrir espaços de trabalho baseados em uma hierarquia de diretórios. E o vscode suporta esta funcionalidade. Você pode abrir um diretório a partir do Menu File, na opção `Open Folder...`, ou usando o atalho _Ctrl+K_ e, logo em seguida _Ctrl+O_. Mas, o mais comum para quem trabalha a partir do shell, é usar o CLI do vscode para abrir o editor e trabalhar no diretório. Para isto, basta usar o nome do ditetório como argumento:
 
 ```bash

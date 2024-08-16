@@ -1,7 +1,6 @@
 ---
 title: 4.1 - Instalando o Git
 ---
-
 Para instalar o Git, basta acessar o [site oficial](https://git-scm.org), fazer o download para a plataforma do seu dispositivo e seguir as instruções de instalação.
 
 - Linux

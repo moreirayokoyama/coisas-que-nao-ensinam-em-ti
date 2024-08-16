@@ -1,7 +1,6 @@
 ---
 title: 4.3 - Como o git acompanha o estado do repositório
 ---
-
 Então, o que é um commit?
 
 No git, nossos commits são registros de mudanças no nosso repositório ao longo do tempo, contendo os metadados que apresentamos recentemente e, junto com eles, uma representação do estado do diretório raiz do projeto, representado por uma estrutura chamada "Árvore" (_Tree_). Uma árvore é composta por elementos que podem ser _blobs_ (_Binary Large OBject_, ou Grande Objeto Binário), que representam os arquivos e outras árvores (representando os subdiretórios), contendo outros blobs e árvores, de acordo com a estrutura de diretórios do projeto.

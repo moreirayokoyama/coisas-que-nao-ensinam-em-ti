@@ -1,7 +1,6 @@
 ---
 title: 2.6 - Stream de Erro
 ---
-
 Na aula passada nós falamos um pouco sobre os _streams_ que os programas recebem: o _stream de entrada_ e o _stream de saída_. Existe um terceiro stream que não mencionamos, que é o _stream de erro_. Ele designa ao programa que está sendo executado para onde as mensagens de erro serão enviadas.
 
 Por padrão, o stream erro é o próprio terminal, como também é o padrão para o stream de saída.

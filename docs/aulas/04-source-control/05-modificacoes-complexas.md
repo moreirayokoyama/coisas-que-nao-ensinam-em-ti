@@ -1,7 +1,6 @@
 ---
 title: 4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios
 ---
-
 Vamos começar a fazer algumas coisas um pouco mais complexas, como costuma ser o caso em projetos. Para isto, vamos criar alguns arquivos com resultados de comandos para simular um projeto em andamento. Na vida real, como você deve imaginar, as alterações no dia-a-dia de um projeto não são tão triviais, e iremos discutir isso um pouco olhando para projetos reais em breve. Então, tenha em mente que este exercício é só para nos ajudar a compreender cenários mais complexos.
 
 Vamos criar um subdiretório chamado `estudos`, e nele um arquivo chamado `sugestoes-de-estudo.md`, e inserir alguns assuntos que temos interesse em estudar.

@@ -1,7 +1,6 @@
 ---
 title: 4.4 - Usando o git para viajar no tempo
 ---
-
 Voltemos ao cenário que estamos tentando simular: O arquivo README.md foi excluído em um commit, e descobrimos que isto foi um erro. Ele não deveria ter sido removido. Neste exato momento, o `git log` nos diz que o _HEAD_ está apontando para o commit que fez a alteração. Mover o _HEAD_ é a operação que nos permite caminhar pela linha do tempo e desfazer a história que o repositório conhece. Fazemos isso usando o comando `git reset`, passando como argumento o id do commit para o qual queremos voltar.
 
 ```bash

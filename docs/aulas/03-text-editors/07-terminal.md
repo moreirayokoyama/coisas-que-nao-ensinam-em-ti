@@ -1,7 +1,6 @@
 ---
 title: 3.7 - Terminal
 ---
-
 O vscode também possui um terminal interno que pode ser usado de forma conveniente, sem que seja necessário sair do editor para executar tarefas no shell. É possível acessar o terminal acionando o menu _View_ e clicando em _Terminal_, ou pelo atalho _Ctrl+'_. O vscode suporta diversos shells em seu terminal, mas irá abrir inicialmente o shell padrão do ambiente em que está rodando.
 
 ![image](../../imagens/vscode-terminal.png)

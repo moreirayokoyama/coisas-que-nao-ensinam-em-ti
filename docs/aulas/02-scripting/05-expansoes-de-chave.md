@@ -1,7 +1,6 @@
 ---
 title: 2.5 - Expansões de Chave
 ---
-
 _Expansões de Chave_ são um tipo específico de expansão do shell, como os que vimos anteriormente (`$()` e `$(())`), que usa expressões cercadas por chaves (`{}`) para expandir para um conjunto de valores. Por exemplo:
 
  ```bash

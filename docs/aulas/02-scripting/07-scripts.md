@@ -1,7 +1,6 @@
 ---
 title: 2.7 - Shell Script
 ---
-
 A capacidade de usar comandos de forma produtiva no Bash nos habilita a elevar esta produtividade através de scripts.
 
 Scripts são arquivos contendo comandos que serão executados pelo shell em sequência, podendo servir como uma ferramenta de automação, ou até mesmo programação.

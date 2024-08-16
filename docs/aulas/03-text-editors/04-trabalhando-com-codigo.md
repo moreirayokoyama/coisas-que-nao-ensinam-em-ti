@@ -1,7 +1,6 @@
 ---
 title: 3.4 - Trabalhando com Código
 ---
-
 Vamos agora discutir um pouco sobre o uso do vscode com código, no dia-a-dia de pessoas que trabalham com programação de software ou scripts de automação. Para isto iremos usar um programa de exemplo em Python que usa o método de Newton para calcular a raiz quadrada de um número.
 
 !!! warning
@@ -16,7 +15,7 @@ Vamos agora discutir um pouco sobre o uso do vscode com código, no dia-a-dia de
 
 	No livro, os autores implementam o código usando a linguagem LISP. Aqui, usaremos Python.
 
-### 3.4.1 - Instalando suporte à linguagem
+## 3.4.1 - Instalando suporte à linguagem
 A primeira coisa que iremos fazer para trabalhar com uma linguagem no vscode, é procurar uma extensão que instale o suporte a esta linguagem no editor.
 
 Para isto, vamos abrir o Painel de Extensões do vscode através do atalho _Ctrl+Shift+X_, e digitar `Python` no campo de busca.
@@ -42,7 +41,7 @@ A extensão _Python_ da Microsoft, instala alguns comandos úteis, como, por exe
 
 Para sair do REPL, basta digitar `quit()` e pressionar _Enter_
 
-### 3.4.2 - Codificando no vscode
+## 3.4.2 - Codificando no vscode
 
 Para criar um pequeno programa em Python, vamos criar um novo arquivo e salvá-lo como `newton.py`. Ao criar o arquivo e ter ele aberto no seu editor, olhe barra de status e observe o _Modo de Linguagem_ selecionado (Python). Isto se deve ao fato de termos associado a extensão `.py` ao nome do arquivo, fazendo o vscode atribuir automaticamente o modo de linguagem correspondente. Logo ao lado do seletor do Modo de Linguagem, há também o seletor do interpretador da linguagem e o seletor de configurações de Análise da linguagem, instalado pela extensão _Pylance_.
 
@@ -113,7 +112,7 @@ print(sqrt(2.0))
 
 	Uma das conveniências de usar um editor adequado quando estamos trabalhando com código, é que ele suporta algumas tarefas comuns, como por exemplo, transformar uma linha de código em um comentário no formato adequado para o Modo de Linguagem que estamos usando. No vscode, o comando para comentarmos uma linha do código (ou remover o comentário dela) é através do atalho _Ctrl+;_, ou no menu _Edit_, na opção _Toggle Line Comment_. Também existe a opção de comentar/remover comentário em blocos, para linguagens que suportam blocos de comentário.
 
-### 3.4.3 - Execução de código
+## 3.4.3 - Execução de código
 
 Para executarmos o código, podemos usar o Depurador (_Debug_) do vscode, que pode ser aberto através do atalho _Ctrl+Shift+D_. Nele podemos clicar no botão _Run and Debug_.
 
@@ -127,7 +126,7 @@ O depurador irá abrir um terminal chamado `Python Debug Console`, onde o progra
 
 Pode-se iniciar uma execução através do atalho _F5_. Nós iremos explorar melhor as capacidades de depuração do vscode em uma aula futura dedicada à _Debugging_ e _Profiling_.
 
-### 3.4.4 - Navegação do código
+## 3.4.4 - Navegação do código
 O vscode possui capacidades de navegação específicas para serem usadas quando estamos trabalhando com código. Ao clicar com o botão direito do mouse no nome de algum artefato de código, algumas opções de navegação serão exibidas no menu suspenso:
 - _Go to Definition_: Navega até o código em que este artefato foi definido
 - _Go to Declaration_: Navega até o código em que este artefato foi declarado (em _Python_ o efeito é o mesmo, mas existem linguagens que distinguem a declaração da definição)
@@ -151,20 +150,20 @@ O _Outline_ é uma forma de visualizar as estruturas de código presentes no arq
 
 ![image](../../imagens/vscode-outline.png)
 
-### 3.4.5 - Refatoração de código
+## 3.4.5 - Refatoração de código
 Dentre as capacidades com código do vscode, existem opções de refatoração disponíveis. Por exemplo, renomear um artefato (atualizando todas as referências a ele com o novo nome), mover um artefato para outro arquivo, transformar uma expressão em variável ou extrair um novo método a partir de um trecho de código, além de outras capacidades disponíveis de acordo com a linguagem.
 
 - Renomear: para renomear um artefato (variável, função, etc), basta posicionar o cursor sobre o seu nome e pressionar _F2_. Uma caixa de texto será exibida para que você possa entrar com o novo nome e, ao pressionar _Enter_, ele aplicará o novo nome para todas as referências conhecidas.
 - Extrair Variável: para transformar uma expressão em uma variável, você pode selecionar a expressão desejada e pressionar _Ctrl+Shift+R_ e, no menu suspenso, escolher _Extract Variable_. Ao digitar o nome da variável, o vscode fará a refatoração adequada.
 - Extrair Método: Extrair Método, de forma semelhante à _Extrair Variável_, baseado em uma expressão selecionada, a transforma em uma chamada de função, para onde ele a move. Para isto, basta usar o atalho de refatoração _Ctrl+Shift+R_ e clicar em _Extract Method_.
 
-### 3.4.6 - Intellisense
+## 3.4.6 - Intellisense
 O _IntelliSense_ é um conjunto de capacidades do vscode que interagem com o usuário ao trabalhar com código. Estas capacidades são principalmente:
 - Auto completar: à medida que se digita o código, o IntelliSense dá sugestões sobre possíveis formas de completar a expressão baseadas no que está sendo digitado e nos artefatos que existem disponíveis no código.
 - Informações Rápidas e Detalhes sobre Parâmetros: Quando se digita uma chamada para uma função, o IntelliSense é capaz de obter informações sobre a função e seus parâmetros e exibí-las, durante a digitação, para que o usuário possa entender como preenchê-los.
 - Lista de Membros: O IntelliSense também verifica os membros de classes, structs, etc, e exibe informações durante a codificação para te ajudar a preenchê-las.
 
-### 3.4.7 - Snippets
+## 3.4.7 - Snippets
 _Snippets_ são templates para pequenos trechos de código que o vscode mantém disponíveis para facilitar a digitação de certas estruturas enquanto estamos codificando.
 
 Por exemplo, quando queremos usar alguma estrutura de controle, criar uma função, ou uma classe, pode ser que existam snippets diponíveis para isto, ou podem haver extensões que os disponibilizem.

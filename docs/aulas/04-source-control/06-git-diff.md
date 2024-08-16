@@ -1,7 +1,6 @@
 ---
 title: 4.6 - Conferindo as alterações feitas no repositório entre commits
 ---
-
 É muito comum, quando trabalhamos com projetos em código, ficarmos na dúvida sobre como as alterações no código o fizeram chegar ao estado atual, e o git nos dá ferramentas para acompanhar este histórico. O comando `git diff` pode ser usado de diversas formas pra dar detalhes nas alterações feitas ao longo do tempo no nosso repositório. Vamos experimentar algumas delas.
 
 ```bash

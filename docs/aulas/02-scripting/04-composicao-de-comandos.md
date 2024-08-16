@@ -1,7 +1,6 @@
 ---
 title: 2.4 - Composição de Comandos e Operações Lógicas
 ---
-
 Bash suporta uma forma de criar uma composição de comandos em uma única instrução usando o separador `;`. Por exemplo:
 
 ```bash
