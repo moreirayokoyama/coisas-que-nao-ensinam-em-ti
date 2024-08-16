@@ -1,6 +1,7 @@
 ---
 title: Aula 01 - O Shell
 description: Introdução ao Shell e se familiarizando com Bash
+
 ---
 # Aula 1 - O _Shell_
 
