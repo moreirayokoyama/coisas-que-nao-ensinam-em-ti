@@ -1,6 +1,7 @@
 site_name: Coisas Que Não Ensinam em TI
 repo_url: https://github.com/moreirayokoyama/coisas-que-nao-ensinam-em-ti
 repo_name: moreirayokoyama/coisas-que-nao-ensinam-em-ti
+site_url: https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/
 
 nav:
   - "Coisas Que Não Ensinam em TI": index.md
