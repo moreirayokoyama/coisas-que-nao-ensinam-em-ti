@@ -1,7 +1,6 @@
 ---
 title: 2.1 - Imprimindo Valores (Hello world)
 ---
-
 A operação mais básica que as linguagens de programação apresentam é a capacidade de imprimir um valor para o usuário. O ritual de iniciação padrão para todos os que estudam uma linguagem de programação é imprimir a mensagem universal "Hello, world" (_Olá mundo_). Usando Bash, o comando que usamos para imprimir mensagens para o usuário é o comando `echo`.
 
 ```bash
