@@ -28,3 +28,6 @@ O curso original no qual este é baseado foi elaborado por
 - [Jose Javier Gonzalez Ortiz](https://josejg.com/)
 
 Mais informações sobre o curso original podem ser conferidas no [Site Oficial](https://missing.csail.mit.edu/).
+
+## Agradecimentos
+Agradeço ao [Predador Vegano](https://github.com/taconi) Pela ajuda com a separação das aulas em páginas diferentes.
