@@ -14,7 +14,7 @@ Para criar um script, tudo o que precisamos fazer é criar um arquivo texto cont
 
 Vamos ver como isto funciona.
 
-### 2.7.1 - Criando e Executando Scripts
+## 2.7.1 - Criando e Executando Scripts
 Vamos criar o nosso primeiro Script executando o famoso rito de iniciação que discutimos no início desta aula, `Olá, mundo`.
 
 ```bash
@@ -114,7 +114,7 @@ chmod +x ola.py
 
 Agora que vimos como podemos executar nossos scripts, vamos aprender como fazer melhor uso deles.
 
-### 2.7.2 - Recebendo argumentos em Scripts
+## 2.7.2 - Recebendo argumentos em Scripts
 Ao longo destas aulas temos usado diversos comandos que recebem argumentos como forma de ter algum controle sobre o seu comportamento, e não é diferente com os scripts que podemos construir. O Bash nos permite receber argumentos em nossos scripts através de parâmetros numerados.
 
 Para ler estes parâmetros, podemos usar variáveis especiais usando a notação com o sinal `$` e o número dos parâmetros de 1 a 9. Por exemplo:

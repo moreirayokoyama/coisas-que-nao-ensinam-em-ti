@@ -21,7 +21,7 @@ soma=$((7 + 8))
 
 ```
 
-### 2.3.1 - Interpolação de Valores
+## 2.3.1 - Interpolação de Valores
 Interpolação de valores é a capacidade que o Bash tem de identificar marcadores em valores de texto para substituir por valores computados durante a execução do comando. Por exemplo:
 
 ```bash
@@ -40,7 +40,7 @@ echo "Interpolando o resultado de um comando: $(ls -lha ~ | grep Jul)"
 echo "Interpolando o resultado de uma expressão aritmética: $((2 + 3 - 4 * 5 / 6 % 7))"
 ```
 
-### 2.3.2 - Variáveis de ambiente
+## 2.3.2 - Variáveis de ambiente
 Variáveis de ambiente são valores que são carregados na sessão do shell e que ficam disponíveis para os programas e comandos que usamos ao longo desta sessão. Elas funcionam como qualquer outra variável definida no shell, com a diferença de que elas já estão criadas e disponíveis para serem usadas.
 
 Uma forma de listar as variáveis de ambiente carregadas na sessão do shell é através do comando `export`.
@@ -81,12 +81,12 @@ export
 
 Note que agora, entre as variáveis listadas, encontra-se a variável `foo` e seu valor. Por outro lado, a variável `x` não faz parte do ambiente, ela está carregada no shell, mas não é tratada como parte do ambiente.
 
-### 2.3.3 O Ambiente
+## 2.3.3 O Ambiente
 O _ambiente_ é uma lista de pares de `nome=valor` carregados na sessão do shell e que são fornecidos para os programas executados a partir daquela sessão. Isso é uma forma útil de fazer com que programas e scripts que executamos possam receber valores sem a necessidade de informá-los através de argumentos.
 
 Veremos com mais detalhes como o ambiente funciona na [aula sobre o ambiente de linha de comando](../05-command-line-environment/index.md), quando discutiremos a execução de programas a partir do ambiente de linha de comando.
 
-### 2.3.4 Sessões
+## 2.3.4 Sessões
 Como acabamos de descrever, as variáveis de ambiente ficam disponíveis na sessão do Shell. A sessão do shell dura enquanto o shell estiver aberto. Se você sair do Bash, você encerra a sessão, e o ambiente daquela sessão deixa de existir.
 
 Faça este teste, encerre o shell no terminal atual (fechando o terminal) e abra novamente o terminal. Uma nova sessão será criada e, se você executar o comando `export`, notará que a variável `foo` que acabamos de criar não está mais disponível.

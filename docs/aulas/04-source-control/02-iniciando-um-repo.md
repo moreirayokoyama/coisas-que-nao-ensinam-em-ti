@@ -18,7 +18,7 @@ Não é recomendável que você altere manualmente o conteúdo de qualquer um do
 
 Mais adiante falaremos sobre como esse banco de dados funciona, mas por hora vamos compreender como trabalhamos com o repositório que temos em mãos.
 
-### 4.2.1 - Primeiras Interações com o Repositório.
+## 4.2.1 - Primeiras Interações com o Repositório.
 A forma mais básica de interação com um repositório é através do comando `git status`, que nos trás informações de qual a sua situação atual. Como acabamos de criá-lo, o comando nos mostrará as seguintes informações:
 
 ```
@@ -55,7 +55,7 @@ git status
 
 O git consegue reconhecer quando existem diferenças entre o conhecimento que ele tem do repositório e a situação atual do diretório, e se baseia na comparação entre ambos para te informar a respeito do status. Ou seja, quando você desfaz as alterações, o git entende que repositório está em sincronia com a situação do diretório.
 
-### 4.2.2 - Adicionando Arquivos ao Repositório
+## 4.2.2 - Adicionando Arquivos ao Repositório
 Vamos criar um arquivo para incluirmos no repositório. Em repositórios git, é muito comum criar-se um arquivo descritivo chamado README.md. A extensão `md` indica que o arquivo está no formato _Markdown_, que é um arquivo de texto redigido usando marcações simples para formatar o seu conteúdo, como criar títulos, subtítulos, links, listas formatadas, etc.
 
 ```bash
