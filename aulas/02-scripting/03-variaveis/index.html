@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código">
       
       
       
-      
-        <link rel="prev" href="../03-text-editors/08-conclusao/">
-      
-      
-        <link rel="next" href="01-instalando-git/">
+        <link rel="prev" href="../02-expressoes-expansoes/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../04-composicao-de-comandos/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI</title>
+        <title>2.3 - Definindo variáveis - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="2.3 - Definindo variáveis - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/02-scripting/03-variaveis.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="2.3 - Definindo variáveis - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/02-scripting/03-variaveis.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -110,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#231-interpolacao-de-valores" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +125,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 04 - Sistema de Controle de Versionamento de Código - Git
+              2.3 - Definindo variáveis
             
           </span>
         </div>
@@ -262,7 +265,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -402,7 +405,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -435,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/01-o-que-e/" class="md-nav__link">
+      <a href="../../01-shell/01-o-que-e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/02-bash/" class="md-nav__link">
+      <a href="../../01-shell/02-bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/03-navegando/" class="md-nav__link">
+      <a href="../../01-shell/03-navegando/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/04-permissoes/" class="md-nav__link">
+      <a href="../../01-shell/04-permissoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/05-manipulando-arquivos/" class="md-nav__link">
+      <a href="../../01-shell/05-manipulando-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
+      <a href="../../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/07-conectando-programas/" class="md-nav__link">
+      <a href="../../01-shell/07-conectando-programas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/08-comandos-uteis/" class="md-nav__link">
+      <a href="../../01-shell/08-comandos-uteis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/09-conclusao/" class="md-nav__link">
+      <a href="../../01-shell/09-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -629,6 +632,8 @@
                 
   
   
+    
+  
   
   
     
@@ -659,16 +664,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../02-scripting/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -685,7 +690,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Aula 2 - Introdução a Criação Scripts com Bash
@@ -701,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/01-hello-world/" class="md-nav__link">
+      <a href="../01-hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -722,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/02-expressoes-expansoes/" class="md-nav__link">
+      <a href="../02-expressoes-expansoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,10 +745,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../02-scripting/03-variaveis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2.3 - Definindo variáveis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -752,6 +775,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#231-interpolacao-de-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 - Interpolação de Valores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#232-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 - Variáveis de ambiente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#233-o-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 O Ambiente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#234-sessoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 Sessões
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -764,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/04-composicao-de-comandos/" class="md-nav__link">
+      <a href="../04-composicao-de-comandos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -785,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/05-expansoes-de-chave/" class="md-nav__link">
+      <a href="../05-expansoes-de-chave/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/06-stream-de-erro/" class="md-nav__link">
+      <a href="../06-stream-de-erro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -827,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/07-scripts/" class="md-nav__link">
+      <a href="../07-scripts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/08-conclusao/" class="md-nav__link">
+      <a href="../08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -915,7 +992,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
+            <a href="../../03-text-editors/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -948,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/00-instalando-vscode/" class="md-nav__link">
+      <a href="../../03-text-editors/00-instalando-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
+      <a href="../../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -990,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
+      <a href="../../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1011,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/03-extensoes/" class="md-nav__link">
+      <a href="../../03-text-editors/03-extensoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1032,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
+      <a href="../../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1053,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
+      <a href="../../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/06-workspaces/" class="md-nav__link">
+      <a href="../../03-text-editors/06-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1095,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/07-terminal/" class="md-nav__link">
+      <a href="../../03-text-editors/07-terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/08-conclusao/" class="md-nav__link">
+      <a href="../../03-text-editors/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1142,8 +1219,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1184,16 +1259,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../04-source-control/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1204,13 +1279,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Aula 4 - Sistema de Controle de Versionamento de Código - Git
@@ -1226,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-instalando-git/" class="md-nav__link">
+      <a href="../../04-source-control/01-instalando-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1247,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-iniciando-um-repo/" class="md-nav__link">
+      <a href="../../04-source-control/02-iniciando-um-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1268,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-como-git-acompanha-repo/" class="md-nav__link">
+      <a href="../../04-source-control/03-como-git-acompanha-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1289,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-viajando-no-tempo/" class="md-nav__link">
+      <a href="../../04-source-control/04-viajando-no-tempo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-modificacoes-complexas/" class="md-nav__link">
+      <a href="../../04-source-control/05-modificacoes-complexas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-git-diff/" class="md-nav__link">
+      <a href="../../04-source-control/06-git-diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-branches/" class="md-nav__link">
+      <a href="../../04-source-control/07-branches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
+      <a href="../../04-source-control/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_09/" class="md-nav__link">
+      <a href="../../04-source-control/cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_10/" class="md-nav__link">
+      <a href="../../04-source-control/cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_11/" class="md-nav__link">
+      <a href="../../04-source-control/cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_12/" class="md-nav__link">
+      <a href="../../04-source-control/cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_13/" class="md-nav__link">
+      <a href="../../04-source-control/cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1525,6 +1600,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#231-interpolacao-de-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 - Interpolação de Valores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#232-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 - Variáveis de ambiente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#233-o-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 O Ambiente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#234-sessoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 Sessões
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1541,13 +1660,65 @@
   
 
 
-  <h1>Aula 04 - Sistema de Controle de Versionamento de Código - Git</h1>
+  <h1>2.3 - Definindo variáveis</h1>
 
-<div><p>Trabalhar com código requer organização, e muito do que aprendemos sobre como organizamos o nosso código se dá com um trabalho iterativo e incremental, ou seja, o código está em constante mudança. Parte da nossa rotina no trabalho com código é de fazer, desfazer e refazer partes dele ao longo do desenvolvimento de uma tarefa, à medida que testamos e percebemos oportunidades de melhoria, ou até mesmo, problemas que não foram antecipados e que requerem mudanças na forma como havíamos elaborado a solução anteriormente.</p>
-<p>Para ter algum controle sobre como estas alterações acontecem, e que possamos visualizá-las em um contexto histórico que torne essa organização possível, usamos um sistema de controle de versionamento de código. Existem diversas ferramentas para este fim disponíveis no mercado, mas uma delas se tornou um padrão de uso entre profissionais de TI nas últimas décadas: o Git.</p>
-<p>O Git é um Sistema de Controle de Versionamento de Código (<em>SVC</em>), criado pelo Linus Torvalds enquanto ele desenvolvia o Kernel do Linux, disponível como software livre de código aberto sob a licença GPL, compatível com várias plataformas (Linux, MacOS e Windows). Ele é utilizado pela vasta maioria dos profissionais de tecnologia atualmente, tanto para projetos de Código Aberto quanto em organizações privadas.</p>
-<p>Ele funciona através da criação de um repositório de código em um diretório no sistema de arquivos para acompanhar as mudanças que este código sofre ao longo do tempo. Neste repositório você é capaz de criar marcações do estado dos arquivos, e a partir destas marcações você tem a possibilidade de visualizar e navegar pelo histórico de como estes arquivos foram alterados, restaurar o estado em que eles se encontravam em um determinado momento no passado e reescrever a história deles a partir de uma marcação específica, além de diversas capacidades que veremos a seguir.</p>
-<p>Nesta aula vamos explorar o uso de Git, tanto para organização pessoal, quanto para contribuição em projetos colaborativos.</p></div><style type="text/css">.quiz {
+<div><p>Como em qualquer linguagem de programação, em Bash nós podemos definir variáveis para guardar valores que precisam ser reutilizados. Para definir variáveis em Bash, tudo o que precisamos fazer é uma atribuição de um valor a um nome, usando o operador <code>=</code>. O único cuidado que devemos ao fazermos uma atribuição é redobrar nossa atenção ao fato de que, em Bash, espaços contam. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">foo</span><span class="o">=</span>bar<span class="w"> </span><span class="c1"># Atribuição do valor `bar` a uma nova variável chamada `foo`</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>bar<span class="w"> </span><span class="c1"># Erro. O Bash tenta executar um comando chamado `foo` com 2 argumentos (`-` e `bar`).</span>
+</span></code></pre></div>
+<p>Para usarmos as variáveis que criamos, nós nos referimos a elas usando o sinal <code>$</code> como prefixo. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$foo</span>
+</span></code></pre></div>
+<p>Qualquer resultado de uma expressão pode ser atribuído a uma variável:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">soma</span><span class="o">=</span><span class="k">$((</span><span class="m">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">8</span><span class="k">))</span>
+</span></code></pre></div>
+<h3 id="231-interpolacao-de-valores">2.3.1 - Interpolação de Valores</h3>
+<p>Interpolação de valores é a capacidade que o Bash tem de identificar marcadores em valores de texto para substituir por valores computados durante a execução do comando. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"o conteúdo da variável foo é </span><span class="nv">$foo</span><span class="s2">"</span>
+</span></code></pre></div>
+<p>No código acima, o Bash vai identificar o uso da variável foo (usada com o <code>$</code>), e vai substituir este marcador pelo valor da variável.</p>
+<p>A interpolação de valores só funciona com textos delimitados por <code>"</code> (aspas). Se o texto for delimitado por <code>'</code> (apóstrofos), o bash trata o texto como literal e não faz a interpolação. Esta distinção tem suas vantagens, como por exemplo, quando você quer que a interpolação aconteça em um momento diferente do da execução do script, delegando a interpolação para outra etapa da automação, ou outro processo que será executado.</p>
+<p>Podemos, também, interpolar valores resultantes de quaisquer tipos expressões suportadas pelo Bash.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Interpolando o valor de uma variável: </span><span class="nv">$foo</span><span class="s2">"</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Interpolando o resultado de um comando: </span><span class="k">$(</span>ls<span class="w"> </span>-lha<span class="w"> </span>~<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Jul<span class="k">)</span><span class="s2">"</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Interpolando o resultado de uma expressão aritmética: </span><span class="k">$((</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">7</span><span class="k">))</span><span class="s2">"</span>
+</span></code></pre></div>
+<h3 id="232-variaveis-de-ambiente">2.3.2 - Variáveis de ambiente</h3>
+<p>Variáveis de ambiente são valores que são carregados na sessão do shell e que ficam disponíveis para os programas e comandos que usamos ao longo desta sessão. Elas funcionam como qualquer outra variável definida no shell, com a diferença de que elas já estão criadas e disponíveis para serem usadas.</p>
+<p>Uma forma de listar as variáveis de ambiente carregadas na sessão do shell é através do comando <code>export</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="c1"># Lista as variáveis de ambiente da sessão atual</span>
+</span></code></pre></div>
+<p>Qualquer uma dessas variáveis podem ser usadas a partir de comandos no shell da mesma forma como as variáveis que definimos até aqui.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOSTTYPE</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"O diretório atual da sessão é </span><span class="nv">$PWD</span><span class="s2">, o diretório anterior é </span><span class="nv">$OLDPWD</span><span class="s2">"</span>
+</span></code></pre></div>
+<p>Dentre as variáveis de ambiente, uma variável muito importante que afeta a forma como usamos o shell é a variável $PATH. Esta variável orienta o shell sobre em quais diretórios ele precisa buscar os programas que usamos. Por exemplo, quando usamos o programa <code>echo</code>, ou <code>grep</code>, ou outros programas que temos usado até aqui, o shell precisa saber como localizá-los e, para isto, usa a variável <code>$PATH</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</span></code></pre></div>
+<p>Uma forma de saber onde está um dado programa que usamos é através do comando <code>which</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>which<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="c1"># imprime o endereço do programa echo</span>
+</span></code></pre></div>
+<p>Com certeza, você irá encontrar o diretório exibido no caminho do comando <code>echo</code> como parte da variável <code>$PATH</code>, do contrário não seria possível usá-lo.</p>
+<p>Para definir variáveis de ambiente na sessão do shell, também usamos o comando <code>export</code>, porém atribuindo o valor à variável que desejamos criar:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">foo</span><span class="o">=</span>bar
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">x</span><span class="o">=</span>y
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">export</span>
+</span></code></pre></div>
+<p>Note que agora, entre as variáveis listadas, encontra-se a variável <code>foo</code> e seu valor. Por outro lado, a variável <code>x</code> não faz parte do ambiente, ela está carregada no shell, mas não é tratada como parte do ambiente.</p>
+<h3 id="233-o-ambiente">2.3.3 O Ambiente</h3>
+<p>O <em>ambiente</em> é uma lista de pares de <code>nome=valor</code> carregados na sessão do shell e que são fornecidos para os programas executados a partir daquela sessão. Isso é uma forma útil de fazer com que programas e scripts que executamos possam receber valores sem a necessidade de informá-los através de argumentos.</p>
+<p>Veremos com mais detalhes como o ambiente funciona na <a href="../05-command-line-environment/index.md">aula sobre o ambiente de linha de comando</a>, quando discutiremos a execução de programas a partir do ambiente de linha de comando.</p>
+<h3 id="234-sessoes">2.3.4 Sessões</h3>
+<p>Como acabamos de descrever, as variáveis de ambiente ficam disponíveis na sessão do Shell. A sessão do shell dura enquanto o shell estiver aberto. Se você sair do Bash, você encerra a sessão, e o ambiente daquela sessão deixa de existir.</p>
+<p>Faça este teste, encerre o shell no terminal atual (fechando o terminal) e abra novamente o terminal. Uma nova sessão será criada e, se você executar o comando <code>export</code>, notará que a variável <code>foo</code> que acabamos de criar não está mais disponível.</p>
+<p>As variáveis que você vê listadas através do comando <code>export</code> quando inicia uma nova sessão do shell são atribuídas ao ambiente durante a inicialização da sessão. Isto acontece graças a alguns scripts que são invocados no momento em que a sessão é iniciada.</p>
+<p>Por exemplo, o script <code>~/.bashrc</code> possui a definição de diversas variáveis de ambiente. Outro arquivo útil é o <code>~/.profile</code> ou o <code>~/.profile_bash</code> (podem não existir no seu sistema, mas também são formas de definir o ambiente da sessão).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cat<span class="w"> </span>~/.bashrc
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cat<span class="w"> </span>~/.profile
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cat<span class="w"> </span>~/.profile_bash
+</span></code></pre></div>
+<p>É interessante saber como o ambiente é criado na inicialização da sessão (através de arquivos como estes), para entendermos que todo o ambiente é facilmente configurável no shell, e que as coisas não acontecem como mágica.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1678,7 +1849,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 16, 2024</span>
   </span>
 
     
@@ -1778,10 +1949,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código">
       
       
       
-      
-        <link rel="prev" href="../03-text-editors/08-conclusao/">
-      
-      
-        <link rel="next" href="01-instalando-git/">
+        <link rel="prev" href="../03-extensoes/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../05-trabalhando-com-diretorios/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI</title>
+        <title>3.4 - Trabalhando com Código - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="3.4 - Trabalhando com Código - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/03-text-editors/04-trabalhando-com-codigo.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="3.4 - Trabalhando com Código - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/03-text-editors/04-trabalhando-com-codigo.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -110,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#341-instalando-suporte-a-linguagem" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +125,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 04 - Sistema de Controle de Versionamento de Código - Git
+              3.4 - Trabalhando com Código
             
           </span>
         </div>
@@ -262,7 +265,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -402,7 +405,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -435,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/01-o-que-e/" class="md-nav__link">
+      <a href="../../01-shell/01-o-que-e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/02-bash/" class="md-nav__link">
+      <a href="../../01-shell/02-bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/03-navegando/" class="md-nav__link">
+      <a href="../../01-shell/03-navegando/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/04-permissoes/" class="md-nav__link">
+      <a href="../../01-shell/04-permissoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/05-manipulando-arquivos/" class="md-nav__link">
+      <a href="../../01-shell/05-manipulando-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
+      <a href="../../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/07-conectando-programas/" class="md-nav__link">
+      <a href="../../01-shell/07-conectando-programas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/08-comandos-uteis/" class="md-nav__link">
+      <a href="../../01-shell/08-comandos-uteis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/09-conclusao/" class="md-nav__link">
+      <a href="../../01-shell/09-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -668,7 +671,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../02-scripting/" class="md-nav__link ">
+            <a href="../../02-scripting/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -701,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/01-hello-world/" class="md-nav__link">
+      <a href="../../02-scripting/01-hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -722,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/02-expressoes-expansoes/" class="md-nav__link">
+      <a href="../../02-scripting/02-expressoes-expansoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -743,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/03-variaveis/" class="md-nav__link">
+      <a href="../../02-scripting/03-variaveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -764,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/04-composicao-de-comandos/" class="md-nav__link">
+      <a href="../../02-scripting/04-composicao-de-comandos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -785,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/05-expansoes-de-chave/" class="md-nav__link">
+      <a href="../../02-scripting/05-expansoes-de-chave/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/06-stream-de-erro/" class="md-nav__link">
+      <a href="../../02-scripting/06-stream-de-erro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -827,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/07-scripts/" class="md-nav__link">
+      <a href="../../02-scripting/07-scripts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/08-conclusao/" class="md-nav__link">
+      <a href="../../02-scripting/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,274 +877,6 @@
                 
   
   
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/00-instalando-vscode/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.0 - Instalando o vscode
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1 - Explorando a interface
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.2 - O Editor
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/03-extensoes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.3 - Extensões
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.4 - Trabalhando com Código
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.5 - Trabalhando com Diretórios
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/06-workspaces/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.6 - Workspaces
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/07-terminal/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.7 - Terminal
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-text-editors/08-conclusao/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.8 - Conclusão
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1151,14 +886,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -1188,12 +915,387 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-instalando-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.0 - Instalando o vscode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-explorando-a-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 - Explorando a interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-editor-de-arquivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 - O Editor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-extensoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 - Extensões
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3.4 - Trabalhando com Código
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3.4 - Trabalhando com Código
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#341-instalando-suporte-a-linguagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 - Instalando suporte à linguagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#342-codificando-no-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 - Codificando no vscode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#343-execucao-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 - Execução de código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#344-navegacao-do-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4 - Navegação do código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#345-refatoracao-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.5 - Refatoração de código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#346-intellisense" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.6 - Intellisense
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#347-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.7 - Snippets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-trabalhando-com-diretorios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.5 - Trabalhando com Diretórios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-workspaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.6 - Workspaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.7 - Terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-conclusao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.8 - Conclusão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../04-source-control/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1204,13 +1306,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Aula 4 - Sistema de Controle de Versionamento de Código - Git
@@ -1226,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-instalando-git/" class="md-nav__link">
+      <a href="../../04-source-control/01-instalando-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1247,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-iniciando-um-repo/" class="md-nav__link">
+      <a href="../../04-source-control/02-iniciando-um-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1268,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-como-git-acompanha-repo/" class="md-nav__link">
+      <a href="../../04-source-control/03-como-git-acompanha-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1289,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-viajando-no-tempo/" class="md-nav__link">
+      <a href="../../04-source-control/04-viajando-no-tempo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-modificacoes-complexas/" class="md-nav__link">
+      <a href="../../04-source-control/05-modificacoes-complexas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-git-diff/" class="md-nav__link">
+      <a href="../../04-source-control/06-git-diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-branches/" class="md-nav__link">
+      <a href="../../04-source-control/07-branches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
+      <a href="../../04-source-control/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_09/" class="md-nav__link">
+      <a href="../../04-source-control/cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_10/" class="md-nav__link">
+      <a href="../../04-source-control/cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_11/" class="md-nav__link">
+      <a href="../../04-source-control/cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_12/" class="md-nav__link">
+      <a href="../../04-source-control/cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_13/" class="md-nav__link">
+      <a href="../../04-source-control/cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1525,6 +1627,77 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#341-instalando-suporte-a-linguagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 - Instalando suporte à linguagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#342-codificando-no-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 - Codificando no vscode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#343-execucao-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 - Execução de código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#344-navegacao-do-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4 - Navegação do código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#345-refatoracao-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.5 - Refatoração de código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#346-intellisense" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.6 - Intellisense
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#347-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.7 - Snippets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1541,13 +1714,131 @@
   
 
 
-  <h1>Aula 04 - Sistema de Controle de Versionamento de Código - Git</h1>
+  <h1>3.4 - Trabalhando com Código</h1>
 
-<div><p>Trabalhar com código requer organização, e muito do que aprendemos sobre como organizamos o nosso código se dá com um trabalho iterativo e incremental, ou seja, o código está em constante mudança. Parte da nossa rotina no trabalho com código é de fazer, desfazer e refazer partes dele ao longo do desenvolvimento de uma tarefa, à medida que testamos e percebemos oportunidades de melhoria, ou até mesmo, problemas que não foram antecipados e que requerem mudanças na forma como havíamos elaborado a solução anteriormente.</p>
-<p>Para ter algum controle sobre como estas alterações acontecem, e que possamos visualizá-las em um contexto histórico que torne essa organização possível, usamos um sistema de controle de versionamento de código. Existem diversas ferramentas para este fim disponíveis no mercado, mas uma delas se tornou um padrão de uso entre profissionais de TI nas últimas décadas: o Git.</p>
-<p>O Git é um Sistema de Controle de Versionamento de Código (<em>SVC</em>), criado pelo Linus Torvalds enquanto ele desenvolvia o Kernel do Linux, disponível como software livre de código aberto sob a licença GPL, compatível com várias plataformas (Linux, MacOS e Windows). Ele é utilizado pela vasta maioria dos profissionais de tecnologia atualmente, tanto para projetos de Código Aberto quanto em organizações privadas.</p>
-<p>Ele funciona através da criação de um repositório de código em um diretório no sistema de arquivos para acompanhar as mudanças que este código sofre ao longo do tempo. Neste repositório você é capaz de criar marcações do estado dos arquivos, e a partir destas marcações você tem a possibilidade de visualizar e navegar pelo histórico de como estes arquivos foram alterados, restaurar o estado em que eles se encontravam em um determinado momento no passado e reescrever a história deles a partir de uma marcação específica, além de diversas capacidades que veremos a seguir.</p>
-<p>Nesta aula vamos explorar o uso de Git, tanto para organização pessoal, quanto para contribuição em projetos colaborativos.</p></div><style type="text/css">.quiz {
+<div><p>Vamos agora discutir um pouco sobre o uso do vscode com código, no dia-a-dia de pessoas que trabalham com programação de software ou scripts de automação. Para isto iremos usar um programa de exemplo em Python que usa o método de Newton para calcular a raiz quadrada de um número.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Se você não conhece Python, ou não entende sobre programação, tenha em mente que os exemplos usados aqui tem um caráter meramente ilustrativo para facilitar a compreensão do uso do vscode.</p>
+<p>Contudo, se você quiser acompanhar os exemplos em seu dispositivo, você vai precisar ter instalado um interpretador de Python.</p>
+<p>Acesse <a href="https://python.org.br/instalacao-windows/">este link</a> para instruções de como instalar o Interpretador Python no Windows, ou <a href="https://python.org.br/instalacao-linux/">este link</a> para instalar no linux. Para usuários do MacOs, <a href="https://python.org.br/instalacao-mac/">este link</a> fornece as instruções necessárias.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O exemplo a seguir foi extraído do livro <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book.html"><em>Structure and Interpretation of Computer Programs</em></a>, de Hal Abelson, Jerry Sussman e Julie Sussman, pela MIT Press.</p>
+<p>No livro, os autores implementam o código usando a linguagem LISP. Aqui, usaremos Python.</p>
+</div>
+<h3 id="341-instalando-suporte-a-linguagem">3.4.1 - Instalando suporte à linguagem</h3>
+<p>A primeira coisa que iremos fazer para trabalhar com uma linguagem no vscode, é procurar uma extensão que instale o suporte a esta linguagem no editor.</p>
+<p>Para isto, vamos abrir o Painel de Extensões do vscode através do atalho <em>Ctrl+Shift+X</em>, e digitar <code>Python</code> no campo de busca.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-python-extension.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-python-extension.png"></a></p>
+<p>Note como existem inúmeras extensões que auxiliam o uso de Python no resultado da busca. Para os fins deste curso, irei instalar o suporte oficial da Microsoft, que é a extensão mais baixada. Ela também instala duas outras extensões como parte de suas dependências:
+- <code>Pylance</code> (para suporte do <em>IntelliSense</em>)
+- <code>Python Debugger</code>(para suporte ao Depurador)</p>
+<p>A extensão <em>Python</em> da Microsoft, instala alguns comandos úteis, como, por exemplo, Iniciar um Terminal REPL de Python:
+1. Entre na Paleta de Comandos com <em>Ctrl+Shift+P</em>
+2. Digite <code>Python</code> para listar todos os comandos que a extensão adicionou
+3. Procure o comando <code>Python: Start Terminal REPL</code>
+4. Clique no comando para ver o Terminal REPL ser iniciado</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Um <em>Terminal REPL</em> é uma ferramenta disponível em Python (e em algumas outras linguagens) que criam uma experiência de Shell para usar a linguagem no terminal.</p>
+<p><em>REPL</em> é a sigla para <em>Read-Eval-Print Loop</em>, que significa uma repetição do processo de Ler-&gt;Interpretar-&gt;Imprimir do interpretador de uma linguagem.</p>
+<p>Por exemplo, se você digitar no REPL a expressão <code>1 + 1</code> e pressionar <em>Enter</em>, o terminal executará a leitura do texto digitado, fará a interpretação de acordo com a linguagem Python, e imprimirá o resultado. Depois disto, ele habilitará o terminal para que uma nova expressão seja digitada, e executará tudo novamente.</p>
+</div>
+<p>Para sair do REPL, basta digitar <code>quit()</code> e pressionar <em>Enter</em></p>
+<h3 id="342-codificando-no-vscode">3.4.2 - Codificando no vscode</h3>
+<p>Para criar um pequeno programa em Python, vamos criar um novo arquivo e salvá-lo como <code>newton.py</code>. Ao criar o arquivo e ter ele aberto no seu editor, olhe barra de status e observe o <em>Modo de Linguagem</em> selecionado (Python). Isto se deve ao fato de termos associado a extensão <code>.py</code> ao nome do arquivo, fazendo o vscode atribuir automaticamente o modo de linguagem correspondente. Logo ao lado do seletor do Modo de Linguagem, há também o seletor do interpretador da linguagem e o seletor de configurações de Análise da linguagem, instalado pela extensão <em>Pylance</em>.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-python-statusbar.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-python-statusbar.png"></a></p>
+<p>Podemos começar a digitar código no nosso arquivo. O primeiro passo, seguindo o <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-10.html#%_sec_1.1.7">exemplo do livro</a>, é criar uma função  chamada <code>sqrt-iter</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">sqrt</span><span class="o">-</span><span class="nb">iter</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">if</span> <span class="n">good_enough</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="k">return</span> <span class="n">guess</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">return</span> <span class="n">sqrt_iter</span><span class="p">(</span><span class="n">improve</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Note como, à medida que digitamos o código, os termos que digitamos recebem diferentes cores, que são usadas de acordo com o uso da sintaxe da linguagem. Esta funcionalidade é chamada de <em>Syntax Highlight</em>, basicamente se baseia em usar as regras de sintaxe da linguagem para associar um código de cores baseado nelas.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-syntax-highlight.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-syntax-highlight.png"></a></p>
+<p>Observe como o código que digitamos possui diversas marcações em vermelho e amarelo. São problemas que o suporte à linguagem Python identificou no código que digitamos. Podemos compreender melhor os problemas de diversas formas:</p>
+<ul>
+<li>Posicionando o mouse sobre uma das áreas marcadas, e uma caixa flutuante será exibida descrevendo o problema</li>
+<li>Abrindo o painel <em>Problems</em>, através do atalho <em>Ctrl+Shift+M</em></li>
+<li>Navegando pelos problemas usando o atalho <em>F8</em> para ir para o próximo problema, e <em>Shift+F8</em> para voltar para o problema anterior.</li>
+</ul>
+<p>As marcações em vermelho representam <em>Errors</em> (erros), enquanto que as marcações em amarelo representam <em>Warnings</em> (avisos). É possível ter um relatório de erros e avisos na barra de status do vscode, no grupo à esquerda. O número de erros é representado por um ícone com a letra <code>x</code>, enquanto que o número de avisos é representado por um ícone com o ponto-de-exclamação.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-problems.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-problems.png"></a></p>
+<p>Ao clicar neste relatório, o Painel Problems será aberto. Ele também pode ser aberto através do atalho <em>Ctrl+Shift+M</em>. Este painel exibe todos os problemas encontrados no código: erros e avisos, usando o mesmo código de cores: vermelho para erros e amarelos para avisos. Ao clicar em qualquer um dos problemas, ele posiciona o cursor do editor no código onde o problema está sendo reportado.</p>
+<p>O primeiro problema encontra-se no nome da função. Existe um erro aqui, e a extensão <em>Pylance</em> diz que era esperado <code>(</code> (uma abertura de parênteses) no lugar onde está o caractere <code>-</code> (traço). Isso ocorre por que, em Python, quando definimos um nome para uma função, ele aceita apenas letras, números e o caractere <code>_</code>. O traço não é um caractere válido. Então vamos substituí-lo pelo <code>_</code>.</p>
+<p>Note como, só por fazer esta correção, diversos outros problemas foram corrigidos, sobrando apenas agora 2 avisos relacionados às chamadas para as funções <code>good_enough</code> e <code>improve</code>. O problema é que elas ainda não existem, então precisamos implementá-las.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">good_enough</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">return</span> <span class="nb">abs</span><span class="p">((</span><span class="n">guess</span> <span class="o">*</span> <span class="n">guess</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.001</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span> <span class="nf">improve</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">return</span> <span class="n">average</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="n">guess</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Note agora que, ambos os avisos não existem mais, mas um novo aviso passou a existir nos apontando a chamada da função <code>average</code>, que ainda não existe. A chamada para a função <code>abs</code> não foi marcada por que ela existe, estamos usando uma função pronta fornecida pelo interpretador da linguagem Python.</p>
+<p>Seguindo o livro, implementemos a função <code>average</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></code></pre></div>
+<p>Por fim, para facilitar o uso da função iterativa <code>sqrt_iter</code>, o livro propõe a definição de uma última função chamada <code>sqrt</code>, que abstrai a chamada inicial da função <code>sqrt_iter</code>, passando como primeiro palpite o valor <code>1.0</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">return</span> <span class="n">sqrt_iter</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Agora, tudo o que precisamos fazer no nosso programa é usar as funções que criamos, a partir da chamada à função <code>sqrt</code> passando como argumento um número para o qual queiramos obter a raiz quadrada:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p>Comentários</p>
+<p>Uma das conveniências de usar um editor adequado quando estamos trabalhando com código, é que ele suporta algumas tarefas comuns, como por exemplo, transformar uma linha de código em um comentário no formato adequado para o Modo de Linguagem que estamos usando. No vscode, o comando para comentarmos uma linha do código (ou remover o comentário dela) é através do atalho <em>Ctrl+;</em>, ou no menu <em>Edit</em>, na opção <em>Toggle Line Comment</em>. Também existe a opção de comentar/remover comentário em blocos, para linguagens que suportam blocos de comentário.</p>
+</li>
+</ul>
+<h3 id="343-execucao-de-codigo">3.4.3 - Execução de código</h3>
+<p>Para executarmos o código, podemos usar o Depurador (<em>Debug</em>) do vscode, que pode ser aberto através do atalho <em>Ctrl+Shift+D</em>. Nele podemos clicar no botão <em>Run and Debug</em>.</p>
+<p>Ao clicar pela primeira vez em <em>Run and Debug</em>, um menu suspenso será aberto perguntando em que contexto você deseja usar o depurador. Isto se dá por que podemos usar o vscode em um projeto completo de desenvolvimento (com inúmeros arquivos de código). Para este exercício, basta optarmos por <em>Run Python File</em>.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-runanddebug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-runanddebug.png"></a></p>
+<p>O depurador irá abrir um terminal chamado <code>Python Debug Console</code>, onde o programa será executado e o valor resultante da chamada da função <code>sqrt</code> será impressa.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-python-debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-python-debug.png"></a></p>
+<p>Pode-se iniciar uma execução através do atalho <em>F5</em>. Nós iremos explorar melhor as capacidades de depuração do vscode em uma aula futura dedicada à <em>Debugging</em> e <em>Profiling</em>.</p>
+<h3 id="344-navegacao-do-codigo">3.4.4 - Navegação do código</h3>
+<p>O vscode possui capacidades de navegação específicas para serem usadas quando estamos trabalhando com código. Ao clicar com o botão direito do mouse no nome de algum artefato de código, algumas opções de navegação serão exibidas no menu suspenso:
+- <em>Go to Definition</em>: Navega até o código em que este artefato foi definido
+- <em>Go to Declaration</em>: Navega até o código em que este artefato foi declarado (em <em>Python</em> o efeito é o mesmo, mas existem linguagens que distinguem a declaração da definição)
+- <em>Go to Type Definition</em>: Para linguagens que suportam um sistema de tipos, navega até a definição de um tipo
+- <em>Go to References</em>: Navega pelas referências ao artefato (os lugares no código onde ele é usado)</p>
+<p>Existem dois atalhos úteis:
+    - <em>F12</em>: é a tecla de atalho para a navegação <em>Go to Definition</em>
+    - <em>Shift+F12</em>: são as teclas de atalho para a navegação <em>Go to References</em></p>
+<ul>
+<li>Peek</li>
+</ul>
+<p>Às vezes, você só quer ter uma ideia de como os artefatos foram definidos ou estão sendo usados, sem necessariamente navegar pelo código. <em>Peek</em> é uma forma de espiar os trechos de código onde tais coisas acontecem, sem navegar até eles, mantendo o cursor na posição atual. Para isto, o vscode exibe uma caixa flutuante onde o código correspondente é exibido.</p>
+<p>Para usá-lo, em vez de acessar as opções de navegação no menu suspenso, escolha o submenu <em>Peek</em> e a opção desejada: <em>Peek Definition</em> ou <em>Peek References</em>.</p>
+<p>O atalho <em>Alt+f12</em> executa o <em>Peek Definition</em></p>
+<ul>
+<li>Outline
+O <em>Outline</em> é uma forma de visualizar as estruturas de código presentes no arquivo e navegar por elas. O Outline fica na mesma janela do <em>Explorer</em>, abaixo, ou pode ser visto através do atalho <em>Ctrl+Shift+O</em>.</li>
+</ul>
+<p><a class="glightbox" href="../../../imagens/vscode-outline.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-outline.png"></a></p>
+<h3 id="345-refatoracao-de-codigo">3.4.5 - Refatoração de código</h3>
+<p>Dentre as capacidades com código do vscode, existem opções de refatoração disponíveis. Por exemplo, renomear um artefato (atualizando todas as referências a ele com o novo nome), mover um artefato para outro arquivo, transformar uma expressão em variável ou extrair um novo método a partir de um trecho de código, além de outras capacidades disponíveis de acordo com a linguagem.</p>
+<ul>
+<li>Renomear: para renomear um artefato (variável, função, etc), basta posicionar o cursor sobre o seu nome e pressionar <em>F2</em>. Uma caixa de texto será exibida para que você possa entrar com o novo nome e, ao pressionar <em>Enter</em>, ele aplicará o novo nome para todas as referências conhecidas.</li>
+<li>Extrair Variável: para transformar uma expressão em uma variável, você pode selecionar a expressão desejada e pressionar <em>Ctrl+Shift+R</em> e, no menu suspenso, escolher <em>Extract Variable</em>. Ao digitar o nome da variável, o vscode fará a refatoração adequada.</li>
+<li>Extrair Método: Extrair Método, de forma semelhante à <em>Extrair Variável</em>, baseado em uma expressão selecionada, a transforma em uma chamada de função, para onde ele a move. Para isto, basta usar o atalho de refatoração <em>Ctrl+Shift+R</em> e clicar em <em>Extract Method</em>.</li>
+</ul>
+<h3 id="346-intellisense">3.4.6 - Intellisense</h3>
+<p>O <em>IntelliSense</em> é um conjunto de capacidades do vscode que interagem com o usuário ao trabalhar com código. Estas capacidades são principalmente:
+- Auto completar: à medida que se digita o código, o IntelliSense dá sugestões sobre possíveis formas de completar a expressão baseadas no que está sendo digitado e nos artefatos que existem disponíveis no código.
+- Informações Rápidas e Detalhes sobre Parâmetros: Quando se digita uma chamada para uma função, o IntelliSense é capaz de obter informações sobre a função e seus parâmetros e exibí-las, durante a digitação, para que o usuário possa entender como preenchê-los.
+- Lista de Membros: O IntelliSense também verifica os membros de classes, structs, etc, e exibe informações durante a codificação para te ajudar a preenchê-las.</p>
+<h3 id="347-snippets">3.4.7 - Snippets</h3>
+<p><em>Snippets</em> são templates para pequenos trechos de código que o vscode mantém disponíveis para facilitar a digitação de certas estruturas enquanto estamos codificando.</p>
+<p>Por exemplo, quando queremos usar alguma estrutura de controle, criar uma função, ou uma classe, pode ser que existam snippets diponíveis para isto, ou podem haver extensões que os disponibilizem.</p>
+<p>Alguns snippets são exibidos pelo <em>IntelliSense</em>, à medida que você digita código. Mas é possível, também acessar snippets a partir da Paleta de Comandos usando <em>Ctrl+Shift+P</em> e buscando pelo comando <code>Snippets: Insert Snippet</code>.</p>
+<p>Você também pode criar seus próprios Snippets, usando a Paleta de Comandos e buscando pelo comando <code>Snippets: Configure Snippets</code>. A criação de snippets está fora do escopo deste curso, mas você pode consultar a <a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets">documentação oficial do vscode</a> para obter instruções de como fazê-lo.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1678,7 +1969,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 16, 2024</span>
   </span>
 
     
@@ -1778,10 +2069,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

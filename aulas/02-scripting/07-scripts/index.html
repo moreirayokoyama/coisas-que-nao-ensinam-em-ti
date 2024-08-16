@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código">
       
       
       
-      
-        <link rel="prev" href="../03-text-editors/08-conclusao/">
-      
-      
-        <link rel="next" href="01-instalando-git/">
+        <link rel="prev" href="../06-stream-de-erro/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../08-conclusao/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI</title>
+        <title>2.7 - Shell Script - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="2.7 - Shell Script - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/02-scripting/07-scripts.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="2.7 - Shell Script - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/02-scripting/07-scripts.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -110,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#271-criando-e-executando-scripts" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +125,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 04 - Sistema de Controle de Versionamento de Código - Git
+              2.7 - Shell Script
             
           </span>
         </div>
@@ -262,7 +265,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -402,7 +405,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -435,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/01-o-que-e/" class="md-nav__link">
+      <a href="../../01-shell/01-o-que-e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/02-bash/" class="md-nav__link">
+      <a href="../../01-shell/02-bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/03-navegando/" class="md-nav__link">
+      <a href="../../01-shell/03-navegando/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/04-permissoes/" class="md-nav__link">
+      <a href="../../01-shell/04-permissoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/05-manipulando-arquivos/" class="md-nav__link">
+      <a href="../../01-shell/05-manipulando-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
+      <a href="../../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/07-conectando-programas/" class="md-nav__link">
+      <a href="../../01-shell/07-conectando-programas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/08-comandos-uteis/" class="md-nav__link">
+      <a href="../../01-shell/08-comandos-uteis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/09-conclusao/" class="md-nav__link">
+      <a href="../../01-shell/09-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -629,6 +632,8 @@
                 
   
   
+    
+  
   
   
     
@@ -659,16 +664,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../02-scripting/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -685,7 +690,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Aula 2 - Introdução a Criação Scripts com Bash
@@ -701,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/01-hello-world/" class="md-nav__link">
+      <a href="../01-hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -722,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/02-expressoes-expansoes/" class="md-nav__link">
+      <a href="../02-expressoes-expansoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -743,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/03-variaveis/" class="md-nav__link">
+      <a href="../03-variaveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -764,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/04-composicao-de-comandos/" class="md-nav__link">
+      <a href="../04-composicao-de-comandos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -785,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/05-expansoes-de-chave/" class="md-nav__link">
+      <a href="../05-expansoes-de-chave/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/06-stream-de-erro/" class="md-nav__link">
+      <a href="../06-stream-de-erro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -824,10 +829,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../02-scripting/07-scripts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2.7 - Shell Script
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -836,6 +859,42 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#271-criando-e-executando-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.1 - Criando e Executando Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#272-recebendo-argumentos-em-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.2 - Recebendo argumentos em Scripts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -848,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/08-conclusao/" class="md-nav__link">
+      <a href="../08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -915,7 +974,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
+            <a href="../../03-text-editors/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -948,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/00-instalando-vscode/" class="md-nav__link">
+      <a href="../../03-text-editors/00-instalando-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
+      <a href="../../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -990,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
+      <a href="../../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1011,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/03-extensoes/" class="md-nav__link">
+      <a href="../../03-text-editors/03-extensoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1032,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
+      <a href="../../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1053,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
+      <a href="../../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/06-workspaces/" class="md-nav__link">
+      <a href="../../03-text-editors/06-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1095,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/07-terminal/" class="md-nav__link">
+      <a href="../../03-text-editors/07-terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/08-conclusao/" class="md-nav__link">
+      <a href="../../03-text-editors/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1142,8 +1201,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1184,16 +1241,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../04-source-control/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1204,13 +1261,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Aula 4 - Sistema de Controle de Versionamento de Código - Git
@@ -1226,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-instalando-git/" class="md-nav__link">
+      <a href="../../04-source-control/01-instalando-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1247,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-iniciando-um-repo/" class="md-nav__link">
+      <a href="../../04-source-control/02-iniciando-um-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1268,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-como-git-acompanha-repo/" class="md-nav__link">
+      <a href="../../04-source-control/03-como-git-acompanha-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1289,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-viajando-no-tempo/" class="md-nav__link">
+      <a href="../../04-source-control/04-viajando-no-tempo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-modificacoes-complexas/" class="md-nav__link">
+      <a href="../../04-source-control/05-modificacoes-complexas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-git-diff/" class="md-nav__link">
+      <a href="../../04-source-control/06-git-diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-branches/" class="md-nav__link">
+      <a href="../../04-source-control/07-branches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
+      <a href="../../04-source-control/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_09/" class="md-nav__link">
+      <a href="../../04-source-control/cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_10/" class="md-nav__link">
+      <a href="../../04-source-control/cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_11/" class="md-nav__link">
+      <a href="../../04-source-control/cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_12/" class="md-nav__link">
+      <a href="../../04-source-control/cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_13/" class="md-nav__link">
+      <a href="../../04-source-control/cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1525,6 +1582,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#271-criando-e-executando-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.1 - Criando e Executando Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#272-recebendo-argumentos-em-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.2 - Recebendo argumentos em Scripts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1541,13 +1624,112 @@
   
 
 
-  <h1>Aula 04 - Sistema de Controle de Versionamento de Código - Git</h1>
+  <h1>2.7 - Shell Script</h1>
 
-<div><p>Trabalhar com código requer organização, e muito do que aprendemos sobre como organizamos o nosso código se dá com um trabalho iterativo e incremental, ou seja, o código está em constante mudança. Parte da nossa rotina no trabalho com código é de fazer, desfazer e refazer partes dele ao longo do desenvolvimento de uma tarefa, à medida que testamos e percebemos oportunidades de melhoria, ou até mesmo, problemas que não foram antecipados e que requerem mudanças na forma como havíamos elaborado a solução anteriormente.</p>
-<p>Para ter algum controle sobre como estas alterações acontecem, e que possamos visualizá-las em um contexto histórico que torne essa organização possível, usamos um sistema de controle de versionamento de código. Existem diversas ferramentas para este fim disponíveis no mercado, mas uma delas se tornou um padrão de uso entre profissionais de TI nas últimas décadas: o Git.</p>
-<p>O Git é um Sistema de Controle de Versionamento de Código (<em>SVC</em>), criado pelo Linus Torvalds enquanto ele desenvolvia o Kernel do Linux, disponível como software livre de código aberto sob a licença GPL, compatível com várias plataformas (Linux, MacOS e Windows). Ele é utilizado pela vasta maioria dos profissionais de tecnologia atualmente, tanto para projetos de Código Aberto quanto em organizações privadas.</p>
-<p>Ele funciona através da criação de um repositório de código em um diretório no sistema de arquivos para acompanhar as mudanças que este código sofre ao longo do tempo. Neste repositório você é capaz de criar marcações do estado dos arquivos, e a partir destas marcações você tem a possibilidade de visualizar e navegar pelo histórico de como estes arquivos foram alterados, restaurar o estado em que eles se encontravam em um determinado momento no passado e reescrever a história deles a partir de uma marcação específica, além de diversas capacidades que veremos a seguir.</p>
-<p>Nesta aula vamos explorar o uso de Git, tanto para organização pessoal, quanto para contribuição em projetos colaborativos.</p></div><style type="text/css">.quiz {
+<div><p>A capacidade de usar comandos de forma produtiva no Bash nos habilita a elevar esta produtividade através de scripts.</p>
+<p>Scripts são arquivos contendo comandos que serão executados pelo shell em sequência, podendo servir como uma ferramenta de automação, ou até mesmo programação.</p>
+<p>O uso de scripts usando Bash para automação é tão comum que existem profissionais em posições que se apoiam em Shell Script, como principal atividade no seu dia-a-dia.</p>
+<p>Para criar um script, tudo o que precisamos fazer é criar um arquivo texto contendo a lista de comandos que queremos executar (convencionalmente, usando a extensão <code>.sh</code>) e o executamos religando o stream de entrada do comando <code>bash</code> ao arquivo do script.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>O comando <code>bash</code> é, na realidade, o executável do shell que temos usado até agora. Ao invocarmos o comando <code>bash</code> passando o nosso script como argumento, não estamos fazendo nada diferente do que seria abrir o shell e executarmos os comandos manualmente. A única dirença é que estamos fazendo de forma automatizada.</p>
+</div>
+<p>Vamos ver como isto funciona.</p>
+<h3 id="271-criando-e-executando-scripts">2.7.1 - Criando e Executando Scripts</h3>
+<p>Vamos criar o nosso primeiro Script executando o famoso rito de iniciação que discutimos no início desta aula, <code>Olá, mundo</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>ola.sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá, mundo"</span>
+</span></code></pre></div>
+<p>Para executar nosso script, usamos o comando <code>sh</code>.
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bash<span class="w"> </span>&lt;<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<p>O comando <code>sh</code> lê o conteúdo do arquivo <code>olá.sh</code> e o interpreta, executando seus comandos. Podemos, incrementar este script com mais comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>ola.sh
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>date
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bom trabalho"</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>bash<span class="w"> </span>&lt;<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<p>Note como, desta vez, ele executou todos os comandos do nosso script.</p>
+<p>Na verdade, o comando <code>bash</code> é capaz de receber um arquivo de script como argumento e interpretá-lo sem que precisemos religar seu stream de entrada.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<p>Outra forma de executarmos um script, é transformando-o em um executável. Para isto, precisamos forncecer privilégios de execução para o usuário que pretende fazer este uso. Fazemos isto através do comando <code>chmod</code></p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>stat<span class="w"> </span>./ola.sh
+</span></code></pre></div>
+<a class="glightbox" href="../../../imagens/stats.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/stats.png"></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O comando <code>stat</code> imprime o <em>status</em> do arquivo no sistema. Informações úteis, como tamanho, permissões, data de criação, data da última modificação, quem é o <em>owner</em> e outras.</p>
+</div>
+<p>Note, a sessão de acesso (<em>access</em>), que ele não possui permissões de execução para nenhum usuário (<code>-rw-r--r--</code>). Para conceder permissão de execução para o arquivo <code>ola.sh</code>, nós usamos o comando <code>chmod</code>. A permissão para execução é representada pelo caractere <code>x</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>ola.sh
+</span></code></pre></div>
+<p>Agora, podemos conferir as permissões novamente através do comando <code>stat</code>.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>stat<span class="w"> </span>ola.sh
+</span></code></pre></div>
+<a class="glightbox" href="../../../imagens/stats_executable.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/stats_executable.png"></a>
+<p>Finalmente, com a devida permissão, somos capazes de executar o script.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./ola.sh
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O motivo de precisarmos usar o endereço do nosso escript para executá-lo (<code>./</code>) é que, no <em>bash</em> (bem como em diversos shells compatíveis com o <em>Unix</em>), o shell somente procura por executáveis que estão nos diretórios presentes n variável $PATH. O shell não procura por executáveis no diretório atual, como faz, por exemplo, o shell <code>cmd</code> do Windows.</p>
+<p>Portanto, no <em>Bash</em> (e em outros shells compatíveis com unix, como o <em>dash</em> ou o <em>zsh</em>), devemos apontar onde está o executável que pretendemos rodar, mesmo que ele esteja no diretório atual do shell, passando o caminho completo ou relativo do mesmo.</p>
+</div>
+<p>Mas, antes de prosseguirmos, vamos seguir a convenção de orientar ao shell sobre qual interpretador deverá usar ao executar nosso script, usando a notação chamada de <em>shebang</em>. O <em>shebang</em> é a sequência dos caracteres <code>#!</code>, usada para sistemas compatíveis com <em>Unix</em> (como o linux) para apontar ao shell qual é o interpretador do executável. No nosso caso, até aqui, estamos usando o próprio <em>bash</em> como interpretador (<code>/bin/bash</code>), e será ele mesmo que usaremos no nosso <em>shebang</em>, mas este processo é importante, pois outros interpretadores estão disponíveis.</p>
+<p>Então, precisamos colocar o <code>shebang</code> na primeira linha do arquivo e, para isto, precisamos editá-lo, e faremos isto usando o editor <code>vi</code>. Você pode usar outro editor de sua preferência. Falaremos de <code>Vim</code> e do <code>vscode</code> em aulas futuras. Para usuários Windows que não possuem interesse em usar o <code>vi</code>, é possível usar o <em>Bloco de Notas</em>. Basta executar o <code>notepad.exe</code>, passando como argumento o nome do arquivo.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>vi<span class="w"> </span>ola.sh
+</span></code></pre></div>
+<p>O <code>vi</code> é um editor de textos <em>modal</em> básico, disponível no <em>bash</em>. Modal significa que ele funciona em diferentes modos. No momento em que o abrimos, ele está no <em>modo de comando</em> (command mode). Para editá-lo, precisamos alternar para o <em>modo de digitação</em> (type mode).</p>
+<p>Existem diferentes formas para alternarmos para o modo de digitação, mas a que iremos usar aqui aplica um comando antes: O comando shift+O cria uma linha acima da linha onde estamos posicionados (que é a primeira linha), e posiciona o cursor na nova linha em branco, mudando para o modo de digitação.</p>
+<p><a class="glightbox" href="../../../imagens/vi-typemode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vi-typemode.png"></a>
+Agora podemos digitar a nossa linha do <em>shebang</em>:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/bin/bash</span>
+</span></code></pre></div>
+<p>Para concluir a edição, precisamos antes voltar para o modo de comando, usando a tecla ESC. De volta ao modo de comando, usamos o <code>:w</code> para salvar o arquivo (pressionando ENTER/RETURN logo em seguida). Para sair do editor <em>vi</em>, usamos o comando <code>:q</code> e pressionamos ENTER/RETURN.</p>
+<p>Isto não afeta em nada o funcionamento do nosso script atual. Mas à medida que você aprende a viver no shell, você poderá criar outros tipos de script. Como, por exemplo, scripts em <em>Python</em>, que você poderá transformar em executáveis e usar um <em>shebang</em> adequado para que o shell saiba como executá-los.</p>
+<p>O exemplo a seguir pode não funcionar no seu sistema se você não possuir o interpretador do Python instalado.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>which<span class="w"> </span>python
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>ola.py
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">#!/usr/bin/python</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>print<span class="o">(</span><span class="s2">"Olá, mundo"</span><span class="o">)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>^C
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>chmod<span class="w"> </span>+x<span class="w"> </span>ola.py
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>./ola.py
+</span></code></pre></div>
+<p>Agora que vimos como podemos executar nossos scripts, vamos aprender como fazer melhor uso deles.</p>
+<h3 id="272-recebendo-argumentos-em-scripts">2.7.2 - Recebendo argumentos em Scripts</h3>
+<p>Ao longo destas aulas temos usado diversos comandos que recebem argumentos como forma de ter algum controle sobre o seu comportamento, e não é diferente com os scripts que podemos construir. O Bash nos permite receber argumentos em nossos scripts através de parâmetros numerados.</p>
+<p>Para ler estes parâmetros, podemos usar variáveis especiais usando a notação com o sinal <code>$</code> e o número dos parâmetros de 1 a 9. Por exemplo:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não se esqueça de dar permissão de execução para os arquivos de script antes de testá-los</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>params.sh
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Início da execução"</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Fim da execução"</span>
+</span></code></pre></div>
+<p>Uma variação do famoso "Olá, mundo", mas que consegue saudar uma pessoa:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>saudar.sh
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá, "</span><span class="w"> </span><span class="nv">$1</span>
+</span></code></pre></div>
+<p>Um script de exemplo pra fazer um cálculo aritmético:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>soma.sh
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$2</span><span class="k">))</span>
+</span></code></pre></div>
+<p>Existem, também, outros parâmetros especiais para tornar o script mais dinâmico:
+- <code>$@</code>: lista todos os parâmetros, não limitados a 9.
+- <code>$#</code>: retorna o número de argumentos usados na execução do script
+- <code>$0</code>: retorna o nome do script que está sendo executado
+- <code>$$</code>: retorna o número do processo que executa o script
+- <code>$?</code>: retorna o código de saída do programa anterior</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>fancy.sh
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Iniciando a execução de </span><span class="nv">$0</span><span class="s2"> no processo </span><span class="nv">$$</span><span class="s2">"</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Usando </span><span class="nv">$#</span><span class="s2"> parâmetros: </span><span class="nv">$@</span><span class="s2">"</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>ls<span class="w"> </span>-lha
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Resultado do comando: </span><span class="nv">$?</span><span class="s2">"</span>
+</span></code></pre></div></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1678,7 +1860,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 16, 2024</span>
   </span>
 
     
@@ -1778,10 +1960,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código">
       
       
       
-      
-        <link rel="prev" href="../03-text-editors/08-conclusao/">
-      
-      
-        <link rel="next" href="01-instalando-git/">
+        <link rel="prev" href="../01-instalando-git/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../03-como-git-acompanha-repo/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI</title>
+        <title>4.2 - Iniciando um Repositório - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="4.2 - Iniciando um Repositório - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/04-source-control/02-iniciando-um-repo.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 04 - Sistema de Controle de Versionamento de Código - Git - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="4.2 - Iniciando um Repositório - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Usando um Sistema de Controle de Versionamento de Código como ferramenta de viagem no tempo e colaboração em projetos com código" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/04-source-control/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/04-source-control/02-iniciando-um-repo.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -110,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#421-primeiras-interacoes-com-o-repositorio" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +125,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 04 - Sistema de Controle de Versionamento de Código - Git
+              4.2 - Iniciando um Repositório
             
           </span>
         </div>
@@ -262,7 +265,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -402,7 +405,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -435,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/01-o-que-e/" class="md-nav__link">
+      <a href="../../01-shell/01-o-que-e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/02-bash/" class="md-nav__link">
+      <a href="../../01-shell/02-bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/03-navegando/" class="md-nav__link">
+      <a href="../../01-shell/03-navegando/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/04-permissoes/" class="md-nav__link">
+      <a href="../../01-shell/04-permissoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/05-manipulando-arquivos/" class="md-nav__link">
+      <a href="../../01-shell/05-manipulando-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
+      <a href="../../01-shell/06-caminho-absoluto-relativo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/07-conectando-programas/" class="md-nav__link">
+      <a href="../../01-shell/07-conectando-programas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/08-comandos-uteis/" class="md-nav__link">
+      <a href="../../01-shell/08-comandos-uteis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-shell/09-conclusao/" class="md-nav__link">
+      <a href="../../01-shell/09-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -668,7 +671,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../02-scripting/" class="md-nav__link ">
+            <a href="../../02-scripting/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -701,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/01-hello-world/" class="md-nav__link">
+      <a href="../../02-scripting/01-hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -722,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/02-expressoes-expansoes/" class="md-nav__link">
+      <a href="../../02-scripting/02-expressoes-expansoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -743,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/03-variaveis/" class="md-nav__link">
+      <a href="../../02-scripting/03-variaveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -764,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/04-composicao-de-comandos/" class="md-nav__link">
+      <a href="../../02-scripting/04-composicao-de-comandos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -785,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/05-expansoes-de-chave/" class="md-nav__link">
+      <a href="../../02-scripting/05-expansoes-de-chave/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/06-stream-de-erro/" class="md-nav__link">
+      <a href="../../02-scripting/06-stream-de-erro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -827,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/07-scripts/" class="md-nav__link">
+      <a href="../../02-scripting/07-scripts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-scripting/08-conclusao/" class="md-nav__link">
+      <a href="../../02-scripting/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -915,7 +918,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
+            <a href="../../03-text-editors/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -948,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/00-instalando-vscode/" class="md-nav__link">
+      <a href="../../03-text-editors/00-instalando-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
+      <a href="../../03-text-editors/01-explorando-a-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -990,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
+      <a href="../../03-text-editors/02-editor-de-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1011,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/03-extensoes/" class="md-nav__link">
+      <a href="../../03-text-editors/03-extensoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1032,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
+      <a href="../../03-text-editors/04-trabalhando-com-codigo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1053,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
+      <a href="../../03-text-editors/05-trabalhando-com-diretorios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/06-workspaces/" class="md-nav__link">
+      <a href="../../03-text-editors/06-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1095,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/07-terminal/" class="md-nav__link">
+      <a href="../../03-text-editors/07-terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/08-conclusao/" class="md-nav__link">
+      <a href="../../03-text-editors/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1193,7 +1196,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1204,7 +1207,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -1226,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-instalando-git/" class="md-nav__link">
+      <a href="../01-instalando-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1244,10 +1247,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="02-iniciando-um-repo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4.2 - Iniciando um Repositório
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1256,6 +1277,42 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#421-primeiras-interacoes-com-o-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 - Primeiras Interações com o Repositório.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#422-adicionando-arquivos-ao-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.2 - Adicionando Arquivos ao Repositório
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1268,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-como-git-acompanha-repo/" class="md-nav__link">
+      <a href="../03-como-git-acompanha-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1289,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-viajando-no-tempo/" class="md-nav__link">
+      <a href="../04-viajando-no-tempo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-modificacoes-complexas/" class="md-nav__link">
+      <a href="../05-modificacoes-complexas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-git-diff/" class="md-nav__link">
+      <a href="../06-git-diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-branches/" class="md-nav__link">
+      <a href="../07-branches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
+      <a href="../cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_09/" class="md-nav__link">
+      <a href="../cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_10/" class="md-nav__link">
+      <a href="../cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_11/" class="md-nav__link">
+      <a href="../cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_12/" class="md-nav__link">
+      <a href="../cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_13/" class="md-nav__link">
+      <a href="../cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1525,6 +1582,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#421-primeiras-interacoes-com-o-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 - Primeiras Interações com o Repositório.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#422-adicionando-arquivos-ao-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.2 - Adicionando Arquivos ao Repositório
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1541,13 +1624,125 @@
   
 
 
-  <h1>Aula 04 - Sistema de Controle de Versionamento de Código - Git</h1>
+  <h1>4.2 - Iniciando um Repositório</h1>
 
-<div><p>Trabalhar com código requer organização, e muito do que aprendemos sobre como organizamos o nosso código se dá com um trabalho iterativo e incremental, ou seja, o código está em constante mudança. Parte da nossa rotina no trabalho com código é de fazer, desfazer e refazer partes dele ao longo do desenvolvimento de uma tarefa, à medida que testamos e percebemos oportunidades de melhoria, ou até mesmo, problemas que não foram antecipados e que requerem mudanças na forma como havíamos elaborado a solução anteriormente.</p>
-<p>Para ter algum controle sobre como estas alterações acontecem, e que possamos visualizá-las em um contexto histórico que torne essa organização possível, usamos um sistema de controle de versionamento de código. Existem diversas ferramentas para este fim disponíveis no mercado, mas uma delas se tornou um padrão de uso entre profissionais de TI nas últimas décadas: o Git.</p>
-<p>O Git é um Sistema de Controle de Versionamento de Código (<em>SVC</em>), criado pelo Linus Torvalds enquanto ele desenvolvia o Kernel do Linux, disponível como software livre de código aberto sob a licença GPL, compatível com várias plataformas (Linux, MacOS e Windows). Ele é utilizado pela vasta maioria dos profissionais de tecnologia atualmente, tanto para projetos de Código Aberto quanto em organizações privadas.</p>
-<p>Ele funciona através da criação de um repositório de código em um diretório no sistema de arquivos para acompanhar as mudanças que este código sofre ao longo do tempo. Neste repositório você é capaz de criar marcações do estado dos arquivos, e a partir destas marcações você tem a possibilidade de visualizar e navegar pelo histórico de como estes arquivos foram alterados, restaurar o estado em que eles se encontravam em um determinado momento no passado e reescrever a história deles a partir de uma marcação específica, além de diversas capacidades que veremos a seguir.</p>
-<p>Nesta aula vamos explorar o uso de Git, tanto para organização pessoal, quanto para contribuição em projetos colaborativos.</p></div><style type="text/css">.quiz {
+<div><p>Vamos agora entender como começamos a trabalhar com Git. O primeiro conceito que precisamos aprender sobre Git é o Repositório (informalmente chamado de <em>repo</em>). Sempre que você quiser trabalhar com o Git, você vai precisar criar um repositório. Um repositório é, de certa forma, um repositório no seu sistema de arquivos. Isto é conveniente, já que normalmente nós colocamos usamos diretórios como forma de organizar nossos projetos, então é natural que pensemos que, toda vez que criamos um diretório para trabalhar em um projeto, este mesmo diretório é um candidato em potencial para se tornar o repositório Git daquele projeto.</p>
+<p>Se você já tem um projeto em andamento ou se vai começar um do zero, não importa, para criar um repo você só precisa entrar na pasta e iniciar o repositório:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>novo_projeto<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>novo_projeto
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>init
+</span></code></pre></div>
+<p>Uma mensagem será exibida dizendo que um repositório iniciado no diretório <code>.git</code> dentro do diretório do projeto. Como vimos na <a href="../../01-shell/">aula de shell</a>, diretórios e arquivos cujo nome começam com <code>.</code>, não são exibidos por padrão quando listamos o conteúdo do diretório. Para visualizar o diretório criado, podemos usar o <code>ls --all</code> (ou <code>ls -a</code>).</p>
+<p>Exceto pela presença deste subdiretório, a criação repo parece não ter tido efeito nenhum no diretório do projeto em si. E é assim mesmo que um repositório funciona. Ele não interfere na forma como você interage com seus arquivos e subdiretórios de projeto. O único indício real de que estamos em um repositório git é a presença do subdiretório <code>.git</code>.</p>
+<p>Não é recomendável que você altere manualmente o conteúdo de qualquer um dos artefatos dentro do diretório <code>.git</code>. Este subdiretório deve ser usado somente pelo próprio git. O conteúdo deste subdiretório é o banco de dados que o git irá usar pra fazer o acompanhamento das mudanças que você faz no seu projeto. Qualquer modificação feita manualente nestes dados pode comprometer a confiabilidade da ferramenta.</p>
+<p>Mais adiante falaremos sobre como esse banco de dados funciona, mas por hora vamos compreender como trabalhamos com o repositório que temos em mãos.</p>
+<h3 id="421-primeiras-interacoes-com-o-repositorio">4.2.1 - Primeiras Interações com o Repositório.</h3>
+<p>A forma mais básica de interação com um repositório é através do comando <code>git status</code>, que nos trás informações de qual a sua situação atual. Como acabamos de criá-lo, o comando nos mostrará as seguintes informações:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>On branch main
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>No commits yet
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>nothing to commit (create/copy files and use "git add" to track)
+</span></code></pre></div>
+<p>Basicamente o que ele diz é:
+- Em que branch estamos: <code>main</code> (falaremos sobre branches mais adiante)
+- Não existem commits ainda (falaremos sobre commits a seguir)
+- Não há nada pronto para criar um commit
+    - Crie ou copie arquivos e use <code>git add</code> para acompanhar</p>
+<div class="admonition importante">
+<p class="admonition-title">Importante</p>
+<p>Se você tiver criado um repositório em um diretório que já possuia arquivos, a mensagem exibida será diferente por este motivo, mencionando de que existem arquivos ainda não acompanhados pelo git.</p>
+</div>
+<p>Vamos criar um arquivo para ver como o git reage com as modificações que fazemos no nosso repositório.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>touch<span class="w"> </span>teste.txt
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Note como a mensagem exibida está diferente agora. Ela nos avisa de que existe um arquivo no diretório que não está sendo acompanhado pelo git (<em>Untracked files</em>). Se removermos este arquivo, e, mais uma vez, consultarmos o status do repositório, observamos que a mensagem exibida é identica a que tivemos anteriormente.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rm<span class="w"> </span>teste.txt
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>O git consegue reconhecer quando existem diferenças entre o conhecimento que ele tem do repositório e a situação atual do diretório, e se baseia na comparação entre ambos para te informar a respeito do status. Ou seja, quando você desfaz as alterações, o git entende que repositório está em sincronia com a situação do diretório.</p>
+<h3 id="422-adicionando-arquivos-ao-repositorio">4.2.2 - Adicionando Arquivos ao Repositório</h3>
+<p>Vamos criar um arquivo para incluirmos no repositório. Em repositórios git, é muito comum criar-se um arquivo descritivo chamado README.md. A extensão <code>md</code> indica que o arquivo está no formato <em>Markdown</em>, que é um arquivo de texto redigido usando marcações simples para formatar o seu conteúdo, como criar títulos, subtítulos, links, listas formatadas, etc.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>touch<span class="w"> </span>README.md
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Agora, vamos entender melhor o que o git está tentando nos dizer quando exibe esta mensagem sobre arquivos não acompanhados.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>On branch main
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>No commits yet
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Untracked files:
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  (use "git add &lt;file&gt;..." to include in what will be committed)
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        README.md
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>nothing added to commit but untracked files present (use "git add" to track)
+</span></code></pre></div>
+<p>A mensagem diz: use "git add <arquivo>..." para incluir no commit. Para incluir arquivos ao nosso repositório, precisamos entender como o git gerencia o estado do repositório primeiro.</arquivo></p>
+<p>Nós começamos a criar alterações no repositório através de uma operação chamada <em>commit</em>. Commit, em português, significa "comprometer" em uma tradução literal, mas o que queremos dizer é que estamos efetuando um <em>registro</em> das alterações que estamos fazendo.</p>
+<p>Na prática, porém, um commit é análogo a uma "fotografia" da situação do repositório em um determinado momento. O processo de criar um commit é, seguindo a analogia, o processo de criar uma composição da fotografia que queremos registrar.</p>
+<p>Nós montamos esta composição através de uma etapa intermediária chamada "staging". À medida que entendemos que o diretórios está pronto pra ter seu estado registrado em um commit, nós podemos montar este commit, colocando as alterações que fizemos nesta estapa intermediária, através do comando <code>git add</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>add<span class="w"> </span>README.md
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Observe a saída do comando <code>git status</code> agora:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>On branch main
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>No commits yet
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Changes to be committed:
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  (use "git rm --cached &lt;file&gt;..." to unstage)
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        new file:   README.md
+</span></code></pre></div>
+<p>Neste momento, o git nos informa que o arquivo README.md (que está indicado como um novo arquivo), está entre as mudanças que estão prontas para serem registradas em um commit (<em>Changes to be committed</em>). Nesta situação, o git entende que o arquivo README.md faz parte do repositório e, portanto, precisa ser acompanhado (<em>tracked</em>) a partir de agora.</p>
+<p>A mensagem também nos mostra como podemos, se quisermos, remover o README.md do <em>staging</em>. Isto faria com que o arquivo voltasse à situação anterior, ou seja, voltasse a ser um arquivo desconhecido (<em>untracked</em>) para o repositório.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>README.md
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Isto, como descrito na mensagem impressa, colocou o arquivo README.md na mesma situação que ele se encontrava anteriormente. O que faz certo sentido, visto que o arquivo ainda se encontra vazio. Vamos colocar algum conteúdo nele para criarmos nosso primeiro commit.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gh"># Novo Projeto</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Este repositório foi criado para explorar a ferramenta git sendo usada num projeto.
+</span></code></pre></div>
+<p>Assumindo que este seja o estado ideal do arquivo README.md para termos um primeiro registro no histórico do nosso repositório, vamos finalmente criar nosso primeiro commit. Para isto, precisaremos novamente adicioná-lo à etapa de <em>staging</em>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>add<span class="w"> </span>README.md
+</span></code></pre></div>
+<p>Na analogia da fotografia, a etapa de <em>staging</em> se compara à forma como posicionamos as coisas antes de fotofrafá-las. A área de staging é a forma como podemos "montar" o commit que desejamos criar. Isso nos dá a flexibilidade de manter outras alterações pendentes fora do commit que estamos montando.</p>
+<p>O próximo passo é, finalmente, criarmos o commit, registrando a criação do arquivo README.md no nosso repositório.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>commit
+</span></code></pre></div>
+<p>No momento em que executamos este comando, um editor de textos será aberto (de acordo com a configuração que fizemos, será o vscode) com um arquivo chamado <em>COMMIT_EDITMSG</em> para digitarmos uma descrição do commit que estamos criando. O comando no shell não será finalizado até que salvemos uma mensagem e fechemos o editor do arquivo.</p>
+<p>É uma boa prática fazermos uma mensagem descritiva sobre as alterações feitas no repositório registradas em um commit. E isto, normalmente, é um acordo feito entre as pessoas que contribuem com o projeto.</p>
+<p>Existem times que adotam a um modelo de mensagem, contendo uma estrutura acordada sobre como a descrição deve ser feita. Isto é muito frequente em projetos de código aberto mantidos por uma comunidade, a ponto de ser comum haver, no repositório, um arquivo contendo as diretrizes que os contribuidores do projeto precisam seguir para criar novos commits.</p>
+<p>Além disso, existem também convenções criadas ao redor de certas práticas nas mensagens dos commits, como <a href="https://www.conventionalcommits.org/"><em>Conventional Commits</em></a>, criado para ter automações que serão executadas baseadas nas mensagens dos commits, e <a href="https://gitmoji.dev/">GitMoji</a>, uma convenção de Emojis que podem ser usados para serem associados com tipos específicos de alterações registradas no commit, que ajudam a ter uma comunicação visual mais eficiente a respeito do mesmo.</p>
+<p>Para os fins deste tutorial, podemos usar uma mensagem simples, como:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Criação do arquivo README.md, descrevendo projeto.
+</span></code></pre></div>
+<p>Salve e feche o editor deste arquivo, para ver o comando ser concluído no shell. Uma mensagem confirmando o commit é exibida, mostrando a descrição que demos ao commit e um relatório resumido do seu conteúdo.</p>
+<p>Note que ele exibe algumas informações interessantes:
+- <code>[main (root-commit) e1c7050]</code>:
+    - <code>main</code>: indica que este commit foi feito na branch <code>main</code>
+    - <code>root-commit</code>: indica que este é o commit raiz do repositório.
+    - <code>e1c7050</code>: Esta sequência de caracteres é uma versão curta do identificador do commit, como veremos a seguir.
+- <code>1 file changed, 0 insertions(+), 0 deletions(-)</code>: Este é um relatório resumido das alterações que este commit fez ao repositório
+    - <code>1 file changed</code>: O primeiro valor deste relatório diz respeito a alterações feitas envolvendo um arquivo como um todo (como a criação de um arquivo, ou a remoção dele). No caso, ele contou a criação do arquivo README.md
+    - <code>0 insertions(+), 0 deletions(-)</code>: Aqui o relatório se refere a inserções e deleções dentro de arquivos, e nós veremos como isso funciona em breve.</p>
+<p>Se executarmos o comando <code>git status</code> novamente, teremos uma mensagem diferente.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>On branch main
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>nothing to commit, working tree clean
+</span></code></pre></div>
+<p>A mensagem <code>No commits yet</code> não é mais exibida, pois agora existe um commit no nosso repositório. Além disso, ele também diz que não há nenhuma mudança atual no diretório. O arquivo README.md está devidamente registrado.</p>
+<p>Uma forma de conferirmos o commit que acabamos de criar é através do comando <code>git log</code>. Ele produz uma lista do histórico de commits em nosso repositório, que por ora, possui apenas um commit, o que acabamos de fazer.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>commit e1c705034ed7eb64cf9305f360f36fe0ba94a0f6 (HEAD -&gt; main)
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Date:   Sat Aug 10 10:58:38 2024 -0300
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    Criação do arquivo README.md, descrevendo projeto.
+</span></code></pre></div>
+<p>Aqui podemos ver algumas informações já conhecidas a respeito do commit que acabamos de fazer, além de algumas outras informações novas. O identificador do commit, que vimos na forma curta logo após o commit ter sido feito, agora aparece na sua forma completa. Temos também os metadados conhecidos para o commit: o autor (com o seu nome e mail conforme configurmos anteriormente nesta aula), a data e hora em que ele foi criado e a descrição dada a ele.</p>
+<p>Mas existe também esta informação nova: <code>(HEAD -&gt; main)</code>. Você já sabe que <code>main</code> é o nome da branch atual (embora, talvez, você já esteja se perguntando sobre o que é uma branch há algum tempo), mas o que é <code>HEAD</code>?</p>
+<p>Vamos conversar um pouco sobre como o git faz o acompanhamento (<em>tracking</em>) do estado do repositório, aprendendo um pouco sobre seu modelo de dados e seu funcionamento.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1678,7 +1873,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 16, 2024</span>
   </span>
 
     
@@ -1778,10 +1973,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
