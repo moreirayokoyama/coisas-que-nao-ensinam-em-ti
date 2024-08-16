@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Como criar scripts simples usando as capacidades de programação de Bash">
       
       
       
-      
-        <link rel="prev" href="../01-shell/">
-      
-      
-        <link rel="next" href="cap_01/">
+        <link rel="prev" href="../cap_03/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../cap_05/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI</title>
+        <title>2.4 - Composição de Comandos e Operações Lógicas - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="2.4 - Composição de Comandos e Operações Lógicas - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Como criar scripts simples usando as capacidades de programação de Bash" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/02-scripting/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/02-scripting/cap_04.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="2.4 - Composição de Comandos e Operações Lógicas - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Como criar scripts simples usando as capacidades de programação de Bash" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/02-scripting/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/02-scripting/cap_04.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -122,7 +120,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 02 - Introdução a Criação Scripts com Bash
+              2.4 - Composição de Comandos e Operações Lógicas
             
           </span>
         </div>
@@ -262,7 +260,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +382,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -458,7 +456,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -469,7 +467,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -491,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_01/" class="md-nav__link">
+      <a href="../cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -512,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_02/" class="md-nav__link">
+      <a href="../cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_03/" class="md-nav__link">
+      <a href="../cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,10 +549,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="cap_04/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -563,6 +568,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -575,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_05/" class="md-nav__link">
+      <a href="../cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -596,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_06/" class="md-nav__link">
+      <a href="../cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -617,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_07/" class="md-nav__link">
+      <a href="../cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -638,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
+      <a href="../cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -705,7 +711,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
+            <a href="../../03-text-editors/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -738,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_00/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_00/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_01/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_02/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_03/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_04/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -843,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_05/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_06/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_07/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_08/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +987,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../04-source-control/" class="md-nav__link ">
+            <a href="../../04-source-control/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1014,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_01/" class="md-nav__link">
+      <a href="../../04-source-control/cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_02/" class="md-nav__link">
+      <a href="../../04-source-control/cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_03/" class="md-nav__link">
+      <a href="../../04-source-control/cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1077,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_04/" class="md-nav__link">
+      <a href="../../04-source-control/cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1098,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_05/" class="md-nav__link">
+      <a href="../../04-source-control/cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1119,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_06/" class="md-nav__link">
+      <a href="../../04-source-control/cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1140,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_07/" class="md-nav__link">
+      <a href="../../04-source-control/cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1161,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_08/" class="md-nav__link">
+      <a href="../../04-source-control/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1182,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_09/" class="md-nav__link">
+      <a href="../../04-source-control/cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1203,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_10/" class="md-nav__link">
+      <a href="../../04-source-control/cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_11/" class="md-nav__link">
+      <a href="../../04-source-control/cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_12/" class="md-nav__link">
+      <a href="../../04-source-control/cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1266,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_13/" class="md-nav__link">
+      <a href="../../04-source-control/cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,10 +1335,47 @@
   
 
 
-  <h1>Aula 02 - Introdução a Criação Scripts com Bash</h1>
+  <h1>2.4 - Composição de Comandos e Operações Lógicas</h1>
 
-<div><p>Na aula passada fomos apresentados ao ambiente do Shell e começamos a nos familiarizar com a vida no terminal usando Bash. Apesar de termos explorado muitas ferramentas que nos permitem interagir com o sistema de arquivos, o uso do Shell não está relegado somente a manipular arquivos e diretórios. É possível usar o Shell como um ambiente produtivo para lidar com as mais diversas tarefas e, inclusive, automatizá-las.</p>
-<p>Nesta aula iremos explorar as capacidades de automação do Bash e criar scripts que expandem a sua utilidade na execução de tarefas rotineiras, que o tornam, basicamente, uma linguagem de programação não muito diferente das muitas linguagens disponíveis.</p></div><style type="text/css">.quiz {
+<div><p>Bash suporta uma forma de criar uma composição de comandos em uma única instrução usando o separador <code>;</code>. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá mundo"</span><span class="p">;</span><span class="w"> </span>date<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bom trabalho."</span>
+</span></code></pre></div>
+<p>Outra forma de compor comandos em uma única instrução é usando o operador <code>&amp;</code>. A diferença entre compor comandos com <code>;</code> e <code>&amp;</code>, é que com <code>;</code> ele sempre executa o comando seguido por <code>;</code> de forma síncrona, esperando o fim da sua execução antes de executar o próximo, enquanto que com <code>&amp;</code>, o bash executa cada comando seguido por <code>&amp;</code> em um novo processo assíncrono, e inicia a execução do próximo sem aguardar a sua finalização.</p>
+<p>Instruções como esta acima executam cada comando na ordem em que eles são escritos, mas sem conectá-los de forma alguma (como vimos na aula anterior na seção <a href="../../01-shell/#27-conectando-programas">Conectando Programas</a>).</p>
+<p>Usar este tipo de composição executa todos os comandos independente do resultado de qualquer um deles. Se houver um erro em algum comando desta cadeia, isso não fará com que o bash deixe de executar os demais comandos.</p>
+<p>Existem cenários onde a execução de alguns comandos da composição pode gerar resultados que afetem o funcionamento dos demais comandos. Para estes cenários, usamos operações lógicas.</p>
+<p>Bash, como qualquer outra linguagem de programação suporta certos tipos de operações lógicas. Operações lógicas são operações que geram resultados binários (<em>verdadeiro</em> ou <em>falso</em>), e que podem ser usadas para criar uma composição de comandos baseada no resultado dos comandos usados.</p>
+<p>Os operadores lógicos que usaremos aqui são o <code>||</code> (operador <em>OU</em>) e o <code>&amp;&amp;</code> (operador <em>E</em>). E os valores lógicos em Bash são <code>true</code> (representa o valor <em>verdadeiro</em>) e <code>false</code> (que representa o valor <em>falso</em>).</p>
+<p>Vamos ver alguns exemplos básicos de expressões lógicas:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">echo</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">false</span>
+</span></code></pre></div>
+<p>Os operadores lógicos possuem a capacidade de garantir certos resultados baseados no valor dos operandos: O operador <code>||</code> (<em>OU</em>) resulta em <code>true</code> (<em>verdadeiro</em>) quando qualquer um dos operandos, ou ambos, são verdadeiros, e só resulta em <code>false</code>(<em>falso</em>) quando ambos os operandos são falsos. Por outro lado, o operador <code>&amp;&amp;</code> (<em>E</em>), só resulta em true quando ambos os operandos são verdadeiros, mas resulta em false quando qualquer um deles, ou ambos, são false.</p>
+<p>Ambos os operadores também possuem a propriedade de descartar o segundo operando de acordo com certos critérios sobre o primeiro. Por exemplo, por que o operador <code>||</code> resulta em <code>true</code> caso qualquer operando seja verdadeiro, se o primeiro operando (à esquerda do operador) resultar em <code>true</code>, o operador descarta qualquer que seja o valor do segundo operando (à direita do operador) e resulta imediatamente em <code>true</code>.</p>
+<p>Já o operador <code>&amp;&amp;</code>, que resulta <code>false</code> caso qualquer um dos operandos seja falso, descarta o segundo operando quando o primeiro já resultou em <code>false</code>, antecipando o resultado da operação.</p>
+<p>Estas propriedades são úteis, principalmente quando consideramos que um comando executado sem resultar em erros é considerado como resultando em <code>true</code>, mas caso resulte em qualquer erro tem sua execução resultando como valor <code>false</code>. Por exemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando NÃO SERÁ executado"</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando SERÁ executado"</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">true</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando SERÁ executado"</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando NÃO SERÁ executado"</span>
+</span></code></pre></div>
+<p>Isto torna possível criarmos uma composição mais sofisticada de comandos, fazendo com que o resultado de alguns comandos influenciem a execução ou não dos demais.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Olá mundo"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Este comando NÃO SERÁ executado"</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>mv<span class="w"> </span>xpto.txt<span class="w"> </span>~<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Houve algum problema no comando anterior"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Esta linha será exibida"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Esta também"</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mv<span class="w"> </span>xpto.txt<span class="w"> </span>~<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Houve algum problema no comando anterior, criando o arquivo vazio"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>touch<span class="w"> </span>~/xpto.txt<span class="o">)</span>
+</span></code></pre></div>
+<p>Desta forma podemos decidir se queremos apenas que os comandos sejam executados de forma independente (usando o separador <code>;</code>), ou se queremos usar o resultado dos comandos intermediários na composição para definirmos se os comandos posteriores serão ou não executados.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1563,10 +1606,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Como criar scripts simples usando as capacidades de programação de Bash">
       
       
       
-      
-        <link rel="prev" href="../01-shell/">
-      
-      
-        <link rel="next" href="cap_01/">
+        <link rel="prev" href="../cap_00/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../cap_02/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI</title>
+        <title>3.1 - Explorando a interface - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="3.1 - Explorando a interface - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Como criar scripts simples usando as capacidades de programação de Bash" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/02-scripting/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/03-text-editors/cap_01.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="3.1 - Explorando a interface - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Como criar scripts simples usando as capacidades de programação de Bash" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/02-scripting/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/03-text-editors/cap_01.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -122,7 +120,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 02 - Introdução a Criação Scripts com Bash
+              3.1 - Explorando a interface
             
           </span>
         </div>
@@ -262,7 +260,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +382,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -417,8 +415,6 @@
                 
   
   
-    
-  
   
   
     
@@ -426,253 +422,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
-  
-  <span class="md-ellipsis">
-    Aula 2 - Introdução a Criação Scripts com Bash
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Aula 2 - Introdução a Criação Scripts com Bash
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_01/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.1 - Imprimindo Valores (Hello world)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_02/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.2 - Expressões e Expansões do Shell
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_03/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.3 - Definindo variáveis
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_04/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.4 - Composição de Comandos e Operações Lógicas
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_05/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.5 - Expansões de Chave
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_06/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.6 - Stream de Erro
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_07/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.7 - Shell Script
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2.8 - Conclusão
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
         
       
         
@@ -700,12 +449,261 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
+            <a href="../../02-scripting/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Aula 2 - Introdução a Criação Scripts com Bash
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Aula 2 - Introdução a Criação Scripts com Bash
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 - Imprimindo Valores (Hello world)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 - Expressões e Expansões do Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 - Definindo variáveis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 - Composição de Comandos e Operações Lógicas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.5 - Expansões de Chave
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.6 - Stream de Erro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.7 - Shell Script
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-scripting/cap_08/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.8 - Conclusão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -722,7 +720,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Aula 3 - Explorando o Editor de Textos (Visual Studio Code)
@@ -738,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_00/" class="md-nav__link">
+      <a href="../cap_00/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -756,10 +754,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../03-text-editors/cap_01/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -768,6 +773,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -780,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_02/" class="md-nav__link">
+      <a href="../cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_03/" class="md-nav__link">
+      <a href="../cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_04/" class="md-nav__link">
+      <a href="../cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -843,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_05/" class="md-nav__link">
+      <a href="../cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_06/" class="md-nav__link">
+      <a href="../cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_07/" class="md-nav__link">
+      <a href="../cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_08/" class="md-nav__link">
+      <a href="../cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +987,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../04-source-control/" class="md-nav__link ">
+            <a href="../../04-source-control/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1014,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_01/" class="md-nav__link">
+      <a href="../../04-source-control/cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_02/" class="md-nav__link">
+      <a href="../../04-source-control/cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_03/" class="md-nav__link">
+      <a href="../../04-source-control/cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1077,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_04/" class="md-nav__link">
+      <a href="../../04-source-control/cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1098,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_05/" class="md-nav__link">
+      <a href="../../04-source-control/cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1119,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_06/" class="md-nav__link">
+      <a href="../../04-source-control/cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1140,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_07/" class="md-nav__link">
+      <a href="../../04-source-control/cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1161,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_08/" class="md-nav__link">
+      <a href="../../04-source-control/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1182,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_09/" class="md-nav__link">
+      <a href="../../04-source-control/cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1203,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_10/" class="md-nav__link">
+      <a href="../../04-source-control/cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_11/" class="md-nav__link">
+      <a href="../../04-source-control/cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_12/" class="md-nav__link">
+      <a href="../../04-source-control/cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1266,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_13/" class="md-nav__link">
+      <a href="../../04-source-control/cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,10 +1335,44 @@
   
 
 
-  <h1>Aula 02 - Introdução a Criação Scripts com Bash</h1>
+  <h1>3.1 - Explorando a interface</h1>
 
-<div><p>Na aula passada fomos apresentados ao ambiente do Shell e começamos a nos familiarizar com a vida no terminal usando Bash. Apesar de termos explorado muitas ferramentas que nos permitem interagir com o sistema de arquivos, o uso do Shell não está relegado somente a manipular arquivos e diretórios. É possível usar o Shell como um ambiente produtivo para lidar com as mais diversas tarefas e, inclusive, automatizá-las.</p>
-<p>Nesta aula iremos explorar as capacidades de automação do Bash e criar scripts que expandem a sua utilidade na execução de tarefas rotineiras, que o tornam, basicamente, uma linguagem de programação não muito diferente das muitas linguagens disponíveis.</p></div><style type="text/css">.quiz {
+<div><p>Para abrir o vscode, você pode iniciá-lo a partir da interface gráfica do seu sistema operacional (<em>Menu Iniciar</em> no Windows), ou, se você tiver adicionado o vscode ao PATH durante a instalação, basta digitar <code>code</code> a partir do shell.</p>
+<p>Ao abrir o vscode, a página de boas-vindas (<em>Welcome</em>) é exibida como uma aba aberta na janela do editor, muito semelhante a que você pode enxergar abaixo, com algumas diferenças de acordo com o seu uso (na minha, é possível ver alguns dos meus projetos recentes listados, prontos para serem abertos).</p>
+<p><a class="glightbox" href="../../../imagens/code.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/code.png"></a></p>
+<p>A partir desta página, algumas tarefas comuns já estão acessíveis, como criar um novo arquivo, abrir um arquivo existente, abrir um diretório, e até mesmo clonar um repositório <em>git</em>. É possível, também, se conectar a outros ambientes, como o WSL, ou remotamente via SSH e outras opções.</p>
+<p>Do lado direito, você pode ver alguns guias (<em>Walkthroughs</em>), que podem te ajudar a se familiarizar com a interface e o uso do vscode.</p>
+<p>No topo da interface, como já é típico de aplicações que rodam em interface gráfica, temos uma barra de menus, com alguns dos menus mais conhecidos, como <em>File</em>, <em>Edit</em> e <em>Help</em>. Como esperado, o menu <em>File</em> exibe mais opções relacionadas a manipulação de arquivos, <em>Edit</em> tem opções úties como Copiar, Colar, além de outras conveniências de edição, e o menu <em>Help</em>, sem nenhuma surpresa, trás informações úteis para quem precisa de algum suporte.</p>
+<p>À esquerda, temos a Barra Lateral, com algumas funcionalidades dispostas de forma conveniente, como Explorador de Arquivos, Busca, Controle de Código, o Depurador e o painel de Extensões.</p>
+<p>Mais abaixo, ainda na Barra Lateral, existem os botões de Contas (<em>Accounts</em>) e Gerenciamento (<em>Management</em>). O botão de Contas permite você usar algum serviço de contas (Microsoft ou Github) para se autenticar e ter a possibilidade, por exemplo, de guardar as configurações do vscode em um repositório da internet, tornando possível resgatar estas configurações em outro dispositivo, por exemplo, e sincronizá-lo com as suas preferências configuradas previamente.</p>
+<p>Já no menu de Gerenciamento, você consegue acessar a Paleta de Comandos (também usando <em>Ctrl+Shift+P</em>), alternar entre diferentes Perfis (<em>Profiles</em>), personalizar as configurações do vscode, definir associações de teclas de atalho (<em>Keyboard Shortcuts</em>), templates de trechos de código (<em>snippets</em>), definir Tarefas (<em>Tasks</em>), escolher um tema de cores ou de ícones de arquivos, sincronizar suas configurações e atualizar a instalação do vscode no seu dispositivo.</p>
+<p>A Paleta de Comandos é um dos recursos mais ricos do vscode, pois ela lista inúmeros comandos disponíveis no editor, alguns deles acessíveis somente através dela. Já a escolha por diferentes Perfis permite que você mantenha configurações diferentes do vscode agrupadas, como um perfil para uso quando trabalhando em projetos de uma organização, e outro para projetos open source ou de uso pessoal, por exemplo.</p>
+<p>A janela de configurações do vscode mostra outras formas de agrupar as configurações:
+- configurações globais no sistema onde ele está rodando
+- configurações no escopo do usuário que está usando o editor (sobrepõem as configurações globais)
+- configurações do Espaço de Trabalho (<em>Workspace</em>) aberto (sobrepõem as configurações do usuário)</p>
+<p>Falaremos sobre Espaços de Trabalho mais adiante.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-settings.png"></a></p>
+<p>Em qualquer um dos três escopos, há uma extensa lista para configurar o editor, as extensões instaladas e diversos outros aspectos de uso. Você pode navegar por elas através dos menus colapsáveis à esquerda, ou buscando as configurações desejadas no campo de busca.</p>
+<p>Para escolher entre temas, o vscode oferece alguns temas de cores e ícones de arquivos pré-instalados, mas outros podem ser inseridos a partir de extensões. Por exemplo, você pode baixar a extensão <em>Ayu</em>, que instala temas de cores e ícones minimalistas para trabalhar com vscode.</p>
+<p>Por último, a opção de Teclas de Atalho abre a janela <em>Keyboard Shortcuts</em>, que lista todos os mapeamentos de teclas de atalho para comandos do vscode. É possível pesquisar pelos atalhos disponíveis, editar as configurações e reassociar teclas de acordo com a sua preferência.</p>
+<p><a class="glightbox" href="../../../imagens/vscode-keyboard-shortcuts.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/vscode-keyboard-shortcuts.png"></a></p>
+<p>Falaremos sobre Tarefas (<em>Tasks</em>) e Trechos de Código (<em>Snippets</em>) mais adiante.</p>
+<p>Na barra de status, que fica no rodapé da janela, é possível ver alguns outros atalhos, como o indicador de em que ambiente esta instância está conectada (à esquerda no rodapé) no qual você pode clicar para se conectar (no WSL ou em um computador remoto via <em>SSH</em> ou <em>Tunnel</em>), e do outro lado, à direita, existe o indicador de notificações (um ícone no formato de sino), que também pode ser clicado para visualizar as notificações pendentes (como novas atualizações disponíveis, sugestões de extensão, etc.).</p>
+<p>Ao lado do indicador de notificações temos o seletor de Modo de Linguagem (que veremos a seguir), temos três outros seletores, sendo eles, da direita para a esquerda:
+- Seletor do tipo de quebra de linha
+- Seletor do tipo de Encoding
+- Seletor do tipo de Indentação (recuo da margem no código)</p>
+<p><a class="glightbox" href="../../../imagens/code-status-bar-right.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../../../imagens/code-status-bar-right.png"></a></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>O <em>Seletor do Tipo de Linha</em> diz respeito a uma característia específica na diferença entre os sistemas operacionais baseados em UNIX (Linux, FreeBSD, MacOS, etc) e os sistemas operacionais da Microsoft (Windows 11, Windows 10, etc.)</p>
+<p>Em sistemas legados, para manter a compatibilidade, a quebra de linha deveria ser <em>CRLF</em> (<em>Carriage Return and Line Feed</em>). Mas hoje em dia, onde a portabilidade acaba sendo prioridade, usar somente <em>LF</em> é, via de regra, considerado uma boa prática.</p>
+<p>Se você quiser saber mais sobre este assunto, o vídeo a seguir, do Scott Hanselman, da série <a href="https://www.youtube.com/playlist?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr"><em>Computer Stuff They Didn't Teach You</em></a> (Coisas de Computador que não te ensinaram"), fala um pouco mais sobre isto num contexto histórico (em inglês).</p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/TtiBhktB4Qg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/TtiBhktB4Qg" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+</div>
+<p>Para o tipo de <em>encoding</em>, o <em>UTF8</em> atualmente é usado como padrão internacional. Iremos abordar Encoding em algum momento do curso, mas não vamos detalhar isto agora. Por padrão, a menos que você esteja lidando com alguma tarefa que exija um tipo de encoding específico, mantenha sempre <em>UTF8</em> selecionado.</p>
+<p>No caso da indentação, isto orienta o vscode a quantos espaços ele precisa exibir sempre que a tecla <em>TAB</em> for pressionada. O seletor também permite usar Espaços no lugar de Tabs, o que é configurado como padrão. Ou seja, sempre que você usar a tecla <em>TAB</em> para adicionar um espaço, ela será substituída pelo número de espaços usados no seletor de indentação (4 por padrão). Você pode mudar isto a qualquer momento, ajustando o seletor para usar TAB em vez de espaços.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1563,10 +1603,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

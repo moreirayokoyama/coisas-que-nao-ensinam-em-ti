@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Como criar scripts simples usando as capacidades de programação de Bash">
       
       
       
-      
-        <link rel="prev" href="../01-shell/">
-      
-      
-        <link rel="next" href="cap_01/">
+        <link rel="prev" href="../cap_02/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../cap_04/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI</title>
+        <title>4.3 - Como o git acompanha o estado do repositório - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="4.3 - Como o git acompanha o estado do repositório - Coisas Que Não Ensinam em TI" >
       
-        <meta  property="og:description"  content="Como criar scripts simples usando as capacidades de programação de Bash" >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/aulas/02-scripting/index.png" >
+        <meta  property="og:image"  content="./assets/images/social/aulas/04-source-control/cap_03.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,15 +73,15 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Aula 02 - Introdução a Criação Scripts com Bash - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="4.3 - Como o git acompanha o estado do repositório - Coisas Que Não Ensinam em TI" >
       
-        <meta  name="twitter:description"  content="Como criar scripts simples usando as capacidades de programação de Bash" >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/aulas/02-scripting/index.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/aulas/04-source-control/cap_03.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -92,7 +90,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -122,7 +120,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -142,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aula 02 - Introdução a Criação Scripts com Bash
+              4.3 - Como o git acompanha o estado do repositório
             
           </span>
         </div>
@@ -262,7 +260,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +382,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../01-shell/" class="md-nav__link ">
+            <a href="../../01-shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -417,8 +415,6 @@
                 
   
   
-    
-  
   
   
     
@@ -449,16 +445,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../02-scripting/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -469,13 +465,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Aula 2 - Introdução a Criação Scripts com Bash
@@ -491,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_01/" class="md-nav__link">
+      <a href="../../02-scripting/cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -512,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_02/" class="md-nav__link">
+      <a href="../../02-scripting/cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_03/" class="md-nav__link">
+      <a href="../../02-scripting/cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -554,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_04/" class="md-nav__link">
+      <a href="../../02-scripting/cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -575,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_05/" class="md-nav__link">
+      <a href="../../02-scripting/cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -596,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_06/" class="md-nav__link">
+      <a href="../../02-scripting/cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -617,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_07/" class="md-nav__link">
+      <a href="../../02-scripting/cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -638,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cap_08/" class="md-nav__link">
+      <a href="../../02-scripting/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -705,7 +701,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../03-text-editors/" class="md-nav__link ">
+            <a href="../../03-text-editors/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -738,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_00/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_00/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_01/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_02/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_03/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_04/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -843,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_05/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_06/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_07/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-text-editors/cap_08/" class="md-nav__link">
+      <a href="../../03-text-editors/cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,6 +928,8 @@
                 
   
   
+    
+  
   
   
     
@@ -972,16 +970,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../04-source-control/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -998,7 +996,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Aula 4 - Sistema de Controle de Versionamento de Código - Git
@@ -1014,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_01/" class="md-nav__link">
+      <a href="../cap_01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_02/" class="md-nav__link">
+      <a href="../cap_02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1053,10 +1051,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../04-source-control/cap_03/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1065,6 +1070,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1077,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_04/" class="md-nav__link">
+      <a href="../cap_04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1098,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_05/" class="md-nav__link">
+      <a href="../cap_05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1119,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_06/" class="md-nav__link">
+      <a href="../cap_06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1140,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_07/" class="md-nav__link">
+      <a href="../cap_07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1161,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_08/" class="md-nav__link">
+      <a href="../cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1182,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_09/" class="md-nav__link">
+      <a href="../cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1203,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_10/" class="md-nav__link">
+      <a href="../cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_11/" class="md-nav__link">
+      <a href="../cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_12/" class="md-nav__link">
+      <a href="../cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1266,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-source-control/cap_13/" class="md-nav__link">
+      <a href="../cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,10 +1335,130 @@
   
 
 
-  <h1>Aula 02 - Introdução a Criação Scripts com Bash</h1>
+  <h1>4.3 - Como o git acompanha o estado do repositório</h1>
 
-<div><p>Na aula passada fomos apresentados ao ambiente do Shell e começamos a nos familiarizar com a vida no terminal usando Bash. Apesar de termos explorado muitas ferramentas que nos permitem interagir com o sistema de arquivos, o uso do Shell não está relegado somente a manipular arquivos e diretórios. É possível usar o Shell como um ambiente produtivo para lidar com as mais diversas tarefas e, inclusive, automatizá-las.</p>
-<p>Nesta aula iremos explorar as capacidades de automação do Bash e criar scripts que expandem a sua utilidade na execução de tarefas rotineiras, que o tornam, basicamente, uma linguagem de programação não muito diferente das muitas linguagens disponíveis.</p></div><style type="text/css">.quiz {
+<div><p>Então, o que é um commit?</p>
+<p>No git, nossos commits são registros de mudanças no nosso repositório ao longo do tempo, contendo os metadados que apresentamos recentemente e, junto com eles, uma representação do estado do diretório raiz do projeto, representado por uma estrutura chamada "Árvore" (<em>Tree</em>). Uma árvore é composta por elementos que podem ser <em>blobs</em> (<em>Binary Large OBject</em>, ou Grande Objeto Binário), que representam os arquivos e outras árvores (representando os subdiretórios), contendo outros blobs e árvores, de acordo com a estrutura de diretórios do projeto.</p>
+<p>Desta forma, o commit é capaz de, a qualquer momento, reconstruir o estado do diretório como estava quando ele foi criado.</p>
+<p>Vamos testar um exemplo disto. Apague o arquivo <code>README.md</code> que acabamos de criar e incluir no commit.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>rm<span class="w"> </span>README.md
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Para variar, o <code>git status</code> nos informa sobre coisas que aconteceram no diretório, e que ainda não foram registradas no repositório. Supondo que você se dê conta de que apagou o arquivo por acidente, o git permite que você desfaça este acidente.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>restore<span class="w"> </span>README.md
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ls<span class="w"> </span>-lh
+</span></code></pre></div>
+<p>Note que o arquivo voltou a estar presente no diretório, como se você nunca o tivesse excluído. Mas vamos supor um cenário ainda mais problemático: você excluiu o arquivo e, confiante de que estava tudo certo, criou um commit para registrar a exclusão dele no repositório.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>rm<span class="w"> </span>README.md
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Desta vez removemos o arquivo com o comando <code>git rm</code>, que não apenas o remove disco como ainda adiciona a alteração na área de <em>staging</em>. O comando <code>git status</code> também orienta como você pode desfazer esta operação sem efetuar o commit, usando o comando <code>git restore --staged README.md</code>. Fique à vontade para testar o comando se quiser, mas não se esqueça de voltar a fazer a remoção novamente antes de prosseguir.</p>
+<p>Então, vamos criar um commit registrando a remoção. Desta vez, vamos digitar a mensagem do commit pela própria linha de comando através da opção <code>-m</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Removendo o arquivo README.md"</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<p>E agora vamos analisar o log:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>commit bf417792cc6fd15b428a9ce466c7bb2e8a812942 (HEAD -&gt; main)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Date:   Sat Aug 10 23:43:08 2024 -0300
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    Removendo o README.md
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>commit e1c705034ed7eb64cf9305f360f36fe0ba94a0f6
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Date:   Sat Aug 10 10:58:38 2024 -0300
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    Criação do arquivo README.md, descrevendo projeto.
+</span></code></pre></div>
+<p>Vemos agora dois commits. O primeiro que fizemos anteriormente aparece mais abaixo, mas no topo da lista está o commit que acabamos de fazer. O histórico exibido pelo <code>git log</code> é exibido na ordem decrescente, com os commits mais recentes no topo. Note que, neste momento, a marcação <code>(HEAD -&gt; main)</code> se encontra no commit mais recente.</p>
+<p><em>HEAD</em> (cabeça em inglês), é um termo usado para indicar com qual commit do repositório o seu diretório está sendo comparado como referência para acompanhar as mudanças no momento. Na maior parte do tempo você vai querer que o HEAD aponte para o commit mais recente. Mas haverão situações em que você pode querer que este não seja o caso, como é o exemplo que estamos tentando simular agora.</p>
+<p>Da mesma forma, a marcação da <code>main</code> também indica para em qual estado a branch main se encontra. Isto vai ficar um pouco mais claro quando estivermos trabalhando com branches. Por ora, vamos apenas seguir tentando entender como o histórico funciona.</p>
+<p>Vamos olhar para ambos os commits que temos em mãos e entender como podemos obter mais informações deles a partir do git. O comando <code>git log</code> pode nos informar os commits em diversos níveis de detalhes. O nível mais detalhado que temos é o <code>raw</code>, que mostra todos os metadados de um commit. Para isto, podemos rodar o comando novamente com a seguinte opção:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>log<span class="w"> </span>--pretty<span class="o">=</span>raw
+</span></code></pre></div>
+<p>E vamos observar como isto altera a saída do log:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>commit bf417792cc6fd15b428a9ce466c7bb2e8a812942
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>parent e1c705034ed7eb64cf9305f360f36fe0ba94a0f6
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>author Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723344188 -0300
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>committer Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723344188 -0300
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    Removendo o README.md
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>commit e1c705034ed7eb64cf9305f360f36fe0ba94a0f6
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>author Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723298318 -0300
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>committer Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723298318 -0300
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    Criação do arquivo README.md, descrevendo projeto.
+</span></code></pre></div>
+<p>Não é tão diferente do que havíamos visto anteriormente. Mas existem algumas informações novas: <code>tree</code>, <code>parent</code> e <code>committer</code>.</p>
+<p>O campo <code>tree</code> indica o id da versão da árvore contida no commit. O campo <code>parent</code> indica o commit "pai" (o gênero aqui é uma mera questão de tradução) do commit que estamos analisando. Note que o primeiro commit que fizemos não possui um <em>parent</em>. Isto por que ele foi o primeiro commit que fizemos, considerado <em>root-commit</em> (commit raiz). Mas o segundo commit registra as mudanças que fizemos a partir do primeiro, ou seja, usando o primeiro como um referencial para onde as mudanças que o novo commit foram aplicadas. Podemos conferir que o valor do campo <em>parent</em> no segundo commit é idêntico ao id do primeiro commit.</p>
+<p>Isso nos leva a uma outra informação sobre como o git organiza os dados do repositório. Os commits apontam para árvores, mas eles também apontam para um commit "pai", que é basicamente a "foto" do estado anterior à mudança que este commit está registrando. Os commits formam uma estrutura de dados chamada Grafo Acíclico Dirigido (do inglês <em>Directed Acyclic Graph</em>, ou <em>DAG</em>). A princípio, por hora, você pode imaginar este grafo apenas como uma linha do tempo marcando os commits:</p>
+<pre class="mermaid"><code>%%{init: { 'logLevel': 'debug', 'theme': 'dark' } }%%
+    gitGraph
+        commit id: "root commit"
+        commit id: "outro commit"
+        commit id: "mais um commit"
+        commit id: "um outro commit"
+        commit id: "ainda mais um commit"</code></pre>
+<p>O campo <code>comitter</code>, por outro lado, é algo um pouco mais complexo, que iremos falar melhor quando conversarmos sobre o uso de git em times de desenvolvimento. Na maior parte dos casos <em>comitter</em> terá o mesmo valor do campo <em>author</em>. Ao longo deste curso este vai ser sempre o caso. O valor numérico que vemos abaixo de autor e <em>commiter</em> é a informação de data/hora no <a href="https://pt.wikipedia.org/wiki/Era_Unix">formato Unix</a>: um valor numérico representando a data/hora em quantos segundos se passaram desde o dia 1/1/1970 às 0:00 no meridiano de Greenwich, e a informação -0300 indica em que fuso-horário o commit foi feito, fazendo a adaptação para a localização da data/hora.</p>
+<p>Uma outra forma de obtermos mais detalhes a respeito de um commit, é através do comando <code>git show</code>. Para isto, precisamos passar como argumento o id do commit que pretendemos pesquisar.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>show<span class="w"> </span>bf417792cc6fd15b428a9ce466c7bb2e8a812942
+</span></code></pre></div>
+<p>Que nos trás estas informações:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>commit bf417792cc6fd15b428a9ce466c7bb2e8a812942 (HEAD -&gt; main)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Date:   Sat Aug 10 23:43:08 2024 -0300
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    Removendo o README.md
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>diff --git a/README.md b/README.md
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>deleted file mode 100644
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>index e69de29..0000000
+</span></code></pre></div>
+<p>Aqui já tem algumas informações úteis, mas antes de analisá-las, me deixe dizer que o comando show também suporta formatação raw:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>show<span class="w"> </span>bf417792cc6fd15b428a9ce466c7bb2e8a812942<span class="w"> </span>--pretty<span class="o">=</span>raw
+</span></code></pre></div>
+<p>Que trás algo parecido com isto:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>commit bf417792cc6fd15b428a9ce466c7bb2e8a812942
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>parent e1c705034ed7eb64cf9305f360f36fe0ba94a0f6
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>author Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723344188 -0300
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>committer Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723344188 -0300
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    Removendo o README.md
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>diff --git a/README.md b/README.md
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>deleted file mode 100644
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>index e69de29..0000000
+</span></code></pre></div>
+<p>Podemos ver já uma série de informações conhecidas: id do commit, autor e <em>commiter</em> com as informações de data/hora no formato Unix e a descrição do commit. A principal novidade que podemos observar agora está logo abaixo: uma descrição de qual a diferença aplicada neste commit:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>diff --git a/README.md b/README.md
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>deleted file mode 100644
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>index e69de29..0000000
+</span></code></pre></div>
+<p>A linha <code>diff --git a/README.md b/README.md</code> indica que o trecho a seguir fala de diferenças envolvendo o arquivo README.md, e sinaliza que a versão anterior será indicada por <code>a/README.md</code> e a nova versão será indicada por <code>b/README.md</code>. <code>a</code> e <code>b</code> são apenas uma convenção para tratar as versões do arquivo, sendo <code>a</code> para a versão antes das alteração, e <code>b</code> para a versão com as modificações aplicadas. Isto ficará mais útil quando estivermos discutindo modificações nos arquivos.</p>
+<p>A linha <code>deleted file mode 100644</code>, indica que o arquivo em questão foi deletado. O modo 100644 é só uma forma do git de dizer que era um arquivo (100), que estava no modo de acesso 644 (equivalente a <code>rw-r--r--</code> em octetos).</p>
+<p>Por fim, temos o <code>index e69de29..0000000</code> que é basicamente o índice que o blob tinha antes da operação (<code>e69de29</code>), e que foi movido para o índice <code>0000000</code>, que é vazio, pois o arquivo foi removido.</p>
+<p>Vamos rodar o mesmo comando sobre o primeiro commit para fazer uma comparação com quando o arquivo foi criado:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>show<span class="w"> </span>e1c705034ed7eb64cf9305f360f36fe0ba94a0f6<span class="w"> </span>--pretty<span class="o">=</span>raw
+</span></code></pre></div>
+<p>E ele nos dá os dados:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>commit e1c705034ed7eb64cf9305f360f36fe0ba94a0f6
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>tree f93e3a1a1525fb5b91020da86e44810c87a2d7bc
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>author Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723298318 -0300
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>committer Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1723298318 -0300
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    Criação do arquivo README.md, descrevendo projeto.
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>diff --git a/README.md b/README.md
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>new file mode 100644
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>index 0000000..e69de29
+</span></code></pre></div>
+<p>Observe as duas últimas linhas:
+- <code>new file mode 100644</code>: Na ocasião, ele estava criando um arquivo novo no repositório
+- <code>index 0000000..e69de29</code>: Ele estava movendo o índice do blob vazio (<code>0000000</code>) para o índice do arquivo (<code>e69de29</code>)</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1563,10 +1689,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
