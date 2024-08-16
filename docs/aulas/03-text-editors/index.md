@@ -9,15 +9,15 @@ Para trabalhar com código, usamos Editores de Textos. A diferença é que, em c
 
 Normalmente, quando trabalhamos com código, trabalhamos com arquivos de textos simples. Para ilustrar o que isso significa olhe para a imagem a seguir.
 
-![image](/imagens/googledocs-helloworld.png)
+![image](../../imagens/googledocs-helloworld.png)
 
 Este é um Processador de Textos (Google Docs, similar ao Microsoft Word), com um texto  simples (o famoso "Olá Mundo!"). Mas se você tentar abrir o conteúdo salvo por este arquivo (no formato .doc) em um editor de textos, notará que existem muitas outras informações, a maior parte delas ilegível para um ser humano.
 
-![image](/imagens/olamundo-doc-vscode.png)
+![image](../../imagens/olamundo-doc-vscode.png)
 
 Existe uma forma mais amigável de visualizar este arquivo, usando um decodificador Hexadecimal, mas isto não necessariamente o torna tão legível quanto um arquivo de texto.
 
-![image](/imagens/olamundo-doc-hex.png)
+![image](../../imagens/olamundo-doc-hex.png)
 
 Editores de texto, por outro lado, não interferem no conteúdo salvo pelo arquivo. Você pode escrever código direto no terminal como fizemos usando o comando `cat`, mas isto, provavelmente, vai ser pouco produtivo à medida que seus scripts começam a ficar mais complexos, já que o comando `cat` te dá poucas opções de edição.
 
