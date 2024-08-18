@@ -1407,6 +1407,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#472-fazendo-commits-na-nova-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.2 - Fazendo commits na nova branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#473-criando-linhas-do-tempo-paralelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.3 - Criando linhas do tempo paralelas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1590,6 +1608,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#472-fazendo-commits-na-nova-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.2 - Fazendo commits na nova branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#473-criando-linhas-do-tempo-paralelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.3 - Criando linhas do tempo paralelas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1617,7 +1653,7 @@
 <p>Branches (<em>ramos</em> em português), são uma forma de criarmos uma linha do tempo paralela ao histórico de alterações do repositório git. Algo parecido com a ideia de "Realidades Paralelas" seguindo a analogia de "Viagem no Tempo" que usamos até aqui.</p>
 <p>Nós podemos iniciar uma branch na qual possamos trabalhar e fazer as alterações necessárias, sem correr o risco de que elas "quebrem" o código que está na <em>main</em> e, no momento em que acharmos adequado, possamos finalmente "unir" as duas realidades novamente, integrando as alterações feitas (e devidamente testadas e estabilizadas) ao código principal, centralizando seus esforços.</p>
 <p>Vamos ver como funciona.</p>
-<h3 id="471-criando-e-navegando-por-branches">4.7.1 - Criando e navegando por branches</h3>
+<h2 id="471-criando-e-navegando-por-branches">4.7.1 - Criando e navegando por branches</h2>
 <p>O comando que iremos usar agora nos exibe uma lista de todas as branches presentes no nosso repositório.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>branch
 </span></code></pre></div>
@@ -1625,13 +1661,71 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>branch<span class="w"> </span>realidade-paralela
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>branch
 </span></code></pre></div>
-<p>Agora é possível ver que temos duas branches no nosso repositório.</p>
-<ul>
-<li>git branch</li>
-<li>git switch</li>
-<li>git checkout</li>
-<li>git tag</li>
-</ul></div><style type="text/css">.quiz {
+<p>Agora é possível ver que temos duas branches no nosso repositório. A nova branch está disponível, mas o repositório ainda aponta para a branch <code>main</code>, como indicado com o asterisco.</p>
+<p>Se executarmos o comando <code>git log</code>, teremos uma informação nova onde costumávamos conferir o commit para onde a <em>HEAD</em> aponta, que costumava apresentar <code>HEAD -&gt; main</code>, mas agora apresenta também, de forma complementar, o nome da branch que acabamos de criar: <code>HEAD -&gt; main, realidade-paralela</code>.</p>
+<p>Esta informação, exibida como parte da descrição do commit, é chamada, na documentação do git, de <em>ref names</em>. Isso está ligado ao conceito de <em>referências</em>, que é parte do modelo de dados de um repositório git, e que veremos com mais detalhes em breve. Neste momento, tudo o que sabemos a respeito disto, é que ele nos mostra o commit para onde a <em>HEAD</em> aponta, e em que brach ele foi criado e quais outras branchs também estão apontando para ele (no caso, a branch que acabamos de criar).</p>
+<p>Para mudarmos para a nova branch, podemos usar o comando <code>git switch</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>switch<span class="w"> </span>realidade-paralela
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<p>O resultado do comando <code>git branch</code> demonstra que agora estamos na branch que acabamos de criar. Exceto pelo fato desta indicação, o processo da criação de uma nova branch não provoca nenhuma alteração na árvore de diretórios do repo. Todos os arquivos se encontram exatamente da mesma forma como quando estávamos na branch <code>main</code>.</p>
+<p>Outra forma de conferir que estamos em uma branch diferente da <code>main</code> é através do comando <code>git status</code>. A primeira informação impressa por este comando indica a branch atual:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>On branch realidade-paralela
+</span></code></pre></div>
+<p>Antes de começarmos a fazer mudança, vamos apenas entender exatamente o que mudou na prática. E para explicar isso, execute novamente o comando <code>git log</code>, e repare que <em>HEAD</em>, agora, aponta para a nova branch, e não mais para <code>main</code>.</p>
+<h2 id="472-fazendo-commits-na-nova-branch">4.7.2 - Fazendo commits na nova branch</h2>
+<p>Agora que criamos uma nova branch, podemos fazer modificações que afetem o estado dela, preservando o estado da <code>main</code>. Vamos criar algumas alterações no nosso projeto para ver isto funcionando. Crie um novo arquivo e salve em <code>./receitas/indice-de-receitas.md</code>, altere o <code>README.md</code> para incluir um link ao novo arquivo e faça um commit.</p>
+<p>Veja agora como fica a situação do nosso repositório através do comando <code>git log</code>:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>commit d01c4ea5fbf79f72800bf4d3f49695d557c1dd8d (HEAD -&gt; realidade-paralela)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Date:   Sat Aug 17 10:34:46 2024 -0300
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    Criando o índice de receitas
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>commit 520c8cb0b182b3acb1dfd5348412eff63fde7cd3 (main)
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Date:   Tue Aug 13 14:56:12 2024 -0300
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    Criando arquivo para sugestões de projeto
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>commit 014639823549e17df731dfb78eb859438f9eed4f
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>[...]
+</span></code></pre></div>
+<p>Note como as referências foram afetadas com o nosso novo commit. <em>HEAD</em> agora avançou junto com a branch atual, deixando a <code>main</code> apontando para o commit anterior. Nós podemos avançar com a branch <code>realidade-paralela</code> por quantos commits acharmos necessários, a afastando cada vez mais de como as coisas estavam na <code>main</code> no momento em que ela foi criada.</p>
+<h2 id="473-criando-linhas-do-tempo-paralelas">4.7.3 - Criando linhas do tempo paralelas</h2>
+<p>Vamos imaginar um cenário hipotético em que, no meio das alterações que estamos fazendo na nossa branch <code>realidade-paralela</code>, nos demos conta de novas alterações necessárias no nosso repositório, que não estão relacionadas a esta branch, mas sim à <code>main</code>. Para realizar estas alterações, vamos precisar trocar novamente a branch atual, desta vez, de volta para a <code>main</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<p>Observe, conferindo a saída do comando <code>git log</code>, agora que voltamos para a branch <code>main</code>, que a branch <code>realidade-paralela</code> sumiu. Por padrão, o comando <code>git log</code> exibe apenas o histórico baseado no commit para o qual a <em>HEAD</em> aponta. Se houverem referências que apontam para os commits exibidos neste histórico, elas serão exibidas. Mas a branch <code>realidade-parelala</code> está apontando para um commit que não tem mais relação com aquele para o qual a <code>main</code> aponta.</p>
+<p>Se quisermos voltar a enxergar o histórico relacionado à branch <code>realidade-paralela</code>, basta usarmos o nome da branch como argumento ao comando <code>git log</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>log<span class="w"> </span>realidade-paralela
+</span></code></pre></div>
+<p>De fato, a forma como temos usado <code>git log</code> até aqui é, basicamente, a mesma coisa que vemos quando executamos <code>git log HEAD</code>., que é o padrão para o comando, quando não informamos nenhuma referência como argumento.</p>
+<p>Agora, vamos fazer a alteração necessária na <code>main</code>. Vamos supor que alguém fez uma recomendação de leitura, e queremos acrescentá-la a nossa lista de sugestões de estudo. Abra o arquivo de sugestões de estudo, acrescente um link para o livro "Pense Python" (https://penseallen.github.io/PensePython2e/) e faça um commit.</p>
+<p>Agora que ambas as branches avançaram para além do commit que elas possuem em comum, o resultado do <code>git log</code> vai exibir somente o histórico de uma delas, já que ambas apontam para commits que não estão mais relacionados. Para conseguir enxergar ambas as branches na saída do comando, podemos usar como argumento o nome das duas.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>log<span class="w"> </span>main<span class="w"> </span>realidade-parelela
+</span></code></pre></div>
+<p>Importante observar que, independente de quais branches estivermos consultando o comando <code>git log</code>, os commits serão sempre exibidos na ordem cronológica, com o commit mais recente no topo, e o commit mais antigo no final da lista.</p>
+<p>Outra forma de conseguir visualizar informações sobre todas as branches (e outras referências do nosso repositório) é através da opção <code>--all</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all
+</span></code></pre></div>
+<p>É razoável alertar que, à medida que o repositório começa a ter inúmeras referências (como diferentes branches, além de outros tipos que veremos em breve), a saída do comando <code>git log --all</code> pode se tornar pouco amigável.</p>
+<p>Vamos tornar esse histórico um pouco mais interessante. Copie o código a seguir (ou fique à vontade se preferir digitá-lo manualmente), para criar alguns commits novos em ambas as branches:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"- Aplicação de Lista de Tarefas"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>./projetos/sugestoes-de-projeto.md
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Incluindo um novo projeto para Lista de Tarefas"</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>switch<span class="w"> </span>realidade-paralela
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>mkdir<span class="w"> </span>musicas
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"# Músicas para aprender a tocar"</span><span class="w"> </span>&gt;<span class="w"> </span>./musicas/indice-de-musicas.md
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"- [Músicas para aprender a tocar](./musicas/indice-de-musicas.md)"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando lista de músicas para aprender a tocar"</span>
+</span></code></pre></div>
+<p>E agora, se executarmos o comando <code>git log --all</code>, podemos ter uma ideia de como os commits podem ser exibidos de forma confusa, e atrapalhar a nossa compreensão sobre como as linhas do tempo evoluíram, caso seja este o nosso interesse. Uma forma de melhorar esta visualização é usando a opção <code>--graph</code>, que exibe junto à saída uma representação do grafo das linhas do tempo junto aos commits.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--graph
+</span></code></pre></div>
+<p>Agora, conseguimos visualizar os commits de uma forma que seja possível rastrear as alterações na ordem em que elas foram feitas, de acordo com as branches onde foram feitas, e entender o históricos mesmo em branches diferentes.</p>
+<p>Agora que sabemos avançar com o histórico de ambas as branches, como podemos fazer para, no momento oportuno, reunir ambas, trazendo as mudanças da realidade-paralela para se tornarem parte da história da <code>main</code>? É o que veremos a seguir.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1762,7 +1856,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 16, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 18, 2024</span>
   </span>
 
     
