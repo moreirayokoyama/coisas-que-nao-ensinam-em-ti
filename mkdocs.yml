@@ -3,57 +3,6 @@ repo_url: https://github.com/moreirayokoyama/coisas-que-nao-ensinam-em-ti
 repo_name: moreirayokoyama/coisas-que-nao-ensinam-em-ti
 site_url: https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/
 
-nav:
-  - "Coisas Que Não Ensinam em TI": index.md
-  - Aulas:
-    - "Aula 1 - O Shell":
-      - aulas/01-shell/index.md
-      - aulas/01-shell/01-o-que-e.md
-      - aulas/01-shell/02-bash.md
-      - aulas/01-shell/03-navegando.md
-      - aulas/01-shell/04-permissoes.md
-      - aulas/01-shell/05-manipulando-arquivos.md
-      - aulas/01-shell/06-caminho-absoluto-relativo.md
-      - aulas/01-shell/07-conectando-programas.md
-      - aulas/01-shell/08-comandos-uteis.md
-      - aulas/01-shell/09-conclusao.md
-    - "Aula 2 - Introdução a Criação Scripts com Bash":
-      - aulas/02-scripting/index.md
-      - aulas/02-scripting/01-hello-world.md
-      - aulas/02-scripting/02-expressoes-expansoes.md
-      - aulas/02-scripting/03-variaveis.md
-      - aulas/02-scripting/04-composicao-de-comandos.md
-      - aulas/02-scripting/05-expansoes-de-chave.md
-      - aulas/02-scripting/06-stream-de-erro.md
-      - aulas/02-scripting/07-scripts.md
-      - aulas/02-scripting/08-conclusao.md
-    - "Aula 3 - Explorando o Editor de Textos (Visual Studio Code)":
-      - aulas/03-text-editors/index.md
-      - aulas/03-text-editors/00-instalando-vscode.md
-      - aulas/03-text-editors/01-explorando-a-interface.md
-      - aulas/03-text-editors/02-editor-de-arquivos.md
-      - aulas/03-text-editors/03-extensoes.md
-      - aulas/03-text-editors/04-trabalhando-com-codigo.md
-      - aulas/03-text-editors/05-trabalhando-com-diretorios.md
-      - aulas/03-text-editors/06-workspaces.md
-      - aulas/03-text-editors/07-terminal.md
-      - aulas/03-text-editors/08-conclusao.md
-    - "Aula 4 - Sistema de Controle de Versionamento de Código - Git":
-      - aulas/04-source-control/index.md
-      - aulas/04-source-control/01-instalando-git.md
-      - aulas/04-source-control/02-iniciando-um-repo.md
-      - aulas/04-source-control/03-como-git-acompanha-repo.md
-      - aulas/04-source-control/04-viajando-no-tempo.md
-      - aulas/04-source-control/05-modificacoes-complexas.md
-      - aulas/04-source-control/06-git-diff.md
-      - aulas/04-source-control/07-branches.md
-      - aulas/04-source-control/cap_08.md
-      - aulas/04-source-control/cap_09.md
-      - aulas/04-source-control/cap_10.md
-      - aulas/04-source-control/cap_11.md
-      - aulas/04-source-control/cap_12.md
-      - aulas/04-source-control/cap_13.md
-
 theme:
   name: material
   language: pt-BR

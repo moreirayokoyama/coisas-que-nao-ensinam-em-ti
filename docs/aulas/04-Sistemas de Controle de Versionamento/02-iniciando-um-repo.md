@@ -10,7 +10,7 @@ mkdir novo_projeto && cd novo_projeto
 git init
 ```
 
-Uma mensagem será exibida dizendo que um repositório iniciado no diretório `.git` dentro do diretório do projeto. Como vimos na [aula de shell](../01-shell/index.md), diretórios e arquivos cujo nome começam com `.`, não são exibidos por padrão quando listamos o conteúdo do diretório. Para visualizar o diretório criado, podemos usar o `ls --all` (ou `ls -a`).
+Uma mensagem será exibida dizendo que um repositório iniciado no diretório `.git` dentro do diretório do projeto. Como vimos na [aula de shell](../01-Apresentando%20o%20Shell/index.md), diretórios e arquivos cujo nome começam com `.`, não são exibidos por padrão quando listamos o conteúdo do diretório. Para visualizar o diretório criado, podemos usar o `ls --all` (ou `ls -a`).
 
 Exceto pela presença deste subdiretório, a criação repo parece não ter tido efeito nenhum no diretório do projeto em si. E é assim mesmo que um repositório funciona. Ele não interfere na forma como você interage com seus arquivos e subdiretórios de projeto. O único indício real de que estamos em um repositório git é a presença do subdiretório `.git`.
 

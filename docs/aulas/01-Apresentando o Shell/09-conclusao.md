@@ -7,4 +7,4 @@ Com esta introdução, podemos explorar outras ferramentas, como a construção 
 
 Bem-vindo a esta jornada, e espero que este primeiro passeio tenha despertado o interesse em prosseguir com as próximas aulas.
 
-[Próxima Aula: Aula 2 - Criando Scripts com Bash](../02-scripting/index.md)
+[Próxima Aula: Aula 2 - Criando Scripts com Bash](../02-Trabalhando%20com%20Scripts/index.md)
