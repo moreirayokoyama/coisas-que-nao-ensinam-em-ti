@@ -1,5 +1,5 @@
 ---
-title: 🚧 4.7 - Trabalhando com Branches
+title: 4.7 - Trabalhando com Branches
 ---
 Até aqui, você tem ouvido falarmos a respeito de uma _branch_ chamada _main_. E até aqui, nós tentamos não falar muito a respeito de nenhuma das duas coisas até que tivéssemos tratado os conceitos básicos por trás de um Controle de Versionamento de Código e do git.
 
@@ -101,7 +101,7 @@ Agora que ambas as branches avançaram para além do commit que elas possuem em 
 git log main realidade-parelela
 ```
 
-Importante observar que, independente de quais branches estivermos consultando o comando `git log`, os commits serão sempre exibidos na ordem cronológica, com o commit mais recente no topo, e o commit mais antigo no final da lista.
+Importante observar que, independente de quais branches estivermos consultando no comando `git log`, os commits serão sempre exibidos na ordem cronológica, com o commit mais recente no topo, e o commit mais antigo no final da lista.
 
 Outra forma de conseguir visualizar informações sobre todas as branches (e outras referências do nosso repositório) é através da opção `--all`.
 
@@ -129,7 +129,13 @@ E agora, se executarmos o comando `git log --all`, podemos ter uma ideia de como
 git log --all --graph
 ```
 
-Agora, conseguimos visualizar os commits de uma forma que seja possível rastrear as alterações na ordem em que elas foram feitas, de acordo com as branches onde foram feitas, e entender o históricos mesmo em branches diferentes.
+Agora, conseguimos visualizar os commits de uma forma que seja possível rastrear as alterações na ordem em que elas foram feitas, de acordo com as branches onde foram feitas, e entender os históricos mesmo em branches diferentes.
+
+Note que, para facilitar a visualização do grafo de mudanças, o git ordenou os históricos por cada branch. Se quisermos ordenar os commits novamente pela ordem cronológica independente de em qual branch ele foi feito, podemos usar a opção --date-order:
+
+```bash
+git log --all --graph --date-order
+```
 
 Agora que sabemos avançar com o histórico de ambas as branches, como podemos fazer para, no momento oportuno, reunir ambas, trazendo as mudanças da realidade-paralela para se tornarem parte da história da `main`? É o que veremos a seguir.
 
