@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/">
+        <link rel="canonical" href="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/07-branches/">
       
       
+        <link rel="prev" href="../06-git-diff/">
       
-        <link rel="next" href="aulas/01-Apresentando%20o%20Shell/">
+      
+        <link rel="next" href="../cap_08/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Coisas Que Não Ensinam em TI</title>
+        <title>🚧 4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="🚧 4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/index.png" >
+        <meta  property="og:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/07-branches.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -69,19 +71,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/" >
+        <meta  property="og:url"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/07-branches/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="🚧 4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/index.png" >
+        <meta  name="twitter:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/07-branches.png" >
       
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -90,7 +92,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -109,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#coisas-que-nao-ensinam-em-ti" class="md-skip">
+        <a href="#471-criando-e-navegando-por-branches" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -125,7 +127,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -145,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Coisas Que Não Ensinam em TI
+              🚧 4.7 - Trabalhando com Branches
             
           </span>
         </div>
@@ -265,7 +267,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,30 +294,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Coisas Que Não Ensinam em TI
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,71 +306,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#apresentacao-do-curso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Apresentação do Curso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conteudo-do-curso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conteúdo do Curso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#em-breve" class="md-nav__link">
-    <span class="md-ellipsis">
-      Em breve
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#atribuicoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Atribuições
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agradecimentos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Agradecimentos
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -397,8 +314,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -418,11 +337,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -436,7 +355,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Aulas
@@ -488,7 +407,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/01-Apresentando%20o%20Shell/" class="md-nav__link ">
+            <a href="../../01-Apresentando%20o%20Shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -521,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/01-o-que-e/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/01-o-que-e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/02-bash/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/02-bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -563,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/03-navegando/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/03-navegando/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -584,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/04-permissoes/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/04-permissoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -605,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/05-manipulando-arquivos/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/05-manipulando-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/06-caminho-absoluto-relativo/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/06-caminho-absoluto-relativo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/07-conectando-programas/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/07-conectando-programas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -668,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/08-comandos-uteis/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/08-comandos-uteis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -689,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/09-conclusao/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/09-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +673,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/02-Trabalhando%20com%20Scripts/" class="md-nav__link ">
+            <a href="../../02-Trabalhando%20com%20Scripts/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -787,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/01-hello-world/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/01-hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/02-expressoes-expansoes/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/02-expressoes-expansoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/03-variaveis/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/03-variaveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -850,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/04-composicao-de-comandos/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/04-composicao-de-comandos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -871,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/05-expansoes-de-chave/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/05-expansoes-de-chave/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -892,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/06-stream-de-erro/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/06-stream-de-erro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -913,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/07-scripts/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/07-scripts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -934,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/08-conclusao/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1001,7 +920,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/03-Editores%20de%20Texto/" class="md-nav__link ">
+            <a href="../../03-Editores%20de%20Texto/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1034,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/00-instalando-vscode/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/00-instalando-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1055,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/01-explorando-a-interface/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/01-explorando-a-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1076,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/02-editor-de-arquivos/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/02-editor-de-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1097,7 +1016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/03-extensoes/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/03-extensoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1118,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/04-trabalhando-com-codigo/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/04-trabalhando-com-codigo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/05-trabalhando-com-diretorios/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/05-trabalhando-com-diretorios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1160,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/06-workspaces/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/06-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1181,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/07-terminal/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/07-terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1202,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/08-conclusao/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1228,6 +1147,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1268,16 +1189,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1294,7 +1215,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             04 Sistemas de Controle de Versionamento
@@ -1310,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/01-instalando-git/" class="md-nav__link">
+      <a href="../01-instalando-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/02-iniciando-um-repo/" class="md-nav__link">
+      <a href="../02-iniciando-um-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/03-como-git-acompanha-repo/" class="md-nav__link">
+      <a href="../03-como-git-acompanha-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/04-viajando-no-tempo/" class="md-nav__link">
+      <a href="../04-viajando-no-tempo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/05-modificacoes-complexas/" class="md-nav__link">
+      <a href="../05-modificacoes-complexas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/06-git-diff/" class="md-nav__link">
+      <a href="../06-git-diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1433,10 +1354,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/07-branches/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    🚧 4.7 - Trabalhando com Branches
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1445,6 +1384,51 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#471-criando-e-navegando-por-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.1 - Criando e navegando por branches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#472-fazendo-commits-na-nova-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.2 - Fazendo commits na nova branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#473-criando-linhas-do-tempo-paralelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7.3 - Criando linhas do tempo paralelas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1457,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_08/" class="md-nav__link">
+      <a href="../cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_09/" class="md-nav__link">
+      <a href="../cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1499,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_10/" class="md-nav__link">
+      <a href="../cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1520,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_11/" class="md-nav__link">
+      <a href="../cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1541,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_12/" class="md-nav__link">
+      <a href="../cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1562,7 +1546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_13/" class="md-nav__link">
+      <a href="../cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1608,8 +1592,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1618,45 +1600,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#apresentacao-do-curso" class="md-nav__link">
+  <a href="#471-criando-e-navegando-por-branches" class="md-nav__link">
     <span class="md-ellipsis">
-      Apresentação do Curso
+      4.7.1 - Criando e navegando por branches
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conteudo-do-curso" class="md-nav__link">
+  <a href="#472-fazendo-commits-na-nova-branch" class="md-nav__link">
     <span class="md-ellipsis">
-      Conteúdo do Curso
+      4.7.2 - Fazendo commits na nova branch
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#em-breve" class="md-nav__link">
+  <a href="#473-criando-linhas-do-tempo-paralelas" class="md-nav__link">
     <span class="md-ellipsis">
-      Em breve
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#atribuicoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Atribuições
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agradecimentos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Agradecimentos
+      4.7.3 - Criando linhas do tempo paralelas
     </span>
   </a>
   
@@ -1680,36 +1644,88 @@
   
 
 
-<div><h1 id="coisas-que-nao-ensinam-em-ti">Coisas Que Não Ensinam em TI</h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Este curso é uma adaptação para Português(Brasil) do curso <a href="https://missing.csail.mit.edu/"><em>The Missing Semester in Your CS Formation</em></a> do MIT.</p>
-<p>Parte deste conteúdo é deliberadamente extraído e traduzido do material do curso original, apesar de haver algumas adaptções e adequações para esta versão, olhando para o contexto do mercado nacional e de algumas considerações feitas a partir de um contexto fora do ambiente acadêmico (como no caso do MIT).</p>
-</div>
-<h2 id="apresentacao-do-curso">Apresentação do Curso</h2>
-<h2 id="conteudo-do-curso">Conteúdo do Curso</h2>
-<ul>
-<li><a href="aulas/01-Apresentando%20o%20Shell/">Aula 1 - O Shell</a></li>
-<li><a href="aulas/02-Trabalhando%20com%20Scripts/">Aula 2 - Criando Scripts com Bash</a></li>
-<li><a href="aulas/03-Editores%20de%20Texto/">Aula 3 - Explorando o Editor de Textos (Visual Studio Code)</a></li>
-<li><a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/">Aula 4 - Sistema de Controle de Versionamento de Código: Git (em progresso)</a></li>
-</ul>
-<h2 id="em-breve">Em breve</h2>
-<ul>
-<li>Depuração e Profiling de Programas</li>
-<li>Técnicas Básicas em Engenharia de Software</li>
-<li>Segurança e Criptografia</li>
-<li>... e mais a ser definido</li>
-</ul>
-<h2 id="atribuicoes">Atribuições</h2>
-<p>Este curso está sob a licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a> (de acordo com o curso original).
-O curso original no qual este é baseado foi elaborado por
-- <a href="https://anishathalye.com/">Anish Athalye</a>
-- <a href="https://thesquareplanet.com/">Jon Gjengset</a>
-- <a href="https://josejg.com/">Jose Javier Gonzalez Ortiz</a></p>
-<p>Mais informações sobre o curso original podem ser conferidas no <a href="https://missing.csail.mit.edu/">Site Oficial</a>.</p>
-<h2 id="agradecimentos">Agradecimentos</h2>
-<p>Agradeço ao <a href="https://github.com/taconi">Predador Vegano</a> Pela ajuda com a separação das aulas em páginas diferentes.</p></div><style type="text/css">.quiz {
+  <h1>🚧 4.7 - Trabalhando com Branches</h1>
+
+<div><p>Até aqui, você tem ouvido falarmos a respeito de uma <em>branch</em> chamada <em>main</em>. E até aqui, nós tentamos não falar muito a respeito de nenhuma das duas coisas até que tivéssemos tratado os conceitos básicos por trás de um Controle de Versionamento de Código e do git.</p>
+<p>Agora, uma vez visto as principais capacidades e usos da ferramenta, parece ser o momento ideal para conversarmos sobre <em>branches</em>, o que é a <em>main</em> e como podemos usar outras branches na hora de trabalhar com git.</p>
+<p>No nosso dia-a-dia trabalhando com código, existem situações específicas em que antecipamos a probabilidade de que a alteração que precisamos fazer, potencialmente, faça com que as coisas deixem de funcionar. Às vezes, entendemos que algumas mudanças estruturais sejam necessárias, ou simplesmente temos que fazer certas atualizações, e ainda não estamos seguros de que elas funcionarão bem com o restante do código, comprometendo a sua integridade.</p>
+<p>Em casos assim, seria conveniente encontrarmos uma forma de trabalhar que não comprometesse a integridade do código e as alterações dos demais membros do time. Para isto, usamos <em>branches</em>.</p>
+<p>Branches (<em>ramos</em> em português), são uma forma de criarmos uma linha do tempo paralela ao histórico de alterações do repositório git. Algo parecido com a ideia de "Realidades Paralelas" seguindo a analogia de "Viagem no Tempo" que usamos até aqui.</p>
+<p>Nós podemos iniciar uma branch na qual possamos trabalhar e fazer as alterações necessárias, sem correr o risco de que elas "quebrem" o código que está na <em>main</em> e, no momento em que acharmos adequado, possamos finalmente "unir" as duas realidades novamente, integrando as alterações feitas (e devidamente testadas e estabilizadas) ao código principal, centralizando seus esforços.</p>
+<p>Vamos ver como funciona.</p>
+<h2 id="471-criando-e-navegando-por-branches">4.7.1 - Criando e navegando por branches</h2>
+<p>O comando que iremos usar agora nos exibe uma lista de todas as branches presentes no nosso repositório.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<p>Neste momento, somente a branch <code>main</code> está visível, por que é a única branch que existe. Para  criarmos uma nova branch, usamos o mesmo comando, usando como argumento o nome da branch que queremos criar.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>branch<span class="w"> </span>realidade-paralela
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<p>Agora é possível ver que temos duas branches no nosso repositório. A nova branch está disponível, mas o repositório ainda aponta para a branch <code>main</code>, como indicado com o asterisco.</p>
+<p>Se executarmos o comando <code>git log</code>, teremos uma informação nova onde costumávamos conferir o commit para onde a <em>HEAD</em> aponta, que costumava apresentar <code>HEAD -&gt; main</code>, mas agora apresenta também, de forma complementar, o nome da branch que acabamos de criar: <code>HEAD -&gt; main, realidade-paralela</code>.</p>
+<p>Esta informação, exibida como parte da descrição do commit, é chamada, na documentação do git, de <em>ref names</em>. Isso está ligado ao conceito de <em>referências</em>, que é parte do modelo de dados de um repositório git, e que veremos com mais detalhes em breve. Neste momento, tudo o que sabemos a respeito disto, é que ele nos mostra o commit para onde a <em>HEAD</em> aponta, e em que brach ele foi criado e quais outras branchs também estão apontando para ele (no caso, a branch que acabamos de criar).</p>
+<p>Para mudarmos para a nova branch, podemos usar o comando <code>git switch</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>switch<span class="w"> </span>realidade-paralela
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<p>O resultado do comando <code>git branch</code> demonstra que agora estamos na branch que acabamos de criar. Exceto pelo fato desta indicação, o processo da criação de uma nova branch não provoca nenhuma alteração na árvore de diretórios do repo. Todos os arquivos se encontram exatamente da mesma forma como quando estávamos na branch <code>main</code>.</p>
+<p>Outra forma de conferir que estamos em uma branch diferente da <code>main</code> é através do comando <code>git status</code>. A primeira informação impressa por este comando indica a branch atual:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>On branch realidade-paralela
+</span></code></pre></div>
+<p>Antes de começarmos a fazer mudança, vamos apenas entender exatamente o que mudou na prática. E para explicar isso, execute novamente o comando <code>git log</code>, e repare que <em>HEAD</em>, agora, aponta para a nova branch, e não mais para <code>main</code>.</p>
+<h2 id="472-fazendo-commits-na-nova-branch">4.7.2 - Fazendo commits na nova branch</h2>
+<p>Agora que criamos uma nova branch, podemos fazer modificações que afetem o estado dela, preservando o estado da <code>main</code>. Vamos criar algumas alterações no nosso projeto para ver isto funcionando. Crie um novo arquivo e salve em <code>./receitas/indice-de-receitas.md</code>, altere o <code>README.md</code> para incluir um link ao novo arquivo e faça um commit.</p>
+<p>Veja agora como fica a situação do nosso repositório através do comando <code>git log</code>:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>commit d01c4ea5fbf79f72800bf4d3f49695d557c1dd8d (HEAD -&gt; realidade-paralela)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Date:   Sat Aug 17 10:34:46 2024 -0300
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    Criando o índice de receitas
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>commit 520c8cb0b182b3acb1dfd5348412eff63fde7cd3 (main)
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Author: Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Date:   Tue Aug 13 14:56:12 2024 -0300
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    Criando arquivo para sugestões de projeto
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>commit 014639823549e17df731dfb78eb859438f9eed4f
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>[...]
+</span></code></pre></div>
+<p>Note como as referências foram afetadas com o nosso novo commit. <em>HEAD</em> agora avançou junto com a branch atual, deixando a <code>main</code> apontando para o commit anterior. Nós podemos avançar com a branch <code>realidade-paralela</code> por quantos commits acharmos necessários, a afastando cada vez mais de como as coisas estavam na <code>main</code> no momento em que ela foi criada.</p>
+<h2 id="473-criando-linhas-do-tempo-paralelas">4.7.3 - Criando linhas do tempo paralelas</h2>
+<p>Vamos imaginar um cenário hipotético em que, no meio das alterações que estamos fazendo na nossa branch <code>realidade-paralela</code>, nos demos conta de novas alterações necessárias no nosso repositório, que não estão relacionadas a esta branch, mas sim à <code>main</code>. Para realizar estas alterações, vamos precisar trocar novamente a branch atual, desta vez, de volta para a <code>main</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<p>Observe, conferindo a saída do comando <code>git log</code>, agora que voltamos para a branch <code>main</code>, que a branch <code>realidade-paralela</code> sumiu. Por padrão, o comando <code>git log</code> exibe apenas o histórico baseado no commit para o qual a <em>HEAD</em> aponta. Se houverem referências que apontam para os commits exibidos neste histórico, elas serão exibidas. Mas a branch <code>realidade-parelala</code> está apontando para um commit que não tem mais relação com aquele para o qual a <code>main</code> aponta.</p>
+<p>Se quisermos voltar a enxergar o histórico relacionado à branch <code>realidade-paralela</code>, basta usarmos o nome da branch como argumento ao comando <code>git log</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>log<span class="w"> </span>realidade-paralela
+</span></code></pre></div>
+<p>De fato, a forma como temos usado <code>git log</code> até aqui é, basicamente, a mesma coisa que vemos quando executamos <code>git log HEAD</code>., que é o padrão para o comando, quando não informamos nenhuma referência como argumento.</p>
+<p>Agora, vamos fazer a alteração necessária na <code>main</code>. Vamos supor que alguém fez uma recomendação de leitura, e queremos acrescentá-la a nossa lista de sugestões de estudo. Abra o arquivo de sugestões de estudo, acrescente um link para o livro "Pense Python" (https://penseallen.github.io/PensePython2e/) e faça um commit.</p>
+<p>Agora que ambas as branches avançaram para além do commit que elas possuem em comum, o resultado do <code>git log</code> vai exibir somente o histórico de uma delas, já que ambas apontam para commits que não estão mais relacionados. Para conseguir enxergar ambas as branches na saída do comando, podemos usar como argumento o nome das duas.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>log<span class="w"> </span>main<span class="w"> </span>realidade-parelela
+</span></code></pre></div>
+<p>Importante observar que, independente de quais branches estivermos consultando o comando <code>git log</code>, os commits serão sempre exibidos na ordem cronológica, com o commit mais recente no topo, e o commit mais antigo no final da lista.</p>
+<p>Outra forma de conseguir visualizar informações sobre todas as branches (e outras referências do nosso repositório) é através da opção <code>--all</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all
+</span></code></pre></div>
+<p>É razoável alertar que, à medida que o repositório começa a ter inúmeras referências (como diferentes branches, além de outros tipos que veremos em breve), a saída do comando <code>git log --all</code> pode se tornar pouco amigável.</p>
+<p>Vamos tornar esse histórico um pouco mais interessante. Copie o código a seguir (ou fique à vontade se preferir digitá-lo manualmente), para criar alguns commits novos em ambas as branches:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"- Aplicação de Lista de Tarefas"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>./projetos/sugestoes-de-projeto.md
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Incluindo um novo projeto para Lista de Tarefas"</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>switch<span class="w"> </span>realidade-paralela
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>mkdir<span class="w"> </span>musicas
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"# Músicas para aprender a tocar"</span><span class="w"> </span>&gt;<span class="w"> </span>./musicas/indice-de-musicas.md
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"- [Músicas para aprender a tocar](./musicas/indice-de-musicas.md)"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando lista de músicas para aprender a tocar"</span>
+</span></code></pre></div>
+<p>E agora, se executarmos o comando <code>git log --all</code>, podemos ter uma ideia de como os commits podem ser exibidos de forma confusa, e atrapalhar a nossa compreensão sobre como as linhas do tempo evoluíram, caso seja este o nosso interesse. Uma forma de melhorar esta visualização é usando a opção <code>--graph</code>, que exibe junto à saída uma representação do grafo das linhas do tempo junto aos commits.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--graph
+</span></code></pre></div>
+<p>Agora, conseguimos visualizar os commits de uma forma que seja possível rastrear as alterações na ordem em que elas foram feitas, de acordo com as branches onde foram feitas, e entender o históricos mesmo em branches diferentes.</p>
+<p>Agora que sabemos avançar com o histórico de ambas as branches, como podemos fazer para, no momento oportuno, reunir ambas, trazendo as mudanças da realidade-paralela para se tornarem parte da história da <code>main</code>? É o que veremos a seguir.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1940,10 +1956,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/">
+        <link rel="canonical" href="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/05-modificacoes-complexas/">
       
       
+        <link rel="prev" href="../04-viajando-no-tempo/">
       
-        <link rel="next" href="aulas/01-Apresentando%20o%20Shell/">
+      
+        <link rel="next" href="../06-git-diff/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Coisas Que Não Ensinam em TI</title>
+        <title>4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios - Coisas Que Não Ensinam em TI</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios - Coisas Que Não Ensinam em TI" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/index.png" >
+        <meta  property="og:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/05-modificacoes-complexas.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -69,19 +71,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/" >
+        <meta  property="og:url"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/05-modificacoes-complexas/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios - Coisas Que Não Ensinam em TI" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/index.png" >
+        <meta  name="twitter:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/05-modificacoes-complexas.png" >
       
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -90,7 +92,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -108,11 +110,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#coisas-que-nao-ensinam-em-ti" class="md-skip">
-          Pular para conteúdo
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -125,7 +122,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-header__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -145,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Coisas Que Não Ensinam em TI
+              4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios
             
           </span>
         </div>
@@ -265,7 +262,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
+    <a href="../../.." title="Coisas Que Não Ensinam em TI" class="md-nav__button md-logo" aria-label="Coisas Que Não Ensinam em TI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,30 +289,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Coisas Que Não Ensinam em TI
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,71 +301,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#apresentacao-do-curso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Apresentação do Curso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conteudo-do-curso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conteúdo do Curso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#em-breve" class="md-nav__link">
-    <span class="md-ellipsis">
-      Em breve
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#atribuicoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Atribuições
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agradecimentos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Agradecimentos
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -397,8 +309,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -418,11 +332,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -436,7 +350,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Aulas
@@ -488,7 +402,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/01-Apresentando%20o%20Shell/" class="md-nav__link ">
+            <a href="../../01-Apresentando%20o%20Shell/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -521,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/01-o-que-e/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/01-o-que-e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/02-bash/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/02-bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -563,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/03-navegando/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/03-navegando/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -584,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/04-permissoes/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/04-permissoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -605,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/05-manipulando-arquivos/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/05-manipulando-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/06-caminho-absoluto-relativo/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/06-caminho-absoluto-relativo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/07-conectando-programas/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/07-conectando-programas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -668,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/08-comandos-uteis/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/08-comandos-uteis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -689,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/01-Apresentando%20o%20Shell/09-conclusao/" class="md-nav__link">
+      <a href="../../01-Apresentando%20o%20Shell/09-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +668,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/02-Trabalhando%20com%20Scripts/" class="md-nav__link ">
+            <a href="../../02-Trabalhando%20com%20Scripts/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -787,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/01-hello-world/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/01-hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/02-expressoes-expansoes/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/02-expressoes-expansoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/03-variaveis/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/03-variaveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -850,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/04-composicao-de-comandos/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/04-composicao-de-comandos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -871,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/05-expansoes-de-chave/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/05-expansoes-de-chave/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -892,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/06-stream-de-erro/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/06-stream-de-erro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -913,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/07-scripts/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/07-scripts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -934,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/02-Trabalhando%20com%20Scripts/08-conclusao/" class="md-nav__link">
+      <a href="../../02-Trabalhando%20com%20Scripts/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1001,7 +915,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/03-Editores%20de%20Texto/" class="md-nav__link ">
+            <a href="../../03-Editores%20de%20Texto/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1034,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/00-instalando-vscode/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/00-instalando-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1055,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/01-explorando-a-interface/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/01-explorando-a-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1076,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/02-editor-de-arquivos/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/02-editor-de-arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1097,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/03-extensoes/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/03-extensoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1118,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/04-trabalhando-com-codigo/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/04-trabalhando-com-codigo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/05-trabalhando-com-diretorios/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/05-trabalhando-com-diretorios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1160,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/06-workspaces/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/06-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1181,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/07-terminal/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/07-terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1202,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/03-Editores%20de%20Texto/08-conclusao/" class="md-nav__link">
+      <a href="../../03-Editores%20de%20Texto/08-conclusao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1228,6 +1142,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1268,16 +1184,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1294,7 +1210,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             04 Sistemas de Controle de Versionamento
@@ -1310,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/01-instalando-git/" class="md-nav__link">
+      <a href="../01-instalando-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/02-iniciando-um-repo/" class="md-nav__link">
+      <a href="../02-iniciando-um-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/03-como-git-acompanha-repo/" class="md-nav__link">
+      <a href="../03-como-git-acompanha-repo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/04-viajando-no-tempo/" class="md-nav__link">
+      <a href="../04-viajando-no-tempo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1391,10 +1307,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/05-modificacoes-complexas/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1403,6 +1326,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1415,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/06-git-diff/" class="md-nav__link">
+      <a href="../06-git-diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/07-branches/" class="md-nav__link">
+      <a href="../07-branches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_08/" class="md-nav__link">
+      <a href="../cap_08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_09/" class="md-nav__link">
+      <a href="../cap_09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1499,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_10/" class="md-nav__link">
+      <a href="../cap_10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1520,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_11/" class="md-nav__link">
+      <a href="../cap_11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1541,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_12/" class="md-nav__link">
+      <a href="../cap_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1562,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_13/" class="md-nav__link">
+      <a href="../cap_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1608,61 +1532,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#apresentacao-do-curso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Apresentação do Curso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conteudo-do-curso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conteúdo do Curso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#em-breve" class="md-nav__link">
-    <span class="md-ellipsis">
-      Em breve
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#atribuicoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Atribuições
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agradecimentos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Agradecimentos
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1680,36 +1549,73 @@
   
 
 
-<div><h1 id="coisas-que-nao-ensinam-em-ti">Coisas Que Não Ensinam em TI</h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Este curso é uma adaptação para Português(Brasil) do curso <a href="https://missing.csail.mit.edu/"><em>The Missing Semester in Your CS Formation</em></a> do MIT.</p>
-<p>Parte deste conteúdo é deliberadamente extraído e traduzido do material do curso original, apesar de haver algumas adaptções e adequações para esta versão, olhando para o contexto do mercado nacional e de algumas considerações feitas a partir de um contexto fora do ambiente acadêmico (como no caso do MIT).</p>
-</div>
-<h2 id="apresentacao-do-curso">Apresentação do Curso</h2>
-<h2 id="conteudo-do-curso">Conteúdo do Curso</h2>
-<ul>
-<li><a href="aulas/01-Apresentando%20o%20Shell/">Aula 1 - O Shell</a></li>
-<li><a href="aulas/02-Trabalhando%20com%20Scripts/">Aula 2 - Criando Scripts com Bash</a></li>
-<li><a href="aulas/03-Editores%20de%20Texto/">Aula 3 - Explorando o Editor de Textos (Visual Studio Code)</a></li>
-<li><a href="aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/">Aula 4 - Sistema de Controle de Versionamento de Código: Git (em progresso)</a></li>
-</ul>
-<h2 id="em-breve">Em breve</h2>
-<ul>
-<li>Depuração e Profiling de Programas</li>
-<li>Técnicas Básicas em Engenharia de Software</li>
-<li>Segurança e Criptografia</li>
-<li>... e mais a ser definido</li>
-</ul>
-<h2 id="atribuicoes">Atribuições</h2>
-<p>Este curso está sob a licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a> (de acordo com o curso original).
-O curso original no qual este é baseado foi elaborado por
-- <a href="https://anishathalye.com/">Anish Athalye</a>
-- <a href="https://thesquareplanet.com/">Jon Gjengset</a>
-- <a href="https://josejg.com/">Jose Javier Gonzalez Ortiz</a></p>
-<p>Mais informações sobre o curso original podem ser conferidas no <a href="https://missing.csail.mit.edu/">Site Oficial</a>.</p>
-<h2 id="agradecimentos">Agradecimentos</h2>
-<p>Agradeço ao <a href="https://github.com/taconi">Predador Vegano</a> Pela ajuda com a separação das aulas em páginas diferentes.</p></div><style type="text/css">.quiz {
+  <h1>4.5 - Fazendo modificações mais complexas em arquivos e subdiretórios</h1>
+
+<div><p>Vamos começar a fazer algumas coisas um pouco mais complexas, como costuma ser o caso em projetos. Para isto, vamos criar alguns arquivos com resultados de comandos para simular um projeto em andamento. Na vida real, como você deve imaginar, as alterações no dia-a-dia de um projeto não são tão triviais, e iremos discutir isso um pouco olhando para projetos reais em breve. Então, tenha em mente que este exercício é só para nos ajudar a compreender cenários mais complexos.</p>
+<p>Vamos criar um subdiretório chamado <code>estudos</code>, e nele um arquivo chamado <code>sugestoes-de-estudo.md</code>, e inserir alguns assuntos que temos interesse em estudar.
+</p><div class="language-Markdown highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># Sugestões de Estudo</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Python Funcional (Dunossauro)</span>](<span class="na">https://dunossauro.github.io/python-funcional/</span>)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">FastAPI do Zero (Dunossauro)</span>](<span class="na">https://fastapidozero.dunossauro.com/</span>)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Curso básico de Bash (Blau Araújo)</span>](<span class="na">https://www.youtube.com/watch?v=ZM--I3NJ2jY&amp;list=PLXoSGejyuQGpf4X-NdGjvSlEFZhn2f2H7</span>)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Além do Bash (Blau Araújo)</span>](<span class="na">https://www.youtube.com/watch?v=_W51nj5JTwk&amp;list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0</span>)
+</span></code></pre></div>
+<p>Salve o arquivo e atualize o arquivo README.md com um link para a nova página.
+</p><div class="language-Markdown highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Sugestões de estudo</span>](<span class="na">./estudos/sugestoes-de-estudo.md</span>)
+</span></code></pre></div>
+<p>Com as alterações feitas, vamos registrar um commit.
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="c1"># Adiciona todas as alterações feitas na árvore para o staging</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Criando o arquivo para sugestões de estudo"</span>
+</span></code></pre></div>
+<p>Observe as saída impressa pelo commit:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[main c39f63f] Criando página de sugestões de estudo
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> 2 files changed, 8 insertions(+)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> create mode 100644 estudos/sugestoes-de-estudo.md
+</span></code></pre></div>
+<p>Agora, vamos criar um outro subdiretório chamado <code>projetos</code>, e igualmente um arquivo chamado <code>sugestoes-de-projeto.md</code>, e inserir alguns projetos interessantes que podemos criar para treinar nossas habilidades.</p>
+<div class="language-Markdown highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># Sugestões de Projeto</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">-</span><span class="w"> </span>Blog Pessoal
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>MkDocs
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Blog Plugin
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">-</span><span class="w"> </span>Aplicação de Organização Financeira
+</span></code></pre></div>
+<p>Da mesma forma, salve o arquivo, adicione um link no arquivo README.md e faça um commit.</p>
+<p>Mais uma vez, observe a saída impressa pelo commit:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[main 95634d3] Criando página de sugestões de projeto
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> 2 files changed, 8 insertions(+), 1 deletion(-)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> create mode 100644 projetos/sugestoes-de-projeto.md
+</span></code></pre></div>
+<p>Vamos analisar o nosso histórico:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<p>Podemos ver os 3 commits no histórico e, como vimos anteriormente, o commit que fazia e exclusão do README.md de fato não faz mais parte da história.</p>
+<p>O comando <code>git log</code> possui diversas opções que podemos usar para facilitar a visualização do histórico de commits. Por exemplo, nós podemos simplificar a visualização dos commits para serem exibidos em uma única linha contendo o id e o título da descrição usada na mensagem. Para isto, usamos a opção <code>--pretty=oneline</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>log<span class="w"> </span>--pretty<span class="o">=</span>oneline
+</span></code></pre></div>
+<p>A opção <code>pretty</code>, como já vimos, aceita <code>oneline</code> para simplificar os detalhes dos commits exibidos no histórico, e <code>raw</code> para dar uma versão mais detalhada de cada commit. Outras alternativas disponíveis definem o nível de detalhe desejado para a exibição: <code>short</code>, <code>medium</code> (esta é a opção usada por padrão, quando nenhuma outra é usada), <code>full</code> e <code>fuller</code> (além de outras).</p>
+<p>Vamos agora ver com mais detalhes o segundo commit no nosso histórico.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>show<span class="w"> </span>c39f63fabb07933254661fe5c2f6ebb148069c97<span class="w"> </span>--pretty<span class="o">=</span>raw
+</span></code></pre></div>
+<p>Os detalhes que o comando <code>git show</code> nos mostra agora, detalha, como era de se esperar, todas as alterações feitas no diretório na ocasião do commit.</p>
+<p>Não são apenas commits que o <code>git show</code> pode dar detalhes a respeito quando o usamos. De fato, nós podemos obter informações de quaisquer artefatos armazenados pelo banco de dados do repositório git. Por exemplo, os commits nos informam o id da Árvore para o qual apontam. Se usarmos o comando <code>git show</code> para dar informações sobre a árvore do nosso commit, passando o id da árvore como argumento, é isso que ele nos mostra:</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>show<span class="w"> </span>86b9b6c14632e0006fee09f44962541babc58b59
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>tree 86b9b6c14632e0006fee09f44962541babc58b59
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>README.md
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>estudos/
+</span></code></pre></div>
+<p>Ele mostra o conteúdo da árvore (no caso, o conteúdo dela no momento em que o commit foi criado). Outra forma útil de listar o conteúdo de uma árvore, é através do comando <code>git ls-tree</code>.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>ls-tree<span class="w"> </span>86b9b6c14632e0006fee09f44962541babc58b59
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>100644 blob f974d4d88a6f072cddfeecb2a68ceaca16b7c75d    README.md
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>040000 tree 273fa08120ebbe98d52196b8635d78f5fb0eca7b    estudos
+</span></code></pre></div>
+<p>Observe que estamos consultando o repositório baseado num commit anterior, em que a situação do nosso diretório era diferente de como está agora. Podemos visualiar como estava o arquivo README.md no momento deste commit usando o comando <code>git cat-file</code> usando o id do blog como exibido pelo último comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>cat-file<span class="w"> </span>-p<span class="w"> </span>f974d4d88a6f072cddfeecb2a68ceaca16b7c75d
+</span></code></pre></div>
+<p>Note como nesta versão ainda não existia o link para as sugestões de projeto, que só foi adicionado posteriormente.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1851,11 +1757,11 @@ function resetFieldset(fieldset) {
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
-      taconi, dmyoko
+      taconi
     </nav>
   </span>
 
@@ -1940,10 +1846,10 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.footnote.tooltips", "navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
