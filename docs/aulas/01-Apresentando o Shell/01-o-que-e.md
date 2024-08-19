@@ -1,5 +1,5 @@
 ---
-title: 1.1 - O que é o _Shell_
+title: 1.1 - O que é o Shell
 ---
 Quase todas as plataformas com as quais você pode trabalhar atualmente oferecem um _Shell_, e muitas oferecem diferentes opções de _Shell_ para você escolher. Apesar de que eles possam variar em seus detalhes, em sua essência são basicamente iguais: eles te permitem executar programas, manipular sua entrada (_input_) e inspecionar sua saída (_output_) de uma forma semi-estruturada.
 
