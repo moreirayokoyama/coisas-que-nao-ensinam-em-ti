@@ -14,7 +14,7 @@
         <link rel="prev" href="../06-git-diff/">
       
       
-        <link rel="next" href="../cap_08/">
+        <link rel="next" href="../08-merge/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>🚧 4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI</title>
+        <title>4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI</title>
       
     
     
@@ -59,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="🚧 4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI" >
       
         <meta  property="og:description"  content="None" >
       
@@ -75,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="🚧 4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="4.7 - Trabalhando com Branches - Coisas Que Não Ensinam em TI" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -147,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🚧 4.7 - Trabalhando com Branches
+              4.7 - Trabalhando com Branches
             
           </span>
         </div>
@@ -1368,7 +1368,7 @@
           
   
   <span class="md-ellipsis">
-    🚧 4.7 - Trabalhando com Branches
+    4.7 - Trabalhando com Branches
   </span>
   
 
@@ -1379,7 +1379,7 @@
         
   
   <span class="md-ellipsis">
-    🚧 4.7 - Trabalhando com Branches
+    4.7 - Trabalhando com Branches
   </span>
   
 
@@ -1441,11 +1441,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../cap_08/" class="md-nav__link">
+      <a href="../08-merge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    🚧 4.8 - Merge
+    🚧 4.8 - Unificando o Histórico de Branches com Merge
   </span>
   
 
@@ -1644,7 +1644,7 @@
   
 
 
-  <h1>🚧 4.7 - Trabalhando com Branches</h1>
+  <h1>4.7 - Trabalhando com Branches</h1>
 
 <div><p>Até aqui, você tem ouvido falarmos a respeito de uma <em>branch</em> chamada <em>main</em>. E até aqui, nós tentamos não falar muito a respeito de nenhuma das duas coisas até que tivéssemos tratado os conceitos básicos por trás de um Controle de Versionamento de Código e do git.</p>
 <p>Agora, uma vez visto as principais capacidades e usos da ferramenta, parece ser o momento ideal para conversarmos sobre <em>branches</em>, o que é a <em>main</em> e como podemos usar outras branches na hora de trabalhar com git.</p>
@@ -1706,7 +1706,7 @@
 <p>Agora que ambas as branches avançaram para além do commit que elas possuem em comum, o resultado do <code>git log</code> vai exibir somente o histórico de uma delas, já que ambas apontam para commits que não estão mais relacionados. Para conseguir enxergar ambas as branches na saída do comando, podemos usar como argumento o nome das duas.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>log<span class="w"> </span>main<span class="w"> </span>realidade-parelela
 </span></code></pre></div>
-<p>Importante observar que, independente de quais branches estivermos consultando o comando <code>git log</code>, os commits serão sempre exibidos na ordem cronológica, com o commit mais recente no topo, e o commit mais antigo no final da lista.</p>
+<p>Importante observar que, independente de quais branches estivermos consultando no comando <code>git log</code>, os commits serão sempre exibidos na ordem cronológica, com o commit mais recente no topo, e o commit mais antigo no final da lista.</p>
 <p>Outra forma de conseguir visualizar informações sobre todas as branches (e outras referências do nosso repositório) é através da opção <code>--all</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all
 </span></code></pre></div>
@@ -1724,7 +1724,10 @@
 <p>E agora, se executarmos o comando <code>git log --all</code>, podemos ter uma ideia de como os commits podem ser exibidos de forma confusa, e atrapalhar a nossa compreensão sobre como as linhas do tempo evoluíram, caso seja este o nosso interesse. Uma forma de melhorar esta visualização é usando a opção <code>--graph</code>, que exibe junto à saída uma representação do grafo das linhas do tempo junto aos commits.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--graph
 </span></code></pre></div>
-<p>Agora, conseguimos visualizar os commits de uma forma que seja possível rastrear as alterações na ordem em que elas foram feitas, de acordo com as branches onde foram feitas, e entender o históricos mesmo em branches diferentes.</p>
+<p>Agora, conseguimos visualizar os commits de uma forma que seja possível rastrear as alterações na ordem em que elas foram feitas, de acordo com as branches onde foram feitas, e entender os históricos mesmo em branches diferentes.</p>
+<p>Note que, para facilitar a visualização do grafo de mudanças, o git ordenou os históricos por cada branch. Se quisermos ordenar os commits novamente pela ordem cronológica independente de em qual branch ele foi feito, podemos usar a opção --date-order:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--graph<span class="w"> </span>--date-order
+</span></code></pre></div>
 <p>Agora que sabemos avançar com o histórico de ambas as branches, como podemos fazer para, no momento oportuno, reunir ambas, trazendo as mudanças da realidade-paralela para se tornarem parte da história da <code>main</code>? É o que veremos a seguir.</p></div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;

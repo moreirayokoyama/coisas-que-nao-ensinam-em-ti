@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_08/">
+        <link rel="canonical" href="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/08-merge/">
       
       
         <link rel="prev" href="../07-branches/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>🚧 4.8 - Merge - Coisas Que Não Ensinam em TI</title>
+        <title>🚧 4.8 - Unificando o Histórico de Branches com Merge - Coisas Que Não Ensinam em TI</title>
       
     
     
@@ -59,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="🚧 4.8 - Merge - Coisas Que Não Ensinam em TI" >
+        <meta  property="og:title"  content="🚧 4.8 - Unificando o Histórico de Branches com Merge - Coisas Que Não Ensinam em TI" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/cap_08.png" >
+        <meta  property="og:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/08-merge.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +71,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_08/" >
+        <meta  property="og:url"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/08-merge/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="🚧 4.8 - Merge - Coisas Que Não Ensinam em TI" >
+        <meta  name="twitter:title"  content="🚧 4.8 - Unificando o Histórico de Branches com Merge - Coisas Que Não Ensinam em TI" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/cap_08.png" >
+        <meta  name="twitter:image"  content="https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/assets/images/social/aulas/04-Sistemas de Controle de Versionamento/08-merge.png" >
       
     
     
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🚧 4.8 - Merge
+              🚧 4.8 - Unificando o Histórico de Branches com Merge
             
           </span>
         </div>
@@ -1356,7 +1356,7 @@
         
   
   <span class="md-ellipsis">
-    🚧 4.7 - Trabalhando com Branches
+    4.7 - Trabalhando com Branches
   </span>
   
 
@@ -1384,7 +1384,7 @@
         
   
   <span class="md-ellipsis">
-    🚧 4.8 - Merge
+    🚧 4.8 - Unificando o Histórico de Branches com Merge
   </span>
   
 
@@ -1549,9 +1549,48 @@
   
 
 
-  <h1>🚧 4.8 - Merge</h1>
+  <h1>🚧 4.8 - Unificando o Histórico de Branches com Merge</h1>
 
-<div><p>🚧 Em construção</p>
+<div><p>Trabalhar com branches enquanto fazemos experimentações, ou enquanto as alterações necessárias quebram o funcionamento do projeto, ou qualquer que seja a razão para usá-las, eventualmente nos leva a um ponto em que queremos integrar as alterações à <code>main</code>. Quando chegamos a este ponto, é o momento de usarmos o comando <code>git merge</code>.</p>
+<p>O <code>git merge</code> recebe como argumento uma branch, de onde gostaríamos de obter todas as alterações e aplicá-las à branch atual.</p>
+<p>O que acontece quando executamos este comando é:
+- O git busca estabelecer qual é o <em>commit</em> mais recente em comum com as duas branches.
+- A partir deste commit, o git levanta o histórico de todos os commits realizados na branch de origem
+- Um <em>diff</em> é calculado com as alterações feitas por estes commits
+- Um novo commit é criado na branch de destino aplicando as alterações obtidas pelo <em>diff</em>
+- Finalmente, o git solicita uma mensagem que, após ser devidamente preenchida e salva, será aplicada ao novo commit que fará parte do histórico da branch de destino.</p>
+<p>Vamos ver o <code>git merge</code> em ação:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main<span class="w"> </span><span class="c1"># certifique-se de que estamos na `main`</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>merge<span class="w"> </span>realidade-paralela
+</span></code></pre></div>
+<p>O git irá abrir o editor esperando uma mensagem descrevendo o novo commit. Após salvar a mensagem e fechar o editor, o commit é realizado.</p>
+<p>Abra o seu editor e navegue pelos arquivos do diretório para ver as alterações aplicadas. Note como o arquivo README.md se encontra, além da presença dos diretórios <code>receitas</code> e <code>musicas</code>, que foram incorporados da branch <code>realidade-paralela</code> para a <code>main</code>, onde estamos agora.</p>
+<p>Vamos ver o resultado do commit, consultando o log das alterações:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>log<span class="w"> </span>--graph
+</span></code></pre></div>
+<p>Podemos ver um novo commit aplicado à branch <code>main</code>, incorporando as alterações feitas até o commit mais recente na branch <code>realidade-paralela</code>. Vamos olhar este commit com mais atenção:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>show<span class="w"> </span>HEAD<span class="w"> </span>--pretty<span class="o">=</span>raw
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>commit a768ed465b2c06816d56bcb968b8f79ad7f73412
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>tree bf91313be494c799e8757b6e8da30b97db36abd7
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>parent a9022c9092815862911895b488ad8e2461ebb507
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>parent 09d7b98baf5ec29a887daaecd8a604ce35a00e5a
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>author Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1724073862 -0300
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>committer Daniel Moreira Yokoyama &lt;792153+moreirayokoyama@users.noreply.github.com&gt; 1724073862 -0300
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    Merge branch 'realidade-paralela'
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>(END)
+</span></code></pre></div>
+<p>Preste atenção na peculiaridade deste commit. Ele possui dois <code>parents</code>. Isto basicamente o distingue como um <em>commit de merge</em>.</p>
+<p>Observe que a branch <code>realidade-paralela</code> ainda existe, e não foi afetada pela operação. Ela continua sem ter incorporadas as alterações feitas na <code>main</code>. Mas, digamos que nós estejamos interessados em continuar fazendo alterações nela e, pra fazer isto, seria conveniente atualizá-la também.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>switch<span class="w"> </span>realidade-paralela
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>merge<span class="w"> </span>main
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--graph
+</span></code></pre></div>
+<p>Note que, desta vez, o git não solicitou uma mensagem para o merge. E o resultado no git log mostra que o merge que fizemos anteriormente é para onde a branch <code>realidade-paralela</code> está apontando agora. Isto é o resultado de uma operação chamada "Fast-forward", que é quando o git identifica que as alterações feitas no merge podem ser simplificadas, já que o histórico de commits da branch que está sendo incorporada já resolve as alterações de forma incremental.</p>
+<p>Como o commit mais recente na main era um merge cujo um dos parents era é o commit mais recente até então na branch <code>realidade-paralela</code>, o git é capaz de entender que as alterações feitas já foram aplicadas e só o oque ele faz é atualizar a referência da branch para o commit de merge.</p>
+<p>Com isto, neste momento, conseguimos ter uma ideia básica de como o <code>git merge</code> funciona. Mas precisamos, agora, nos aprofundar em cenários mais complexos e, ainda assim, corriqueiros no dia-a-dia quando trabalhamos usando o git.</p>
 <ul>
 <li>git merge</li>
 <li>Conflitos</li>
@@ -1701,7 +1740,7 @@ function resetFieldset(fieldset) {
       
     </span>
     <nav>
-      taconi
+      dmyoko
     </nav>
   </span>
 
