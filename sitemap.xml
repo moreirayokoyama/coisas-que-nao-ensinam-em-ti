@@ -2,222 +2,172 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/01-o-que-e/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/02-bash/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/03-navegando/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/04-permissoes/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/05-manipulando-arquivos/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/06-caminho-absoluto-relativo/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/07-conectando-programas/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/08-comandos-uteis/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/01-Apresentando%20o%20Shell/09-conclusao/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/01-hello-world/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/02-expressoes-expansoes/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/03-variaveis/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/04-composicao-de-comandos/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/05-expansoes-de-chave/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/06-stream-de-erro/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/07-scripts/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/02-Trabalhando%20com%20Scripts/08-conclusao/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/00-instalando-vscode/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/01-explorando-a-interface/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/02-editor-de-arquivos/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/03-extensoes/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/04-trabalhando-com-codigo/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/05-trabalhando-com-diretorios/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/06-workspaces/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/07-terminal/</loc>
-         <lastmod>2024-08-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/03-Editores%20de%20Texto/08-conclusao/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/01-instalando-git/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/02-iniciando-um-repo/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/03-como-git-acompanha-repo/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/04-viajando-no-tempo/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/05-modificacoes-complexas/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/06-git-diff/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/07-branches/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/08-merge/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_09/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_10/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_11/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_12/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://moreirayokoyama.github.io/coisas-que-nao-ensinam-em-ti/aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/cap_13/</loc>
-         <lastmod>2024-08-19</lastmod>
+         <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
