@@ -8,10 +8,10 @@
 ## Apresentação do Curso
 
 ## Conteúdo do Curso
-- [Aula 1 - O Shell](./aulas/01-Apresentando%20o%20Shell/index.md)
-- [Aula 2 - Criando Scripts com Bash](./aulas/02-Trabalhando%20com%20Scripts/index.md)
-- [Aula 3 - Explorando o Editor de Textos (Visual Studio Code)](./aulas/03-Editores%20de%20Texto/index.md)
-- [Aula 4 - Sistema de Controle de Versionamento de Código: Git (em progresso)](./aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/index.md)
+- [Aula 1 - Apresentando o Shell](./aulas/01-Apresentando%20o%20Shell/index.md)
+- [Aula 2 - Trabalhando com Scripts](./aulas/02-Trabalhando%20com%20Scripts/index.md)
+- Aula 3 - Editores de Texto (em breve)
+- [Aula 4 - Sistema de Controle de Versionamento](./aulas/04-Sistemas%20de%20Controle%20de%20Versionamento/index.md) (Em progresso)
 
 ## Em breve
 - Depuração e Profiling de Programas
